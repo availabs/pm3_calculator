@@ -1,0 +1,20 @@
+{
+  "name": "pm3_calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "3.5.1",
+    "node-env-file": "0.1.8",
+    "path": "0.12.7",
+    "pg": "7.4.1",
+    "pg-copy-streams": "1.2.0",
+    "pg-native": "^2.2.0",
+    "progress": "2.0.0"
+  }
+}
