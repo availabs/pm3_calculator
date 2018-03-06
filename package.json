@@ -14,7 +14,6 @@
     "path": "0.12.7",
     "pg": "7.4.1",
     "pg-copy-streams": "1.2.0",
-    "pg-native": "^2.2.0",
     "progress": "2.0.0"
   }
 }

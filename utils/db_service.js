@@ -3,7 +3,6 @@
 const path = require('path')
 
 const pg_js = require('pg')
-const pg_native = require('pg').native
 const copyTo = require('pg-copy-streams').to
 
 //const Pool = pg_native.Pool
@@ -41,7 +40,6 @@ const runQuery = (text, values, cb) => pool.query(text, values, cb)
 const end = () => {
   pool.end()
   pg_js.end()
-  pg_native.end()
 }
 
 function runStreamedQuery (query, response) {
