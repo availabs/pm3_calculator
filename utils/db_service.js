@@ -18,7 +18,7 @@ const config = {
   user     : process.env.NPMRDS_POSTGRES_USER,
   password : process.env.NPMRDS_POSTGRES_PASSWORD || undefined,
   database : process.env.NPMRDS_POSTGRES_DB,
-  max      : 20
+  max      : 40
 }
 
 process.on('unhandledRejection', (err) => {

@@ -10,7 +10,7 @@ var CalculatePHED = require('./calculators/phed')
 
 var bar = null;
 const MeasureYear = 2017
-const State = 'ny'
+const State = 'nj'
 
 const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 	return new Promise(function (resolve, reject) {
@@ -33,11 +33,13 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 const DownloadTMCData = function DownloadTMCData (tmc, year, state) {
 	return new Promise(function (resolve, reject) {
 		const sql = `
-			select npmrds_date("date") as npmrds_date, epoch, travel_time_all_vehicles as "travelTime" 
-			from ${state}.npmrds 
+			select 
+				npmrds_date("date") as npmrds_date, 
+				epoch, 
+				travel_time_all_vehicles as "travelTime" 
+			from "${state}".npmrds 
 			where tmc = '${tmc}'
-			and  EXTRACT(YEAR FROM "date") = ${year} 
-			order by "date", epoch
+			and (date >= '${year}-01-01'::date AND date < '${year+1}-01-01'::date)
 			`
 		//console.log(sql);
 		db_service.runQuery(sql, [], (err,data) => {
@@ -117,7 +119,7 @@ DownloadTMCAtttributes(State)
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
 			return CalculateMeasures(tmc, MeasureYear)
-		},{concurrency: 10})
+		},{concurrency: 20})
 		.then(measures => {
 			//console.log('finished')
 			var first_row = 'tmc,length,avg_speedlimit,avo,nhs,nhs_pct,is_controlled_access,is_interstate,directionality,congestion_level,aadt,directional_aadt,county,mpo,ua,region'
