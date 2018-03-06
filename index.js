@@ -9,6 +9,8 @@ var CalculatePHED = require('./calculators/phed')
 
 
 var bar = null;
+const MeasureYear = 2017
+const State = 'ny'
 
 const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 	return new Promise(function (resolve, reject) {
@@ -28,11 +30,11 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 	})
 }
 
-const DownloadTMCData = function DownloadTMCData (tmc, year) {
+const DownloadTMCData = function DownloadTMCData (tmc, year, state) {
 	return new Promise(function (resolve, reject) {
 		const sql = `
 			select npmrds_date("date") as npmrds_date, epoch, travel_time_all_vehicles as "travelTime" 
-			from ny.npmrds 
+			from ${state}.npmrds 
 			where tmc = '${tmc}'
 			and  EXTRACT(YEAR FROM "date") = ${year} 
 			order by "date", epoch
@@ -74,7 +76,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	)
 	var dirFactor = +tmc.faciltype > 1 ? 2 : 1 
   	tmc.directional_aadt = tmc.aadt / dirFactor
-	return DownloadTMCData(tmc.tmc, year)
+	return DownloadTMCData(tmc.tmc, year, State)
 		.then((tmcData) => {
 			return new Promise(function (resolve, reject) {
 				var phed = CalculatePHED(tmc, tmcData.rows, trafficDistribution)
@@ -105,8 +107,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 }
 
 
-const MeasureYear = 2017
-const State = 'ny'
+
 DownloadTMCAtttributes(State)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
