@@ -18,7 +18,7 @@ let DELAY_DATAHOLDER = MONTHS.reduce((out,d,i) => {
 
 console.log('1', VEHICLE_DELAY_DATAHOLDER)
 console.log('2', DELAY_DATAHOLDER)
-var fileName = `data/${STATE}_${YEAR}_hmean_hour.csv`
+var fileName = `data/${STATE}_${YEAR}_hmean_hour_test.csv`
 
 fs.readFile( fileName, 'utf8', function (err, data) {
 	var fullData = d3.csvParse(data)

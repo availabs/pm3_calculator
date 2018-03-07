@@ -82,6 +82,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 		.then((tmcData) => {
 			return new Promise(function (resolve, reject) {
 				var phed = CalculatePHED(tmc, tmcData.rows, trafficDistribution)
+				console.log(phed)
 				bar.tick()
 				var row = tmc.tmc + ','
 					+ tmc.length + ','
@@ -113,7 +114,7 @@ DownloadTMCAtttributes(State)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
 			//.filter((d,i) => d.tmc === '120-05047')
-			//.filter((d,i) => i < 2000)
+			//.filter((d,i) => i < 10)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
@@ -126,7 +127,7 @@ DownloadTMCAtttributes(State)
 			first_row += ',d_total,d_jan,d_feb,d_mar,d_apr,d_may,d_jun,d_jul,d_aug,d_sep,d_oct,d_nov,d_dec'
 			
 			var output = first_row+'\n'+measures.join('\n')
-			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour.csv`, output, function(err) {
+			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour_test.csv`, output, function(err) {
 			    if(err) {
 			        return console.log(err);
 			    }
