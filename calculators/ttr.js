@@ -18,8 +18,8 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
     	var sum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a += b)
     	var hsum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => { return a += (1 / b) }, 0)
     	var len = tmcFiveteenMinIndex[key].speed.length
-    	var hmean_tt = precisionRound(len / hsum_tt, 2)
-    	var mean_tt = precisionRound(sum_tt / len, 2)
+    	var hmean_tt = precisionRound(len / hsum_tt, 0)
+    	var mean_tt = precisionRound(sum_tt / len, 0)
     
       return {
         dateTime,
@@ -36,6 +36,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
 			)
 		})
 		.map(d => d[mean])
+		.sort()
 
 	var offPeak = fifteenData
 		.filter(d => {
@@ -45,6 +46,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
 			)
 		})
 		.map(d => d[mean])
+		.sort()
 
 	var pmPeak = fifteenData
 		.filter(d => {
@@ -54,6 +56,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
 			)
 		})
 		.map(d => d[mean])
+		.sort()
 
 	var weekendPeak = fifteenData
 		.filter(d => {
@@ -63,30 +66,35 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
 			)
 		})
 		.map(d => d[mean])
+		.sort()
 
 	var overnightPeak = fifteenData
 		.filter(d => {
 			return( 
 				WEEKDAYS.includes(d.dateTime.getDay())
-				&& (d.epoch < 24 && d.epoch > 80)
+				&& (d.epoch < 24 || d.epoch > 80)
 			)
 		})
 		.map(d => d[mean])
-
+		.sort()
+		
+		//console.log('overnightPeak')
+		//console.log(overnightPeak)
+		//console.log(d3.quantile(overnightPeak, 0.95 ), d3.quantile(overnightPeak, 0.5),d3.quantile(overnightPeak, 0.8 ) / d3.quantile(overnightPeak, 0.5))
+	
 	return {
 		lottr: {
-			lottr_am: d3.quantile(amPeak, 80 ) / d3.quantile(amPeak, 50),
-			lottr_off: d3.quantile(offPeak, 80 ) / d3.quantile(offPeak, 50),
-			lottr_pm: d3.quantile(pmPeak, 80 ) / d3.quantile(pmPeak, 50),
-			lottr_weekend: d3.quantile(weekendPeak, 80 ) / d3.quantile(weekendPeak, 50)
+			lottr_am: precisionRound(d3.quantile(amPeak, 0.8 ) / d3.quantile(amPeak, 0.5), 2),
+			lottr_off: precisionRound(d3.quantile(offPeak, 0.8 ) / d3.quantile(offPeak, 0.5), 2),
+			lottr_pm: precisionRound(d3.quantile(pmPeak, 0.8 ) / d3.quantile(pmPeak, 0.5), 2),
+			lottr_weekend: precisionRound(d3.quantile(weekendPeak, 0.8 ) / d3.quantile(weekendPeak, 0.5), 2),
 		},
 		tttr: {
-			tttr_am: d3.quantile(amPeak, 95 ) / d3.quantile(amPeak, 50),
-			tttr_off: d3.quantile(offPeak, 95 ) / d3.quantile(offPeak, 50),
-			tttr_pm: d3.quantile(pmPeak, 95 ) / d3.quantile(pmPeak, 50),
-			tttr_overnight: d3.quantile(overnightPeak, 95 ) / d3.quantile(overnightPeak, 50),
-			tttr_weekend: d3.quantile(weekendPeak, 95 ) / d3.quantile(weekendPeak, 50)
-
+			tttr_am: precisionRound(d3.quantile(amPeak, 0.95 ) / d3.quantile(amPeak, 0.5), 2),
+			tttr_off: precisionRound(d3.quantile(offPeak, 0.95 ) / d3.quantile(offPeak, 0.5), 2),
+			tttr_pm: precisionRound(d3.quantile(pmPeak, 0.95 ) / d3.quantile(pmPeak, 0.5), 2),
+			tttr_overnight: precisionRound(d3.quantile(overnightPeak, 0.95 ) / d3.quantile(overnightPeak, 0.5), 2),
+			tttr_weekend: precisionRound(d3.quantile(weekendPeak, 0.95 ) / d3.quantile(weekendPeak, 0.5), 2)
 		}
 	}
 }

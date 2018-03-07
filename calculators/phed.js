@@ -39,8 +39,8 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     var mean_speed = precisionRound(sum_speed / len, 2)
     var sum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a += b)
     var hsum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => { return a += (1 / b) }, 0)
-    var hmean_tt = precisionRound(len / hsum_tt, 2)
-    var mean_tt = precisionRound(sum_tt / len, 2)
+    var hmean_tt = precisionRound(len / hsum_tt, 0)
+    var mean_tt = precisionRound(sum_tt / len, 0)
     var threshold_travelTime = (tmcAttributes.length / ThresholdSpeed) * 3600
     var speedlimit_travelTime = (tmcAttributes.length / +tmcAttributes.avg_speedlimit) * 3600
     var hmean_delay = hmean_tt > threshold_travelTime ?

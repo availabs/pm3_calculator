@@ -11,9 +11,6 @@ let {
 let CalculatePHED = require('./calculators/phed')
 let CalculateTTR = require('./calculators/ttr')
 
-
-
-
 let bar = null;
 const MeasureYear = 2017
 const State = 'ny'
@@ -31,7 +28,6 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	return DownloadTMCData(tmc.tmc, year, State)
 		.then((tmcData) => {
 			return new Promise(function (resolve, reject) {
-
 				var tmcFiveteenMinIndex = tmcData.rows.reduce((output, current) => {
 					var reduceIndex = current.npmrds_date + '_' + Math.floor(current.epoch/3)
 					if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
@@ -56,25 +52,22 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	//return trafficDistribution
 }
 
-
-
 DownloadTMCAtttributes(State)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
 			//.filter((d,i) => d.tmc === '120-05047')
-			//.filter((d,i) => i < 1000)
+			//.filter((d,i) => i < 200)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
 			return CalculateMeasures(tmc, MeasureYear)
 		},{concurrency: 20})
 		.then(measures => {
-			//console.log('finished')
-			
 			var output = d3.csvFormat(measures)
 			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
+				return
 			}); 			
 			return
 		})
