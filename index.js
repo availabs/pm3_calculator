@@ -62,7 +62,7 @@ DownloadTMCAtttributes(State)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
 			//.filter((d,i) => d.tmc === '120-05047')
-			.filter((d,i) => i < 1000)
+			//.filter((d,i) => i < 1000)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
@@ -72,7 +72,7 @@ DownloadTMCAtttributes(State)
 			//console.log('finished')
 			
 			var output = d3.csvFormat(measures)
-			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour_test.csv`, output, function(err) {
+			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
 			}); 			
