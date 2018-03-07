@@ -113,7 +113,7 @@ DownloadTMCAtttributes(State)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
 			//.filter((d,i) => d.tmc === '120-05047')
-			//.filter((d,i) => i < 1)
+			//.filter((d,i) => i < 2000)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
