@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "bluebird": "3.5.1",
+    "d3": "^4.13.0",
+    "d3-dsv": "1.0.8",
     "node-env-file": "0.1.8",
     "path": "0.12.7",
     "pg": "7.4.1",

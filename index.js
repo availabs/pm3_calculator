@@ -18,7 +18,7 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 			SELECT  tmc, faciltype, aadt, length, avg_speedlimit,
 			congestion_level, directionality, avg_vehicle_occupancy,
 			nhs, nhs_pct,is_interstate, is_controlled_access,
-			mpo_acrony, ua_name, region_name, county
+			mpo_code, ua_code, county
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
 	  		and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');`
@@ -95,10 +95,9 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 					+ tmc.congestion_level + ','
 					+ tmc.aadt + ','
 					+ tmc.directional_aadt + ','
-					+ tmc.county + ', '
-					+ tmc.mpo_acrony + ','
-					+ tmc.ua_name + ','
-					+ tmc.region_name + ','
+					+ tmc.county + ','
+					+ tmc.mpo_code + ','
+					+ tmc.ua_code + ','
 					+ phed.hmean_vehicle_delay.join(',')
 					+ phed.hmean_delay.join(',')				
 				resolve(row)
