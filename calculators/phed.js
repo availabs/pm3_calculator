@@ -114,7 +114,6 @@ const calculatePHED = function calculatePHED (tmcAttributes, travelTimeResponse,
         .filter(d => { 
           return d.dateTime.getMonth() === month 
         })
-      console.log(raw_data)
       var delay = raw_data.reduce((out, curr) => {
         out += curr.hmean_delay
         return out
