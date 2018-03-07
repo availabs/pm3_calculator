@@ -83,7 +83,6 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 			return new Promise(function (resolve, reject) {
 				var phed = CalculatePHED(tmc, tmcData.rows, trafficDistribution)
 				bar.tick()
-				console.log(phed)
 				var row = tmc.tmc + ','
 					+ tmc.length + ','
 					+ tmc.avg_speedlimit + ','
