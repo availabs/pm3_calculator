@@ -9,17 +9,20 @@ const MONTHS = ['total','jan','feb','mar','apr','may','jun','jul','aug','sep','o
 let VEHICLE_DELAY_DATAHOLDER = MONTHS.reduce((out,d,i) => {
 	out[`vd_${YEAR}_${i}`] = 0
 	return out
-})
+},{})
 
 let DELAY_DATAHOLDER = MONTHS.reduce((out,d,i) => {
 	out[`d_${YEAR}_${i}`] = 0
 	return out
-})
+},{})
 
+console.log('1', VEHICLE_DELAY_DATAHOLDER)
+console.log('2', DELAY_DATAHOLDER)
 var fileName = `data/${STATE}_${YEAR}_hmean_hour.csv`
+
 fs.readFile( fileName, 'utf8', function (err, data) {
 	var fullData = d3.csvParse(data)
-	console.log(fullData[0])
+	// console.log(fullData[10000])
 	// make a list of geographies
 	var geographies = fullData.reduce((out,d) => {
 		GEO_TYPES.forEach(geo => {
@@ -30,18 +33,20 @@ fs.readFile( fileName, 'utf8', function (err, data) {
 		return out
 	},{county:[],mpo:[],ua:[]})
 
-	console.log('geographies', geographies)
-	
+	//console.log('geographies', geographies)
+	geographies = {county: ['Albany']}
 	let output = Object.keys(geographies).map(geo_type => {
 		let final = {}
 		final[geo_type] = geographies[geo_type]
 		.map(current_geo => {
 			let current_geo_data = fullData
 				.filter(d => d[geo_type] === current_geo)
-				.reduce((out,d) => {
+				.reduce((out,d, ri) => {
+					console.log(d)
 					MONTHS.forEach((month,i) => {
-						out[`vd_${YEAR}_${i}`] += +d[`vd_${month}`]
-						out[`d_${YEAR}_${i}`] += +d[`d_${month}`]
+						console.log(`vd_${month}`, +d[`vd_${month}`])
+						out[`vd_${YEAR}_${i}`] += isNaN(+d[`vd_${month}`]) ? 0 : +d[`vd_${month}`]
+						out[`d_${YEAR}_${i}`] += isNaN(+d[`d_${month}`]) ? 0 : +d[`d_${month}`]
 					})
 					var road_type = d.is_interstate === 'true'
 						? 'interstate' : 'noninterstate'

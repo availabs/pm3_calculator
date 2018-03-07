@@ -10,7 +10,7 @@ var CalculatePHED = require('./calculators/phed')
 
 var bar = null;
 const MeasureYear = 2017
-const State = 'nj'
+const State = 'ny'
 
 const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 	return new Promise(function (resolve, reject) {
@@ -83,6 +83,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 			return new Promise(function (resolve, reject) {
 				var phed = CalculatePHED(tmc, tmcData.rows, trafficDistribution)
 				bar.tick()
+				console.log(phed)
 				var row = tmc.tmc + ','
 					+ tmc.length + ','
 					+ tmc.avg_speedlimit + ','
@@ -98,7 +99,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 					+ tmc.county + ','
 					+ tmc.mpo_code + ','
 					+ tmc.ua_code + ','
-					+ phed.hmean_vehicle_delay.join(',')
+					+ phed.hmean_vehicle_delay.join(',') + ','
 					+ phed.hmean_delay.join(',')				
 				resolve(row)
 			});
@@ -113,7 +114,7 @@ DownloadTMCAtttributes(State)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
 			//.filter((d,i) => d.tmc === '120-05047')
-			//.filter((d,i) => i < 100)
+			.filter((d,i) => i < 1)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
@@ -121,12 +122,12 @@ DownloadTMCAtttributes(State)
 		},{concurrency: 20})
 		.then(measures => {
 			//console.log('finished')
-			var first_row = 'tmc,length,avg_speedlimit,avo,nhs,nhs_pct,is_controlled_access,is_interstate,directionality,congestion_level,aadt,directional_aadt,county,mpo,ua,region'
-			first_row += 'vd_total,vd_jan,vd_feb,vd_mar,vd_apr,vd_may,vd_jun,vd_jul,vd_aug,vd_sep,vd_oct,vd_nov,vd_dec'
-			first_row += 'd_total,d_jan,d_feb,d_mar,d_apr,d_may,d_jun,d_jul,d_aug,d_sep,d_oct,d_nov,d_dec'
+			var first_row = 'tmc,length,avg_speedlimit,avo,nhs,nhs_pct,is_controlled_access,is_interstate,directionality,congestion_level,aadt,directional_aadt,county,mpo,ua'
+			first_row += ',vd_total,vd_jan,vd_feb,vd_mar,vd_apr,vd_may,vd_jun,vd_jul,vd_aug,vd_sep,vd_oct,vd_nov,vd_dec'
+			first_row += ',d_total,d_jan,d_feb,d_mar,d_apr,d_may,d_jun,d_jul,d_aug,d_sep,d_oct,d_nov,d_dec'
 			
 			var output = first_row+'\n'+measures.join('\n')
-			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour.csv`, output, function(err) {
+			fs.writeFile(`data/${State}_${MeasureYear}_hmean_hour_test.csv`, output, function(err) {
 			    if(err) {
 			        return console.log(err);
 			    }

@@ -111,22 +111,22 @@ const calculatePHED = function calculatePHED (tmcAttributes, travelTimeResponse,
   var months = [0,1,2,3,4,5,6,7,8,9,10,11]
     .forEach((month) => {
       var raw_data =  fifteenPeaks
-      .filter(d => { 
-        return d.dateTime.getMonth() === month 
-      })
+        .filter(d => { 
+          return d.dateTime.getMonth() === month 
+        })
 
       var delay = raw_data.reduce((out, curr) => {
         out += curr.hmean_delay
         return out
       },0)
       hmean_delay.push( precisionRound(delay, 2))
+      
       var vehicle_delay = raw_data.reduce((out, curr) => {
         out += curr.hmean_vehicle_delay
         return out
       },0)
       hmean_vehicle_delay.push( precisionRound(vehicle_delay, 2) )
       
-
     })
 
   vehicle_total = precisionRound(fifteenPeaks.reduce((out, curr) => {
