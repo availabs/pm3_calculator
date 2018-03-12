@@ -15,7 +15,7 @@ let CalculateTTR = require('./calculators/ttr')
 let bar = null;
 const YEAR = 2017
 const STATE = 'nj'
-const MEAN = 'hmean'
+const MEAN = 'mean'
 const TIME = 3 //number of epochs to group
 			   // 12 = 1 hour
 			   // 3 = 15 minute
@@ -70,7 +70,7 @@ DownloadTMCAtttributes(STATE)
 		.then(measures => {
 			var output = d3.csvFormat(measures)
 			console.log(measures)
-			fs.writeFile(`data/${STATE}_${YEAR}_testing_only.csv`, output, function(err) {
+			fs.writeFile(`data/${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
 				return
