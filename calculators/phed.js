@@ -75,9 +75,6 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
         tt: mean === 'hmean' ? hmean_tt : mean_tt,
         delay: mean === 'hmean' ? hmean_delay : mean_delay,
         delay_bp: mean === 'hmean' ? hmean_delay : mean_delay,
-        vehicle_delay: mean === 'hmean' ? hmean_vehicle_delay : mean_vehicle_delay,
-        vehicle_delay_bp: mean === 'hmean' ? hmean_vehicle_delay : mean_vehicle_delay,
-        vehVol: fifteenMinuteVolumes
       }
     })
 
@@ -89,10 +86,10 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
       out.vehicle_delay = null
 
     }
-    if (!((d.epoch >= 24 && d.epoch< 40) ||  (d.epoch >= 60 && d.epoch < 80)) ) {
-      out.vehicle_delay_bp = null
-      out.vehicle_delay_bp = null
-    }
+    // if (!((d.epoch >= 24 && d.epoch< 40) ||  (d.epoch >= 60 && d.epoch < 80)) ) {
+    //   out.vehicle_delay_bp = null
+    //   out.vehicle_delay_bp = null
+    // }
 
     if (d.dateTime.getDay() === 0 || d.dateTime.getDay() === 6 ) {
       out.tt = null
@@ -103,7 +100,7 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     }
     return out
   })
-  let analysis_data = fifteenPeaks.filter(d => d.vehicle_delay_bp)
+  //let analysis_data = fifteenPeaks.filter(d => d.vehicle_delay_bp)
   fifteenPeaks = fifteenPeaks.filter(d => d.vehicle_delay)
   var delay = {}
   var vehicle_delay = {}
@@ -142,8 +139,7 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
 
   return {
     delay,
-    vehicle_delay,
-    analysis_data
+    vehicle_delay
   }
 }
 

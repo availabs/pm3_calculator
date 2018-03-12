@@ -66,7 +66,7 @@ DownloadTMCAtttributes(STATE)
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
 			return CalculateMeasures(tmc, YEAR)
-		},{concurrency: 20})
+		},{concurrency: 10})
 		.then(measures => {
 			var output = d3.csvFormat(measures)
 			console.log(measures)
