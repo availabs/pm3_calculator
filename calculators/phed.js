@@ -118,26 +118,26 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
         out += curr.delay
         return out
       },0)
-      delay[`d_${month+1}`] = precisionRound(cur_delay, 2)
+      delay[`d_${month+1}`] = precisionRound(cur_delay, 3)
       
       var curr_vehicle_delay = raw_data.reduce((out, curr) => {
         out += curr.vehicle_delay
         return out
       },0)
-      vehicle_delay[`vd_${month+1}`] = precisionRound(curr_vehicle_delay, 2)
+      vehicle_delay[`vd_${month+1}`] = precisionRound(curr_vehicle_delay, 3)
       
     })
 
   vehicle_total = precisionRound(fifteenPeaks.reduce((out, curr) => {
         out += curr.vehicle_delay
         return out
-      },0), 2)
+      },0), 3)
   vehicle_delay[`vd_total`]= vehicle_total
 
   delay_total = precisionRound(fifteenPeaks.reduce((out, curr) => {
         out += curr.delay
         return out
-      },0), 2)
+      },0), 3)
   delay[`d_total`] = delay_total
 
   return {
