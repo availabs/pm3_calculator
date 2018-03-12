@@ -13,6 +13,7 @@ let CalculatePHED = require('./calculators/phed')
 let CalculateTTR = require('./calculators/ttr')
 
 let bar = null;
+const TMC = '120P04340'
 const YEAR = 2017
 const STATE = 'nj'
 const MEAN = 'mean'
@@ -42,15 +43,11 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 				}, {})
 
 				var phed = CalculatePHED(tmc, tmcFiveteenMinIndex, trafficDistribution, TIME,MEAN)
-				var ttr = CalculateTTR(tmc, tmcFiveteenMinIndex)
 				bar.tick()
-				resolve({
-					...tmc,
-					...ttr.lottr,
-					...ttr.tttr,
-					...phed.vehicle_delay,
-					...phed.delay
-				})		
+				//console.log(d3.csvFormat(phed.analysis_data))
+				resolve(
+					phed.analysis_data
+				)		
 			});
 		})
 
@@ -60,7 +57,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 DownloadTMCAtttributes(STATE)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
-			.filter((d,i) => d.tmc === '120P04340')
+			.filter((d,i) => d.tmc === TMC)
 			//.filter((d,i) => i < 200)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
@@ -68,9 +65,9 @@ DownloadTMCAtttributes(STATE)
 			return CalculateMeasures(tmc, YEAR)
 		},{concurrency: 20})
 		.then(measures => {
-			var output = d3.csvFormat(measures)
-			console.log(measures)
-			fs.writeFile(`data/${STATE}_${YEAR}_testing_only.csv`, output, function(err) {
+			//console.log(measures[0])
+			var output = d3.csvFormat(measures[0])
+			fs.writeFile(`data/${TMC}_${YEAR}_50mph.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
 				return

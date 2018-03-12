@@ -9,7 +9,8 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 			SELECT  tmc, faciltype, aadt, length, avg_speedlimit,
 			congestion_level, directionality, avg_vehicle_occupancy,
 			nhs, nhs_pct,is_interstate, is_controlled_access,
-			mpo_code as mpo, ua_code as ua, county
+			mpo_code as mpo, ua_code as ua, county_code as county,
+			state_code as state
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
 	  		and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');`
