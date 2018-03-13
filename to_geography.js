@@ -3,9 +3,9 @@ let fs = require('fs')
 
 const YEAR = '2015'
 const STATE = 'ny'
-const DIR = 'data/one/'
-const MEAN = 'hmean'
-const TIME = 'hour'
+const DIR = 'data/two/'
+const MEAN = 'mean'
+const TIME = '3'
 const GEO_TYPES = ['county','mpo','ua']
 const MONTHS = ['total',1,2,3,4,5,6,7,8,9,10,11,12]
 

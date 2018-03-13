@@ -61,7 +61,7 @@ DownloadTMCAtttributes(STATE)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
 			//.filter((d,i) => d.tmc === '120P04340')
-			//.filter((d,i) => i < 200)
+			.filter((d,i) => i < 30)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 		return Promise.map(testTmcs, (tmc) => {
@@ -70,7 +70,7 @@ DownloadTMCAtttributes(STATE)
 		.then(measures => {
 			var output = d3.csvFormat(measures)
 			console.log(measures)
-			fs.writeFile(`data/${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(err) {
+			fs.writeFile(`data/three/${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
 				return

@@ -1,5 +1,8 @@
 let db_service = require('./db_service')
+let fs = require('fs')
 let ua_to_mpo = require('../data/meta/ua_to_mpo')
+
+const DIR = 'data/two/'
 
 let sql = `
 	SELECT 
@@ -16,7 +19,7 @@ db_service.runQuery(sql, [], (err,data) => {
 	if (err) reject(err)
 	let output = {}
 	data.rows.forEach(r => {
-		if (r.geoType === 'state' || r.geoType === 'county'){
+		if (r.geoType === 'state'){
 			r.geo = r.name
 		}
 		if(r.geoType === 'mpo' && ua_to_mpo[r.geo]){
@@ -27,5 +30,10 @@ db_service.runQuery(sql, [], (err,data) => {
 
 		
 	})
-	console.log(JSON.stringify(output))
+	fs.writeFile(`${DIR}geo_meta.json`, JSON.stringify(output), function(err) {
+	    if(err) { return console.log(err) }
+	    console.log("The file was saved!")
+		return
+	});
+	console.log()
 })

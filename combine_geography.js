@@ -2,11 +2,11 @@ let Promise = require('bluebird');
 let d3 = require('d3-dsv');
 let fs = require('fs')
 
-const YEAR = '2017'
-const STATE = 'nj'
-const DIR = 'data/one/'
-const MEAN = 'hmean'
-const TIME = 'hour'
+//const YEAR = '2017'
+//const STATE = 'nj'
+const DIR = 'data/two/'
+//const MEAN = 'hmean'
+//const TIME = 'hour'
 
 var files = [
 	`ny_2017_geos.csv`,

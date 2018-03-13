@@ -74,7 +74,7 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
         speedlimit: +tmcAttributes.avg_speedlimit,
         tt: mean === 'hmean' ? hmean_tt : mean_tt,
         delay: mean === 'hmean' ? hmean_delay : mean_delay,
-        delay_bp: mean === 'hmean' ? hmean_delay : mean_delay,
+        vehicle_delay: mean === 'hmean' ? hmean_vehicle_delay : hmean_vehicle_delay,
       }
     })
 
@@ -95,8 +95,6 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
       out.tt = null
       out.delay = null
       out.vehicle_delay = null
-      out.vehicle_delay_bp = null
-      out.vehicle_delay_bp = null
     }
     return out
   })
