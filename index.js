@@ -1,7 +1,14 @@
+#!/usr/bin/env node
+
+const { env } = process;
+
 let Promise = require('bluebird');
 let ProgressBar = require('progress');
 let fs = require('fs');
 let d3 = require('d3-dsv');
+
+const minimist = require('minimist');
+const argv = minimist(process.argv.slice(2));
 
 let { 
 	DownloadTMCData, 
@@ -13,14 +20,22 @@ let CalculatePHED = require('./calculators/phed')
 let CalculateTTR = require('./calculators/ttr')
 
 let bar = null;
-const DIR = 'data/'
-const YEAR = 2017
-const STATE = 'nj'
-const MEAN = 'mean'
-const TIME = 3 //number of epochs to group
-			   // 12 = 1 hour
-			   // 3 = 15 minute
 
+const toNumerics = (o) => Object.keys(o).reduce(
+  (acc, k) => {
+    acc[k] = (Number.isFinite(+o[k])) ? parseFloat(o[k]) : o[k]
+    return acc
+  },
+  {}
+)
+
+const {
+  DIR = 'data/',
+  YEAR = 2017,
+  STATE = 'nj',
+  MEAN = 'mean',
+  TIME = 3 //number of epochs to group
+} = toNumerics(Object.assign({}, env, argv))
 
 const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	var trafficDistribution = getTrafficDistribution(
