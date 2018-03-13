@@ -13,6 +13,7 @@ let CalculatePHED = require('./calculators/phed')
 let CalculateTTR = require('./calculators/ttr')
 
 let bar = null;
+const DIR = 'data/'
 const YEAR = 2017
 const STATE = 'nj'
 const MEAN = 'mean'
@@ -70,7 +71,7 @@ DownloadTMCAtttributes(STATE)
 		.then(measures => {
 			var output = d3.csvFormat(measures)
 			console.log(measures)
-			fs.writeFile(`data/three/${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(err) {
+			fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
 				return
