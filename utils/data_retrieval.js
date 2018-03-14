@@ -81,7 +81,7 @@ const ExtractTMCDataFromCSV = ({ tmc, csvPath, year }) => {
 
         const curTMC = d[tmcColIdx];
         const curDatasource = d[datasourceColIdx];
-        const timestamp = d[timestampColIdx];
+        const curTimestamp = d[timestampColIdx];
 
         if (!header) {
           header = d;
@@ -94,7 +94,7 @@ const ExtractTMCDataFromCSV = ({ tmc, csvPath, year }) => {
           }
 
           if (year) {
-            const curYear = parseInt(timestamp.replace(/-.*/, ''));
+            const curYear = parseInt(curTimestamp.replace(/-.*/, ''));
 
             if (curYear < year) {
               return;
