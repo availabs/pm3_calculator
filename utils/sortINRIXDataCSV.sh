@@ -4,12 +4,13 @@ INF_PATH=$1
 OUTF_PATH=${2:-"${INF_PATH%csv}sorted.csv"}
 
 if [ ! -f "$1" ]; then
-  echo "USAGE: Specify the input csv file path with INF_PATH env variable."
+  echo "USAGE: Specify the input csv file path as the first cli argument."
   exit 1
 fi;
 
 if [ -f "$OUTF_PATH" ]; then
-  echo "The output file ${OUTF_PATH} already exists."
+  echo "The output file ${OUTF_PATH} already exists.
+    (You can specify a non-default path as the second cli argument.)"
   exit 1
 fi;
 
