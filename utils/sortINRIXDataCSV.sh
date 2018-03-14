@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INF_PATH=$1
-OUTF_PATH="${INF_PATH%csv}sorted.csv"
+OUTF_PATH=${2:-"${INF_PATH%csv}sorted.csv"}
 
 if [ ! -f "$1" ]; then
   echo "USAGE: Specify the input csv file path with INF_PATH env variable."
