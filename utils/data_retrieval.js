@@ -62,45 +62,68 @@ const inrixToAVAIL = (d) => {
 	}
 }
 
-const ExtractTMCDataFromCSV = ({ tmc, csvPath }) => {
-	let header
-	const rows = []
+const ExtractTMCDataFromCSV = ({ tmc, csvPath, year }) => {
+  let header;
+  const rows = [];
 
-	let tmcColIdx
-	let datasourceColIdx
+  let tmcColIdx;
+  let datasourceColIdx;
+  let timestampColIdx;
 
   return new Promise((resolve, reject) => {
-		try {
-			const rl = readline.createInterface({
-				input: createReadStream(csvPath)
-			})
+    try {
+      const rl = readline.createInterface({
+        input: createReadStream(csvPath)
+      });
 
-			rl.on('line', (line) => {
-				const d = line.split(',').map(c => c.trim())
+      rl.on('line', line => {
+        const d = line.split(',').map(c => c.trim());
 
-				if (!header) {
-					header = d
-					tmcColIdx = header.indexOf('tmc_code')
-					datasourceColIdx = header.indexOf('datasource')
-				} else if (d[tmcColIdx] === tmc) {
-					if (d[datasourceColIdx] !== RITIS_DATASOURCES.ALL_VEHICLES) {
-						return
-					}
+        const curTMC = d[tmcColIdx];
+        const curDatasource = d[datasourceColIdx];
+        const timestamp = d[timestampColIdx];
 
-					rows.push(
-						header.reduce((acc, col, i) => Object.assign(acc, { [col]: d[i] }), {})
-					)
-				} else if (rows.length) {
-					rl.close()	
-				}
-			})
+        if (!header) {
+          header = d;
+          tmcColIdx = header.indexOf('tmc_code');
+          datasourceColIdx = header.indexOf('datasource');
+          timestampColIdx = header.indexOf('measurement_tstamp');
+        } else if (curTMC === tmc) {
+          if (curDatasource !== RITIS_DATASOURCES.ALL_VEHICLES) {
+            return;
+          }
 
-			rl.on('close', () => resolve(rows.map(inrixToAVAIL)))
-		} catch (e) {
-			reject(e)
-		}
-  })
-}
+          if (year) {
+            const curYear = parseInt(timestamp.replace(/-.*/, ''));
+
+            if (curYear < year) {
+              return;
+            }
+
+            if (curYear > year) {
+              return rl.close();
+            }
+          }
+
+          rows.push(
+            header.reduce(
+              (acc, col, i) => Object.assign(acc, { [col]: d[i] }),
+              {}
+            )
+          );
+        } else if (rows.length) {
+          rl.close();
+        }
+      });
+
+      rl.on('close', () => resolve(rows.map(inrixToAVAIL)));
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+
 
 const getTrafficDistribution = function getTrafficDistribution(directionality, congestion_level, is_controlled_access, group=3) {
 	//get the distro key for the distro
