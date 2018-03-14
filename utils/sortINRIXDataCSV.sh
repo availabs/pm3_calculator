@@ -1,10 +1,15 @@
 #!/bin/bash
 
+if [ -z "$1" ]; then
+  echo "USAGE: Specify the input csv file path as the first cli argument."
+  exit 1
+fi;
+
 INF_PATH=$1
 OUTF_PATH=${2:-"${INF_PATH%csv}sorted.csv"}
 
-if [ ! -f "$1" ]; then
-  echo "USAGE: Specify the input csv file path as the first cli argument."
+if [ ! -f "$INF_PATH" ]; then
+  echo "No file found at $INF_PATH."
   exit 1
 fi;
 
@@ -32,3 +37,5 @@ tail -n +2 "$INF_PATH" | \
   -k"${TIMESTAMP_COL_NUM},${TIMESTAMP_COL_NUM}"\
   -k"${DATASOURCE_COL_NUM},${DATASOURCE_COL_NUM}"\
   -t',' >> "$OUTF_PATH"
+
+echo "DONE: Sorted file written to $OUTF_PATH"
