@@ -15,7 +15,8 @@ let {
   getTrafficDistribution
 } = require('./utils/data_retrieval');
 
-const inrixCSVParserStream = require('./utils/inrixCSVParserStream');
+const csvInputStream = require('./utils/csvInputStream');
+const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
 let CalculatePHED = require('./calculators/phed');
@@ -123,14 +124,7 @@ const calculateMeasuresStream = tmcAttributes => {
         TIME
       );
 
-      data.forEach(row =>
-        Object.assign(row, {
-          travelTime:
-            +row.travel_time_all_vehicles ||
-            +row.travel_time_passenger_vehicles ||
-            +row.travel_time_freight_trucks
-        })
-      );
+      data.forEach(row => Object.assign(row, { npmrds_date: +row.date }));
 
       const tmcFiveteenMinIndex = data.reduce((output, current) => {
         const reduceIndex =
@@ -141,10 +135,12 @@ const calculateMeasuresStream = tmcAttributes => {
         }
 
         output[reduceIndex].speed.push(
-          +attrs.length / (current.travelTime / 3600)
+          +attrs.length / (current.travel_time_all_vehicles / 3600)
         );
 
-        output[reduceIndex].tt.push(+Math.round(current.travelTime));
+        output[reduceIndex].tt.push(
+          +Math.round(current.travel_time_all_vehicles)
+        );
 
         return output;
       }, {});
@@ -185,7 +181,8 @@ async function doIt() {
   );
 
   process.stdin
-    .pipe(inrixCSVParserStream())
+    .pipe(csvInputStream())
+    .pipe(tmcAggregator())
     .pipe(calculateMeasuresStream(tmcAttributes))
     .pipe(csvOutputStream(outputCols))
     .pipe(process.stdout);

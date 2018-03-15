@@ -8,7 +8,7 @@ const csvOutputStream = outputCols => {
   return through(
     function write(row) {
       if (!sentHeader) {
-        this.emit('data', outputCols.join(','));
+        this.emit('data', outputCols.join(',') + '\n');
         sentHeader = true;
       }
 

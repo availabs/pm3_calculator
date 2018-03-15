@@ -22,42 +22,46 @@ const dateEpochAggregator = () => {
 
   return through(
     function write(data) {
-      const tmc = data.tmc_code;
+      try {
+        const tmc = data.tmc_code;
 
-      const date = +(
-        data.measurement_tstamp.slice(0, 4) +
-        data.measurement_tstamp.slice(5, 7) +
-        data.measurement_tstamp.slice(8, 10)
-      );
+        const date = +(
+          data.measurement_tstamp.slice(0, 4) +
+          data.measurement_tstamp.slice(5, 7) +
+          data.measurement_tstamp.slice(8, 10)
+        );
 
-      const hh = +data.measurement_tstamp.slice(11, 13);
-      const mm = +data.measurement_tstamp.slice(14, 16);
-      const epoch = parseInt(hh * 12 + Math.floor(mm / 5));
+        const hh = +data.measurement_tstamp.slice(11, 13);
+        const mm = +data.measurement_tstamp.slice(14, 16);
+        const epoch = parseInt(hh * 12 + Math.floor(mm / 5));
 
-      if (
-        curCSVRow.tmc !== tmc ||
-        curCSVRow.date !== date ||
-        curCSVRow.epoch !== epoch
-      ) {
-        if (curCSVRow.tmc) {
-          this.emit('data', curCSVRow);
+        if (
+          curCSVRow.tmc !== tmc ||
+          curCSVRow.date !== date ||
+          curCSVRow.epoch !== epoch
+        ) {
+          if (curCSVRow.tmc) {
+            this.emit('data', curCSVRow);
+          }
+          for (let i = 0; i < outputCols.length; ++i) {
+            curCSVRow[outputCols[i]] = null;
+          }
         }
-        for (let i = 0; i < outputCols.length; ++i) {
-          curCSVRow[outputCols[i]] = null;
+
+        // ? Possible V8 optimization ?
+        if (!curCSVRow.tmc) {
+          curCSVRow.tmc = tmc;
+          curCSVRow.date = date;
+          curCSVRow.epoch = epoch;
         }
+
+        const vehicleType = vehicleTypes[data.datasource];
+
+        curCSVRow[`travel_time_${vehicleType}`] =
+          +data.travel_time_seconds || null;
+      } catch (err) {
+        console.error(err);
       }
-
-      // ? Possible V8 optimization ?
-      if (!curCSVRow.tmc) {
-        curCSVRow.tmc = tmc;
-        curCSVRow.date = date;
-        curCSVRow.epoch = epoch;
-      }
-
-      const vehicleType = vehicleTypes[data.datasource];
-
-      curCSVRow[`travel_time_${vehicleType}`] =
-        +data.travel_time_seconds || null;
     },
 
     function end() {
