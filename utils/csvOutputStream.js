@@ -1,11 +1,39 @@
-const csv = require('fast-csv');
+#!/usr/bin/env node
 
-const csvOutputStream = outputCols =>
-  csv.createWriteStream({
-    transform: function(obj) {
-      return obj;
+const { through } = require('event-stream');
+
+const csvOutputStream = outputCols => {
+  let sentHeader = false;
+
+  return through(
+    function write(row) {
+      if (!sentHeader) {
+        this.emit('data', outputCols.join(','));
+        sentHeader = true;
+      }
+
+      const line = [];
+
+      for (let i = 0; i < outputCols.length; ++i) {
+        const d = row[outputCols[i]];
+        if (Number.isFinite(+d)) {
+          line.push(+d);
+        } else if (typeof d === 'string') {
+          line.push(`"${d}"`);
+        } else if (d) {
+          line.push(d);
+        } else {
+          line.push('');
+        }
+      }
+
+      this.emit('data', line.join(',') + '\n');
     },
-    headers: outputCols
-  });
+
+    function end() {
+      this.emit('end');
+    }
+  );
+};
 
 module.exports = csvOutputStream;

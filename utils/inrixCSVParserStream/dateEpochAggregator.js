@@ -24,12 +24,14 @@ const dateEpochAggregator = () => {
     function write(data) {
       const tmc = data.tmc_code;
 
-      const date = +data.measurement_tstamp.slice(0, 10).replace(/-/g, '');
+      const date = +(
+        data.measurement_tstamp.slice(0, 4) +
+        data.measurement_tstamp.slice(5, 7) +
+        data.measurement_tstamp.slice(8, 10)
+      );
 
-      const [hh, mm] = data.measurement_tstamp
-        .replace(/^.* /, '')
-        .split(':')
-        .map(n => +n);
+      const hh = +data.measurement_tstamp.slice(11, 13);
+      const mm = +data.measurement_tstamp.slice(14, 16);
       const epoch = parseInt(hh * 12 + Math.floor(mm / 5));
 
       if (
@@ -52,7 +54,7 @@ const dateEpochAggregator = () => {
         curCSVRow.epoch = epoch;
       }
 
-      const vehicleType = vehicleTypes[data.datasource.trim()];
+      const vehicleType = vehicleTypes[data.datasource];
 
       curCSVRow[`travel_time_${vehicleType}`] =
         +data.travel_time_seconds || null;
@@ -65,4 +67,4 @@ const dateEpochAggregator = () => {
   );
 };
 
-module.exports = dateEpochAggregator
+module.exports = dateEpochAggregator;

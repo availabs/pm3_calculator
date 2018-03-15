@@ -2,7 +2,7 @@
 
 const { obj: pumpifyObj } = require('pumpify');
 
-const csvInputStream = require('./csvInputStream');
+const csvInputStream = require('../csvInputStream');
 const dateEpochAggregator = require('./dateEpochAggregator');
 const tmcAggregator = require('./tmcAggregator');
 
