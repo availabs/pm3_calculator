@@ -1,7 +1,11 @@
+const readline = require('readline')
+const { createReadStream } = require('fs')
+
 let Promise = require('bluebird');
 let db_service = require('./db_service')
 let traffic_distrubtions = require('./traffic_distribution')
 
+const RITIS_DATASOURCES = require('./RITIS_DATASOURCES')
 
 const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 	return new Promise(function (resolve, reject) {
@@ -41,6 +45,86 @@ const DownloadTMCData = function DownloadTMCData (tmc, year, state) {
 	})
 }
 
+const inrixToAVAIL = (d) => {
+	if (!d) {
+		return d
+	}
+
+	const npmrds_date = parseInt(d.measurement_tstamp.replace(/ .*/, '').replace(/-/g, ''))
+
+	const [hh, mm] = d.measurement_tstamp.replace(/^.* /, '').split(':').map(n => +n)
+	const epoch = parseInt((hh * 12) + Math.floor(mm / 5))
+
+	return {
+		npmrds_date,
+		epoch,
+		travel_time_all_vehicles: d.travel_time_seconds
+	}
+}
+
+const ExtractTMCDataFromCSV = ({ tmc, csvPath, year }) => {
+  let header;
+  const rows = [];
+
+  let tmcColIdx;
+  let datasourceColIdx;
+  let timestampColIdx;
+
+  return new Promise((resolve, reject) => {
+    try {
+      const rl = readline.createInterface({
+        input: createReadStream(csvPath)
+      });
+
+      rl.on('line', line => {
+        const d = line.split(',').map(c => c.trim());
+
+        const curTMC = d[tmcColIdx];
+        const curDatasource = d[datasourceColIdx];
+        const curTimestamp = d[timestampColIdx];
+
+        if (!header) {
+          header = d;
+          tmcColIdx = header.indexOf('tmc_code');
+          datasourceColIdx = header.indexOf('datasource');
+          timestampColIdx = header.indexOf('measurement_tstamp');
+        } else if (curTMC === tmc) {
+          if (curDatasource !== RITIS_DATASOURCES.ALL_VEHICLES) {
+            return;
+          }
+
+          if (year) {
+            const curYear = parseInt(curTimestamp.replace(/-.*/, ''));
+
+            if (curYear < year) {
+              return;
+            }
+
+            if (curYear > year) {
+              return rl.close();
+            }
+          }
+
+          rows.push(
+            header.reduce(
+              (acc, col, i) => Object.assign(acc, { [col]: d[i] }),
+              {}
+            )
+          );
+        } else if (rows.length) {
+          rl.close();
+        }
+      });
+
+      rl.on('close', () => resolve(rows.map(inrixToAVAIL)));
+    } catch (e) {
+      reject(e);
+    }
+  });
+};
+
+
+
 const getTrafficDistribution = function getTrafficDistribution(directionality, congestion_level, is_controlled_access, group=3) {
 	//get the distro key for the distro
 	let distroKey = 'WEEKDAY'
@@ -64,5 +148,6 @@ const getTrafficDistribution = function getTrafficDistribution(directionality, c
 module.exports = {
 	DownloadTMCData,
 	DownloadTMCAtttributes,
+	ExtractTMCDataFromCSV,
 	getTrafficDistribution
 }
