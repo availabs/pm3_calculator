@@ -70,7 +70,7 @@ DownloadTMCAtttributes(STATE)
 		},{concurrency: 10})
 		.then(measures => {
 			var output = d3.csvFormat(measures)
-			//console.log(measures)
+			// console.log(measures)
 			fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
 			    console.log("The file was saved!")
