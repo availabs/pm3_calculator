@@ -8,6 +8,10 @@ const lineParser = () => {
 
   return through(
     function write(line) {
+      if (!line) {
+        return;
+      }
+
       if (!header) {
         header = line.split(',');
         return;

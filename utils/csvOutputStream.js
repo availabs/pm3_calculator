@@ -18,8 +18,6 @@ const csvOutputStream = outputCols => {
         const d = row[outputCols[i]];
         if (Number.isFinite(+d)) {
           line.push(+d);
-        } else if (typeof d === 'string') {
-          line.push(`"${d}"`);
         } else if (d) {
           line.push(d);
         } else {
