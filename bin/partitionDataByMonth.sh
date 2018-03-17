@@ -26,7 +26,7 @@ function getColNum {
 TIMESTAMP_COL_NUM="$(getColNum measurement_tstamp)"
 
 ###### Preserve the header #####
-YRMOS=$(awk -F, 'NR>1{ print substr($3,0,4) substr($3,6,2) }' "${INF_PATH}" | sort -u)
+YRMOS=$(awk -F, 'NR>1{ print substr($3,1,4) substr($3,6,2) }' "${INF_PATH}" | sort -u)
 
 for yrmo in $YRMOS
 do
