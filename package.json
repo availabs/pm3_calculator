@@ -17,6 +17,7 @@
     "fast-csv": "^2.4.1",
     "minimist": "^1.2.0",
     "node-env-file": "0.1.8",
+    "parallel-transform": "^1.1.0",
     "path": "0.12.7",
     "pg": "7.4.1",
     "pg-copy-streams": "1.2.0",
