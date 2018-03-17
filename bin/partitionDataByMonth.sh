@@ -37,5 +37,5 @@ awk \
  -v col="${TIMESTAMP_COL_NUM}" \
  -v base="${OUT_BASE_PATH}." \
  -F, \
- 'NR>1{print >> base substr($col,0,4) substr($col,6,2)".csv"}' \
+ 'NR>1{print >> base substr($col,1,4) substr($col,6,2)".csv"}' \
  "$INF_PATH"
