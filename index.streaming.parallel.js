@@ -113,7 +113,6 @@ const calculateMeasuresStream = tmcAttributes => {
     //    ]
     function write(tmcData, callback) {
       const { metadata: { tmc }, data } = tmcData;
-      console.log(tmc);
 
       const attrs = tmcAttributes[tmc];
 
