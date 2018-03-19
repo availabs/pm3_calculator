@@ -74,7 +74,7 @@ const DownloadTMCDataHERE = function DownloadTMCData (tmc, year, state) {
 			where tmc = '${tmc}'
 			and (date >= '${year}-01-01'::date AND date < '${year+1}-01-01'::date)
 			`
-		console.log(sql);
+		// console.log(sql);
 		db_service_here.runQuery(sql, [], (err,data) => {
 	  		if (err) reject(err)
 	  		resolve(data)
