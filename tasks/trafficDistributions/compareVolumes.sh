@@ -3,7 +3,7 @@
 SQL='
   SELECT
       bin,
-      (cattlab."120P04340_pct" - avail."120P04340_pct") * 100 AS diff
+      (cattlab."120P04340" - avail."120P04340") AS vol_diff
     FROM cattlab INNER JOIN avail USING (bin)
     ORDER BY bin
 '
