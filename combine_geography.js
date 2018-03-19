@@ -4,7 +4,7 @@ let fs = require('fs')
 
 //const YEAR = '2017'
 //const STATE = 'nj'
-const DIR = 'data/two/'
+const DIR = 'data/four/'
 //const MEAN = 'hmean'
 //const TIME = 'hour'
 

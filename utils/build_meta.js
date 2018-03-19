@@ -2,7 +2,7 @@ let db_service = require('./db_service')
 let fs = require('fs')
 let ua_to_mpo = require('../data/meta/ua_to_mpo')
 
-const DIR = 'data/two/'
+const DIR = 'data/four/'
 
 let sql = `
 	SELECT 
@@ -15,6 +15,11 @@ let sql = `
   		where array_length(states, 1) = 1
   		and geography_level != 'REGION';`
 
+var state_codes = {
+	'ny': '36',
+	'nj': '34'
+}
+
 db_service.runQuery(sql, [], (err,data) => {
 	if (err) reject(err)
 	let output = {}
@@ -22,13 +27,13 @@ db_service.runQuery(sql, [], (err,data) => {
 		if (r.geoType === 'state'){
 			r.geo = r.name
 		}
+		if (r.geoType === 'county'){
+			r.geo = state_codes[r.state]+r.geo
+		}
 		if(r.geoType === 'mpo' && ua_to_mpo[r.geo]){
 			r.ua_code = ua_to_mpo[r.geo]
 		}
-		output[r.state + '_' + r.geo] = r
-		
-
-		
+		output[r.state + '_' + r.geo] = r	
 	})
 	fs.writeFile(`${DIR}geo_meta.json`, JSON.stringify(output), function(err) {
 	    if(err) { return console.log(err) }

@@ -3,7 +3,7 @@ let fs = require('fs')
 
 const YEAR = '2015'
 const STATE = 'ny'
-const DIR = 'data/two/'
+const DIR = 'data/four/'
 const MEAN = 'mean'
 const TIME = '3'
 const GEO_TYPES = ['county','mpo','ua']

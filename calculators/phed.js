@@ -124,15 +124,15 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     })
 
   vehicle_total = precisionRound(fifteenPeaks.reduce((out, curr) => {
-        out += curr.vehicle_delay
-        return out
-      },0), 3)
+    out += curr.vehicle_delay
+    return out
+  },0), 3)
   vehicle_delay[`vd_total`]= vehicle_total
 
   delay_total = precisionRound(fifteenPeaks.reduce((out, curr) => {
-        out += curr.delay
-        return out
-      },0), 3)
+    out += curr.delay
+    return out
+  },0), 3)
   delay[`d_total`] = delay_total
 
   return {

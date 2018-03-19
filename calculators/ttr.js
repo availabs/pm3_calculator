@@ -28,6 +28,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
         mean_tt,
       }
     })
+    
 	var amPeak = fifteenData
 		.filter(d => {
 			return( 
