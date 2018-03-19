@@ -18,8 +18,8 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
     	var sum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a += b)
     	var hsum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => { return a += (1 / b) }, 0)
     	var len = tmcFiveteenMinIndex[key].tt.length
-    	var hmean_tt = precisionRound(len / hsum_tt, 0)
-    	var mean_tt = precisionRound(sum_tt / len, 0)
+    	var hmean = precisionRound(len / hsum_tt, 0)
+    	var mean = precisionRound(sum_tt / len, 0)
     
       return {
         dateTime,
