@@ -5,7 +5,7 @@ const { env } = process;
 let Promise = require('bluebird');
 let fs = require('fs');
 
-const { through, stringify } = require('event-stream');
+const { split, through, stringify } = require('event-stream');
 const transform = require('parallel-transform');
 
 const minimist = require('minimist');
@@ -179,7 +179,15 @@ async function doIt() {
     {}
   );
 
+  // https://stackoverflow.com/a/15884508/3970755
+  process.stdout.on('error', function(err) {
+    if (err.code == 'EPIPE') {
+      process.exit(0);
+    }
+  });
+
   process.stdin
+    .pipe(split())
     .pipe(csvInputStream())
     .pipe(tmcAggregator())
     .pipe(calculateMeasuresStream(tmcAttributes))
