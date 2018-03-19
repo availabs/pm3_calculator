@@ -29,7 +29,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -50,7 +50,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -75,7 +75,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -96,7 +96,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -121,7 +121,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -142,7 +142,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -167,7 +167,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -188,7 +188,7 @@ COPY (
             dow_adj_factor::NUMERIC
             *
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists

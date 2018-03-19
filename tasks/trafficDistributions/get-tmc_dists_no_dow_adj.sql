@@ -22,7 +22,7 @@ COPY (
           ) AS "120P04340",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -40,7 +40,7 @@ COPY (
           ) AS "120P04340",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -62,7 +62,7 @@ COPY (
           ) AS "120N05397",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -80,7 +80,7 @@ COPY (
           ) AS "120N05397",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -102,7 +102,7 @@ COPY (
           ) AS "120+14882",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -120,7 +120,7 @@ COPY (
           ) AS "120+14882",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -142,7 +142,7 @@ COPY (
           ) AS "120-07060",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
@@ -160,7 +160,7 @@ COPY (
           ) AS "120-07060",
           ROUND(
             percent_daily_volume::NUMERIC,
-            3
+            6
           ) AS " ",
           tstamp
         FROM tmp_traff_dists
