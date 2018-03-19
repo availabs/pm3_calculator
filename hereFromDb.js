@@ -52,7 +52,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	return DownloadTMCDataHERE(tmc.tmc, year, STATE)
 		.then((tmcData) => {
 			return new Promise(function (resolve, reject) {
-				console.log('testing', tmcData.rows)
+				// console.log('testing', tmcData.rows)
 				var tmcFiveteenMinIndex = tmcData.rows.reduce((output, current) => {
 					var reduceIndex = current.npmrds_date + '_' + Math.floor(current.epoch/3)
 					if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
@@ -104,7 +104,7 @@ DownloadTMCAtttributes(STATE)
 					output.length = tmc.length
 					return output
 				})
-				.filter((d,i) => i < 1)
+				//.filter((d,i) => i < 1)
 				TOTAL = HereTmcs.length
 				bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 				return Promise.map(HereTmcs, (tmc) => {
