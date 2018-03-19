@@ -2,7 +2,7 @@ let d3 = require('d3-array')
 const WEEKDAYS = [1,2,3,4,5]
 const WEEKENDS = [0,6]
 
-const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean='hmean_tt'){
+const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean'){
 	
 	var fifteenData = Object.keys(tmcFiveteenMinIndex).map( (key,i) => {
     	var epoch = key.split('_')[1]
@@ -17,17 +17,18 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
     	var dateTime = new Date(yearMonthDay + 'T' + hour + ':' + min + ':00')
     	var sum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a += b)
     	var hsum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => { return a += (1 / b) }, 0)
-    	var len = tmcFiveteenMinIndex[key].speed.length
-    	var hmean_tt = precisionRound(len / hsum_tt, 0)
-    	var mean_tt = precisionRound(sum_tt / len, 0)
+    	var len = tmcFiveteenMinIndex[key].tt.length
+    	var hmean = precisionRound(len / hsum_tt, 0)
+    	var mean = precisionRound(sum_tt / len, 0)
     
       return {
         dateTime,
         epoch,
-        hmean_tt,
-        mean_tt,
+        hmean,
+        mean
       }
     })
+
     
 	var amPeak = fifteenData
 		.filter(d => {
@@ -82,7 +83,12 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,year,mean=
 		//console.log('overnightPeak')
 		//console.log(overnightPeak)
 		//console.log(d3.quantile(overnightPeak, 0.95 ), d3.quantile(overnightPeak, 0.5),d3.quantile(overnightPeak, 0.8 ) / d3.quantile(overnightPeak, 0.5))
-	
+		
+		// console.log('am', d3.quantile(amPeak, 0.5), d3.quantile(amPeak, 0.8 ), d3.quantile(amPeak, 0.8 ) / d3.quantile(amPeak, 0.5))
+		// console.log('off', d3.quantile(offPeak, 0.5), d3.quantile(offPeak, 0.8 ), d3.quantile(offPeak, 0.8 ) / d3.quantile(offPeak, 0.5))
+		// console.log('pm', d3.quantile(pmPeak, 0.5), d3.quantile(pmPeak, 0.8 ), d3.quantile(pmPeak, 0.8 ) / d3.quantile(pmPeak, 0.5))
+		// console.log('weekend', d3.quantile(weekendPeak, 0.5), d3.quantile(weekendPeak, 0.8 ) ,d3.quantile(weekendPeak, 0.8 ) / d3.quantile(weekendPeak, 0.5))
+
 	return {
 		lottr: {
 			lottr_am: precisionRound(d3.quantile(amPeak, 0.8 ) / d3.quantile(amPeak, 0.5), 2),

@@ -4,15 +4,14 @@ let fs = require('fs')
 
 //const YEAR = '2017'
 //const STATE = 'nj'
-const DIR = 'data/four/'
+const DIR = 'data/here_one/'
 //const MEAN = 'hmean'
 //const TIME = 'hour'
 
 var files = [
-	`ny_2017_geos.csv`,
 	`ny_2016_geos.csv`,
 	`ny_2015_geos.csv`,
-	`nj_2017_geos.csv`,
+	`ny_2014_geos.csv`,
 ]
 
 Promise.map(files, (filename) => {

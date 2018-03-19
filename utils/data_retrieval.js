@@ -37,6 +37,7 @@ const DownloadHereToInrixMap = function DownloadHereToInrixMap () {
 			group by here, length, avg_speedlimit, aadt
 
 		`
+		//and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');`
 	  	db_service_here.runQuery(sql, [], (err,data) => {
 	  		if (err) reject(err)
 	  		resolve(data)
