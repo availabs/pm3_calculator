@@ -3,7 +3,7 @@
 const { split, through } = require('event-stream');
 const { obj: pumpify } = require('pumpify');
 
-const lineParser = () => {
+const csvInputStream = () => {
   let header;
 
   return through(
@@ -32,7 +32,5 @@ const lineParser = () => {
     }
   );
 };
-
-const csvInputStream = () => pumpify(split(), lineParser());
 
 module.exports = csvInputStream;

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-const csvInputStream = require('./utils/csvInputStream');
-const dateEpochAggregator = require('./utils/inrixCSVParserStream/dateEpochAggregator');
-const csvOutputStream = require('./utils/csvOutputStream');
+const csvInputStream = require('../utils/csvInputStream');
+const dateEpochAggregator = require('../utils/inrixCSVParserStream/dateEpochAggregator');
+const csvOutputStream = require('../utils/csvOutputStream');
 
 const outputCols = [
   'tmc',

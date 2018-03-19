@@ -37,5 +37,3 @@ tail -n +2 "$INF_PATH" | \
   -k"${TIMESTAMP_COL_NUM},${TIMESTAMP_COL_NUM}"\
   -k"${DATASOURCE_COL_NUM},${DATASOURCE_COL_NUM}"\
   -t',' >> "$OUTF_PATH"
-
-echo "DONE: Sorted file written to $OUTF_PATH"

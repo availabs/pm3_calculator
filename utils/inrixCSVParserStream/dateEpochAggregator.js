@@ -38,12 +38,15 @@ const dateEpochAggregator = () => {
         if (
           curCSVRow.tmc > tmc ||
           (curCSVRow.tmc === tmc &&
-            (curCSVRow.date < date ||
-              (curCSVRow.date = date && curCSVRow.epoch < epoch)))
+            (curCSVRow.date > date ||
+              (curCSVRow.date === date && curCSVRow.epoch > epoch)))
         ) {
           console.error(
             'ERROR: Invariant broken. Input must be sorted by (TMC, date, epoch).'
           );
+          console.error('\tTMC:', curCSVRow.tmc, tmc);
+          console.error('\tdate:', curCSVRow.date, date);
+          console.error('\tepoch:', curCSVRow.epoch, epoch);
           process.exit(1);
         }
 
