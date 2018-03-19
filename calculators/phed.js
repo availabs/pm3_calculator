@@ -1,12 +1,12 @@
 
 const dayVolume = [
-  0.85,
+  0.80,
   1.05,
   1.05,
   1.05,
   1.05,
   1.10,
-  0.85
+  0.9
 ]
 
 const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex, distroArray, time=12, mean='hmean') {
@@ -56,8 +56,16 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     hmean_delay = precisionRound(hmean_delay,4)
     mean_delay = precisionRound(mean_delay,4)
     var days = ['Sun', 'Mon', 'Tues', 'Weds', 'Thurs', 'Fri', 'Sat']
-    var dailyAADT = dayVolume[dateTime.getDay()] * DirectionalAADT
-    var TrafficVolume = distroArray.map(d => {return (d / 100) * dailyAADT})
+    
+    // Calculate Daily AADT then Disagregate 
+    // var dailyAADT = dayVolume[dateTime.getDay()] * DirectionalAADT
+    // var TrafficVolume = distroArray.map(d => {return (d / 100) * dailyAADT})
+    
+    var dailyAADT = DirectionalAADT
+    var TrafficVolume = distroArray.map(d => {
+        return ((d / 100) * dailyAADT) * dayVolume[dateTime.getDay()]
+    })
+    
     var fifteenMinuteVolumes = time === 12
       ? precisionRound((+TrafficVolume[parseInt(hour)] / 4),1)
       : precisionRound(+TrafficVolume[epoch],1)
