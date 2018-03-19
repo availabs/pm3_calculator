@@ -32,7 +32,7 @@ const toNumerics = (o) => Object.keys(o).reduce(
 const {
   DIR = 'data/',
   YEAR = 2017,
-  STATE = 'nj',
+  STATE = 'ny',
   MEAN = 'mean',
   TIME = 3 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv))
@@ -53,12 +53,12 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 					var reduceIndex = current.npmrds_date + '_' + Math.floor(current.epoch/3)
 					if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
 					output[reduceIndex].speed.push(+tmc.length / (current.travelTime / 3600))
-					output[reduceIndex].tt.push(Math.round(current.travelTime)) 
+					output[reduceIndex].tt.push(current.travelTime) 
 					return output
 				}, {})
 
 				var phed = CalculatePHED(tmc, tmcFiveteenMinIndex, trafficDistribution, TIME,MEAN)
-				var ttr = CalculateTTR(tmc, tmcFiveteenMinIndex)
+				var ttr = CalculateTTR(tmc, tmcFiveteenMinIndex,MEAN)
 				bar.tick()
 				resolve({
 					...tmc,
@@ -76,7 +76,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 DownloadTMCAtttributes(STATE)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
-			//.filter((d,i) => d.tmc === '120P04340')
+			.filter((d,i) => d.tmc === '120N07681')
 			//.filter((d,i) => i < 30)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
