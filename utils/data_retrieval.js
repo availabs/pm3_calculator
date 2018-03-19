@@ -3,6 +3,8 @@ const { createReadStream } = require('fs')
 
 let Promise = require('bluebird');
 let db_service = require('./db_service')
+let db_service_here = require('./db_service_here')
+
 let traffic_distrubtions = require('./traffic_distribution')
 
 const RITIS_DATASOURCES = require('./RITIS_DATASOURCES')
@@ -26,6 +28,22 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 	})
 }
 
+const DownloadHereToInrixMap = function DownloadHereToInrixMap () {
+	return new Promise(function (resolve, reject) {
+		const sql = `
+			SELECT here, string_agg(inrix,',') as inrix_tmcs, length, avg_speedlimit, aadt
+			FROM public.here_to_inrix as a	
+			join public.attribute_data as b on here = tmc 
+			group by here, length, avg_speedlimit, aadt
+
+		`
+	  	db_service_here.runQuery(sql, [], (err,data) => {
+	  		if (err) reject(err)
+	  		resolve(data)
+	  	})
+	})
+}
+
 const DownloadTMCData = function DownloadTMCData (tmc, year, state) {
 	return new Promise(function (resolve, reject) {
 		const sql = `
@@ -39,6 +57,25 @@ const DownloadTMCData = function DownloadTMCData (tmc, year, state) {
 			`
 		//console.log(sql);
 		db_service.runQuery(sql, [], (err,data) => {
+	  		if (err) reject(err)
+	  		resolve(data)
+	  	})
+	})
+}
+
+const DownloadTMCDataHERE = function DownloadTMCData (tmc, year, state) {
+	return new Promise(function (resolve, reject) {
+		const sql = `
+			select 
+				npmrds_date("date") as npmrds_date, 
+				epoch, 
+				travel_time_all_vehicles as "travelTime" 
+			from "${state}".npmrds 
+			where tmc = '${tmc}'
+			and (date >= '${year}-01-01'::date AND date < '${year+1}-01-01'::date)
+			`
+		console.log(sql);
+		db_service_here.runQuery(sql, [], (err,data) => {
 	  		if (err) reject(err)
 	  		resolve(data)
 	  	})
@@ -147,7 +184,9 @@ const getTrafficDistribution = function getTrafficDistribution(directionality, c
 
 module.exports = {
 	DownloadTMCData,
+	DownloadTMCDataHERE,
 	DownloadTMCAtttributes,
 	ExtractTMCDataFromCSV,
-	getTrafficDistribution
+	getTrafficDistribution,
+	DownloadHereToInrixMap
 }
