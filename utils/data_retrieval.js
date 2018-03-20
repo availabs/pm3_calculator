@@ -36,7 +36,7 @@ const DownloadHereToInrixMap = function DownloadHereToInrixMap () {
 			SELECT here, string_agg(inrix,',') as inrix_tmcs, length, avg_speedlimit, aadt, is_interstate
 			FROM public.here_to_inrix as a	
 			join public.attribute_data as b on here = tmc 
-			group by here, length, avg_speedlimit, aadt
+			group by here, length, avg_speedlimit, aadt, is_interstate
 
 		`
 		//and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');`
