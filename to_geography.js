@@ -64,7 +64,7 @@ fs.readFile( fileName, 'utf8', function (err, data) {
 							out[`pd_${i}`] += isNaN(+d[`vd_${month}`]) ? 0 : +d[`vd_${month}`] * avo
 							
 						})
-						let road_type = d.is_interstate === 'true'
+						let road_type = d.is_interstate === 'true' || d.is_interstate === 't'
 							? 'interstate' : 'noninterstate'
 						let lottr = Math.max(d.lottr_am,d.lottr_off,d.lottr_pm,d.lottr_weekend)
 						let tttr = Math.max(d.tttr_am,d.tttr_off,d.tttr_pm,d.tttr_overnight,d.tttr_weekend)

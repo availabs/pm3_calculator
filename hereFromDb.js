@@ -102,6 +102,7 @@ DownloadTMCAtttributes(STATE)
 					let output = Object.assign({},tmcLookup[inrix_tmc])
 					output.tmc = tmc.here
 					output.length = tmc.length
+					output.is_interstate = tmc.is_interstate
 					return output
 				})
 				//.filter((d,i) => i < 1)
