@@ -1,9 +1,9 @@
 let d3 = require('d3-dsv');
 let fs = require('fs')
 
-const YEAR = '2014'
+const YEAR = '2015'
 const STATE = 'ny'
-const DIR = 'data/here_one/'
+const DIR = 'data/six/'
 const MEAN = 'mean'
 const TIME = '3'
 const GEO_TYPES = ['county','mpo','ua']

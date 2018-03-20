@@ -32,7 +32,7 @@ const toNumerics = (o) => Object.keys(o).reduce(
 const {
   DIR = 'data/',
   YEAR = 2017,
-  STATE = 'nj',
+  STATE = 'ny',
   MEAN = 'mean',
   TIME = 3 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv))
@@ -76,7 +76,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 DownloadTMCAtttributes(STATE)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
-			//.filter((d,i) => d.tmc === '120N07681')
+			.filter((d,i) => d.tmc === '120P16573')
 			//.filter((d,i) => i < 30)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
