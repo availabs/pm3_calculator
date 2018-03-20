@@ -21,11 +21,11 @@ const config = {
   max      : 40
 }
 
-process.on('unhandledRejection', (err) => {
-  if (err && !err.message.match(/^NOTICE/)) {
-    console.log('here db error:',err.message || err.stack)
-  }
-})
+// process.on('unhandledRejection', (err) => {
+//   if (err && !err.message.match(/^NOTICE/)) {
+//     console.log('here db error:',err.message || err.stack)
+//   }
+// })
 
 
 const pool = new Pool(config)
