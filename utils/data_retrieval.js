@@ -33,7 +33,7 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 const DownloadHereToInrixMap = function DownloadHereToInrixMap () {
 	return new Promise(function (resolve, reject) {
 		const sql = `
-			SELECT here, string_agg(inrix,',') as inrix_tmcs, length, avg_speedlimit, aadt
+			SELECT here, string_agg(inrix,',') as inrix_tmcs, length, avg_speedlimit, aadt, is_interstate
 			FROM public.here_to_inrix as a	
 			join public.attribute_data as b on here = tmc 
 			group by here, length, avg_speedlimit, aadt
