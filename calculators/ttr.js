@@ -18,8 +18,8 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
     	var sum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a += b)
     	var hsum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => { return a += (1 / b) }, 0)
     	var len = tmcFiveteenMinIndex[key].tt.length
-    	var hmean = precisionRound(len / hsum_tt, 0)
-    	var mean = precisionRound(sum_tt / len, 0)
+    	var hmean = +precisionRound(len / hsum_tt, 0)
+    	var mean = +precisionRound(sum_tt / len, 0)
     
       return {
         dateTime,
@@ -29,6 +29,9 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
       }
     })
 
+	function numSort(a,b) {
+		return +a - +b
+	}
     
 	var amPeak = fifteenData
 		.filter(d => {
@@ -38,7 +41,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 			)
 		})
 		.map(d => d[mean])
-		.sort()
+		.sort(numSort)
 
 	var offPeak = fifteenData
 		.filter(d => {
@@ -48,7 +51,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 			)
 		})
 		.map(d => d[mean])
-		.sort()
+		.sort(numSort)
 
 	var pmPeak = fifteenData
 		.filter(d => {
@@ -58,7 +61,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 			)
 		})
 		.map(d => d[mean])
-		.sort()
+		.sort(numSort)
 
 	var weekendPeak = fifteenData
 		.filter(d => {
@@ -68,7 +71,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 			)
 		})
 		.map(d => d[mean])
-		.sort()
+		.sort(numSort)
 
 	var overnightPeak = fifteenData
 		.filter(d => {
@@ -78,12 +81,25 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 			)
 		})
 		.map(d => d[mean])
-		.sort()
+		.sort(numSort)
 		
 		//console.log('overnightPeak')
 		//console.log(overnightPeak)
 		//console.log(d3.quantile(overnightPeak, 0.95 ), d3.quantile(overnightPeak, 0.5),d3.quantile(overnightPeak, 0.8 ) / d3.quantile(overnightPeak, 0.5))
-		
+		// var someData = fifteenData
+		// 	.map(d => d[mean])
+		// 	.sort()
+
+		// someData = offPeak
+		// console.log(JSON.stringify(someData))
+		// console.log('-------------------------')
+		// console.log('extent', d3.extent(someData))
+		// console.log('mean', d3.mean(someData))
+		// console.log('median', d3.median(someData))
+		// console.log('variance', d3.variance(someData))
+		// console.log('deviation', d3.deviation(someData))
+		// console.log('-------------------------')
+
 		// console.log('am', d3.quantile(amPeak, 0.5), d3.quantile(amPeak, 0.8 ), d3.quantile(amPeak, 0.8 ) / d3.quantile(amPeak, 0.5))
 		// console.log('off', d3.quantile(offPeak, 0.5), d3.quantile(offPeak, 0.8 ), d3.quantile(offPeak, 0.8 ) / d3.quantile(offPeak, 0.5))
 		// console.log('pm', d3.quantile(pmPeak, 0.5), d3.quantile(pmPeak, 0.8 ), d3.quantile(pmPeak, 0.8 ) / d3.quantile(pmPeak, 0.5))
