@@ -13,7 +13,7 @@ export STATE
 
 YEARS=$(ls -l "../../etl/${STATE}" | awk '{print substr($9, 4, 4)}' | sed '/^$/d' | sort -u)
 
-for YEAR in "${YEARS[@]}"
+for YEAR in ${YEARS[@]}
 do
   export YEAR
   OUTF="../../etl/${STATE}/${STATE}.${YEAR}.here-schema.sorted.csv"
@@ -24,5 +24,7 @@ do
     continue
   fi
 
-  ../../utils/hereSchemaDataStream.bash.sh > "${OUTF}"
+  time ../../utils/hereSchemaDataStream.bash.sh > "${OUTF}" &
 done
+
+wait
