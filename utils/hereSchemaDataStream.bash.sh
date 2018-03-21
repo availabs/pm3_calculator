@@ -12,7 +12,7 @@ fi
 
 DATA_DIR="$( dirname "$0" )/../etl/${STATE}"
 
-ARR=(`find "${DATA_DIR}" -name '*here-schema.sorted.csv' | sort`)
+ARR=(`find "${DATA_DIR}" -regex ".*${STATE}.${YEAR}[0-1][0-9].here-schema.sorted.csv" | sort`)
 
 head -1 "${ARR[1]}";
 for f in "${ARR[@]}"; do tail -n+2 "$f"; done | LC_ALL=C sort

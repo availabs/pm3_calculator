@@ -44,5 +44,5 @@ SQL="
     FROM \"${STATE,,}\".npmrds_y${YEAR}m${MM}
     ORDER BY tmc, date, epoch
 "
-# echo "${SQL}"
+
 psql -c "COPY (${SQL}) TO STDOUT CSV HEADER"
