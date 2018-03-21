@@ -16,5 +16,13 @@ YEARS=$(ls -l "../../etl/${STATE}" | awk '{print substr($9, 4, 4)}' | sed '/^$/d
 for YEAR in "${YEARS[@]}"
 do
   export YEAR
-  ../../utils/hereSchemaDataStream.bash.sh 
+  OUTF="../../etl/${STATE}/${STATE}.${YEAR}.here-schema.sorted.csv"
+
+  if [ -f "${OUTF}" ]
+  then
+    echo "File exists... skipping $(realpath "${OUTF}")"
+    continue
+  fi
+
+  ../../utils/hereSchemaDataStream.bash.sh > "${OUTF}"
 done
