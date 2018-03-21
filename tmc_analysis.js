@@ -41,7 +41,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 					output[reduceIndex].tt.push(Math.round(current.travelTime)) 
 					return output
 				}, {})
-
+				console.log('test')
 				var phed = CalculatePHED(tmc, tmcFiveteenMinIndex, trafficDistribution, TIME,MEAN)
 				bar.tick()
 				//console.log(d3.csvFormat(phed.analysis_data))
@@ -65,7 +65,7 @@ DownloadTMCAtttributes(STATE)
 			return CalculateMeasures(tmc, YEAR)
 		},{concurrency: 20})
 		.then(measures => {
-			//console.log(measures[0])
+			console.log(measures)
 			var output = d3.csvFormat(measures[0])
 			fs.writeFile(`data/${TMC}_${YEAR}_50mph.csv`, output, function(err) {
 			    if(err) { return console.log(err) }
