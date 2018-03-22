@@ -6,6 +6,9 @@ if [ -z "$1" ]; then
 fi;
 
 INF_PATH=$1
+
+# Use optional second cli arg as output file path.
+# If not provided, alter the input file path by adding 'sorted' before 'csv'.
 OUTF_PATH=${2:-"${INF_PATH%csv}sorted.csv"}
 
 if [ ! -f "$INF_PATH" ]; then
@@ -14,10 +17,12 @@ if [ ! -f "$INF_PATH" ]; then
 fi;
 
 if [ -f "$OUTF_PATH" ]; then
-  echo "The output file ${OUTF_PATH} already exists.
-    (You can specify a non-default path as the second cli argument.)"
-  exit 1
+  echo "The output file ${OUTF_PATH} already exists."
+  exit
 fi;
+
+# Preserve the header
+head -1 "$INF_PATH" > "$OUTF_PATH"
 
 function getColNum {
   awk -F',' -v col="$1" 'NR==1{for (i=1; i<=NF; i++) if ($i==col) {print i;exit}}' "$INF_PATH"
@@ -27,13 +32,11 @@ TMC_CODE_COL_NUM="$(getColNum tmc_code)"
 TIMESTAMP_COL_NUM="$(getColNum measurement_tstamp)"
 DATASOURCE_COL_NUM="$(getColNum datasource)"
 
-# Preserve the header
-head -1 "$INF_PATH" > "$OUTF_PATH"
-
 # Sort the data
 tail -n +2 "$INF_PATH" | \
   LC_ALL=C sort \
   -k"${TMC_CODE_COL_NUM},${TMC_CODE_COL_NUM}"\
   -k"${TIMESTAMP_COL_NUM},${TIMESTAMP_COL_NUM}"\
   -k"${DATASOURCE_COL_NUM},${DATASOURCE_COL_NUM}"\
-  -t',' >> "$OUTF_PATH"
+  -t',' \
+  -u >> "$OUTF_PATH"
