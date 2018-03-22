@@ -29,4 +29,9 @@ then
   exit 1
 fi
 
-unzip -p "$DOWNLOADED_ZIP_PATH" > "$DOWNLOADED_CSV_PATH"
+# The data.zip included multiple files. We need the name of the datafile.
+# This file name varies.
+# The following line gets the filename of the largest file in the archive.
+DATA_FILE_NAME=$(unzip -Zs "$DOWNLOADED_ZIP_PATH" | tail -n+3 | sed \$d | sort -rn -k4,4 | head -1 | awk '{ print $NF }')
+
+unzip -p "$DOWNLOADED_ZIP_PATH" "$DATA_FILE_NAME" > "$DOWNLOADED_CSV_PATH"
