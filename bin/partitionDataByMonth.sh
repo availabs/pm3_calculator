@@ -10,7 +10,10 @@ INF_BASENAME="$(basename "$INF_PATH")"
 
 OUTDIR_PATH=${2:-"$(dirname "$INF_PATH")"}
 
-OUT_BASE_PATH="${OUTDIR_PATH}/${3:-${INF_BASENAME/\.csv/}}"
+# Get the dir path and the state prefix from the input path
+#   E.G.: 
+#     ../ga.201702-201706.inrix-schema.csv becomes ../ga
+OUT_BASE_PATH="${OUTDIR_PATH}/${INF_BASENAME/\.*/}"
 
 mkdir -p "${OUTDIR_PATH}"
 
@@ -30,7 +33,7 @@ YRMOS=$(awk -F, 'NR>1{ print substr($3,1,4) substr($3,6,2) }' "${INF_PATH}" | so
 
 for yrmo in $YRMOS
 do
-  head -1 "${INF_PATH}" > "${OUT_BASE_PATH}.${yrmo}.csv"
+  head -1 "${INF_PATH}" > "${OUT_BASE_PATH}.${yrmo}.inrix-schema.csv"
 done
 
 awk \

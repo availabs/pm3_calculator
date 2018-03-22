@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const { split } = require('event-stream');
+
 const csvInputStream = require('../utils/csvInputStream');
 const dateEpochAggregator = require('../utils/inrixCSVParserStream/dateEpochAggregator');
 const csvOutputStream = require('../utils/csvOutputStream');
@@ -15,6 +17,7 @@ const outputCols = [
 
 async function doIt() {
   process.stdin
+    .pipe(split())
     .pipe(csvInputStream())
     .pipe(dateEpochAggregator())
     .pipe(csvOutputStream(outputCols))
