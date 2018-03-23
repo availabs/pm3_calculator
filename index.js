@@ -30,6 +30,7 @@ const toNumerics = (o) => Object.keys(o).reduce(
 )
 
 const {
+  SPEED_FILTER = 3,
   DIR = 'data/',
   YEAR = 2017,
   STATE = 'ny',
@@ -49,11 +50,15 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	return DownloadTMCData(tmc.tmc, year, STATE)
 		.then((tmcData) => {
 			return new Promise(function (resolve, reject) {
+				//console.log('get db data?', tmcData.rows)
 				var tmcFiveteenMinIndex = tmcData.rows.reduce((output, current) => {
 					var reduceIndex = current.npmrds_date + '_' + Math.floor(current.epoch/3)
-					if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
-					output[reduceIndex].speed.push(+tmc.length / (current.travelTime / 3600))
-					output[reduceIndex].tt.push(current.travelTime) 
+					let speed = +tmc.length / (current.travelTime / 3600)
+					if(SPEED_FILTER && speed > SPEED_FILTER)  {
+						if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
+						output[reduceIndex].speed.push(speed)
+						output[reduceIndex].tt.push(current.travelTime) 
+					}
 					return output
 				}, {})
 
@@ -76,7 +81,7 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 DownloadTMCAtttributes(STATE)
 	.then(tmcs => {
 		var testTmcs = tmcs.rows
-			//.filter((d,i) => d.tmc === '120P16573')
+			.filter((d,i) => d.tmc === '104N08365')
 			//.filter((d,i) => i < 30)
 		TOTAL = testTmcs.length
 		bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
