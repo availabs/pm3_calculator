@@ -3,6 +3,8 @@
 SQL='
   SELECT
       tmc,
+      is_interstate,
+      length,
       js.lottr_am,
       js.lottr_off,
       js.lottr_pm,
@@ -12,6 +14,6 @@ SQL='
 
 csvsql --table js \
   --query "${SQL}" \
-  ./ny_2017_mean_3.csv
+  <(sed 's/NaN//g' ./ny_2017_mean_3.csv)
 
 

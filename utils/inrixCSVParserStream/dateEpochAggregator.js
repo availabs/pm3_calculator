@@ -75,7 +75,9 @@ const dateEpochAggregator = () => {
         curCSVRow[`travel_time_${vehicleType}`] =
           +data.travel_time_seconds || null;
       } catch (err) {
+        console.error(JSON.stringify(data, null, 4));
         console.error(err);
+        process.exit();
       }
     },
 

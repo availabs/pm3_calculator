@@ -2,8 +2,8 @@
 
 const { env } = process;
 
-let Promise = require('bluebird');
-let fs = require('fs');
+const Promise = require('bluebird');
+const fs = require('fs');
 
 const { split, through, stringify } = require('event-stream');
 const transform = require('parallel-transform');
@@ -11,7 +11,7 @@ const transform = require('parallel-transform');
 const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 
-let {
+const {
   DownloadTMCAtttributes,
   getTrafficDistribution
 } = require('./utils/data_retrieval');
@@ -20,8 +20,9 @@ const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
-let CalculatePHED = require('./calculators/phed');
-let CalculateTTR = require('./calculators/ttr');
+const CalculatePHED = require('./calculators/phed');
+const CalculateTTR = require('./calculators/ttr');
+const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
 
 const outputCols = [
   'tmc',
@@ -119,6 +120,14 @@ const calculateMeasuresStream = tmcAttributes => {
       if (!attrs) {
         return;
       }
+
+      const { congestion_level, directionality } = CalculateTrafficDistFactors({
+        attrs,
+        data
+      });
+
+      attrs.congestion_level = congestion_level || attrs.congestion_level;
+      attrs.directionality = directionality || attrs.directionality;
 
       const trafficDistribution = getTrafficDistribution(
         attrs.directionality,
