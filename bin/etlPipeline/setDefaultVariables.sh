@@ -8,13 +8,7 @@ then
   exit 1
 fi
 
-if [ -z "${MONTH_RANGE}" ]
-then
-  echo "USAGE: Specify MONTH_RANGE as a env variable."
-  echo "  E.G.: MONTH_RANGE='201702-201802'"
-  exit 1
-fi
-
+ETL_UUID="${ETL_UUID:=$(uuidgen)}"
 # To lowercase
 STATE=${STATE,,}
 
@@ -22,16 +16,32 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 STATE_DIR=$(readlink -f "${DIR}/../../etl/${STATE}/")
 
-DOWNLOAD_DIR="${STATE_DIR}/${STATE}.${MONTH_RANGE}.inrix-download"
-DOWNLOAD_DIR_TAR_PATH="${DOWNLOAD_DIR}.tar.gz"
+DOWNLOAD_DIR="${STATE_DIR}/${STATE}.${ETL_UUID}.inrix-download"
+ETL_WORK_DIR="${STATE_DIR}/${STATE}.${ETL_UUID}.etl-work-dir"
 
+DOWNLOAD_LINK_PATH="${DOWNLOAD_DIR}/link"
 DOWNLOADED_ZIP_PATH="${DOWNLOAD_DIR}/data.zip"
-DOWNLOADED_CSV_PATH="${STATE_DIR}/${STATE}.${MONTH_RANGE}.inrix-schema.csv"
+
+DOWNLOADED_CSV_PATH="${ETL_WORK_DIR}/${STATE}.${ETL_UUID}.inrix-schema.csv"
+
+INRIX_SCHEMA_CSV_EXTENSION='.inrix-schema.csv'
+INRIX_SCHEMA_SORTED_CSV_EXTENSION="${INRIX_SCHEMA_CSV_EXTENSION/csv/sorted.csv}"
+HERE_SCHEMA_CSV_EXTENSION="${INRIX_SCHEMA_SORTED_CSV_EXTENSION/inrix/here}"
 
 export STATE
+export ETL_UUID
+
+export STATE_DIR
 
 export DOWNLOAD_DIR
-export DOWNLOAD_DIR_TAR_PATH
+export ETL_WORK_DIR
 
+export DOWNLOAD_LINK_PATH
 export DOWNLOADED_ZIP_PATH
 export DOWNLOADED_CSV_PATH
+
+export INRIX_SCHEMA_CSV_EXTENSION
+export INRIX_SCHEMA_SORTED_CSV_EXTENSION
+export HERE_SCHEMA_CSV_EXTENSION
+
+

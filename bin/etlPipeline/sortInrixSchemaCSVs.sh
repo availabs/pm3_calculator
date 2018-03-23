@@ -2,22 +2,22 @@
 
 set -e
 
-STATE_DIR="${STATE_DIR:=$1}"
+ETL_WORK_DIR="${ETL_WORK_DIR:=$1}"
 
-if [ -z "$STATE_DIR" ]
+if [ -z "$ETL_WORK_DIR" ]
 then
-  echo "USAGE: Specify STATE_DIR as a env variable."
+  echo "USAGE: Specify ETL_WORK_DIR as a env variable."
   exit 1
 fi
 
 SORTER_PATH="$( dirname "${BASH_SOURCE[0]}" )/../sortINRIXDataCSV.sh"
 SORTER_PATH=$(readlink -f "$SORTER_PATH")
 
-STATE_DIR=$(readlink -f "${STATE_DIR}")
+ETL_WORK_DIR=$(readlink -f "${ETL_WORK_DIR}")
 
-pushd "$STATE_DIR" > /dev/null
+pushd "$ETL_WORK_DIR" > /dev/null
 
-ARR=(`find . -regex ".*\.[1-2][0-9][0-1][0-9][0-9][0-9].inrix-schema.csv" | sort`)
+ARR=(`find . -regex ".*\.[1-2][0-9][0-1][0-9][0-9][0-9]${INRIX_SCHEMA_CSV_EXTENSION}" | sort`)
 
 for f in "${ARR[@]}"
 do
