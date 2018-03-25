@@ -8,16 +8,11 @@ const DIR = 'data/six/'
 //const MEAN = 'hmean'
 //const TIME = 'hour'
 
-var files = [
-	`ny_2017_geos.csv`,
-	`ny_2016_geos.csv`,
-	`ny_2015_geos.csv`,
-	`nj_2017_geos.csv`,
-]
 
-Promise.map(files, (filename) => {
-		return readFilePromise(DIR, filename)
-	},{concurrency: 5})
+function CombineGeography(DIR,files) {
+	Promise.map(files, (fileName) => {
+			return readFilePromise(DIR,fileName)
+		},{concurrency: 5})
 	.then(datasets => {
 		let output = {}
 		datasets.forEach(dataset => {
@@ -44,18 +39,20 @@ Promise.map(files, (filename) => {
 			return
 		});
 	})
+}
 
-function readFilePromise(dir,filename) {
+function readFilePromise(dir,fileName) {
 	return new Promise(function (resolve, reject) {
-		fs.readFile( dir+filename, 'utf8', function (err, data) {
+		fs.readFile( dir+fileName, 'utf8', function (err, data) {
 			if (err) {
 				reject(err)
 			}
 			resolve({
-				state: filename.split('_')[0],
-				year: +filename.split('_')[1],
+				state: fileName.split('_')[0],
+				year: +fileName.split('_')[1],
 				data:d3.csvParse(data)
 			})
 		})
 	})
 }
+module.exports = CombineGeography
