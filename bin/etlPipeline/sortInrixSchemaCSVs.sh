@@ -21,9 +21,22 @@ ARR=(`find . -regex ".*\.[1-2][0-9][0-1][0-9][0-9][0-9]${INRIX_SCHEMA_CSV_EXTENS
 
 for f in "${ARR[@]}"
 do
-  "$SORTER_PATH" "$f"
-done
+  outf="${f/${INRIX_SCHEMA_CSV_EXTENSION}/${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}}"
 
-wait
+  if [ -f "$outf" ]
+  then
+    echo "File already exists: ${outf}. Skipping..."
+    continue
+  fi
+
+  # Sort & pipe output through gzip
+  "$SORTER_PATH" "$f" | gzip > "$outf"
+
+  # Delete the unsorted csv
+  if [ "$ETL_CLEANUP" = true ]
+  then
+    rm -f "$f"
+  fi
+done
 
 popd > /dev/null

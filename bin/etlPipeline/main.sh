@@ -12,9 +12,6 @@ source ./setDefaultVariables.sh
 echo 'downloadFromRITIS'
 source ./downloadFromRITIS.sh
 
-echo 'extractDownloadedZipArchive'
-source ./extractDownloadedZipArchive.sh
-
 echo 'partitionDownloadedCSVByMonth'
 source ./partitionDownloadedCSVByMonth.sh
 
