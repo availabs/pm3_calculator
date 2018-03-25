@@ -37,7 +37,8 @@ const {
   YEAR = 2016,
   STATE = 'ny',
   MEAN = 'mean',
-  TIME = 3 //number of epochs to group
+  TIME = 3, //number of epochs to group
+  SPEED_FILTER = 3
 } = toNumerics(Object.assign({}, env, argv))
 
 const CalculateMeasures = function CalculateMeasures (tmc, year) {
@@ -55,9 +56,12 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 				// console.log('testing', tmcData.rows)
 				var tmcFiveteenMinIndex = tmcData.rows.reduce((output, current) => {
 					var reduceIndex = current.npmrds_date + '_' + Math.floor(current.epoch/3)
-					if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
-					output[reduceIndex].speed.push(+tmc.length / (current.travelTime / 3600))
-					output[reduceIndex].tt.push(Math.round(current.travelTime)) 
+					var speed = +tmc.length / (current.travelTime / 3600)
+					if(SPEED_FILTER && speed > SPEED_FILTER)  {
+						if (!output[reduceIndex]) { output[reduceIndex] = { speed:[], tt:[] } }
+						output[reduceIndex].speed.push(speed)
+						output[reduceIndex].tt.push(current.travelTime) 
+					}
 					return output
 				}, {})
 

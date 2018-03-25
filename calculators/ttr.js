@@ -20,6 +20,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
     	var len = tmcFiveteenMinIndex[key].tt.length
     	var hmean = +precisionRound(len / hsum_tt, 0)
     	var mean = +precisionRound(sum_tt / len, 0)
+    	//mean = sum_tt / len
     
       return {
         dateTime,
@@ -123,7 +124,10 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 }
 module.exports = CalculateTTR
 
+
 function precisionRound(number, precision) {
+  number = isNaN(number) ? 1 : number
+  number = number === Infinity ? 10 : number 
   var factor = Math.pow(10, precision);
   return Math.round(number * factor) / factor;
 }
