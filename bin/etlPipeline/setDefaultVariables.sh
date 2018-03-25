@@ -15,7 +15,11 @@ ETL_UUID="${ETL_UUID:=$(uuidgen)}"
 # To lowercase
 STATE=${STATE,,}
 
+# Overwrite existing files (NOT YET IMLEMENTED)
+ETL_OVERWRITE="${ETL_OVERWRITE:=true}"
+# Move output files to archive directory (NOT YET IMLEMENTED)
 ETL_ARCHIVE="${ETL_ARCHIVE:=true}"
+# Delete intermediate files
 ETL_CLEANUP="${ETL_CLEANUP:=true}"
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
