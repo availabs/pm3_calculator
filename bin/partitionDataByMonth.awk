@@ -11,7 +11,6 @@ NR==1{
       break
     }
   }
-  seen_months[0]=1
   next 
 } 
 
