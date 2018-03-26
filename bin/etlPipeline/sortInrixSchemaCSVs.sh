@@ -2,7 +2,7 @@
 
 set -e
 
-ETL_WORK_DIR="$( readlink -f "${1:-ETL_WORK_DIR}" )"
+ETL_WORK_DIR="$( readlink -f "${1:-"$ETL_WORK_DIR"}" )"
 
 if [ -z "$ETL_WORK_DIR" ]
 then

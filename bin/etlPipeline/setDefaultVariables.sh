@@ -34,7 +34,7 @@ STATE_DIR="$(\
 )"
 
 ETL_WORK_DIR="$(\
-  readlink -m "${ETL_WORK_DIR:=${STATE_DIR}/${STATE}.${ETL_UUID}.etl-work-dir}" \
+  readlink -m "${ETL_WORK_DIR:="${STATE_DIR}/${STATE}.${ETL_UUID}.etl-work-dir"}" \
 )"
 
 ARCHIVE_DIR="$(\
