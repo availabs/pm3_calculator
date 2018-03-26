@@ -16,7 +16,7 @@ const csvOutputStream = outputCols => {
 
       for (let i = 0; i < outputCols.length; ++i) {
         const d = row[outputCols[i]];
-        if (Number.isFinite(+d)) {
+        if (d !== null && Number.isFinite(+d)) {
           line.push(+d);
         } else if (d) {
           line.push(d);
