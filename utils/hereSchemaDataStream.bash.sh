@@ -11,7 +11,7 @@ if [ -z "$YEAR" ]; then
 fi
 
 # Specified as first command line arg, or defaults to STATE dir
-DATA_DIR="${1:="$( dirname "$0" )/../etl/${STATE}"}"
+DATA_DIR="$(readlink -f ${1:-"$( dirname "$0" )/../etl/${STATE}"})"
 
 pushd "$DATA_DIR" > /dev/null
 
