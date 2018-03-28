@@ -74,17 +74,26 @@ const calculateTrafficDistributionFactors = tmcAttributes => {
         return;
       }
 
-      return callback(
-        null,
-        Object.assign(
-          {},
-          { tmc },
-          CalculateTrafficDistFactors({
-            attrs,
-            data
-          })
-        )
+      const distFactors = CalculateTrafficDistFactors({
+        attrs,
+        data
+      });
+
+      distFactors.combinedPeakAvgTT = +distFactors.combinedPeakAvgTT.toFixed(3);
+      distFactors.amPeakAvgTT = +distFactors.amPeakAvgTT.toFixed(3);
+      distFactors.pmPeakAvgTT = +distFactors.pmPeakAvgTT.toFixed(3);
+      distFactors.freeFlowAvgTT = +distFactors.freeFlowAvgTT.toFixed(3);
+      distFactors.speedReductionFactor = +distFactors.speedReductionFactor.toFixed(
+        3
       );
+      distFactors.peakTimeDifferential = +distFactors.peakTimeDifferential.toFixed(
+        3
+      );
+      distFactors.peakSpeedDifferential = +distFactors.peakSpeedDifferential.toFixed(
+        3
+      );
+
+      return callback(null, Object.assign({}, { tmc }, distFactors));
     }
   );
 };
