@@ -21,7 +21,7 @@ ARR=(`find . -regex ".*\.[1-2][0-9][0-1][0-9][0-9][0-9]${INRIX_SCHEMA_SORTED_CSV
 
 for f in "${ARR[@]}"
 do
-  outf="${f/${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}/${HERE_SCHEMA_CSV_GZ_EXTENSION}}"
+  outf="${f/${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}/${HERE_SCHEMA_SORTED_CSV_GZ_EXTENSION}}"
   if [ -f "$outf" ]
   then
     echo "File already exists: ${outf}. Skipping..."
