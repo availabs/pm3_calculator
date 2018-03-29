@@ -1,4 +1,5 @@
 let d3 = require('d3-array')
+const precisionRound = require('./utils/precisionRound')
 const WEEKDAYS = [1,2,3,4,5]
 const WEEKENDS = [0,6]
 
@@ -125,9 +126,3 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
 module.exports = CalculateTTR
 
 
-function precisionRound(number, precision) {
-  number = isNaN(number) ? 1 : number
-  number = number === Infinity ? 10 : number 
-  var factor = Math.pow(10, precision);
-  return Math.round(number * factor) / factor;
-}
