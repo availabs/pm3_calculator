@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Specified as first command line arg, or defaults to STATE dir
-DATA_DIR="$(readlink -f "${1:="$DATA_DIR"}")"
+DATA_DIR="$(readlink -f "${1:-"$DATA_DIR"}")"
 
 if [ -z "$DATA_DIR" ]; then
   echo 'USAGE: specify the DATA_DIR by env variable.'
   exit 1
 fi
 
-YEAR="${2:="$YEAR"}"
+YEAR="${2:-"$YEAR"}"
 
 if [ -z "$YEAR" ]; then
   echo 'USAGE: specify the YEAR by env variable.'
