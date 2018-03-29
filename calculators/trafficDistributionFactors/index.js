@@ -37,7 +37,8 @@ const getTrafficDistributionFactors = ({
   const peakTimeDifferential =
     Math.max(amPeakAvgTT, pmPeakAvgTT) - Math.min(amPeakAvgTT, pmPeakAvgTT);
 
-  const peakSpeedDifferential = length / peakTimeDifferential * 3600;
+  const peakSpeedDifferential =
+    Math.abs(length / amPeakAvgTT - length / pmPeakAvgTT) * 3600;
 
   let directionality;
 
@@ -49,7 +50,14 @@ const getTrafficDistributionFactors = ({
 
   return {
     congestion_level,
-    directionality
+    directionality,
+    combinedPeakAvgTT,
+    amPeakAvgTT,
+    pmPeakAvgTT,
+    freeFlowAvgTT,
+    speedReductionFactor,
+    peakTimeDifferential,
+    peakSpeedDifferential
   };
 };
 
