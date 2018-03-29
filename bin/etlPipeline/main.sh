@@ -27,7 +27,23 @@ source ./sortInrixSchemaCSVs.sh
 echo 'transformToHERESchema'
 source ./transformToHERESchema.sh
 
+# The following updates the ETL_WORK_DIR and DOWNLOADED_ZIP_PATH env variables
 echo 'replaceUUIDWithMonthRange'
 source ./replaceUUIDWithMonthRange.sh
+
+echo 'mvINRIXDownloadZIPToArchive'
+source ./mvINRIXDownloadZIPToArchive.sh
+
+echo 'mvINRIXSchemaCSVsToArchive'
+source ./mvINRIXSchemaCSVsToArchive.sh
+
+echo 'mvHERESchemaFilesToArchive'
+source ./mvHERESchemaFilesToArchive.sh
+
+if [ "${ETL_CLEANUP}" == true ]
+then
+  echo 'removeETLWorkDir'
+  source ./removeETLWorkDir.sh
+fi
 
 popd > /dev/null
