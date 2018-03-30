@@ -31,8 +31,8 @@ const toNumerics = o =>
 const {
   SPEED_FILTER = 3,
   DIR = "data/",
-  YEAR = 2017,
-  STATE = "ny",
+  YEAR = process.env.YEAR || 2017,
+  STATE = process.env.STATE || "ny",
   MEAN = "mean",
   TIME = 3 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
