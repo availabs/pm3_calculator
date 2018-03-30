@@ -37,7 +37,7 @@ const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
   //Calculate the avg for each month
   let monthScores = months.reduce((acc, d) => {
     if (monthBins[d].amPeak.length === 0 && monthBins[d].pmPeak.length === 0) {
-      console.log("MISSING DATA FOR ", tmc, " MONTH: ", d);
+      //console.log("MISSING DATA FOR ", tmc, " MONTH: ", d);
       return acc;
     }
     total.amPeak = total.amPeak || [];
