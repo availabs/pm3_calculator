@@ -62,4 +62,7 @@ do
   mv "$f" "${f/$a/$b}"
 done
 
+ETL_WORK_DIR="${ETL_WORK_DIR//"${ETL_UUID}"/"${MONTH_RANGE}"}"
+DOWNLOADED_ZIP_PATH="${DOWNLOADED_ZIP_PATH//"${ETL_UUID}"/"${MONTH_RANGE}"}"
+
 popd > /dev/null
