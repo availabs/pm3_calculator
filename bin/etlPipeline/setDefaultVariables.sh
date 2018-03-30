@@ -42,7 +42,7 @@ STATE_ARCHIVE_DIR="$(\
 )"
 
 STATE_INRIX_DOWNLOAD_ARCHIVE_DIR="$(\
-  readlink -m "${STATE_INRIX_DOWNLOAD_ARCHIVE_DIR:=$(readlink -m "${STATE_ARCHIVE_DIR}/inrix-downloads")}" \
+  readlink -m "${STATE_INRIX_DOWNLOAD_ARCHIVE_DIR:=$(readlink -m "${STATE_ARCHIVE_DIR}/inrix-download")}" \
 )"
 
 STATE_INRIX_SCHEMA_ARCHIVE_DIR="$(\
@@ -69,6 +69,8 @@ export GZIP
 export STATE
 export ETL_UUID
 export ETL_OVERWRITE
+export ETL_ARCHIVE
+export ETL_CLEANUP
 
 export STATE_DIR
 
