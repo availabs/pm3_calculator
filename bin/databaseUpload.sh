@@ -8,8 +8,7 @@ FILENAME=$(basename $1)
 STATE=${FILENAME%%_*}
 NOSTATE=${FILENAME#*_}
 YEAR=${NOSTATE%%_*}
-echo $STATE
-echo $YEAR
+echo $FILENAME
 
 python ./databaseUpload.py --csv=$1 --meta=$2
 
