@@ -24,12 +24,18 @@ source ./partitionDownloadedCSVByMonth.sh
 echo 'sortInrixSchemaCSVs'
 source ./sortInrixSchemaCSVs.sh
 
-echo 'transformToHERESchema'
-source ./transformToHERESchema.sh
+if [ "${ETL_TRANSFORM_TO_HERE_SCHEMA}" == true ]
+then
+  echo 'transformToHERESchema'
+  source ./transformToHERESchema.sh
+fi
 
-# The following updates the ETL_WORK_DIR and DOWNLOADED_ZIP_PATH env variables
-echo 'replaceUUIDWithMonthRange'
-source ./replaceUUIDWithMonthRange.sh
+if [ "${ETL_RENAME_UUID}" == true ]
+then
+  # The following updates the ETL_WORK_DIR and DOWNLOADED_ZIP_PATH env variables
+  echo 'replaceUUIDWithMonthRange'
+  source ./replaceUUIDWithMonthRange.sh
+fi
 
 if [ "${ETL_ARCHIVE}" == true ]
 then
