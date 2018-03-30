@@ -63,7 +63,9 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
         }
         return output;
       }, {});
-
+      if ( Object.keys(tmcFiveteenMinIndex).length < 1 ){
+	resolve(null); return;
+      }
       var phed = CalculatePHED(
         tmc,
         tmcFiveteenMinIndex,
