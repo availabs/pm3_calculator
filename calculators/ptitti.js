@@ -20,7 +20,11 @@ const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
     acc[d] = { amPeak: [], pmPeak: [] };
     return acc;
   }, {});
-  let total = { all: [] };
+  let total = {
+    amPeak: [],
+    all: [],
+    pmPeak: []
+  };
   Object.keys(tmcFifteenMinIndex).forEach(k => {
     let month = +k.substring(4, 6);
     let epoch = k.split("_")[1];
@@ -32,8 +36,10 @@ const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
   let freeflow = p30(total.all);
   //Calculate the avg for each month
   let monthScores = months.reduce((acc, d) => {
-    if (monthBins[d].amPeak.length === 0 && monthBins[d].pmPeak.length === 0)
+    if (monthBins[d].amPeak.length === 0 && monthBins[d].pmPeak.length === 0) {
+      //console.log("MISSING DATA FOR ", tmc, " MONTH: ", d);
       return acc;
+    }
     total.amPeak = total.amPeak || [];
     concat(total.amPeak, monthBins[d].amPeak);
     total.pmPeak = total.pmPeak || [];
@@ -61,6 +67,8 @@ const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
     acc[`pmpti_${k}`] = precisionRound(monthScores[k].pmPTI, 2);
     return acc;
   }, {});
+
+  if (Object.keys(tmcFifteenMinIndex).length < 1) console.log(tmc, data);
 
   return data;
 };
