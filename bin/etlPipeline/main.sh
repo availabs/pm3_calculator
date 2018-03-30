@@ -31,14 +31,17 @@ source ./transformToHERESchema.sh
 echo 'replaceUUIDWithMonthRange'
 source ./replaceUUIDWithMonthRange.sh
 
-echo 'mvINRIXDownloadZIPToArchive'
-source ./mvINRIXDownloadZIPToArchive.sh
+if [ "${ETL_ARCHIVE}" == true ]
+then
+  echo 'mvINRIXDownloadZIPToArchive'
+  source ./mvINRIXDownloadZIPToArchive.sh
 
-echo 'mvINRIXSchemaCSVsToArchive'
-source ./mvINRIXSchemaCSVsToArchive.sh
+  echo 'mvINRIXSchemaCSVsToArchive'
+  source ./mvINRIXSchemaCSVsToArchive.sh
 
-echo 'mvHERESchemaFilesToArchive'
-source ./mvHERESchemaFilesToArchive.sh
+  echo 'mvHERESchemaFilesToArchive'
+  source ./mvHERESchemaFilesToArchive.sh
+fi
 
 if [ "${ETL_CLEANUP}" == true ]
 then
