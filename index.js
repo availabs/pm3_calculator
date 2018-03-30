@@ -113,7 +113,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
     },
     { concurrency: 20 }
   ).then(measures => {
-    var output = d3.csvFormat(measures);
+    var output = d3.csvFormat(measures.filter(x => x));
     // console.log(measures)
     fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(
       err
