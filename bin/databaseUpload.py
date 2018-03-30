@@ -37,14 +37,35 @@ def buildFields (fields, meta) :
     return ["{} {}".format(field, meta[field] if field in meta else 'numeric') \
             for field in fields]
 
-def init_table(connection, table_name, fields ) :
+def init_table(connection, state, year, parent, table_name ) :
     with connection.cursor() as cursor:
         sql = """
         DROP TABLE IF EXISTS {};
-        CREATE TABLE {} ({});
+        CREATE TABLE {} (check(_state_='{}' and _year_={})) INHERITS ({});
+
         """
-        statement = sql.format(table_name,table_name, ','.join(fields))
+        statement = sql.format(table_name, table_name, state, year, parent)
         print(statement)
+        cursor.execute(statement)
+    connection.commit()
+
+def init_root(connection, root, fields) :
+    with connection.cursor() as cursor:
+        sql = """
+        CREATE TABLE IF NOT EXISTS {}
+        ({}, _state_ char(2), _year_ smallint)"""
+        statement = sql.format(root, ','.join(fields))
+        print(statement)
+        cursor.execute(statement)
+    connection.commit()
+
+def init_state(connection, root, state) :
+    with connection.cursor() as cursor:
+        sql="""
+        CREATE TABLE IF NOT EXISTS {}.{} (CHECK (_state_='{}')) INHERITS ({})
+        """
+        statement = sql.format(state, root, state, root)
+        print (statement)
         cursor.execute(statement)
     connection.commit()
 
@@ -71,7 +92,11 @@ def main() :
         state,year= tuple(map(lambda x: x.lower(), os.path.basename(args.csv).split('_')[0:2]))
         table_name= '{}.pm3_{}'.format(state,year)
         connection = getConnection(ConnectionData)
-        init_table(connection, table_name, fieldSpecs)
+        root = 'pm3'
+        parent = '{}.pm3'.format(state)
+        init_root(connection, root, fieldSpecs)
+        init_state(connection, root, state)
+        init_table(connection, state, year, parent,  table_name)
         connection.close()
 
 if __name__ == '__main__':
