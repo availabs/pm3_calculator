@@ -5,7 +5,7 @@ const { env } = process;
 const Promise = require('bluebird');
 const fs = require('fs');
 
-const { split, through, stringify } = require('event-stream');
+const { split, stringify } = require('event-stream');
 const transform = require('parallel-transform');
 
 const minimist = require('minimist');
@@ -97,6 +97,7 @@ const {
 const calculateMeasuresStream = tmcAttributes => {
   return transform(
     CONCURRENCY,
+    // { ordered: false },
     // Data schema:
     // {
     //    meta: {
@@ -136,7 +137,9 @@ const calculateMeasuresStream = tmcAttributes => {
         TIME
       );
 
-      data.forEach(row => Object.assign(row, { npmrds_date: +row.date }));
+      for (let i = 0; i < data.length; ++i) {
+        data[i].npmrds_date = +data[i].date;
+      }
 
       const tmcFiveteenMinIndex = data.reduce((output, current) => {
         const reduceIndex =

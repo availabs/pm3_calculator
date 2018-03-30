@@ -17,14 +17,23 @@ GZIP=-9
 # If env var ETL_UUID not set, create uuid
 ETL_UUID="${ETL_UUID:="$(uuidgen)"}"
 
+# Rename files and directories with ETL_UUID in their name,
+#   replacing the UUID with the downloaded data's month range
+ETL_RENAME_UUID="${ETL_RENAME_UUID:=true}"
+
 # Overwrite existing files (NOT YET IMLEMENTED)
 ETL_OVERWRITE="${ETL_OVERWRITE:=true}"
 
-# Move output files to archive directory (NOT YET IMLEMENTED)
-ETL_ARCHIVE="${ETL_ARCHIVE:=true}"
+# Overwrite existing files (NOT YET IMLEMENTED)
+ETL_TRANSFORM_TO_HERE_SCHEMA="${ETL_TRANSFORM_TO_HERE_SCHEMA:=true}"
+
+# Move output files to archive directory
+#  Defaults to the flag set for ETL_RENAME_UUID
+ETL_ARCHIVE="${ETL_ARCHIVE:="$ETL_RENAME_UUID"}"
 
 # Delete intermediate files and directories
-ETL_CLEANUP="${ETL_CLEANUP:=true}"
+#  Default value is the value of ETL_ARCHIVE
+ETL_CLEANUP="${ETL_CLEANUP:="$ETL_ARCHIVE"}"
 
 # Dir of this script so we can use relative paths
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
@@ -67,7 +76,10 @@ HERE_SCHEMA_SORTED_CSV_GZ_EXTENSION="${HERE_SCHEMA_SORTED_CSV_GZ_EXTENSION:="${I
 export GZIP
 
 export STATE
+
 export ETL_UUID
+export ETL_RENAME_UUID
+export ETL_TRANSFORM_TO_HERE_SCHEMA
 export ETL_OVERWRITE
 export ETL_ARCHIVE
 export ETL_CLEANUP
