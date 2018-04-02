@@ -31,8 +31,8 @@ const toNumerics = o =>
 const {
   SPEED_FILTER = 3,
   DIR = "data/",
-  YEAR = 2017,
-  STATE = "ny",
+  YEAR = process.env.YEAR || 2017,
+  STATE = process.env.STATE || "ny",
   MEAN = "mean",
   TIME = 3 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
@@ -113,7 +113,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
     },
     { concurrency: 20 }
   ).then(measures => {
-    var output = d3.csvFormat(measures);
+    var output = d3.csvFormat(measures.filter(x => x));
     // console.log(measures)
     fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(
       err
