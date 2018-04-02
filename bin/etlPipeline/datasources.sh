@@ -1,0 +1,11 @@
+#!/bin/bash
+
+NPMRDS_DATASOURCES=
+
+declare -A NPMRDS_DATASOURCES
+
+NPMRDS_DATASOURCES['PASS']='NPMRDS (Passenger vehicles)'
+NPMRDS_DATASOURCES['TRUCK']='NPMRDS (Trucks)'
+NPMRDS_DATASOURCES['ALL']='NPMRDS (Trucks and passenger vehicles)'
+
+export NPMRDS_DATASOURCES
