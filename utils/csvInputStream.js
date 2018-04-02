@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-const { split, through } = require('event-stream');
-const { obj: pumpify } = require('pumpify');
+const { through } = require('event-stream');
 
 const csvInputStream = () => {
   let header;

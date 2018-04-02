@@ -4,6 +4,7 @@ const { through } = require('event-stream');
 
 const csvOutputStream = outputCols => {
   let sentHeader = false;
+  let line = new Array(outputCols.length);
 
   return through(
     function write(row) {
@@ -12,16 +13,14 @@ const csvOutputStream = outputCols => {
         sentHeader = true;
       }
 
-      const line = [];
-
       for (let i = 0; i < outputCols.length; ++i) {
         const d = row[outputCols[i]];
         if (d !== null && Number.isFinite(+d)) {
-          line.push(+d);
+          line[i] = d;
         } else if (d) {
-          line.push(d);
+          line[i] = d;
         } else {
-          line.push('');
+          line[i] = '';
         }
       }
 
