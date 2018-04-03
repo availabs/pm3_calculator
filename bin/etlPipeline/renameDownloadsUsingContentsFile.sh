@@ -46,13 +46,14 @@ do
   # https://stackoverflow.com/a/4594371/3970755
   datasources="$(\
     echo "$contents" |\
-    grep -Po '(NPMRDS \([A-z ]+\))' |\
+    grep -Po '\(Trucks\)|\(Passenger vehicles\)|\(Trucks and passenger vehicles\)' |\
     sort |\
-    sed 's/NPMRDS (Passenger vehicles)/PASS/; s/NPMRDS (Trucks)/TRUCK/; s/NPMRDS (Trucks and passenger vehicles)/ALL/;' |\
+    sed 's/(Trucks)/TRUCK/g; s/(Passenger vehicles)/PASS/g; s/(Trucks and passenger vehicles)/ALL/g;' |\
     tr '\n' '-'
   )"
+
   # Remove the last '-'
-  datasources="${datasources::-1}"
+  datasources="$(echo "$datasources" | sed 's/.$//')"
 
   if [[ -z "$state" ]] || [[ -z "$date_range" ]] || [[ -z "$datasources" ]]
   then
