@@ -29,7 +29,7 @@ oIFS=$IFS
 
 IFS=', ' read -r -a links <<< "$DOWNLOAD_LINKS"
 
-IFS=$oIFS
+IFS="$oIFS"
 
 for link in "${links[@]}"
 do
