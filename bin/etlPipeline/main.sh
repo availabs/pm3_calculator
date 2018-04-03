@@ -4,9 +4,9 @@ set -e
 
 DOWNLOAD_LINKS="${1:-$DOWNLOAD_LINKS}"
 
-pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
+source "$( dirname "${BASH_SOURCE[0]}" )/setDefaultVariables.sh"
 
-source ./setDefaultVariables.sh
+pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 
 if [ "$ETL_DOWNLOAD_ZIP_ARCHIVES" == true ]
 then
