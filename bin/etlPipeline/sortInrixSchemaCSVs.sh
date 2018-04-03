@@ -22,7 +22,7 @@ for f in "${ARR[@]}"
 do
   outf="${f/${INRIX_SCHEMA_CSV_EXTENSION}/${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}}"
 
-  if [ -f "$outf" ]
+  if [[ -f "$outf" ]] && [[ "$ETL_OVERWRITE" == false ]]
   then
     echo "File already exists: ${outf}. Skipping..."
     continue

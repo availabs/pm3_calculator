@@ -4,14 +4,14 @@ set -e
 
 DOWNLOAD_LINKS="${1:-$DOWNLOAD_LINKS}"
 
-source "$( dirname "${BASH_SOURCE[0]}" )/setDefaultVariables.sh"
+source "$( dirname "${BASH_SOURCE[0]}" )/setDefaultVariables.sh" ''
 
 pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 
 if [ "$ETL_DOWNLOAD_ZIP_ARCHIVES" == true ]
 then
   echo 'downloadZipArchive'
-  source ./downloadZipArchive.sh
+  source ./downloadZipArchive.sh ''
 else
   echo 'Skipping downloadZipArchive.'
 fi
@@ -19,7 +19,7 @@ fi
 if [ "$ETL_RENAME_DOWNLOADS_USING_CONTENTS_FILE" == true ]
 then
   echo 'renameDownloadsUsingContentsFile'
-  source ./renameDownloadsUsingContentsFile.sh
+  source ./renameDownloadsUsingContentsFile.sh ''
 else
   echo 'Skipping renameDownloadsUsingContentsFile.'
 fi
@@ -27,7 +27,7 @@ fi
 if [ "$ETL_VERIFY_ALL_DOWNLOADS_FOR_SAME_STATE" == true ]
 then
   echo 'verifyAllDownloadFilesForSameState'
-  source ./verifyAllDownloadFilesForSameState.sh
+  source ./verifyAllDownloadFilesForSameState.sh ''
 else
   if [[ -z "$STATE" ]]
   then
@@ -40,7 +40,7 @@ fi
 
 export STATE
 # Now that we have STATE, get more default variables
-source ./setDefaultVariables.sh
+source ./setDefaultVariables.sh ''
 
 echo 'partitionDownloadedCSVsByMonth'
 ./inrixSchemaDataStreamFromArchives.sh \
@@ -48,30 +48,30 @@ echo 'partitionDownloadedCSVsByMonth'
 ./partitionDownloadedCSVsByMonth.sh
 
 echo 'sortInrixSchemaCSVs'
-source ./sortInrixSchemaCSVs.sh
+source ./sortInrixSchemaCSVs.sh ''
 
 if [ "${ETL_TRANSFORM_TO_HERE_SCHEMA}" == true ]
 then
   echo 'transformToHERESchema'
-  source ./transformToHERESchema.sh
+  source ./transformToHERESchema.sh ''
 fi
 
 if [ "${ETL_ARCHIVE}" == true ]
 then
   echo 'mvINRIXDownloadedZIPsToArchive'
-  source ./mvINRIXDownloadedZIPsToArchive.sh
+  source ./mvINRIXDownloadedZIPsToArchive.sh ''
 
   echo 'mvINRIXSchemaCSVsToArchive'
-  source ./mvINRIXSchemaCSVsToArchive.sh
+  source ./mvINRIXSchemaCSVsToArchive.sh ''
 
   echo 'mvHERESchemaFilesToArchive'
-  source ./mvHERESchemaFilesToArchive.sh
+  source ./mvHERESchemaFilesToArchive.sh ''
 fi
 
 if [ "${ETL_CLEANUP}" == true ]
 then
   echo 'removeETLWorkDir'
-  source ./removeETLWorkDir.sh
+  source ./removeETLWorkDir.sh ''
 fi
 
 popd > /dev/null
