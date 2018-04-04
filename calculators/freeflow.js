@@ -8,7 +8,7 @@ const CalculateFreeFlow = (tmcAtts, tmcFifteenMinIndex) => {
     return acc;
   }, []);
   let freeflowTT = percentile(30, TTs);
-  console.log(tmcAtts.tmc, freeflowTT);
+  //console.log(tmcAtts.tmc, freeflowTT);
   return {
     freeflowTT
   };
