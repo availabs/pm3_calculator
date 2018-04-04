@@ -19,7 +19,6 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes (state) {
 			state_code as state
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
-    		and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');	
     `
 
 	  	//console.log(sql);	
@@ -56,7 +55,7 @@ const DownloadTMCData = function DownloadTMCData (tmc, year, state) {
 				travel_time_all_vehicles as "travelTime" 
 			from "${state}".npmrds 
 			where tmc = '${tmc}'
-			and (date >= '${year}-01-01'::date AND date < '${year+1}-01-01'::date)
+			// and (date >= '${year}-01-01'::date AND date < '${year+1}-01-01'::date)
 			`
 		//console.log(sql);
 		db_service.runQuery(sql, [], (err,data) => {
