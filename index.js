@@ -102,8 +102,10 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
 };
 
 DownloadTMCAtttributes(STATE).then(tmcs => {
-  var testTmcs = tmcs.rows //.filter((d, i) => d.tmc === "120P11204");
-    .filter((d, i) => i < 30);
+  var testTmcs = [];
+  if (process.env.FULL)
+    testTmcs = tmcs.rows; //.filter((d, i) => d.tmc === "120P11204");
+  else testTmcs = tmcs.rows.filter((d, i) => i < 30);
   TOTAL = testTmcs.length;
   bar = new ProgressBar("[:bar] :current/:total = :percent  :elapsed/:eta", {
     total: TOTAL
