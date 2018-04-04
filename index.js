@@ -20,6 +20,7 @@ let CalculatePHED = require("./calculators/phed");
 let CalculateTTR = require("./calculators/ttr");
 let CalculateATRI = require("./calculators/atri");
 let CalculatePtiTti = require("./calculators/ptitti");
+let CalculateFreeFlow = require("./calculators/freeflow");
 let bar = null;
 
 const toNumerics = o =>
@@ -84,7 +85,7 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
       );
       let ttipti = CalculatePtiTti(tmc, tmcFiveteenMinIndex, MEAN);
       bar.tick();
-
+      let freeflow = CalculateFreeFlow(tmc, tmcFiveteenMinIndex);
       resolve({
         ...tmc,
         ...ttr.lottr,
@@ -92,7 +93,8 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
         ...phed.vehicle_delay,
         ...phed.delay,
         ...atri,
-        ...ttipti
+        ...ttipti,
+        ...freeflow
       });
     });
   });
