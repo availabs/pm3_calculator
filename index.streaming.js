@@ -1,16 +1,15 @@
 #!/usr/bin/env node
 
 const { env } = process;
+const fs = require('fs');
 
-let Promise = require('bluebird');
-let fs = require('fs');
-
-const { through, stringify } = require('event-stream');
+const { split, stringify } = require('event-stream');
+const transform = require('parallel-transform');
 
 const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 
-let {
+const {
   DownloadTMCAtttributes,
   getTrafficDistribution
 } = require('./utils/data_retrieval');
@@ -19,8 +18,8 @@ const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
-let CalculatePHED = require('./calculators/phed');
-let CalculateTTR = require('./calculators/ttr');
+const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
+const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
 
 const outputCols = [
   'tmc',
@@ -84,6 +83,7 @@ const toNumerics = o =>
   }, {});
 
 const {
+  CONCURRENCY = 8,
   DIR = 'data/',
   YEAR = 2017,
   STATE = 'nj',
@@ -91,8 +91,10 @@ const {
   TIME = 3 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
-const calculateMeasuresStream = tmcAttributes => {
-  return through(
+const calculateMeasuresStream = (calculator, tmcAttributes) => {
+  return transform(
+    CONCURRENCY,
+    { ordered: false },
     // Data schema:
     // {
     //    meta: {
@@ -108,7 +110,7 @@ const calculateMeasuresStream = tmcAttributes => {
     //       },
     //       ...
     //    ]
-    function write(tmcData) {
+    async function write(tmcData, callback) {
       const { metadata: { tmc }, data } = tmcData;
 
       const attrs = tmcAttributes[tmc];
@@ -117,6 +119,14 @@ const calculateMeasuresStream = tmcAttributes => {
         return;
       }
 
+      const { congestion_level, directionality } = CalculateTrafficDistFactors({
+        attrs,
+        data
+      });
+
+      attrs.congestion_level = congestion_level || attrs.congestion_level;
+      attrs.directionality = directionality || attrs.directionality;
+
       const trafficDistribution = getTrafficDistribution(
         attrs.directionality,
         attrs.congestion_level,
@@ -124,11 +134,10 @@ const calculateMeasuresStream = tmcAttributes => {
         TIME
       );
 
-      data.forEach(row => Object.assign(row, { npmrds_date: +row.date }));
-
       const tmcFiveteenMinIndex = data.reduce((output, current) => {
         const reduceIndex =
-          current.npmrds_date + '_' + Math.floor(current.epoch / 3);
+          // current.npmrds_date + '_' + Math.floor(current.epoch / 3);
+          current.date + '_' + Math.floor(current.epoch / 3);
 
         if (!output[reduceIndex]) {
           output[reduceIndex] = { speed: [], tt: [] };
@@ -145,29 +154,13 @@ const calculateMeasuresStream = tmcAttributes => {
         return output;
       }, {});
 
-      var phed = CalculatePHED(
+      const measures = calculator(
         attrs,
-        tmcFiveteenMinIndex,
         trafficDistribution,
-        TIME,
-        MEAN
+        tmcFiveteenMinIndex
       );
 
-      var ttr = CalculateTTR(attrs, tmcFiveteenMinIndex);
-
-      const result = {
-        ...attrs,
-        ...ttr.lottr,
-        ...ttr.tttr,
-        ...phed.vehicle_delay,
-        ...phed.delay
-      };
-
-      this.emit('data', result);
-    },
-
-    function end() {
-      this.emit('end');
+      return process.nextTick(() => callback(null, measures));
     }
   );
 };
@@ -180,10 +173,20 @@ async function doIt() {
     {}
   );
 
+  // https://stackoverflow.com/a/15884508/3970755
+  process.stdout.on('error', function(err) {
+    if (err.code == 'EPIPE') {
+      process.exit(0);
+    }
+  });
+
+  const calculator = AggregateMeasureCalculator({ TIME, MEAN });
+
   process.stdin
+    .pipe(split())
     .pipe(csvInputStream())
     .pipe(tmcAggregator())
-    .pipe(calculateMeasuresStream(tmcAttributes))
+    .pipe(calculateMeasuresStream(calculator, tmcAttributes))
     .pipe(csvOutputStream(outputCols))
     .pipe(process.stdout);
 }
