@@ -41,11 +41,11 @@ do
 
   state="$(echo "$b" | cut -c1-2)"
 
-	if psql -c "\d \"${state}\".pm3" > /dev/null 2>&1; 
+  if psql -c "\d \"${state}\".pm3" > /dev/null 2>&1; 
   then
-		echo "Table already exists for $state"
+    echo "Table already exists for $state"
     continue
-	fi
+  fi
 
   # Write the contents of the gzip file on STORAGE_HOST to a local file
   ssh -n "$STORAGE_HOST" "gunzip -c '$f'" < /dev/null > "$b"
