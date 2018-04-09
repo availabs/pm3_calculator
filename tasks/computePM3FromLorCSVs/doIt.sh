@@ -14,7 +14,6 @@ do
 	if [[ "$mm" == '01' ]]
 	then
 		export STATE="$(basename "$f" | cut -c1-2)"
-		echo "$STATE"
 
 		outf="archive/${STATE}/pm3-calculations/${STATE}.2017.pm3-calculations.mean_3.csv.gz"
 		outd="$(dirname "$outf")"
@@ -26,6 +25,7 @@ do
 			continue
 		fi
 
+		echo "$STATE"
 		(ssh -n lor gunzip -c "$f") | ./index.streaming.js | gzip > "$outf"
 	fi
 done
