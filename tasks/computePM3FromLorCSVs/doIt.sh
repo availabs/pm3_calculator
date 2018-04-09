@@ -15,7 +15,18 @@ do
 	then
 		export STATE="$(basename "$f" | cut -c1-2)"
 		echo "$STATE"
-		(ssh -n lor gunzip -c "$f") | ./index.streaming.js | gzip > "data/${STATE}_2017_mean_3.csv.gz"
+
+		outf="archive/${STATE}/pm3-calculations/${STATE}.2017.pm3-calculations.mean_3.csv.gz"
+		outd="$(dirname "$outf")"
+
+		if [[ ! -d "$outd" ]]
+		then
+			mkdir -p "$outd"
+		else
+			continue
+		fi
+
+		(ssh -n lor gunzip -c "$f") | ./index.streaming.js | gzip > "$outf"
 	fi
 done
 
