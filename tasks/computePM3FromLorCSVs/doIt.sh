@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+export GZIP=-9
+
+pushd "$( dirname "${BASH_SOURCE[0]}" )/../../" > /dev/null
+
+ssh lor find /mnt/RIT.samba/BACKUPS/INRIX-NPMRDS/canonical-archive -regextype posix-extended -regex '.*[a-z]{2}\.2017\.here-schema.sorted.csv.gz' |\
+sort |\
+while read f;
+do
+	mm="$(ssh -n lor gunzip -c "$f" | head -2 | tail -1 | awk -F',' '{ print substr($2,5,2) }')"
+	if [[ "$mm" == '01' ]]
+	then
+		export STATE="$(basename "$f" | cut -c1-2)"
+		echo "$STATE"
+		(ssh -n lor gunzip -c "$f") | ./index.streaming.js | gzip > "data/${STATE}_2017_mean_3.csv.gz"
+	fi
+done
+
+popd > /dev/null
