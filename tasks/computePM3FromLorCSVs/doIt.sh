@@ -8,8 +8,9 @@ STORAGE_DIR='/mnt/RIT.samba/BACKUPS/INRIX-NPMRDS/canonical-archive'
 pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 
 LOCAL_ARCHIVE_DIR="$(readlink -m '../../archive/')"
+COMPUTER="$(readlink -m '../../index.streaming.js')"
 
-TMP_DIR=$(readlink -m './tmp')
+TMP_DIR=$(readlink -m '../../etl/tmp')
 
 export GZIP=-9
 
@@ -25,7 +26,8 @@ do
   #   Without the -p, this command fail if the dir exists.
   #   It it fails, then continue to the next state.
   #   NOTE: This is our lock for concurrent computations
-  if ! ssh "$STORAGE_HOST" mkdir "$pm3_dir"
+  # if ! ssh -n  dionysus mkdir "$(pwd)/${STATE}" > /dev/null 2>&1
+  if ! ssh -n "$STORAGE_HOST" mkdir "$pm3_dir" > /dev/null 2>&1
   then
     continue
   fi
@@ -37,7 +39,7 @@ do
   
   mkdir -p "$outd"
   
-  (ssh -n lor gunzip -c "$f") | ./index.streaming.js | gzip > "$outf"
+  (ssh -n lor gunzip -c "$f") | "$COMPUTER" | gzip > "$outf"
 done
 
 popd > /dev/null
