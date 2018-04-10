@@ -14,6 +14,12 @@ find "$ARCHIVE_DIR" -type f |\
 sort |\
 while read abs_path
 do
+	# If the file is still open, continue
+	if lsof | grep -q "$abs_path"
+	then
+		continue
+	fi
+
 	base_name="$(basename "$abs_path")"
 
 	archive_rel_path="${abs_path/${ARCHIVE_DIR}}"
