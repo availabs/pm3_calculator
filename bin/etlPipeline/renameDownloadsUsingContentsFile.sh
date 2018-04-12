@@ -27,7 +27,7 @@ state_name_regex="${state_name_regex/%\|/}"
 find "$ETL_WORK_DIR" -type f -name "*${INRIX_DOWNLOAD_ZIP_EXTENSION}" |\
 while read inf 
 do
-  contents="$(unzip -c "$inf" Contents.txt)"
+  contents="$(unzip -p "$inf" Contents.txt)"
 
   # Extract the part of the description that is '<State Name> (<Number> TMCs)'
   # Remove ' (<Number> TMCs)'
