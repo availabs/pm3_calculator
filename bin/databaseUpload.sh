@@ -1,27 +1,37 @@
-pass=katana01wolverine
-user=npmrds_ninja
-db=npmrds_test
-host=ares.availabs.org
+#!/bin/bash
 
-FIELDS=$(head -n 1 ${1})
-FILENAME=$(basename $1)
+set -e
+set -a
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+pushd "$DIR" > /dev/null
+
+source ../config/postgres.env
+
+FIELDS=$(head -n 1 "$1")
+FILENAME=$(basename "$1")
 STATE=${FILENAME%%_*}
 NOSTATE=${FILENAME#*_}
 YEAR=${NOSTATE%%_*}
-echo $FILENAME
-COPY="\copy ${STATE}.pm3_${YEAR} (${FIELDS})  from '${1}' DELIMITER ',' CSV HEADER"
-echo $COPY
-python ./databaseUpload.py --csv=$1 --meta=$2
+
+ALTER_SQL="
+  ALTER TABLE \"${STATE}\".pm3_${YEAR}
+    ALTER COLUMN _year_ SET DEFAULT ${YEAR},
+    ALTER COLUMN _state_ SET DEFAULT '${STATE}';
+
+  CREATE INDEX ${STATE}_pm3_${YEAR}_index ON \"${STATE}\".pm3_${YEAR} (tmc);
+"
+
+COPY_SQL="\copy \"${STATE}\".pm3_${YEAR} (${FIELDS}) FROM '${1}' DELIMITER ',' CSV HEADER"
+
+echo "$FILENAME"
+# echo $COPY_SQL
+
+python -W ignore ./databaseUpload.py --csv="$1" --meta="$2"
 
 # Assume the schema exists for a state
-$(PGPASSWORD=${pass} psql -qxtA -U"${user}" \
-            -h"${host}" \
-            -d"${db}" \
-            -c "ALTER TABLE ${STATE}.pm3_${YEAR} \
-             ALTER COLUMN _year_ SET DEFAULT ${YEAR}, ALTER COLUMN _state_ SET DEFAULT '${STATE}';
-             CREATE INDEX ${STATE}_pm3_${YEAR}_index ON ${STATE}.pm3_${YEAR} (tmc)")
+psql -qxtA -c "$ALTER_SQL"
+psql -qxtA -c "$COPY_SQL"
 
-$(PGPASSWORD=${pass} psql -qxtA -U"${user}" \
-            -h"${host}" \
-            -d"${db}" \
-            -c "${COPY}")
+popd > /dev/null

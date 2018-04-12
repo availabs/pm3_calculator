@@ -2,25 +2,22 @@
 
 const { env } = process;
 
-let Promise = require("bluebird");
-let ProgressBar = require("progress");
-let fs = require("fs");
-let d3 = require("d3-dsv");
+let Promise = require('bluebird');
+let ProgressBar = require('progress');
+let fs = require('fs');
+let d3 = require('d3-dsv');
 
-const minimist = require("minimist");
+const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 
 let {
   DownloadTMCData,
   DownloadTMCAtttributes,
   getTrafficDistribution
-} = require("./utils/data_retrieval");
+} = require('./utils/data_retrieval');
 
-let CalculatePHED = require("./calculators/phed");
-let CalculateTTR = require("./calculators/ttr");
-let CalculateATRI = require("./calculators/atri");
-let CalculatePtiTti = require("./calculators/ptitti");
-let CalculateFreeFlow = require("./calculators/freeflow");
+const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
+
 let bar = null;
 
 const toNumerics = o =>
@@ -31,15 +28,18 @@ const toNumerics = o =>
 
 const {
   SPEED_FILTER = 3,
-  DIR = "data/",
+  DIR = 'data/',
   YEAR = process.env.YEAR || 2017,
-  STATE = process.env.STATE || "ny",
-  MEAN = "mean",
+  STATE = process.env.STATE || 'ny',
+  MEAN = 'mean',
   TIME = 12 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
-const CalculateMeasures = function CalculateMeasures(tmc, year) {
-  console.time("Calculation");
+function CalculateMeasures(tmc, year) {
+  console.time('Calculation');
+
+  const { calculator } = this;
+
   var trafficDistribution = getTrafficDistribution(
     tmc.directionality,
     tmc.congestion_level,
@@ -48,13 +48,14 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
     'cattlab'
   );
   var dirFactor = +tmc.faciltype > 1 ? 2 : 1;
+
   tmc.directional_aadt = tmc.aadt / dirFactor;
+
   return DownloadTMCData(tmc.tmc, year, STATE).then(tmcData => {
     return new Promise(function(resolve, reject) {
-      //console.log('get db data?', tmcData.rows)
       var tmcFiveteenMinIndex = tmcData.rows.reduce((output, current) => {
         var reduceIndex =
-          current.npmrds_date + "_" + Math.floor(current.epoch / 3);
+          current.npmrds_date + '_' + Math.floor(current.epoch / 3);
         let speed = +tmc.length / (current.travelTime / 3600);
         if (SPEED_FILTER && speed > SPEED_FILTER) {
           if (!output[reduceIndex]) {
@@ -65,56 +66,47 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
         }
         return output;
       }, {});
+
       if (Object.keys(tmcFiveteenMinIndex).length < 1) {
         resolve(null);
         return;
       }
-      var phed = CalculatePHED(
+
+      const measures = calculator(
         tmc,
-        tmcFiveteenMinIndex,
         trafficDistribution,
-        TIME,
-        MEAN
+        tmcFiveteenMinIndex
       );
-      var ttr = CalculateTTR(tmc, tmcFiveteenMinIndex, MEAN);
-      let atri = CalculateATRI(
-        tmc,
-        tmcFiveteenMinIndex,
-        trafficDistribution,
-        TIME,
-        MEAN
-      );
-      let ttipti = CalculatePtiTti(tmc, tmcFiveteenMinIndex, MEAN);
+
       bar.tick();
-      let freeflow = CalculateFreeFlow(tmc, tmcFiveteenMinIndex);
-      resolve({
-        ...tmc,
-        ...ttr.lottr,
-        ...ttr.tttr,
-        ...phed.vehicle_delay,
-        ...phed.delay,
-        ...atri,
-        ...ttipti,
-        ...freeflow
-      });
+
+      resolve(measures);
     });
   });
-  //return trafficDistribution
-};
+}
 
 DownloadTMCAtttributes(STATE).then(tmcs => {
   var testTmcs = [];
-  if (process.env.FULL)
+
+  if (process.env.FULL) {
     testTmcs = tmcs.rows; //.filter((d, i) => d.tmc === "120P11204");
-  else testTmcs = tmcs.rows.filter((d, i) => i < 30);
+  } else {
+    testTmcs = tmcs.rows.filter((d, i) => i < 30);
+  }
+
   TOTAL = testTmcs.length;
-  bar = new ProgressBar("[:bar] :current/:total = :percent  :elapsed/:eta", {
+
+  bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', {
     total: TOTAL
   });
+
+  const calculator = AggregateMeasureCalculator({ TIME, MEAN });
+  const calculateMeasures = CalculateMeasures.bind({ calculator });
+
   return Promise.map(
     testTmcs,
     tmc => {
-      return CalculateMeasures(tmc, YEAR);
+      return calculateMeasures(tmc, YEAR);
     },
     { concurrency: 20 }
   ).then(measures => {
@@ -126,7 +118,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
       if (err) {
         return console.log(err);
       }
-      console.log("The file was saved!");
+      console.log('The file was saved!');
       return;
     });
     return;

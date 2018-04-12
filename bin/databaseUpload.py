@@ -1,4 +1,5 @@
-# /usr/bin/python
+#!/usr/bin/env python
+
 import psycopg2, time, json, os, argparse
 from connection_data import ConnectionData
 
@@ -40,11 +41,12 @@ def buildFields (fields, meta) :
 def init_table(connection, state, year, parent, table_name ) :
     with connection.cursor() as cursor:
         sql = """
+        CREATE SCHEMA IF NOT EXISTS "{}";
         DROP TABLE IF EXISTS {};
         CREATE TABLE {} (check(_state_='{}' and _year_={})) INHERITS ({});
 
         """
-        statement = sql.format(table_name, table_name, state, year, parent)
+        statement = sql.format(state, table_name, table_name, state, year, parent)
         print(statement)
         cursor.execute(statement)
     connection.commit()
@@ -62,9 +64,10 @@ def init_root(connection, root, fields) :
 def init_state(connection, root, state) :
     with connection.cursor() as cursor:
         sql="""
-        CREATE TABLE IF NOT EXISTS {}.{} (CHECK (_state_='{}')) INHERITS ({})
+        CREATE SCHEMA IF NOT EXISTS "{}";
+        CREATE TABLE IF NOT EXISTS "{}".{} (CHECK (_state_='{}')) INHERITS ({})
         """
-        statement = sql.format(state, root, state, root)
+        statement = sql.format(state, state, root, state, root)
         print (statement)
         cursor.execute(statement)
     connection.commit()
@@ -90,10 +93,10 @@ def main() :
     fieldSpecs = buildFields(fields,meta)
     if len(fieldSpecs) > 0:
         state,year= tuple(map(lambda x: x.lower(), os.path.basename(args.csv).split('_')[0:2]))
-        table_name= '{}.pm3_{}'.format(state,year)
+        table_name= '"{}".pm3_{}'.format(state,year)
         connection = getConnection(ConnectionData)
         root = 'pm3'
-        parent = '{}.pm3'.format(state)
+        parent = '"{}".pm3'.format(state)
         init_root(connection, root, fieldSpecs)
         init_state(connection, root, state)
         init_table(connection, state, year, parent,  table_name)
