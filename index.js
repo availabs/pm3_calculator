@@ -35,7 +35,7 @@ const {
   YEAR = process.env.YEAR || 2017,
   STATE = process.env.STATE || "ny",
   MEAN = "mean",
-  TIME = 3 //number of epochs to group
+  TIME = 12 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
 const CalculateMeasures = function CalculateMeasures(tmc, year) {
@@ -44,7 +44,8 @@ const CalculateMeasures = function CalculateMeasures(tmc, year) {
     tmc.directionality,
     tmc.congestion_level,
     tmc.is_controlled_access,
-    TIME
+    TIME,
+    'cattlab'
   );
   var dirFactor = +tmc.faciltype > 1 ? 2 : 1;
   tmc.directional_aadt = tmc.aadt / dirFactor;

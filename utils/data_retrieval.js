@@ -6,6 +6,7 @@ let db_service = require("./db_service");
 let db_service_here = require("./db_service_here");
 
 let traffic_distrubtions = require("./traffic_distribution");
+let traffic_distrubtions_cattlab = require("./traffic_distribution_cattlab");
 
 const RITIS_DATASOURCES = require("./RITIS_DATASOURCES");
 
@@ -171,7 +172,8 @@ const getTrafficDistribution = function getTrafficDistribution(
   directionality,
   congestion_level,
   is_controlled_access,
-  group = 3
+  group = 3,
+  type = 'avail'
 ) {
   //get the distro key for the distro
   let distroKey =
@@ -189,6 +191,22 @@ const getTrafficDistribution = function getTrafficDistribution(
   //reduce from epoch level to disagg level
   // 3 = 15 minutes (3 epochs)
   // 12 = 1 hour (12 epochs)
+
+  if(type === 'cattlab'){
+    return traffic_distrubtions_cattlab[distroKey].reduce(
+       (output, current, current_index) => {
+
+          if(!output[current_index]) {
+            output[current_index] = 0
+          }
+
+          output[current_index] += current
+          
+          return output
+
+       },[])
+  }
+
   return traffic_distrubtions[distroKey].reduce(
     (output, current, current_index) => {
       var reduceIndex = Math.floor(current_index / group);
