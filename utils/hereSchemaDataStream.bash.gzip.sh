@@ -20,7 +20,7 @@ pushd "$DATA_DIR" > /dev/null
 ARR=(`find "${DATA_DIR}" -regex ".*${YEAR}[0-1][0-9].here-schema.sorted.csv.gz" | sort`)
  
 zcat "${ARR[1]}" | head -1;
-for f in "${ARR[@]}"; do zcat "$f" | tail -n+2; done | LC_ALL=C sort
+for f in "${ARR[@]}"; do zcat "$f" | tail -n+2; done | LC_ALL=C sort -t , -k1,2 -k3n
 
 popd > /dev/null
 
