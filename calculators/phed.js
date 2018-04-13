@@ -64,7 +64,7 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     
     var dailyAADT = DirectionalAADT
     var TrafficVolume = distroArray.map(d => {
-        return ((d / 100) * dailyAADT) * dayVolume[dateTime.getDay()]
+        return ((d) * dailyAADT) * dayVolume[dateTime.getDay()]
     })
     
     var fifteenMinuteVolumes = time === 12
