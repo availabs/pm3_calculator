@@ -10,6 +10,11 @@ const getTrafficDistributionFactors = ({
     pmPeakAvgTT,
     freeFlowAvgTT
   } = computeTrafficDistFactors(data);
+  console.log('does this happen', combinedPeakAvgTT,
+    amPeakAvgTT,
+    pmPeakAvgTT,
+    freeFlowAvgTT
+  )
 
   const speedReductionFactor = freeFlowAvgTT / combinedPeakAvgTT;
 

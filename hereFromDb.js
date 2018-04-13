@@ -33,11 +33,11 @@ const toNumerics = (o) => Object.keys(o).reduce(
 )
 
 const {
-  DIR = 'data/here_one/',
+  DIR = 'data/here/',
   YEAR = 2014,
   STATE = 'ny',
   MEAN = 'mean',
-  TIME = 3, //number of epochs to group
+  TIME = 12, //number of epochs to group
   SPEED_FILTER = 3
 } = toNumerics(Object.assign({}, env, argv))
 
@@ -46,7 +46,8 @@ const CalculateMeasures = function CalculateMeasures (tmc, year) {
 		tmc.directionality,
 		tmc.congestion_level,
 		tmc.is_controlled_access,
-		TIME
+		TIME,
+		'cattlab'
 	)
 	var dirFactor = +tmc.faciltype > 1 ? 2 : 1 
   	tmc.directional_aadt = tmc.aadt / dirFactor
