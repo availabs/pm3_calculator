@@ -17,8 +17,9 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     .map( (val, index) => {
       return {hour: index, count: val}
     })
-  //console.log(distroData)
-  var TestVolume = distroArray.map(d => {return (d / 100) * DirectionalAADT})
+  //console.log('distro data', distroArray.reduce((a,b) => a + b ))
+  var TestVolume = distroArray.map(d => {return (d) * DirectionalAADT})
+  //console.log('TestVolume', TestVolume.reduce((a,b) => a + b ), DirectionalAADT)
   
   //tmcAttributes.avg_speedlimit = 45 // this is supid 
   var ThresholdSpeed = +tmcAttributes.avg_speedlimit * 0.6 > 20 
@@ -69,7 +70,9 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
     var fifteenMinuteVolumes = time === 12
       ? precisionRound((+TrafficVolume[parseInt(hour)] / 4),1)
       : precisionRound(+TrafficVolume[epoch],1)
-    // console.log(fifteenMinuteVolumes)
+    
+    // console.log('Traffic Volume', TrafficVolume)
+    // console.log('fifteen Minute Volumes', fifteenMinuteVolumes)
     var hmean_vehicle_delay = ((hmean_delay * fifteenMinuteVolumes))
     var mean_vehicle_delay = ((mean_delay * fifteenMinuteVolumes))
     hmean_vehicle_delay = precisionRound(hmean_vehicle_delay, 3)
