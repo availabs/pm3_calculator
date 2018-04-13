@@ -34,7 +34,7 @@ const toNumerics = (o) => Object.keys(o).reduce(
 
 const {
   DIR = 'data/here_one/',
-  YEAR = 2016,
+  YEAR = 2014,
   STATE = 'ny',
   MEAN = 'mean',
   TIME = 3, //number of epochs to group
@@ -114,7 +114,7 @@ DownloadTMCAtttributes(STATE)
 				bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', { total: TOTAL });
 				return Promise.map(HereTmcs, (tmc) => {
 					return CalculateMeasures(tmc, YEAR)
-				},{concurrency: 10})
+				},{concurrency: 20})
 				.then(measures => {
 					var output = d3.csvFormat(measures)
 					// console.log(measures)
