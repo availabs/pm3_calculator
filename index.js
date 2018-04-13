@@ -113,7 +113,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
     tmc => {
       return calculateMeasures(tmc, YEAR);
     },
-    { concurrency: 20 }
+    { concurrency: 30 }
   ).then(measures => {
     var output = d3.csvFormat(measures.filter(x => x));
     // console.log(measures)
