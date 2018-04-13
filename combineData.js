@@ -16,8 +16,8 @@ const files = [
 const files_two = [
 	'ny_2017_mean_12.csv',
 	'nj_2017_mean_12.csv',
-	'ny_2018_mean_12.csv',
-	'nj_2018_mean_12.csv'
+	// 'ny_2018_mean_12.csv',
+	// 'nj_2018_mean_12.csv'
 
 ]
 

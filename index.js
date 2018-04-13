@@ -95,7 +95,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
       .filter((d,i) => i >= process.env.START && i < process.env.END)
   } else {
     testTmcs = tmcs.rows
-      //.filter((d, i) => d.tmc === "120N05397")
+      .filter((d, i) => d.tmc === "120N05397")
       .filter((d, i) => i < 30)
   }
 
