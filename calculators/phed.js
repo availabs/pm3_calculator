@@ -146,6 +146,8 @@ const calculatePHED = function calculatePHED (tmcAttributes, tmcFiveteenMinIndex
   },0), 3)
   delay[`d_total`] = delay_total
 
+  console.log(delay, vehicle_delay)
+
   return {
     delay,
     vehicle_delay

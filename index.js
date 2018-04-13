@@ -91,7 +91,9 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
   if (process.env.FULL) {
     testTmcs = tmcs.rows; //.filter((d, i) => d.tmc === "120P11204");
   } else {
-    testTmcs = tmcs.rows.filter((d, i) => i < 30);
+    testTmcs = tmcs.rows
+      .filter((d, i) => d.tmc === "120N05397")
+      .filter((d, i) => i < 30)
   }
 
   TOTAL = testTmcs.length;
