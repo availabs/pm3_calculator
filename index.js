@@ -36,7 +36,7 @@ const {
 } = toNumerics(Object.assign({}, env, argv));
 
 function CalculateMeasures(tmc, year) {
-  console.time('Calculation');
+  
 
   const { calculator } = this;
 
@@ -90,9 +90,12 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
 
   if (process.env.FULL) {
     testTmcs = tmcs.rows; //.filter((d, i) => d.tmc === "120P11204");
+  } else if (process.env.START && process.env.END){
+    testTmcs = tmcs.rows
+      .filter((d,i) => i >= process.env.START && i < process.env.END)
   } else {
     testTmcs = tmcs.rows
-      .filter((d, i) => d.tmc === "120N05397")
+      //.filter((d, i) => d.tmc === "120N05397")
       .filter((d, i) => i < 30)
   }
 
@@ -114,7 +117,10 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
   ).then(measures => {
     var output = d3.csvFormat(measures.filter(x => x));
     // console.log(measures)
-    fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`, output, function(
+    let startEnd = process.env.START 
+      ? `_${process.env.START}_${process.env.END}`
+      : ''
+    fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}${startEnd}.csv`, output, function(
       err
     ) {
       if (err) {
