@@ -84,11 +84,12 @@ const toNumerics = o =>
 
 const {
   CONCURRENCY = 8,
+  SPEED_FILTER = 3,
   DIR = 'data/',
-  YEAR = 2017,
-  STATE = 'nj',
+  YEAR = process.env.YEAR || 2017,
+  STATE = process.env.STATE || 'ny',
   MEAN = 'mean',
-  TIME = 3 //number of epochs to group
+  TIME = 12 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
 const calculateMeasuresStream = (calculator, tmcAttributes) => {
@@ -127,11 +128,12 @@ const calculateMeasuresStream = (calculator, tmcAttributes) => {
       attrs.congestion_level = congestion_level || attrs.congestion_level;
       attrs.directionality = directionality || attrs.directionality;
 
-      const trafficDistribution = getTrafficDistribution(
-        attrs.directionality,
-        attrs.congestion_level,
-        attrs.is_controlled_access,
-        TIME
+      var trafficDistribution = getTrafficDistribution(
+        tmc.directionality,
+        tmc.congestion_level,
+        tmc.is_controlled_access,
+        TIME,
+        'cattlab'
       );
 
       const tmcFiveteenMinIndex = data.reduce((output, current) => {
