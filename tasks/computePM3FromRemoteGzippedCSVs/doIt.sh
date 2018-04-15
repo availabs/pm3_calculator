@@ -10,15 +10,14 @@ pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 LOCAL_ARCHIVE_DIR="$(readlink -m '../../archive/')"
 COMPUTER="$(readlink -m '../../index.streaming.js')"
 
-TMP_DIR=$(readlink -m '../../etl/tmp')
-
 export GZIP=-9
 
 ssh "$STORAGE_HOST" find "$STORAGE_DIR" -regextype posix-extended -regex '.*[a-z]{2}\.2017\.here-schema.sorted.csv.gz' |\
 sort |\
 while read f;
 do
-  export STATE="$(basename "$f" | cut -c1-2)"
+  STATE="$(basename "$f" | cut -c1-2)"
+  export STATE
   
   pm3_dir="${STORAGE_DIR}/${STATE}/pm3-calculations"
 
@@ -34,12 +33,13 @@ do
 
   echo "$STATE"
 
-  outf="${LOCAL_ARCHIVE_DIR}/${STATE}/pm3-calculations/${STATE}.2017.pm3-calculations.mean_3.csv.gz"
+  outf="${LOCAL_ARCHIVE_DIR}/${STATE}/pm3-calculations/${STATE}.2017.pm3-calculations.mean_12.csv.gz"
   outd="$(dirname "$outf")"
   
   mkdir -p "$outd"
   
-  (ssh -n lor gunzip -c "$f") | "$COMPUTER" | gzip > "$outf"
+  # (ssh -n "$STORAGE_HOST" gunzip -c "$f") | "$COMPUTER" | gzip > "$outf"
+  scp "$STORAGE_HOST" "$f" '/dev/stdout' | "$COMPUTER" | gzip > "$outf"
 done
 
 popd > /dev/null
