@@ -2,6 +2,7 @@
 
 const { env } = process;
 const fs = require('fs');
+const { join } = require('path')
 
 const { split, stringify } = require('event-stream');
 const transform = require('parallel-transform');
@@ -21,7 +22,7 @@ const csvOutputStream = require('./utils/csvOutputStream');
 const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
 const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
 
-const outputCols = require('./utils/pm3OutputCols.json');
+const outputCols = require(join(__dirname, './utils/pm3OutputCols.json'));
 
 const toNumerics = o =>
   Object.keys(o).reduce((acc, k) => {

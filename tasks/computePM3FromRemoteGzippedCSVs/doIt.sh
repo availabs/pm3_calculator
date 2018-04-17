@@ -39,7 +39,7 @@ do
   mkdir -p "$outd"
   
   # (ssh -n "$STORAGE_HOST" gunzip -c "$f") | "$COMPUTER" | gzip > "$outf"
-  scp "$STORAGE_HOST" "$f" '/dev/stdout' | "$COMPUTER" | gzip > "$outf"
+  ssh -n "$STORAGE_HOST" "cat $f" | gunzip -c | "$COMPUTER" | gzip > "$outf"
 done
 
 popd > /dev/null
