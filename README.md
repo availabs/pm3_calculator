@@ -1,32 +1,10 @@
-### Preprocessing the INRIX CSVs
+# Database credentials
 
-1. sort the data by (tmc, timestamp, datasource)
+* The single source of truth for db credentials should be `config/postgres.env`.
+* The python script `utils/connection_data.py` now
+  parses this file and exports a Psycopg config object.
+* To switch between local development and production databases,
+  it is helpful to use a softlink named `config/postgres.env` that points
+  to either a `postgres.env.local` or a `postgres.env.prod`
 
-```
-./utils/sortINRIXDataCSV.sh data/test.csv data/test.sorted.csv
-```
 
-2. convert to HERE schema
-
-```
-./index.preprocess.js < data/test.here-schema.sorted.csv
-
-```
-
-### index.streaming.js usage
-
-```
-./index.streaming.js < data/test.here-schema.sorted.csv > out.csv
-```
-
-To monitor rate:
-
-```
-date +'%H:%M:%S' && ./index.streaming.js < data/test.here-schema.sorted.csv > out.csv
-```
-
-then
-
-```
-watch 'wc -l out.csv'
-```

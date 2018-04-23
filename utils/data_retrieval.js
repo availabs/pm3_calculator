@@ -109,6 +109,7 @@ const DownloadTMCPM3 = function DownloadTMCPM3(state) {
   })
 }
 
+
 const inrixToAVAIL = d => {
   if (!d) {
     return d;
@@ -215,6 +216,7 @@ const getTrafficDistribution = function getTrafficDistribution(
   //reduce from epoch level to disagg level
   // 3 = 15 minutes (3 epochs)
   // 12 = 1 hour (12 epochs)
+<<<<<<< HEAD
 
   if(type === 'cattlab'){
     return traffic_distrubtions_cattlab[distroKey].reduce(
@@ -224,6 +226,17 @@ const getTrafficDistribution = function getTrafficDistribution(
             output[current_index] = 0
           }
 
+=======
+
+  if(type === 'cattlab'){
+    return traffic_distrubtions_cattlab[distroKey].reduce(
+       (output, current, current_index) => {
+
+          if(!output[current_index]) {
+            output[current_index] = 0
+          }
+
+>>>>>>> 47e71a2316e009d297c7e97c7a5384c6b673aa23
           output[current_index] += current
           
           return output
@@ -251,6 +264,10 @@ module.exports = {
   DownloadTMCAtttributes,
   ExtractTMCDataFromCSV,
   getTrafficDistribution,
+<<<<<<< HEAD
   DownloadHereToInrixMap,
   DownloadTMCPM3
+=======
+  DownloadHereToInrixMap
+>>>>>>> 47e71a2316e009d297c7e97c7a5384c6b673aa23
 };
