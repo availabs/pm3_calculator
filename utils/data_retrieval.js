@@ -98,7 +98,7 @@ const DownloadTMCPM3 = function DownloadTMCPM3(state) {
        d_1, d_2, d_3, d_4, d_5, d_6, d_7, d_8, d_9, d_10, d_11, d_12, 
        d_total, atri_1, atri_2, atri_3, atri_4, atri_5, atri_6, atri_7, 
        _state_, _year_ as year, freeflowtt
-      FROM ${state}.pm3
+      FROM "${state}".pm3
       order by _year_ desc
     `
 
