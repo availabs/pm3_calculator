@@ -36,7 +36,7 @@ COPY_SQL="\copy \"${STATE}\".${TABLE_NAME}_${YEAR} (${FIELDS}) FROM '${CSV_PATH}
 echo "$FILENAME"
 # echo $COPY_SQL
 
-python -W ignore ./databaseUpload.py --csv="$CSV_PATH" --meta="$2"
+python -W ignore ./databaseUpload.2.py --csv="$CSV_PATH" --meta="$2"
 
 # Assume the schema exists for a state
 psql -qxtA -c "$ALTER_SQL"
