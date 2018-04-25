@@ -7,7 +7,7 @@ export INDEX_COLS=geo
 
 pushd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null
 
-CSV_DIR="${1:-'../../data/states'}"
+CSV_DIR="${1:-../../data/states}"
 
 if !  CSV_DIR="$(readlink -e "$CSV_DIR")"
 then

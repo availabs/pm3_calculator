@@ -79,8 +79,7 @@ function processGeography(STATE, YEAR, DIR, data) {
 								out[`pd_${i}`] += isNaN(+d[`vd_${month}`]) ? 0 : +d[`vd_${month}`] * avo
 								
 							})
-							let road_type = d.is_interstate === 'true' || d.is_interstate === 't'
-								? 'interstate' : 'noninterstate'
+							let road_type = d.is_interstate ? 'interstate' : 'noninterstate'
 							
 							let lottrKeys = ['lottr_am', 'lottr_off', 'lottr_pm','lottr_weekend']
 							lottrKeys.forEach(k => {
@@ -101,7 +100,7 @@ function processGeography(STATE, YEAR, DIR, data) {
 							if (lottr < 1.5 ) {
 								out[`lottr_${road_type}_miles_passing`] += +d.length
 							}
-							if (d.is_interstate === 'true' && d.length &&  !isNaN(+d.length)) {
+							if (d.is_interstate && d.length &&  !isNaN(+d.length)) {
 								if(isNaN(tttr) || tttr === Infinity){
 									tttr = 1
 								}
