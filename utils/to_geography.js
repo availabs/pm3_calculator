@@ -23,6 +23,8 @@ function toGeography(DIR, fileName) {
 
 function processGeography(STATE, YEAR, DIR, data) {
 	return new Promise(function (resolve, reject) {
+		const [ { state: state_code } ] = data
+
 		const GEO_TYPES = ['county','mpo','ua']
 		const MONTHS = ['total',1,2,3,4,5,6,7,8,9,10,11,12]
 
@@ -112,6 +114,7 @@ function processGeography(STATE, YEAR, DIR, data) {
 						geo: current_geo,
 					 	type: geo_type,
 					 	state: STATE,
+						state_code,
 					 	interstate_tmcs: 0,
 					 	noninterstate_tmcs: 0,
 					 	interstate_mileage: 0,
