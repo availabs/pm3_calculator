@@ -21,7 +21,7 @@ const CalculateTTR = function CalculateLottr(tmc, tmcFiveteenMinIndex,mean='mean
     	var len = tmcFiveteenMinIndex[key].tt.length
     	var hmean = hsum_tt
     	var mean = sum_tt
-    	//mean = sum_tt / len
+    	mean = sum_tt / len
     
       return {
         dateTime,
