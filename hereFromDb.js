@@ -32,14 +32,15 @@ const toNumerics = (o) => Object.keys(o).reduce(
   {}
 )
 
+
 const {
-  DIR = 'data/here/',
-  YEAR = 2014,
-  STATE = 'ny',
+  SPEED_FILTER = 3,
+  DIR = 'data/',
+  YEAR = process.env.YEAR || 2016,
+  STATE = process.env.STATE || 'ny',
   MEAN = 'mean',
-  TIME = 12, //number of epochs to group
-  SPEED_FILTER = 3
-} = toNumerics(Object.assign({}, env, argv))
+  TIME = 12 //number of epochs to group
+} = toNumerics(Object.assign({}, env, argv));
 
 const CalculateMeasures = function CalculateMeasures (tmc, year) {
 	var trafficDistribution = getTrafficDistribution(
