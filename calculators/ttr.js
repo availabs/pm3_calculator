@@ -44,9 +44,9 @@ const CalculateTTR = function CalculateLottr(
     return +a - +b;
   }
   const lottr = scores =>
-    precisionRound(d3.quantile(scores, 0.8) / d3.quantile(scores, 0.5));
+    precisionRound(d3.quantile(scores, 0.8) / d3.quantile(scores, 0.5), 2);
   const tttr = scores =>
-    precisionRound(d3.quantile(scores, 0.95), d3.quantile(scores, 0.5));
+    precisionRound(d3.quantile(scores, 0.95) / d3.quantile(scores, 0.5), 2);
 
   let measures = monthvals.reduce((acc, m) => {
     let month_clause =
