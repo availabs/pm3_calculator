@@ -20,7 +20,7 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes(state) {
 			state_code as state
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
-        and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');
+                        -- and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');
     `;
     // and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');`
     //console.log(sql);
