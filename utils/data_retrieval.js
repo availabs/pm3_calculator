@@ -86,6 +86,30 @@ const DownloadTMCDataHERE = function DownloadTMCData(tmc, year, state) {
   });
 };
 
+const DownloadTMCPM3 = function DownloadTMCPM3(state) {
+  return new Promise((resolve,reject) => {
+    const sql = `
+      SELECT tmc, faciltype, aadt, length, avg_speedlimit, congestion_level, 
+       avg_vehicle_occupancy, nhs, nhs_pct, is_interstate, 
+       is_controlled_access, mpo, ua, county, state,lottr_am, lottr_off, lottr_pm, 
+       lottr_weekend, tttr_am, tttr_off, 
+       tttr_pm, tttr_overnight, tttr_weekend, vd_1, vd_2, vd_3, vd_4, 
+       vd_5, vd_6, vd_7, vd_8, vd_9, vd_10, vd_11, vd_12, vd_total, 
+       d_1, d_2, d_3, d_4, d_5, d_6, d_7, d_8, d_9, d_10, d_11, d_12, 
+       d_total, atri_1, atri_2, atri_3, atri_4, atri_5, atri_6, atri_7, 
+       _state_, _year_ as year, freeflowtt
+      FROM "${state}".pm3
+      order by _year_ desc
+    `
+
+    db_service.runQuery(sql, [], (err, data) => {
+      if (err) reject(err);
+      resolve(data);
+    });
+  })
+}
+
+
 const inrixToAVAIL = d => {
   if (!d) {
     return d;
@@ -193,6 +217,7 @@ const getTrafficDistribution = function getTrafficDistribution(
   // 3 = 15 minutes (3 epochs)
   // 12 = 1 hour (12 epochs)
 
+
   if(type === 'cattlab'){
     return traffic_distrubtions_cattlab[distroKey].reduce(
        (output, current, current_index) => {
@@ -200,6 +225,7 @@ const getTrafficDistribution = function getTrafficDistribution(
           if(!output[current_index]) {
             output[current_index] = 0
           }
+
 
           output[current_index] += current
           
@@ -228,5 +254,7 @@ module.exports = {
   DownloadTMCAtttributes,
   ExtractTMCDataFromCSV,
   getTrafficDistribution,
+  DownloadHereToInrixMap,
+  DownloadTMCPM3,
   DownloadHereToInrixMap
 };

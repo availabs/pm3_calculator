@@ -1,80 +1,29 @@
 #!/usr/bin/env node
 
 const { env } = process;
-const fs = require('fs');
+const fs = require("fs");
 
-const { split, stringify } = require('event-stream');
-const transform = require('parallel-transform');
+const { join } = require("path");
 
-const minimist = require('minimist');
+const { split, stringify } = require("event-stream");
+const transform = require("parallel-transform");
+
+const minimist = require("minimist");
 const argv = minimist(process.argv.slice(2));
 
 const {
   DownloadTMCAtttributes,
   getTrafficDistribution
-} = require('./utils/data_retrieval');
+} = require("./utils/data_retrieval");
 
-const csvInputStream = require('./utils/csvInputStream');
-const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
-const csvOutputStream = require('./utils/csvOutputStream');
+const csvInputStream = require("./utils/csvInputStream");
+const tmcAggregator = require("./utils/inrixCSVParserStream/tmcAggregator");
+const csvOutputStream = require("./utils/csvOutputStream");
 
-const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
-const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
+const CalculateTrafficDistFactors = require("./calculators/trafficDistributionFactors");
+const AggregateMeasureCalculator = require("./calculators/aggregatorMeasureCalculator");
 
-const outputCols = [
-  'tmc',
-  'faciltype',
-  'aadt',
-  'length',
-  'avg_speedlimit',
-  'congestion_level',
-  'directionality',
-  'avg_vehicle_occupancy',
-  'nhs',
-  'nhs_pct',
-  'is_interstate',
-  'is_controlled_access',
-  'mpo',
-  'ua',
-  'county',
-  'state',
-  'directional_aadt',
-  'lottr_am',
-  'lottr_off',
-  'lottr_pm',
-  'lottr_weekend',
-  'tttr_am',
-  'tttr_off',
-  'tttr_pm',
-  'tttr_overnight',
-  'tttr_weekend',
-  'vd_1',
-  'vd_2',
-  'vd_3',
-  'vd_4',
-  'vd_5',
-  'vd_6',
-  'vd_7',
-  'vd_8',
-  'vd_9',
-  'vd_10',
-  'vd_11',
-  'vd_12',
-  'vd_total',
-  'd_1',
-  'd_2',
-  'd_3',
-  'd_4',
-  'd_5',
-  'd_6',
-  'd_7',
-  'd_8',
-  'd_9',
-  'd_10',
-  'd_11',
-  'd_12',
-  'd_total'
-];
+const outputCols = require(join(__dirname, "./utils/pm3OutputCols.json"));
 
 const toNumerics = o =>
   Object.keys(o).reduce((acc, k) => {
@@ -84,11 +33,11 @@ const toNumerics = o =>
 
 const {
   CONCURRENCY = 8,
-  SPEED_FILTER = 3,
-  DIR = 'data/',
+  SPEED_FILTER = 0,
+  DIR = "data/",
   YEAR = process.env.YEAR || 2017,
-  STATE = process.env.STATE || 'ny',
-  MEAN = 'mean',
+  STATE = process.env.STATE || "ny",
+  MEAN = "mean",
   TIME = 12 //number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
@@ -133,13 +82,13 @@ const calculateMeasuresStream = (calculator, tmcAttributes) => {
         tmc.congestion_level,
         tmc.is_controlled_access,
         TIME,
-        'cattlab'
+        "cattlab"
       );
 
       const tmcFiveteenMinIndex = data.reduce((output, current) => {
         const reduceIndex =
           // current.npmrds_date + '_' + Math.floor(current.epoch / 3);
-          current.date + '_' + Math.floor(current.epoch / 3);
+          current.date + "_" + Math.floor(current.epoch / 3);
 
         if (!output[reduceIndex]) {
           output[reduceIndex] = { speed: [], tt: [] };
@@ -176,8 +125,8 @@ async function doIt() {
   );
 
   // https://stackoverflow.com/a/15884508/3970755
-  process.stdout.on('error', function(err) {
-    if (err.code == 'EPIPE') {
+  process.stdout.on("error", function(err) {
+    if (err.code == "EPIPE") {
       process.exit(0);
     }
   });

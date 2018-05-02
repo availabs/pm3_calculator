@@ -1,0 +1,7 @@
+{
+  "geo": "varchar",
+  "type": "varchar",
+  "state": "char(2)",
+  "interstate_tmcs": "bigint",
+  "noninterstate_tmcs": "bigint"
+}
