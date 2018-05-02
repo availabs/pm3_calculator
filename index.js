@@ -17,27 +17,26 @@ let {
 } = require('./utils/data_retrieval');
 
 const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
+const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer')
 
-let bar = null;
+const toNumerics = require('./utils/toNumerics')
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
-
+// NOTE: cli arguments override env arguments
 const {
   SPEED_FILTER = 3,
   DIR = 'data/',
-  YEAR = process.env.YEAR || 2017,
-  STATE = process.env.STATE || 'ny',
+  YEAR = 2017,
+  STATE = 'ny',
   MEAN = 'mean',
-  TIME = 12 //number of epochs to group
+  TIME = 12, //number of epochs to group
+  FULL = false,
+  START,
+  END
 } = toNumerics(Object.assign({}, env, argv));
 
-function CalculateMeasures(tmc, year) {
-  
+let bar = null;
 
+function CalculateMeasures(tmc, year) {
   const { calculator } = this;
 
   var trafficDistribution = getTrafficDistribution(
@@ -53,23 +52,10 @@ function CalculateMeasures(tmc, year) {
 
   return DownloadTMCData(tmc.tmc, year, STATE).then(tmcData => {
     return new Promise(function(resolve, reject) {
-      var tmcFiveteenMinIndex = tmcData.rows.reduce((output, current) => {
-        var reduceIndex =
-          current.npmrds_date + '_' + Math.floor(current.epoch / 3);
-        let speed = +tmc.length / (current.travelTime / 3600);
-        if (SPEED_FILTER && speed > SPEED_FILTER) {
-          if (!output[reduceIndex]) {
-            output[reduceIndex] = { speed: [], tt: [] };
-          }
-          output[reduceIndex].speed.push(speed);
-          output[reduceIndex].tt.push(current.travelTime);
-        }
-        return output;
-      }, {});
+      const tmcFiveteenMinIndex = fiveteenMinIndexer(tmc, tmcData.rows, { SPEED_FILTER })
 
-      if (Object.keys(tmcFiveteenMinIndex).length < 1) {
-        resolve(null);
-        return;
+      if (Object.keys(tmcFiveteenMinIndex || {}).length < 1) {
+        return resolve(null);
       }
 
       const measures = calculator(
@@ -80,19 +66,19 @@ function CalculateMeasures(tmc, year) {
 
       bar.tick();
 
-      resolve(measures);
+      return resolve(measures);
     });
   });
 }
 
 DownloadTMCAtttributes(STATE).then(tmcs => {
-  var testTmcs = [];
+  let testTmcs = [];
 
-  if (process.env.FULL) {
+  if (FULL) {
     testTmcs = tmcs.rows; //.filter((d, i) => d.tmc === "120P11204");
-  } else if (process.env.START && process.env.END){
+  } else if (START && END){
     testTmcs = tmcs.rows
-      .filter((d,i) => i >= process.env.START && i < process.env.END)
+      .filter((d,i) => i >= START && i < END)
   } else {
     testTmcs = tmcs.rows
       .filter((d, i) => d.tmc === "120N05397")
@@ -117,8 +103,8 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
   ).then(measures => {
     var output = d3.csvFormat(measures.filter(x => x));
     // console.log(measures)
-    let startEnd = process.env.START 
-      ? `_${process.env.START}_${process.env.END}`
+    let startEnd = START 
+      ? `_${START}_${END}`
       : ''
     fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}${startEnd}.csv`, output, function(
       err
