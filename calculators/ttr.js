@@ -107,17 +107,17 @@ const CalculateTTR = function CalculateLottr(
       .sort(numSort);
     acc["lottr"] = acc["lottr"] || {};
     acc["tttr"] = acc["tttr"] || {};
+    let month_key = m === "total" ? "" : `_${m + 1}`;
+    acc["lottr"][`lottr_am_${month_key}`] = lottr(amPeak);
+    acc["lottr"][`lottr_off_${month_key}`] = lottr(offPeak);
+    acc["lottr"][`lottr_pm_${month_key}`] = lottr(pmPeak);
+    acc["lottr"][`lottr_weekend_${month_key}`] = lottr(weekendPeak);
 
-    acc["lottr"][`lottr_am_${m}`] = lottr(amPeak);
-    acc["lottr"][`lottr_off_${m}`] = lottr(offPeak);
-    acc["lottr"][`lottr_pm_${m}`] = lottr(pmPeak);
-    acc["lottr"][`lottr_weekend_${m}`] = lottr(weekendPeak);
-
-    acc["tttr"][`tttr_am_${m}`] = tttr(amPeak);
-    acc["tttr"][`tttr_off_${m}`] = tttr(offPeak);
-    acc["tttr"][`tttr_pm_${m}`] = tttr(pmPeak);
-    acc["tttr"][`tttr_weekend_${m}`] = tttr(weekendPeak);
-    acc["tttr"][`tttr_overnight_${m}`] = tttr(overnightPeak);
+    acc["tttr"][`tttr_am_${month_key}`] = tttr(amPeak);
+    acc["tttr"][`tttr_off_${month_key}`] = tttr(offPeak);
+    acc["tttr"][`tttr_pm_${month_key}`] = tttr(pmPeak);
+    acc["tttr"][`tttr_weekend_${month_key}`] = tttr(weekendPeak);
+    acc["tttr"][`tttr_overnight_${month_key}`] = tttr(overnightPeak);
 
     return acc;
   }, {});
