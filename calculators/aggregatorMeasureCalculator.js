@@ -1,8 +1,8 @@
-const CalculatePHED = require('./phed');
-const CalculateTTR = require('./ttr');
-const CalculateATRI = require('./atri');
-const CalculatePtiTti = require('./ptitti');
-const CalculateFreeFlow = require('./freeflow');
+const CalculatePHED = require("./phed");
+const CalculateTTR = require("./ttr");
+const CalculateATRI = require("./atri");
+const CalculatePtiTti = require("./ptitti");
+const CalculateFreeFlow = require("./freeflow");
 
 function aggregateMeasureCalculator({ TIME, MEAN }) {
   return function(tmcAttrs, trafficDistribution, tmcFiveteenMinIndex) {
@@ -27,13 +27,14 @@ function aggregateMeasureCalculator({ TIME, MEAN }) {
     const ttipti = CalculatePtiTti(tmcAttrs, tmcFiveteenMinIndex, MEAN);
 
     const freeflow = CalculateFreeFlow(tmcAttrs, tmcFiveteenMinIndex);
-
     return {
       ...tmcAttrs,
       ...ttr.lottr,
       ...ttr.tttr,
       ...phed.vehicle_delay,
       ...phed.delay,
+      ...phed.vehicle_delay_all,
+      ...phed.delay_all,
       ...atri,
       ...ttipti,
       ...freeflow
