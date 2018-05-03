@@ -31,7 +31,7 @@ do
     continue
   fi
 
-  >&2 echo "$STATE -- $$"
+  >&2 echo "$STATE"
 
   outf="${LOCAL_ARCHIVE_DIR}/${STATE}/pm3-calculations/${STATE}.2017.pm3-calculations.mean_12.csv.gz"
   outd="$(dirname "$outf")"
