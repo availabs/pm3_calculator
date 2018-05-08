@@ -99,6 +99,7 @@ DownloadTMCAtttributes(STATE).then(inrix_tmcs => {
       output.is_interstate = tmc.is_interstate;
       return output;
     });
+
     //.filter((d,i) => i < 1)
     TOTAL = HereTmcs.length;
     bar = new ProgressBar('[:bar] :current/:total = :percent  :elapsed/:eta', {
@@ -115,8 +116,8 @@ DownloadTMCAtttributes(STATE).then(inrix_tmcs => {
       },
       { concurrency: 20 }
     ).then(measures => {
-      var output = d3.csvFormat(measures);
-      // console.log(measures)
+      var output = d3.csvFormat(measures.filter(m => m));
+
       fs.writeFile(
         `${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`,
         output,
