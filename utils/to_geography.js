@@ -1,5 +1,6 @@
 let d3 = require('d3-dsv');
 let fs = require('fs')
+const { basename, join } = require('path')
 let Promise = require('bluebird')
 
 
@@ -10,7 +11,8 @@ function toGeography(DIR, fileName) {
 		let STATE = fileName.split('_')[0]
 		let YEAR = fileName.split('_')[1]
 		console.log('read file',  DIR+fileName)
-		fs.readFile( DIR+fileName, 'utf8', function (err, data) {
+    const inf = join(DIR, fileName)
+		fs.readFile(inf, 'utf8', function (err, data) {
 			var fullData = d3.csvParse(data)
 			processGeography(STATE, YEAR, DIR, fullData)
 			.then(output => {
@@ -21,7 +23,7 @@ function toGeography(DIR, fileName) {
 } // end func
 
 
-function processGeography(STATE, YEAR, DIR, data) {
+function processGeography(STATE, YEAR, DIR, data, NPMRDS_VER = 2) {
 	return new Promise(function (resolve, reject) {
 		const [ { state: state_code } ] = data
 
@@ -142,12 +144,16 @@ function processGeography(STATE, YEAR, DIR, data) {
 		})
 		let csv = d3.csvFormat(allGeo)
 		//console.log(out)
-		fs.writeFile(`${DIR}${STATE}_${YEAR}.csv`, csv, (err) => {
+    const outf = join(
+      DIR,
+      `${STATE}_${YEAR}${NPMRDS_VER === 1 ? '.npmrdsv1' : ''}.csv`
+    )
+		fs.writeFile(outf, csv, (err) => {
 		    if(err) { 
 		    	console.log('error:', err)
 		    	reject(err) 
 		    }
-			resolve(`${STATE}_${YEAR}.csv`)
+			resolve(basename(outf))
 		});
 	})// end Promise
 }
