@@ -10,16 +10,16 @@ let traffic_distrubtions_cattlab = require("./traffic_distribution_cattlab");
 
 const RITIS_DATASOURCES = require("./RITIS_DATASOURCES");
 
-const pm3OutputCols = require('./pm3OutputCols.json')
+const pm3OutputCols = require("./pm3OutputCols.json");
 
 const DownloadTMCAtttributes = function DownloadTMCAtttributes(state) {
   return new Promise(function(resolve, reject) {
     const sql = `
-			SELECT  tmc, faciltype, aadt, length, avg_speedlimit,
+			SELECT  tmc, faciltype, aadt, aadt_singl, aadt_combi, length, avg_speedlimit,
 			congestion_level, directionality, avg_vehicle_occupancy,
 			nhs, nhs_pct,is_interstate, is_controlled_access,
 			mpo_code as mpo, ua_code as ua, county_code as county,
-			state_code as state
+			state_code as state, bounding_box
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
                         -- and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');
@@ -89,19 +89,18 @@ const DownloadTMCDataHERE = function DownloadTMCData(tmc, year, state) {
 };
 
 const DownloadTMCPM3 = function DownloadTMCPM3(state, NPMRDS_VER = 2) {
-  return new Promise((resolve,reject) => {
+  return new Promise((resolve, reject) => {
     const sql = `
       SELECT ${pm3OutputCols}
-      FROM "${state}".pm3${NPMRDS_VER === 1 ? '_npmrdsv1' : ''}
-    `
+      FROM "${state}".pm3${NPMRDS_VER === 1 ? "_npmrdsv1" : ""}
+    `;
 
     db_service.runQuery(sql, [], (err, data) => {
       if (err) reject(err);
       resolve(data);
     });
-  })
-}
-
+  });
+};
 
 const inrixToAVAIL = d => {
   if (!d) {
@@ -191,7 +190,7 @@ const getTrafficDistribution = function getTrafficDistribution(
   congestion_level,
   is_controlled_access,
   group = 3,
-  type = 'avail'
+  type = "avail"
 ) {
   //get the distro key for the distro
   let distroKey =
@@ -210,35 +209,31 @@ const getTrafficDistribution = function getTrafficDistribution(
   // 3 = 15 minutes (3 epochs)
   // 12 = 1 hour (12 epochs)
 
-
-  if(type === 'cattlab'){
+  if (type === "cattlab") {
     return traffic_distrubtions_cattlab[distroKey].reduce(
-       (output, current, current_index) => {
+      (output, current, current_index) => {
+        if (!output[current_index]) {
+          output[current_index] = 0;
+        }
 
-          if(!output[current_index]) {
-            output[current_index] = 0
-          }
+        output[current_index] += current;
 
-
-          output[current_index] += current
-          
-          return output
-
-       },[])
+        return output;
+      },
+      []
+    );
   }
 
-  return traffic_distrubtions[distroKey].reduce(
-    (output, current, current_index) => {
+  return traffic_distrubtions[distroKey]
+    .reduce((output, current, current_index) => {
       var reduceIndex = Math.floor(current_index / group);
       if (!output[reduceIndex]) {
         output[reduceIndex] = 0;
       }
       output[reduceIndex] += current;
       return output;
-    },
-    []
-  )
-  .map(d => d / 100) // as percentage
+    }, [])
+    .map(d => d / 100); // as percentage
 };
 
 module.exports = {

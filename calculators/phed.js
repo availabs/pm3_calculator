@@ -1,5 +1,6 @@
 const dayVolume = [0.8, 1.05, 1.05, 1.05, 1.05, 1.1, 0.9];
-
+const { getAadt } = require("./utils/aadtUtils");
+const { getTT } = require("./utils/indexutils");
 const calculatePHED = function calculatePHED(
   tmcAttributes,
   tmcFiveteenMinIndex,
@@ -7,9 +8,39 @@ const calculatePHED = function calculatePHED(
   time = 12,
   mean = "hmean"
 ) {
+  let ttypes = ["", "singl", "combi", "truck", "pass"];
+  let data = {};
+  ttypes.forEach(tt => {
+    let {
+      vehicle_delay,
+      delay,
+      vehicle_delay_all,
+      delay_all
+    } = calculateAllPHED(
+      tmcAttributes,
+      tmcFiveteenMinIndex,
+      distroArray,
+      time,
+      mean,
+      tt
+    );
+    Object.assign(data, vehicle_delay, delay, vehicle_delay_all, delay_all);
+  });
+  return data;
+};
+const calculateAllPHED = function calculateAllPHED(
+  tmcAttributes,
+  tmcFiveteenMinIndex,
+  distroArray,
+  time = 12,
+  mean = "hmean",
+  trafficType = ""
+) {
+  let ttlabel = trafficType.length ? `_${trafficType}` : "";
   var tmc = tmcAttributes.tmc;
   var dirFactor = +tmcAttributes.faciltype > 1 ? 2 : 1;
-  var DirectionalAADT = tmcAttributes.aadt / dirFactor;
+  var DirectionalAADT = getAadt(tmcAttributes, trafficType) / dirFactor;
+
   var distroData = distroArray.map((val, index) => {
     return { hour: index, count: val };
   });
@@ -40,16 +71,21 @@ const calculatePHED = function calculatePHED(
       dateString.substring(6, 8);
     var dateTime = new Date(yearMonthDay + "T" + hour + ":" + min + ":00");
     var len = tmcFiveteenMinIndex[key].speed.length;
-    var sum_speed = tmcFiveteenMinIndex[key].speed.reduce((a, b) => (a += b));
-    var hsum_speed = tmcFiveteenMinIndex[key].speed.reduce((a, b) => {
-      return (a += 1 / b);
-    }, 0);
-    var hmean_speed = precisionRound(len / hsum_speed, 2);
-    var mean_speed = precisionRound(sum_speed / len, 2);
-    var sum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => (a += b));
-    var hsum_tt = tmcFiveteenMinIndex[key].tt.reduce((a, b) => {
-      return (a += 1 / b);
-    }, 0);
+    // var sum_speed = tmcFiveteenMinIndex[key].speed.reduce((a, b) => (a += b));
+    // var hsum_speed = tmcFiveteenMinIndex[key].speed.reduce((a, b) => {
+    //   return (a += 1 / b);
+    // }, 0);
+    // var hmean_speed = precisionRound(len / hsum_speed, 2);
+    // var mean_speed = precisionRound(sum_speed / len, 2);
+    var sum_tt = getTT(tmcFiveteenMinIndex, key, trafficType).reduce(
+      (a, b) => (a += b)
+    );
+    var hsum_tt = getTT(tmcFiveteenMinIndex, key, trafficType).reduce(
+      (a, b) => {
+        return (a += 1 / b);
+      },
+      0
+    );
     var hmean_tt = precisionRound(len / hsum_tt, 0);
     var mean_tt = precisionRound(sum_tt / len, 0);
     var threshold_travelTime = Math.round(
@@ -144,27 +180,33 @@ const calculatePHED = function calculatePHED(
       out += curr.delay;
       return out;
     }, 0);
-    delay[`d_${month + 1}`] = precisionRound(cur_delay, 3);
+    delay[`d${ttlabel}_${month + 1}`] = precisionRound(cur_delay, 3);
 
     var curr_vehicle_delay = raw_data.reduce((out, curr) => {
       out += curr.vehicle_delay;
       return out;
     }, 0);
-    vehicle_delay[`vd_${month + 1}`] = precisionRound(curr_vehicle_delay, 3);
+    vehicle_delay[`vd${ttlabel}_${month + 1}`] = precisionRound(
+      curr_vehicle_delay,
+      3
+    );
 
     var cur_all_delay = array_sum(raw_all_data, x => x.delay);
     var cur_all_vehicle_delay = array_sum(raw_all_data, x => x.vehicle_delay);
     let key = `${month + 1}`;
-    delay_all[`td_${key}`] = precisionRound(cur_all_delay, 3);
-    vehicle_delay_all[`tvd_${key}`] = precisionRound(cur_all_vehicle_delay, 3);
+    delay_all[`td${ttlabel}_${key}`] = precisionRound(cur_all_delay, 3);
+    vehicle_delay_all[`tvd${ttlabel}_${key}`] = precisionRound(
+      cur_all_vehicle_delay,
+      3
+    );
   });
   let all_vehicle_delay = precisionRound(
     array_sum(fifteenTotal, x => x.vehicle_delay),
     3
   );
   let all_delay = precisionRound(array_sum(fifteenTotal, x => x.delay), 3);
-  delay_all["td_total"] = all_delay;
-  vehicle_delay_all["tvd_total"] = all_vehicle_delay;
+  delay_all[`td${ttlabel}_total`] = all_delay;
+  vehicle_delay_all[`tvd${ttlabel}_total`] = all_vehicle_delay;
   vehicle_total = precisionRound(
     fifteenPeaks.reduce((out, curr) => {
       out += curr.vehicle_delay;
@@ -172,7 +214,7 @@ const calculatePHED = function calculatePHED(
     }, 0),
     3
   );
-  vehicle_delay[`vd_total`] = vehicle_total;
+  vehicle_delay[`vd${ttlabel}_total`] = vehicle_total;
 
   delay_total = precisionRound(
     fifteenPeaks.reduce((out, curr) => {
@@ -181,7 +223,7 @@ const calculatePHED = function calculatePHED(
     }, 0),
     3
   );
-  delay[`d_total`] = delay_total;
+  delay[`d${ttlabel}_total`] = delay_total;
 
   // console.log(delay, vehicle_delay)
 
