@@ -31,10 +31,7 @@ function aggregateMeasureCalculator({ TIME, MEAN }) {
       ...tmcAttrs,
       ...ttr.lottr,
       ...ttr.tttr,
-      ...phed.vehicle_delay,
-      ...phed.delay,
-      ...phed.vehicle_delay_all,
-      ...phed.delay_all,
+      ...phed,
       ...atri,
       ...ttipti,
       ...freeflow
