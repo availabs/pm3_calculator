@@ -9,17 +9,18 @@ source "${DIR}/../../config/postgres.env"
 
 pushd "$DIR" > /dev/null
 
-STORAGE_HOST=lor
-STORAGE_DIR='/mnt/RIT.samba/BACKUPS/INRIX-NPMRDS/canonical-archive'
+echo "$DIR"
+
+CSV_DIR="$(readlink -e ../../data/states)"
+
+echo "$CSV_DIR"
 
 CSV_UNIQUE_HEADERS="$(
-  ssh "$STORAGE_HOST" find "$STORAGE_DIR" -type f -name '*pm3-calculations*' |\
+  find "$CSV_DIR" -type f -name '*.csv' |\
   sort |\
   while read f;
   do
-    ssh -n "$STORAGE_HOST" cat "$f" |
-      gunzip -c |
-      head -1
+    head -1 "$f"
   done |
     sort -u
 )"
@@ -36,7 +37,7 @@ SQL="
       column_name
     FROM information_schema.columns
     WHERE (
-      (table_name = 'pm3')
+      (table_name = 'geolevel_pm3')
       AND
       (table_schema = 'public')
     )
@@ -53,7 +54,7 @@ COLS_DIFF="$(
 )"
 
 if [[ -n "$(echo "$COLS_DIFF" | tr -d '[:space:]')" ]]; then
-  ALTER_TABLE_SQL="ALTER TABLE pm3 $(
+  ALTER_TABLE_SQL="ALTER TABLE geolevel_pm3 $(
     echo "$COLS_DIFF" |
       sed '
         s/^/  ADD COLUMN IF NOT EXISTS/g;
