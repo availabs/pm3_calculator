@@ -19,8 +19,8 @@ mkdir -p "$TMP_DIR"
 pushd "$TMP_DIR" > /dev/null
 
 
-STORAGE_HOST=dionysus
-STORAGE_DIR='/home/avail/code/pm3_calculator/archive'
+STORAGE_HOST=lor
+STORAGE_DIR='/mnt/RIT.samba/BACKUPS/INRIX-NPMRDS/canonical-archive'
 
 ssh "$STORAGE_HOST" find "$STORAGE_DIR" -type f -name '*pm3-calculations*' |\
 sort |\
@@ -41,11 +41,11 @@ do
 
   state="$(echo "$b" | cut -c1-2)"
 
-  if psql -c "\d \"${state}\".pm3" > /dev/null 2>&1; 
-  then
-    echo "Table already exists for $state"
-    continue
-  fi
+  # if psql -c "\d \"${state}\".pm3" > /dev/null 2>&1; 
+  # then
+  #   echo "Table already exists for $state"
+  #   continue
+  # fi
 
   # Write the contents of the gzip file on STORAGE_HOST to a local file
   ssh -n "$STORAGE_HOST" "gunzip -c '$f'" < /dev/null > "$b"
