@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "binary-split": "^1.0.3",
     "bluebird": "3.5.1",
     "d3": "^4.13.0",
     "d3-array": "1.2.1",
@@ -17,6 +18,7 @@
     "fast-csv": "^2.4.1",
     "minimist": "^1.2.0",
     "mississippi": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "node-env-file": "0.1.8",
     "parallel-transform": "^1.1.0",
     "path": "0.12.7",
@@ -24,7 +26,8 @@
     "pg": "7.4.1",
     "pg-copy-streams": "1.2.0",
     "progress": "2.0.0",
-    "pumpify": "^1.4.0"
+    "pumpify": "^1.4.0",
+    "split2": "^2.2.0"
   },
   "devDependencies": {
     "eslint": "^4.18.2",
