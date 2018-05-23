@@ -1,7 +1,4 @@
-'use strict';
-
 const { execSync, spawn } = require('child_process');
-const { createWriteStream } = require('fs');
 const { join } = require('path');
 
 const { pipeline, each } = require('mississippi');
