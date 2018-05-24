@@ -6,6 +6,20 @@ const split = require('binary-split');
 
 const CalculateATRI = require('../ttr');
 
+const gitHashes = require('./utils/getGitHistoryHashes');
+
+const goldenMasterVersions = new Set(
+  execSync(
+    `find ${join(__dirname, './calculators_output/')} -type d -printf '%f '`,
+    {
+      encoding: 'utf8'
+    }
+  ).split(' ')
+);
+const latestGoldenMasterVersion = gitHashes.find(gh =>
+  goldenMasterVersions.has(gh)
+);
+
 // Load the tmcAttributes
 const tmcAttrsFilePath = join(
   __dirname,
@@ -22,7 +36,8 @@ const fiveteenMinIndexerFilePath = join(
 
 const goldenMasterFilePath = join(
   __dirname,
-  './calculators_output/3fec2e9e8b9c54dd7a11f197d85ad4f6ce202654/ttr.AlbanyCounty.ndjson.xz'
+  `./calculators_output/${latestGoldenMasterVersion}/`,
+  'ttr.AlbanyCounty.ndjson.xz'
 );
 
 const goldenMaster = JSON.parse(
@@ -58,7 +73,7 @@ describe('CalculateATRI Golden Master Tests', () => {
 
           expect(ttr).toEqual(goldenMaster[tmc]);
 
-          next();
+          return next();
         },
         err => {
           if (err) {

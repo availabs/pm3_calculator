@@ -1,7 +1,4 @@
-'use strict';
-
 const { execSync, spawn } = require('child_process');
-const { createWriteStream } = require('fs');
 const { join } = require('path');
 
 const { pipeline, each } = require('mississippi');
@@ -10,8 +7,22 @@ const split = require('binary-split');
 const getTrafficDistribution = require('./utils/getTrafficDistribution');
 const CalculatePHED = require('../phed');
 
+const gitHashes = require('./utils/getGitHistoryHashes');
+
+const goldenMasterVersions = new Set(
+  execSync(
+    `find ${join(__dirname, './calculators_output/')} -type d -printf '%f '`,
+    {
+      encoding: 'utf8'
+    }
+  ).split(' ')
+);
+const latestGoldenMasterVersion = gitHashes.find(gh =>
+  goldenMasterVersions.has(gh)
+);
+
 const MEAN = 'mean';
-const TIME = 12; //number of epochs to group
+const TIME = 12; // number of epochs to group
 
 // Load the tmcAttributes
 const tmcAttrsFilePath = join(
@@ -29,7 +40,8 @@ const fiveteenMinIndexerFilePath = join(
 
 const goldenMasterFilePath = join(
   __dirname,
-  './calculators_output/3fec2e9e8b9c54dd7a11f197d85ad4f6ce202654/phed.AlbanyCounty.ndjson.xz'
+  `./calculators_output/${latestGoldenMasterVersion}/`,
+  'phed.AlbanyCounty.ndjson.xz'
 );
 
 const goldenMaster = JSON.parse(
