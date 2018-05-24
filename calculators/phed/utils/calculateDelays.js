@@ -17,11 +17,11 @@ const calculateDelays = ({ fifteenPeaks, fifteenTotal, ttlabel }) => {
       d => d.dateTime.getMonth() === month
     );
 
-    const cur_delay = raw_data.reduce((sum, cur) => sum + cur.delay, 0);
+    const cur_delay = raw_data.reduce((sum, cur) => sum + +cur.delay, 0);
     delay[`d${ttlabel}_${month + 1}`] = precisionRound(cur_delay, 3);
 
     const curr_vehicle_delay = raw_data.reduce(
-      (sum, cur) => sum + cur.vehicle_delay,
+      (sum, cur) => sum + +cur.vehicle_delay,
       0
     );
     vehicle_delay[`vd${ttlabel}_${month + 1}`] = precisionRound(

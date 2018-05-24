@@ -17,8 +17,8 @@ const getFifteenData = (tmcFiveteenMinIndex, months) =>
     const dateTime = new Date(`${yearMonthDay}T${hour}:${min}:00`);
     months.add(dateTime.getMonth());
 
-    const sumTT = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a + b);
-    const hsumTT = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a + 1 / b, 0);
+    const sumTT = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a + +b, 0);
+    const hsumTT = tmcFiveteenMinIndex[key].tt.reduce((a, b) => a + 1 / +b, 0);
     const len = tmcFiveteenMinIndex[key].tt.length;
     const hmean = len / hsumTT;
     const mean = sumTT / len;
