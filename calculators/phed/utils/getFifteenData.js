@@ -76,7 +76,7 @@ const getFifteenData = ({
         : precisionRound(+TrafficVolume[epoch], 1);
 
     let hmean_vehicle_delay = hmean_delay * fifteenMinuteVolumes;
-    let mean_vehicle_delay = mean_delay * fifteenMinuteVolumes; // eslint-disable-line no-unused-vars
+    let mean_vehicle_delay = mean_delay * fifteenMinuteVolumes;
 
     hmean_vehicle_delay = precisionRound(hmean_vehicle_delay, 3);
     mean_vehicle_delay = precisionRound(mean_vehicle_delay, 3);
@@ -88,8 +88,7 @@ const getFifteenData = ({
       speedlimit: +tmcAttributes.avg_speedlimit,
       tt: mean === 'hmean' ? hmeanTT : meanTT,
       delay: mean === 'hmean' ? hmean_delay : mean_delay,
-      vehicle_delay:
-        mean === 'hmean' ? hmean_vehicle_delay : hmean_vehicle_delay // FIXME: always hmean
+      vehicle_delay: mean === 'hmean' ? hmean_vehicle_delay : mean_vehicle_delay
     };
   });
 
