@@ -8,8 +8,8 @@ const computeScore = (sortedMeanTimes, binName) => {
   const tt95pct = d3.quantile(sortedMeanTimes, 0.95);
 
   return {
-    [`tt_${binName}50pct`]: tt50pct,
-    [`tt_${binName}95pct`]: tt95pct,
+    [`ttt_${binName}50pct`]: tt50pct,
+    [`ttt_${binName}95pct`]: tt95pct,
     [`tttr_${binName}`]: precisionRound(tt95pct / tt50pct, 2)
   };
 };
