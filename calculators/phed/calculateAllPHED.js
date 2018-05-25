@@ -1,5 +1,7 @@
 /* eslint camelcase: 0 */
 
+const { getAadt } = require('../utils/aadtUtils');
+
 const getFifteenData = require('./utils/getFifteenData');
 const getFifteenPeaks = require('./utils/getFifteenPeaks');
 const calculateDelays = require('./utils/calculateDelays');
@@ -16,9 +18,13 @@ const calculateAllPHED = (
 ) => {
   const ttlabel = trafficType ? `_${trafficType}` : '';
 
+  const dirFactor = Math.min(tmcAttributes.faciltype, 2);
+  const dir_aadt = getAadt(tmcAttributes, trafficType) / dirFactor;
+
   const fifteenData = getFifteenData({
     tmcAttributes,
     tmcFiveteenMinIndex,
+    dir_aadt,
     distroArray,
     trafficType,
     mean,
@@ -29,7 +35,24 @@ const calculateAllPHED = (
 
   const fifteenTotal = fifteenData.filter(d => d.vehicle_delay);
 
-  return calculateDelays({ fifteenPeaks, fifteenTotal, ttlabel });
+  const {
+    delay,
+    vehicle_delay,
+    delay_all,
+    vehicle_delay_all
+  } = calculateDelays({ fifteenPeaks, fifteenTotal, ttlabel });
+
+  const phed_meta = {
+    dir_aadt
+  };
+
+  return {
+    delay,
+    vehicle_delay,
+    delay_all,
+    vehicle_delay_all,
+    phed_meta
+  };
 };
 
 module.exports = calculateAllPHED;

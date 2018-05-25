@@ -10,25 +10,45 @@ const calculatePHED = (
   tmcFiveteenMinIndex,
   distroArray,
   time = 12,
-  mean = DEFAULT_MEAN_TYPE
+  mean = DEFAULT_MEAN_TYPE,
+  colMappings = 'avail'
 ) => {
   const data = {};
-  TRAFFIC_TYPES.forEach(tt => {
-    const {
-      vehicle_delay,
-      delay,
-      vehicle_delay_all,
-      delay_all
-    } = calculateAllPHED(
-      tmcAttributes,
-      tmcFiveteenMinIndex,
-      distroArray,
-      time,
-      mean,
-      tt
-    );
-    Object.assign(data, vehicle_delay, delay, vehicle_delay_all, delay_all);
-  });
+
+  for (let i = 0; i < TRAFFIC_TYPES.length; i += 1) {
+    const tt = TRAFFIC_TYPES[i];
+
+    if (colMappings === 'avail' || tt === '') {
+      const {
+        vehicle_delay,
+        delay,
+        vehicle_delay_all,
+        delay_all,
+        phed_meta
+      } = calculateAllPHED(
+        tmcAttributes,
+        tmcFiveteenMinIndex,
+        distroArray,
+        time,
+        mean,
+        tt
+      );
+
+      if (colMappings === 'avail') {
+        // Note: The following has the effect of reducing the depths of
+        //       vehicle_delay, delay, vehicle_delay_all, delay_all by 1.
+        //       All measures specific to each are assigned directly to data.
+        Object.assign(data, vehicle_delay, delay, vehicle_delay_all, delay_all);
+      } else {
+        const OCC_FAC = tmcAttributes.avg_vehicle_occupancy;
+        Object.assign(data, {
+          DIR_AADT: phed_meta.dir_aadt,
+          OCC_FAC,
+          PHED: vehicle_delay.vd_total * OCC_FAC
+        });
+      }
+    }
+  }
 
   return data;
 };

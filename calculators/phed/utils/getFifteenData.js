@@ -1,6 +1,5 @@
 /* eslint camelcase: 0 */
 
-const { getAadt } = require('../../utils/aadtUtils');
 const { getTT } = require('../../utils/indexutils');
 const precisionRound = require('../../utils/precisionRound');
 
@@ -9,6 +8,7 @@ const DOW_ADJ_FACTORS = require('../constants/DOW_ADJ_FACTORS');
 const getFifteenData = ({
   tmcAttributes,
   tmcFiveteenMinIndex,
+  dir_aadt,
   distroArray,
   trafficType,
   mean,
@@ -16,10 +16,6 @@ const getFifteenData = ({
 }) =>
   Object.keys(tmcFiveteenMinIndex).map(key => {
     const { tmc } = tmcAttributes;
-    const dirFactor = Math.min(tmcAttributes.faciltype, 2);
-
-    const DirectionalAADT = getAadt(tmcAttributes, trafficType) / dirFactor;
-
     const ThresholdSpeed = Math.max(tmcAttributes.avg_speedlimit * 0.6, 20);
 
     const epoch = key.split('_')[1];
@@ -65,9 +61,8 @@ const getFifteenData = ({
     hmean_delay = precisionRound(hmean_delay, 4);
     mean_delay = precisionRound(mean_delay, 4);
 
-    const dailyAADT = DirectionalAADT;
     const TrafficVolume = distroArray.map(
-      d => d * dailyAADT * DOW_ADJ_FACTORS[dateTime.getDay()]
+      d => d * dir_aadt * DOW_ADJ_FACTORS[dateTime.getDay()]
     );
 
     const fifteenMinuteVolumes =
