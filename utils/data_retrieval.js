@@ -15,11 +15,11 @@ const pm3OutputCols = require("./pm3OutputCols.json");
 const DownloadTMCAtttributes = function DownloadTMCAtttributes(state) {
   return new Promise(function(resolve, reject) {
     const sql = `
-			SELECT  tmc, faciltype, aadt, aadt_singl, aadt_combi, length, avg_speedlimit,
-			congestion_level, directionality, avg_vehicle_occupancy,
-			nhs, nhs_pct,is_interstate, is_controlled_access,
+			SELECT  tmc, faciltype, aadt, aadt_singl, aadt_combi, length, direction,
+      avg_speedlimit, congestion_level, directionality, avg_vehicle_occupancy,
+			f_system, nhs, nhs_pct,is_interstate, is_controlled_access,
 			mpo_code as mpo, ua_code as ua, county_code as county,
-			state_code as state, bounding_box
+			state_code, state_code as state, bounding_box
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
                         -- and tmc in (select tmc from tmc_date_ranges where last_date >= '20170201');
@@ -91,6 +91,7 @@ const DownloadTMCDataHERE = function DownloadTMCData(tmc, year, state) {
 const DownloadTMCPM3 = function DownloadTMCPM3(state, NPMRDS_VER = 2) {
   return new Promise((resolve, reject) => {
     const sql = `
+
       SELECT tmc, faciltype, aadt, length, avg_speedlimit, congestion_level,
         avg_vehicle_occupancy, nhs, nhs_pct, is_interstate,
         is_controlled_access, mpo, ua, county, state,lottr_am, lottr_off, lottr_pm,
