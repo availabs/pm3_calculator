@@ -25,6 +25,7 @@ function hpmsPDFMeasureAggregator({ YEAR, TIME, MEAN }) {
         TT_PMP50PCT,
         TT_PMP80PCT,
         LOTTR_WE,
+        TT_WE50PCT,
         TT_WE80PCT
       },
 
@@ -39,6 +40,7 @@ function hpmsPDFMeasureAggregator({ YEAR, TIME, MEAN }) {
         TTT_PMP50PCT,
         TTT_PMP95PCT,
         TTTR_OVN,
+        TTT_OVN50PCT,
         TTT_OVN95PCT,
         TTTR_WE,
         TTT_WE50PCT,
@@ -78,6 +80,7 @@ function hpmsPDFMeasureAggregator({ YEAR, TIME, MEAN }) {
       TT_PMP50PCT: precisionRound(TT_PMP50PCT),
       TT_PMP80PCT: precisionRound(TT_PMP80PCT),
       LOTTR_WE: precisionRound(LOTTR_WE, 2),
+      TT_WE50PCT: precisionRound(TT_WE50PCT),
       TT_WE80PCT: precisionRound(TT_WE80PCT),
 
       TTTR_AMP: precisionRound(TTTR_AMP, 2),
@@ -90,6 +93,7 @@ function hpmsPDFMeasureAggregator({ YEAR, TIME, MEAN }) {
       TTT_PMP50PCT: precisionRound(TTT_PMP50PCT),
       TTT_PMP95PCT: precisionRound(TTT_PMP95PCT),
       TTTR_OVN: precisionRound(TTTR_OVN, 2),
+      TTT_OVN50PCT: precisionRound(TTT_OVN50PCT),
       TTT_OVN95PCT: precisionRound(TTT_OVN95PCT),
       TTTR_WE: precisionRound(TTTR_WE, 2),
       TTT_WE50PCT: precisionRound(TTT_WE50PCT),

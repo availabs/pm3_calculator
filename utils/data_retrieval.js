@@ -18,7 +18,7 @@ const DownloadTMCAtttributes = function DownloadTMCAtttributes(state) {
 			SELECT  tmc, faciltype, aadt, aadt_singl, aadt_combi, length, direction,
       avg_speedlimit, congestion_level, directionality, avg_vehicle_occupancy,
 			f_system, nhs, nhs_pct,is_interstate, is_controlled_access,
-			mpo_code as mpo, ua_code as ua, county_code as county,
+			mpo_code as mpo, ua_code, ua_code as ua, county_code as county,
 			state_code, state_code as state, bounding_box
 	  		FROM public.tmc_attributes
 	  		where state = '${state}'
