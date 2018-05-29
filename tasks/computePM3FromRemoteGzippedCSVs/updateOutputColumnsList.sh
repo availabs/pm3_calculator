@@ -27,7 +27,7 @@ then
   mv "$ORIG_PATH" "$BACKUP_PATH"
 fi
 
-"$CALCULATOR_SCRIPT" --FULL=0 --STATE=ny --YEAR=2017 --TIME=12
+"$CALCULATOR_SCRIPT" --FULL=0 --STATE=ny --YEAR=2017 --TIME=12 >/dev/null
 
 HEADER="$(head -1 "$ORIG_PATH")"
 COLS_JSON="[$(echo "$HEADER" | sed 's/^/"/; s/,/","/g; s/$/"/')]"
