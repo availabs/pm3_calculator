@@ -38,7 +38,14 @@ const calculatePHED = (
         // Note: The following has the effect of reducing the depths of
         //       vehicle_delay, delay, vehicle_delay_all, delay_all by 1.
         //       All measures specific to each are assigned directly to data.
-        Object.assign(data, vehicle_delay, delay, vehicle_delay_all, delay_all);
+        Object.assign(
+          data,
+          vehicle_delay,
+          delay,
+          vehicle_delay_all,
+          delay_all,
+          { dir_aadt: phed_meta.dir_aadt }
+        );
       } else {
         const OCC_FAC = tmcAttributes.avg_vehicle_occupancy;
         Object.assign(data, {

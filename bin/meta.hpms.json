@@ -1,0 +1,13 @@
+{
+  "Year_Record": "INT",
+  "State_Code": "VARCHAR",
+  "Travel_Time_Code": "VARCHAR",
+  "F_System": "INT",
+  "Urban_Code": "VARCHAR",
+  "Facility_Type": "INT",
+  "NHS": "VARCHAR",
+  "Directionality": "CHAR",
+  "DIR_AADT": "INT",
+  "METRIC_SOURCE": "VARCHAR",
+  "COMMENTS": "VARCHAR"
+}

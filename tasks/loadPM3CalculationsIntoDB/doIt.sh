@@ -28,8 +28,9 @@ while read f;
 do
  
   # If the file is held open by a process, we assume processing is not complete.
-  if ssh -n "$STORAGE_HOST" lsof < /dev/null | grep -q "$f"
+  if ssh -n "$STORAGE_HOST" lsof < /dev/null 2>/dev/null | grep -q "$f"
   then
+    echo "$f is held open by a process... cannot assume it has been completely written."
     continue
   fi
 

@@ -35,4 +35,4 @@ done
 tar cvf "$OUTDIR.tar" "$OUTDIR" >/dev/null 2>&1
 rm -rf "$OUTDIR"
 
-popd
+popd >/dev/null
