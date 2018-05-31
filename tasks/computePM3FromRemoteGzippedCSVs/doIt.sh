@@ -12,12 +12,18 @@ COMPUTER="$(readlink -m '../../index.streaming.js')"
 
 export GZIP=-9
 
-ssh "$STORAGE_HOST" find "$STORAGE_DIR" -regextype posix-extended -regex '.*[a-z]{2}\.2017\.here-schema.sorted.csv.gz' |\
+# Example file name: ny.2017.here-schema.sorted.csv.gz
+ssh "$STORAGE_HOST" find "$STORAGE_DIR" -regextype posix-extended -regex '.*[[:alpha:]]{2}\.[[:digit:]]{4}\.here-schema.sorted.csv.gz' |\
 sort |\
 while read f;
 do
-  STATE="$(basename "$f" | cut -c1-2)"
+  fbasename="$(basename "$f")"
+
+  STATE="$( cut -c1-2 <<< "$fbasename" )"
   export STATE
+
+  YEAR="$( cut -c4-7 <<< "$fbasename" )"
+  export YEAR
   
   pm3_dir="${STORAGE_DIR}/${STATE}/pm3-calculations"
 
