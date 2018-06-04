@@ -10,9 +10,9 @@ const fiveteenMinIndexer = (tmcAttr, tmcData, options) =>
         const ttFT = current.travel_time_freight_trucks || tt;
         const dateQtrHr = date + "_" + Math.floor(current.epoch / 3);
 
-        const speed = +tmcAttr.length / (tt / 3600);
-        const speedPV = +tmcAttr.length / (ttPV / 3600);
-        const speedFT = +tmcAttr.length / (ttFT / 3600);
+        const speed = +tmcAttr.length / (+tt / 3600);
+        const speedPV = +tmcAttr.length / (+ttPV / 3600);
+        const speedFT = +tmcAttr.length / (+ttFT / 3600);
 
         // If SPEED_FILTER is not defined, this condition fails and we proceed.
         if (speed <= SPEED_FILTER) {

@@ -24,7 +24,7 @@ const toNumerics = require('./utils/toNumerics')
 // NOTE: cli arguments override env arguments
 const {
   SPEED_FILTER = 3,
-  DIR = 'data/',
+  DIR = 'test_data/',
   YEAR = 2017,
   STATE = 'ny',
   MEAN = 'mean',
@@ -82,7 +82,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
   } else {
     testTmcs = tmcs.rows
       .filter((d, i) => d.tmc === "120N05397")
-      .filter((d, i) => i < 30)
+      //.filter((d, i) => i < 30)
   }
 
   TOTAL = testTmcs.length;
