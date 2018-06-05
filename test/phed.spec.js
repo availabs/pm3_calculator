@@ -1,9 +1,9 @@
+/* eslint-disable */
+
 const AggregateMeasureCalculator = require('../calculators/aggregatorMeasureCalculator');
 const fiveteenMinIndexer = require('../calculators/fiveteenMinIndexer');
 const CalculatePHED = require('../calculators/phed');
-const getTMCData = require('../tasks/getTestData/getTMCData');
-
-
+const getTMCFromDatabase = require('../tasks/getTestData/getTMCFromDatabase');
 
 const state = 'ny'
 const year = 2017
@@ -15,7 +15,7 @@ const getTestData = () => {
 		if(tmcData) {
 			resolve(tmcData)
 		}
-		getTMCData(state,year,tmc)
+		getTMCFromDatabase(state,year,tmc)
 		.then(data => {
 			tmcData = data
 			resolve(data)
