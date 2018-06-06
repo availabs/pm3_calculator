@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# This script takes the following ENV variables:
+#   * YEAR
+#   * STATE
+#   * TMC
+#
+# It will stream the NPMRDS data from the respective YEAR & STATE CSV in cold storage.
+#   It uses the storage.arcc mount on lor.
+#
+# ASSUMES: Passwordless login set up between this script's host and lor
+#   SEE: https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/
+
 set -e
 
 pushd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null
@@ -56,7 +67,7 @@ AWK_SCRIPT='
 #  Print the header & the TMC's data,
 #    ending the network stream after we've seen
 #    all the TMC's data.
-ssh lor "cat $CSV_PATH" |
+ssh avail@lor.availabs.org "cat $CSV_PATH" |
   gunzip |
   awk -F, -vOFS=, -v TMC="$TMC" "$AWK_SCRIPT"
 
