@@ -9,6 +9,7 @@ const { split, stringify } = require('event-stream');
 const transform = require('parallel-transform');
 
 const minimist = require('minimist');
+
 const argv = minimist(process.argv.slice(2));
 
 const {
@@ -39,11 +40,11 @@ const {
   YEAR = 2017,
   STATE = 'ny',
   MEAN = 'mean',
-  TIME = 12 //number of epochs to group
+  TIME = 12 // number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
-const calculateMeasuresStream = (calculator, tmcAttributes) => {
-  return transform(
+const calculateMeasuresStream = (calculator, tmcAttributes) =>
+  transform(
     CONCURRENCY,
     { ordered: false },
     // Data schema:
@@ -60,7 +61,7 @@ const calculateMeasuresStream = (calculator, tmcAttributes) => {
     //       },
     //       ...
     //    ]
-    async function write(tmcData, callback) {
+    async (tmcData, callback) => {
       const { metadata: { tmc }, data } = tmcData;
 
       const attrs = tmcAttributes[tmc];
@@ -77,13 +78,17 @@ const calculateMeasuresStream = (calculator, tmcAttributes) => {
       attrs.congestion_level = congestion_level || attrs.congestion_level;
       attrs.directionality = directionality || attrs.directionality;
 
-      var trafficDistribution = getTrafficDistribution(
-        tmc.directionality,
-        tmc.congestion_level,
-        tmc.is_controlled_access,
+      const trafficDistribution = getTrafficDistribution(
+        attrs.directionality,
+        attrs.congestion_level,
+        attrs.is_controlled_access,
         TIME,
         'cattlab'
       );
+
+      const dirFactor = +tmc.faciltype > 1 ? 2 : 1;
+
+      attrs.directional_aadt = tmc.aadt / dirFactor;
 
       const tmcFiveteenMinIndex = fiveteenMinIndexer(attrs, data);
 
@@ -96,7 +101,6 @@ const calculateMeasuresStream = (calculator, tmcAttributes) => {
       return process.nextTick(() => callback(null, measures));
     }
   );
-};
 
 async function doIt() {
   const result = await DownloadTMCAtttributes(STATE);
@@ -107,7 +111,7 @@ async function doIt() {
   );
 
   // https://stackoverflow.com/a/15884508/3970755
-  process.stdout.on('error', function(err) {
+  process.stdout.on('error', err => {
     if (err.code == 'EPIPE') {
       process.exit(0);
     }

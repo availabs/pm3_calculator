@@ -16,6 +16,7 @@ let {
   getTrafficDistribution
 } = require('./utils/data_retrieval');
 
+const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
 const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
 const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer')
 
@@ -39,19 +40,28 @@ let bar = null;
 function CalculateMeasures(tmc, year) {
   const { calculator } = this;
 
-  var trafficDistribution = getTrafficDistribution(
-    tmc.directionality,
-    tmc.congestion_level,
-    tmc.is_controlled_access,
-    TIME,
-    'cattlab'
-  );
-  var dirFactor = +tmc.faciltype > 1 ? 2 : 1;
-
-  tmc.directional_aadt = tmc.aadt / dirFactor;
-
   return DownloadTMCData(tmc.tmc, year, STATE).then(tmcData => {
     return new Promise(function(resolve, reject) {
+
+      const { congestion_level, directionality } = CalculateTrafficDistFactors({
+        attrs: tmc,
+        data: tmcData.rows
+      });
+
+      tmc.congestion_level = congestion_level || tmc.congestion_level;
+      tmc.directionality = directionality || tmc.directionality;
+
+      const trafficDistribution = getTrafficDistribution(
+        tmc.directionality,
+        tmc.congestion_level,
+        tmc.is_controlled_access,
+        TIME,
+        'cattlab'
+      );
+      var dirFactor = +tmc.faciltype > 1 ? 2 : 1;
+
+      tmc.directional_aadt = tmc.aadt / dirFactor;
+
       const tmcFiveteenMinIndex = fiveteenMinIndexer(tmc, tmcData.rows, { SPEED_FILTER })
 
       if (Object.keys(tmcFiveteenMinIndex || {}).length < 1) {
@@ -106,6 +116,7 @@ DownloadTMCAtttributes(STATE).then(tmcs => {
     let startEnd = START 
       ? `_${START}_${END}`
       : ''
+
     fs.writeFile(`${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}${startEnd}.csv`, output, function(
       err
     ) {
