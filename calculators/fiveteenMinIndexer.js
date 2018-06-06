@@ -5,10 +5,16 @@ const fiveteenMinIndexer = (tmcAttr, tmcData, options) =>
 
         const date = current.npmrds_date || current.date;
 
+        // For equality of DB & CSV input, use travel_time_all_vehicles only.
+        // const tt = current.travelTime || current.travel_time_all_vehicles;
+        // const ttPV = current.travel_time_passenger_vehicles || tt;
+        // const ttFT = current.travel_time_freight_trucks || tt;
+
         const tt = current.travelTime || current.travel_time_all_vehicles;
-        const ttPV = current.travel_time_passenger_vehicles || tt;
-        const ttFT = current.travel_time_freight_trucks || tt;
-        const dateQtrHr = date + "_" + Math.floor(current.epoch / 3);
+        const ttPV = tt;
+        const ttFT = tt;
+
+        const dateQtrHr = `${date}_${Math.floor(current.epoch / 3)}`;
 
         const speed = +tmcAttr.length / (+tt / 3600);
         const speedPV = +tmcAttr.length / (+ttPV / 3600);
