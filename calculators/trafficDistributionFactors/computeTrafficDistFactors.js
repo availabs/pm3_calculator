@@ -1,3 +1,4 @@
+/* eslint no-plusplus: 0 */
 const AM_PEAK_START_EPOCH = 6 * 12;
 const AM_PEAK_END_EPOCH = 10 * 12 - 1;
 

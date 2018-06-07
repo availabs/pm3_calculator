@@ -20,7 +20,7 @@ const csvInputStream = () => {
       const row = {};
 
       for (let i = 0; i < header.length; i += 1) {
-        const v = d[i];
+        const v = d[i] !== '' ? d[i] : null;
 
         row[header[i]] = v !== null && Number.isFinite(+v) ? +v : v;
       }

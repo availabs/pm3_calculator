@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 
+/* eslint no-param-reassign: 0 */
+
 const { env } = process;
 
-let Promise = require('bluebird');
-let ProgressBar = require('progress');
-let fs = require('fs');
-let d3 = require('d3-dsv');
-
+const Promise = require('bluebird');
+const ProgressBar = require('progress');
+const fs = require('fs');
+const d3 = require('d3-dsv');
 const minimist = require('minimist');
+
 const argv = minimist(process.argv.slice(2));
 
-let {
+const {
   DownloadTMCData,
   DownloadTMCAtttributes,
   getTrafficDistribution
@@ -29,7 +31,7 @@ const {
   YEAR = 2017,
   STATE = 'ny',
   MEAN = 'mean',
-  TIME = 12, //number of epochs to group
+  TIME = 12, // number of epochs to group
   FULL = false,
   START,
   END

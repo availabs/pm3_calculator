@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 
+console.error(`
+  ERROR: This script is currently behind index.js & index.streaming.js
+    TODO: Remove this script add NPMRDS version support to the v2 calculators.
+`)
+
+process.exit(1)
+
+
 let {
   DownloadTMCDataHERE,
   DownloadTMCAtttributes,

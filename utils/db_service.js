@@ -16,21 +16,14 @@ const config = {
   max: 40
 };
 
-// process.on('unhandledRejection', (err) => {
-//   if (err && !err.message.match(/^NOTICE/)) {
-//     console.log(err.message || err.stack)
-//   }
-// })
-
 const pool = new Pool(config);
 
 // code based on example found here: https://github.com/brianc/node-postgres/wiki/Example
 const runQuery = (text, values, cb) => pool.query(text, values, cb);
 
-const shutItDown = () => pool.end();
-
 // Used in the database initialization scripts.
 // Keeps them from hanging at the end.
+const shutItDown = () => pool.end();
 
 module.exports = {
   runQuery,

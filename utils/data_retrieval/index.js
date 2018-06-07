@@ -11,6 +11,7 @@ const traffic_distrubtions = require('../traffic_distribution');
 const traffic_distrubtions_cattlab = require('../traffic_distribution_cattlab');
 
 const geolevelPM3RequiredCols = require('./geolevelPM3RequiredCols');
+const { DownloadTMCData, DownloadTMCDataHERE } = require('./TMCDataDownloaders')
 
 const RITIS_DATASOURCES = require('../RITIS_DATASOURCES');
 
@@ -51,43 +52,6 @@ const DownloadHereToInrixMap = function DownloadHereToInrixMap() {
     });
   });
 };
-
-const DownloadTMCData = function DownloadTMCData(tmc, year, state) {
-  return new Promise((resolve, reject) => {
-    const sql = `
-			select
-				npmrds_date("date") as npmrds_date, 
-				epoch, 
-				travel_time_all_vehicles as "travelTime" 
-			from "${state}".npmrds 
-			where tmc = '${tmc}'
-			and (date >= '${year}-01-01'::date AND date < '${year + 1}-01-01'::date)
-			`;
-    // console.log(sql);
-    db_service.runQuery(sql, [], (err, data) => {
-      if (err) reject(err);
-      resolve(data);
-    });
-  });
-};
-
-const DownloadTMCDataHERE = (tmc, year, state) =>
-  new Promise((resolve, reject) => {
-    const sql = `
-			select
-				npmrds_date("date") as npmrds_date, 
-				epoch, 
-				travel_time_all_vehicles as "travelTime" 
-			from "${state}".npmrds 
-			where tmc = '${tmc}'
-			and (date >= '${year}-01-01'::date AND date < '${year + 1}-01-01'::date)
-			`;
-    // console.log(sql);
-    db_service_here.runQuery(sql, [], (err, data) => {
-      if (err) reject(err);
-      resolve(data);
-    });
-  });
 
 const DownloadTMCPM3 = (state, NPMRDS_VER = 2) =>
   new Promise((resolve, reject) => {
