@@ -17,12 +17,15 @@ const tmc = '104+04098';
 let dbTMCData = null;
 let csvTMCData = null;
 
+jest.setTimeout(100000);
+
 const getTestDataFromDB = () =>
   new Promise(resolve => {
     if (dbTMCData) {
-      resolve(dbTMCData);
+      return resolve(dbTMCData);
     }
-    getTMCFromDatabase(state, year, tmc).then(data => {
+
+    return getTMCFromDatabase(state, year, tmc).then(data => {
       dbTMCData = data;
       resolve(data);
     });
@@ -38,31 +41,7 @@ const getTestDataFromCSV = async () => {
   return csvTMCData;
 };
 
-const getPHEDIndexJSWay = (attrs, data) => {
-  const trafficDistribution = getTrafficDistribution(
-    attrs.directionality,
-    attrs.congestion_level,
-    attrs.is_controlled_access,
-    TIME,
-    'cattlab'
-  );
-  const dirFactor = +attrs.faciltype > 1 ? 2 : 1;
-
-  attrs.directional_aadt = attrs.aadt / dirFactor; // eslint-disable-line no-param-reassign
-
-  const tmcFiveteenMinIndex = fiveteenMinIndexer(attrs, data);
-
-  return CalculatePHED(
-    attrs,
-    tmcFiveteenMinIndex,
-    trafficDistribution,
-    TIME,
-    MEAN,
-    PHED_COL_MAPPINGS
-  );
-};
-
-const getPHEDIndexStreamingJSWay = (attrs, data) => {
+const getPHED = (attrs, data) => {
   const { congestion_level, directionality } = CalculateTrafficDistFactors({
     attrs,
     data
@@ -82,6 +61,10 @@ const getPHEDIndexStreamingJSWay = (attrs, data) => {
     'cattlab'
   );
 
+  const dirFactor = +attrs.faciltype > 1 ? 2 : 1;
+
+  attrs.directional_aadt = attrs.aadt / dirFactor; // eslint-disable-line no-param-reassign
+
   const tmcFiveteenMinIndex = fiveteenMinIndexer(attrs, data);
 
   return CalculatePHED(
@@ -94,34 +77,30 @@ const getPHEDIndexStreamingJSWay = (attrs, data) => {
   );
 };
 
-afterAll(() => {
+afterAll(async () => {
   // close the DB connections so Jest doesn't hang.
-  shutItDown();
+  await shutItDown();
 });
 
 describe('Calculate PHED Test Suite', () => {
-  test('data has one year or less', done => {
-    getTestDataFromDB().then(dbData => {
-      expect(dbData.data.length).toBeLessThanOrEqual(288 * 365);
-      done();
-    });
+  test('data has one year or less', async () => {
+    const { data } = await getTestDataFromDB();
+    expect(data.length).toBeLessThanOrEqual(288 * 365);
   });
 
-  test('get fiveteen minute index', done => {
-    getTestDataFromDB().then(data => {
-      const fiveteenMinuteData = fiveteenMinIndexer(data.attributes, data.data);
-      // console.log(fiveteenMinuteData)
-      expect(Object.keys(fiveteenMinuteData).length).toBeLessThanOrEqual(
-        96 * 365
-      );
-      done();
-    });
+  test('get fiveteen minute index', async () => {
+    const { attributes, data } = await getTestDataFromDB();
+    const fiveteenMinuteData = fiveteenMinIndexer(attributes, data);
+    // console.log(fiveteenMinuteData)
+    expect(Object.keys(fiveteenMinuteData).length).toBeLessThanOrEqual(
+      96 * 365
+    );
   });
 
   test('PHED output nonnull for db data', async () => {
     const { attributes, data } = await getTestDataFromDB();
 
-    const phed = getPHEDIndexJSWay(attributes, data);
+    const phed = getPHED(attributes, data);
 
     expect(phed).toEqual(expect.anything());
   });
@@ -130,7 +109,7 @@ describe('Calculate PHED Test Suite', () => {
     const { attributes: attrs } = await getTestDataFromDB();
     const data = await getTestDataFromCSV();
 
-    const phed = getPHEDIndexStreamingJSWay(attrs, data);
+    const phed = getPHED(attrs, data);
 
     expect(phed).toEqual(expect.anything());
   });
@@ -139,9 +118,9 @@ describe('Calculate PHED Test Suite', () => {
     const { attributes, data: dbData } = await getTestDataFromDB();
     const csvData = await getTestDataFromCSV();
 
-    const indexJsPHED = getPHEDIndexJSWay(attributes, dbData);
-    const indexStreamingJsPHED = getPHEDIndexJSWay(attributes, csvData);
+    const dbPHED = getPHED(attributes, dbData);
+    const csvPHED = getPHED(attributes, csvData);
 
-    expect(indexStreamingJsPHED).toEqual(indexJsPHED);
+    expect(csvPHED).toEqual(dbPHED);
   });
 });
