@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const { env } = process;
-const fs = require('fs');
+const assert = require('assert');
 
 const { join } = require('path');
 
-const { split, stringify } = require('event-stream');
+const { split } = require('event-stream');
 const transform = require('parallel-transform');
 
 const minimist = require('minimist');
@@ -16,6 +16,8 @@ const {
   DownloadTMCAtttributes,
   getTrafficDistribution
 } = require('./utils/data_retrieval');
+
+const log = require('./utils/log');
 
 const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
@@ -35,13 +37,21 @@ const toNumerics = o =>
 
 const {
   CONCURRENCY = 8,
-  SPEED_FILTER = 0,
-  DIR = 'data/',
   YEAR = 2017,
   STATE = 'ny',
   MEAN = 'mean',
   TIME = 12 // number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
+
+log.info({
+  startup: {
+    main: 'index.streaming.js',
+    STATE,
+    YEAR,
+    MEAN,
+    TIME
+  }
+});
 
 const calculateMeasuresStream = (calculator, tmcAttributes) =>
   transform(
@@ -66,8 +76,11 @@ const calculateMeasuresStream = (calculator, tmcAttributes) =>
 
       const attrs = tmcAttributes[tmc];
 
+      // INVARIANT: The NPMRDS data is for this TMC.
+      assert(data.every(({ tmc: dTMC }) => dTMC === tmc));
+
       if (!attrs) {
-        return;
+        return null;
       }
 
       const { congestion_level, directionality } = CalculateTrafficDistFactors({
@@ -112,7 +125,7 @@ async function doIt() {
 
   // https://stackoverflow.com/a/15884508/3970755
   process.stdout.on('error', err => {
-    if (err.code == 'EPIPE') {
+    if (err.code === 'EPIPE') {
       process.exit(0);
     }
   });

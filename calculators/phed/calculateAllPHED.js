@@ -5,6 +5,7 @@ const { getAadt } = require('../utils/aadtUtils');
 const getFifteenData = require('./utils/getFifteenData');
 const getFifteenPeaks = require('./utils/getFifteenPeaks');
 const calculateDelays = require('./utils/calculateDelays');
+const log = require('../../utils/log');
 
 const DEFAULT_MEAN_TYPE = require('./constants/DEFAULT_MEAN_TYPE');
 
@@ -29,6 +30,14 @@ const calculateAllPHED = (
     trafficType,
     mean,
     time
+  });
+
+  log.debug({
+    calculateAllPHED: {
+      tmc: tmcAttributes.tmc,
+      tmcFiveteenMinIndexNumEntries: Object.keys(tmcFiveteenMinIndex).length,
+      fifteenDataLength: fifteenData.length
+    }
   });
 
   const fifteenPeaks = getFifteenPeaks(fifteenData);
