@@ -1,7 +1,7 @@
 const fiveteenMinIndexer = require('../calculators/fiveteenMinIndexer');
 const getTMCFromDatabase = require('../tasks/getTestData/getTMCFromDatabase');
 const { getTMCDataFromCSV } = require('../tasks/getTestData/getTMCFromCSV');
-const { shutItDown } = require('../utils/db_service');
+const { shutItDown } = require('../src/services/db_service');
 
 const state = 'ny';
 const year = 2017;

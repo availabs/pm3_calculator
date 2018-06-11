@@ -4,7 +4,7 @@ const readline = require('readline');
 const { createReadStream } = require('fs');
 
 const Promise = require('bluebird');
-const db_service = require('../db_service');
+const db_service = require('../../src/services/db_service');
 const db_service_here = require('../db_service_here');
 
 const traffic_distrubtions = require('../traffic_distribution');

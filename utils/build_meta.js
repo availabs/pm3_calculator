@@ -1,4 +1,4 @@
-let db_service = require('./db_service')
+let db_service = require('../src/services/db_service')
 let fs = require('fs')
 let ua_to_mpo = require('../data/meta/ua_to_mpo')
 

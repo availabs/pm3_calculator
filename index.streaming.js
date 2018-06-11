@@ -77,6 +77,7 @@ const calculateMeasuresStream = (calculator, tmcAttributes) =>
       const attrs = tmcAttributes[tmc];
 
       // INVARIANT: The NPMRDS data is for this TMC.
+      const dataArrLen = data.length;
       assert(data.every(({ tmc: dTMC }) => dTMC === tmc));
 
       if (!attrs) {
@@ -110,6 +111,10 @@ const calculateMeasuresStream = (calculator, tmcAttributes) =>
         trafficDistribution,
         tmcFiveteenMinIndex
       );
+
+      // INVARIANT: The NPMRDS data is for this TMC.
+      assert(data.every(({ tmc: dTMC }) => dTMC === tmc));
+      assert(data.length === dataArrLen);
 
       return process.nextTick(() => callback(null, measures));
     }

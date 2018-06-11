@@ -1,6 +1,6 @@
 let d3 = require('d3-dsv');
 let fs = require('fs');
-let db_service = require('./utils/db_service')
+let db_service = require('./src/services/db_service')
 
 const YEAR = '2016'
 const STATE = 'ny'

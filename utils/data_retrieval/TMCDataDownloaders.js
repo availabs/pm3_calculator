@@ -1,4 +1,4 @@
-const db_service = require('../db_service');
+const db_service = require('../../src/services/db_service');
 const db_service_here = require('../db_service_here');
 
 const buildSQL = (tmc, year, state) => `

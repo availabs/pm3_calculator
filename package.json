@@ -7,11 +7,15 @@
     "test": "jest"
   },
   "author": "",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./test/test-bundler.js"
+  },
   "license": "ISC",
   "dependencies": {
     "JSONStream": "^1.3.3",
     "binary-split": "^1.0.3",
     "bluebird": "3.5.1",
+    "bunyan": "^1.8.12",
     "d3": "^4.13.0",
     "d3-array": "1.2.1",
     "d3-dsv": "1.0.8",
@@ -33,6 +37,11 @@
     "split2": "^2.2.0"
   },
   "devDependencies": {
+    "any-json": "^3.1.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-async-generator-functions": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
