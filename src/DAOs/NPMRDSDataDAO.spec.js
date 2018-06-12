@@ -19,7 +19,7 @@ const dbNPMRDSDataGeneratorMock = require('../services/dbNPMRDSDataGenerator');
 
 const csvStreamIteratorMock = require('../utils/csvStreamIterator');
 
-const { generateNPMRDSData } = require('../DAOs/NPMRDSDataDAO');
+const { generateNPMRDSData } = require('./NPMRDSDataDAO');
 
 jest.mock('../services/csvNPMRDSDataGenerator');
 jest.mock('../services/dbNPMRDSDataGenerator');

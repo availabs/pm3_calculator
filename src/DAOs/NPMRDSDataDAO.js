@@ -10,9 +10,8 @@ const {
 
 const { createCSVIterator } = require('../utils/csvStreamIterator');
 
-// NOTE: Below,
-//        call to require('../services/dbNPMRDSDataGenerator'),
-//        avoids unnecessary DB connection
+// NOTE: Putting the call to require('../services/dbNPMRDSDataGenerator') below
+//       avoids unnecessary DB connection
 const {
   generateData: generateDataFromCSV
 } = require('../services/csvNPMRDSDataGenerator');
@@ -37,6 +36,7 @@ async function* generateNPMRDSData(config) {
       const {
         generateData: generateDataFromDB
       } = require('../services/dbNPMRDSDataGenerator');
+
       yield* generateDataFromDB(config);
       return;
     }

@@ -2,6 +2,7 @@
 /* eslint no-param-reassign: 0 */
 
 const { runQuery } = require('./db_service');
+const getTMCsForState = require('../utils/getTMCsForState');
 
 const buildSQL = (tmc, year, state) => `
   SELECT
@@ -31,18 +32,8 @@ async function* generateData({
     throw new Error('year parameter is required.');
   }
 
-  const tmcsSQL = `
-    SELECT
-        tmc
-      FROM "${state}".tmc_attributes
-      ORDER BY tmc
-    ;
-  `;
-
-  const tmcsList = (
-    (tmcs && Array.isArray(tmcs) ? tmcs : tmcs) ||
-    (await runQuery(tmcsSQL)).rows.map(({ tmc }) => tmc)
-  ).sort();
+  let tmcsList = tmcs && Array.isArray(tmcs) ? tmcs : [tmcs];
+  tmcsList = tmcsList || (await getTMCsForState(state));
 
   for await (const tmc of tmcsList) {
     head -= 1;
