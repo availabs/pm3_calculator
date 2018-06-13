@@ -49,7 +49,7 @@ via the `--tmc` or `--tmcs` command line arg.
 ./index.2.js --state=ny --year=2017 --tmc='104-04106,120P04988'
 ```
 
-For testing, the `--head` cli arg will limit the output to specified numbuer of tmcs.
+For testing, the `--head` cli arg will limit the output to specified number of tmcs.
 
 ```
 ./index.2.js --state=ny --year=2017 --head=2 --outputFile='/tmp/pm3.csv'
