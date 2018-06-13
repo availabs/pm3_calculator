@@ -23,7 +23,7 @@ afterAll(async () => {
   await db_serviceMock.shutItDown();
 });
 
-describe('TMCAttributesDAO tests', () => {
+describe('TMCAttributesDAO Integration tests', () => {
   test('DAO faithfully returns DB response', async () => {
     const mockTMCAttrs = {
       rows: [
@@ -47,8 +47,10 @@ describe('TMCAttributesDAO tests', () => {
     expect(tmcAttributes.bar).toEqual(mockTMCAttrs.rows[1]);
     expect(tmcAttributes.baz).toEqual(mockTMCAttrs.rows[2]);
   });
+});
 
-  test('DAO requests the specified columns', async () => {
+describe('TMCAttributesDAO End-to-End tests', () => {
+  test('DAO requests, and gets, the specified columns from the database', async () => {
     // Here, we actually want to make the DB call.
     // See https://github.com/facebook/jest/issues/2649#issuecomment-360467278
     db_serviceMock.runQuery.mockImplementationOnce(

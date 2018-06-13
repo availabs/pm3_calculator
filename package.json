@@ -34,7 +34,8 @@
     "pg-copy-streams": "1.2.0",
     "progress": "2.0.0",
     "pumpify": "^1.4.0",
-    "split2": "^2.2.0"
+    "split2": "^2.2.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "any-json": "^3.1.0",

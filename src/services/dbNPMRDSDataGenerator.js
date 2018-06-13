@@ -4,7 +4,7 @@
 const { runQuery } = require('./db_service');
 const getTMCsForState = require('../utils/getTMCsForState');
 
-const buildSQL = (tmc, year, state) => `
+const buildSQL = state => `
   SELECT
       tmc,
       to_char(date, 'YYYYMMDD')::INT as date, 
@@ -14,9 +14,9 @@ const buildSQL = (tmc, year, state) => `
       travel_time_freight_trucks
     FROM "${state}".npmrds 
     WHERE (
-      (tmc = '${tmc}')
+      (tmc = $1)
       AND 
-      (date >= '${year}-01-01'::DATE AND date < '${year + 1}-01-01'::DATE)
+      (date >= $2::DATE AND date < $3::DATE)
     );
 `;
 
@@ -41,9 +41,12 @@ async function* generateData({
     if (head < 0) {
       return;
     }
-    const dSQL = buildSQL(tmc, year, state);
-
-    const { rows: data } = await runQuery(dSQL);
+    const sql = buildSQL(state);
+    const { rows: data } = await runQuery(sql, [
+      tmc,
+      `${year}-01-01`,
+      `${year + 1}-01-01`
+    ]);
 
     yield { data };
   }
