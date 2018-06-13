@@ -47,7 +47,6 @@ const {
 
 const argv = minimist(process.argv.slice(2), {
   alias: {
-    concurrency: 'CONCURRENCY',
     csvPath: 'CSV_PATH',
     head: 'HEAD',
     mean: 'MEAN',
@@ -68,7 +67,7 @@ const {
   time = TIME || 12,
   tmcs = TMC || TMCS,
   year = YEAR || 2017
-} = argv;
+} = toNumerics(argv);
 
 log.info({
   startup: {
