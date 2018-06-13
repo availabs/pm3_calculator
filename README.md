@@ -1,5 +1,23 @@
 # NPRMDS PM3 Calculator
 
+## Node Version
+
+The calculator requires Node.js version 10.
+This dependency is because async iteration over readable streams is a new feature.
+Aync iteration over readable streams provides a clean 
+unified interface for taking input data from
+either a series of async database calls or streamed CSVs.
+
+[further reading](http://2ality.com/2018/04/async-iter-nodejs.html)
+
+### Using Node v10
+
+1. Update n: `sudo npm install -g n`
+1. Update npm: `sudo npm install -g npm`
+1. Update Node: `sudo n latest`
+1. `rm -rf node_modules`
+1. `npm install`
+
 ## Running the calculator
 
 Note: index.js & index.streaming.js will soon be replaces with scripts
