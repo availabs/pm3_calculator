@@ -17,7 +17,7 @@ const createCSVIterator = ({ csvPath, stream }) => {
   if (!inputStream) {
     const absolutePath = isAbsolute(csvPath)
       ? csvPath
-      : join(process.cwd, csvPath);
+      : join(process.cwd(), csvPath);
 
     const csvFileType = extname(absolutePath).toLowerCase();
 

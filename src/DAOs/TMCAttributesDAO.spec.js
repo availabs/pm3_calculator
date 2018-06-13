@@ -39,13 +39,11 @@ describe('TMCAttributesDAO Integration tests', () => {
       Promise.resolve(mockTMCAttrs)
     );
 
-    const tmcAttributes = await getTMCAttributes({ attributes });
-    expect(Object.keys(tmcAttributes)).toEqual(
-      mockTMCAttrs.rows.map(({ tmc }) => tmc)
-    );
-    expect(tmcAttributes.foo).toEqual(mockTMCAttrs.rows[0]);
-    expect(tmcAttributes.bar).toEqual(mockTMCAttrs.rows[1]);
-    expect(tmcAttributes.baz).toEqual(mockTMCAttrs.rows[2]);
+    const attrs = await getTMCAttributes({ attributes });
+    expect(Object.keys(attrs)).toEqual(mockTMCAttrs.rows.map(({ tmc }) => tmc));
+    expect(attrs.foo).toEqual(mockTMCAttrs.rows[0]);
+    expect(attrs.bar).toEqual(mockTMCAttrs.rows[1]);
+    expect(attrs.baz).toEqual(mockTMCAttrs.rows[2]);
   });
 });
 
@@ -70,16 +68,16 @@ describe('TMCAttributesDAO End-to-End tests', () => {
     const expectedAttrNames = attributes.map(a => a.match(/(\w+)$/)[0]).sort();
 
     const params = { state, tmcs, attributes };
-    const tmcAttributes = await getTMCAttributes(params);
+    const attrs = await getTMCAttributes(params);
 
-    expect(Object.keys(tmcAttributes)).toEqual(tmcs);
+    expect(Object.keys(attrs)).toEqual(tmcs);
 
     for (let i = 0; i < tmcs.length; i += 1) {
       const tmc = tmcs[i];
-      expect(Object.keys(tmcAttributes[tmc]).sort()).toEqual(expectedAttrNames);
-      expect(typeof tmcAttributes[tmc].tmc_linear).toEqual('string');
-      expect(typeof tmcAttributes[tmc].miles).toEqual('number');
-      expect(typeof tmcAttributes[tmc].is_interstate).toEqual('boolean');
+      expect(Object.keys(attrs[tmc]).sort()).toEqual(expectedAttrNames);
+      expect(typeof attrs[tmc].tmc_linear).toEqual('string');
+      expect(typeof attrs[tmc].miles).toEqual('number');
+      expect(typeof attrs[tmc].is_interstate).toEqual('boolean');
     }
   });
 });

@@ -37,7 +37,7 @@ async function* generateTMCData(config) {
       const [{ tmc }] = data;
       tmcSet.delete(tmc);
       yield {
-        tmcAttributes: tmcAttributes[tmc] || {},
+        attrs: tmcAttributes[tmc] || {},
         data
       };
     }

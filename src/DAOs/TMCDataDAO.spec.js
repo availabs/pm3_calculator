@@ -64,9 +64,9 @@ describe('TMCDataDAO Integration tests', () => {
 
     const tmcSet = new Set(tmcs);
 
-    for await (const { tmcAttributes, data } of tmcDataIterator) {
-      const { tmc } = tmcAttributes;
-      expect(tmcAttributes).toEqual(mockTMCAttrs[tmc]);
+    for await (const { attrs, data } of tmcDataIterator) {
+      const { tmc } = attrs;
+      expect(attrs).toEqual(mockTMCAttrs[tmc]);
       expect(data).toEqual(mockNPMRDSData[tmc]);
       tmcSet.delete(tmc);
     }
@@ -95,9 +95,9 @@ describe('TMCDataDAO End-to-End tests', () => {
 
     const tmcSet = new Set(tmcs);
 
-    for await (const { tmcAttributes, data } of tmcDataIterator) {
-      const { tmc } = tmcAttributes;
-      expect(Object.keys(tmcAttributes).sort()).toEqual(expectedAttrNames);
+    for await (const { attrs, data } of tmcDataIterator) {
+      const { tmc } = attrs;
+      expect(Object.keys(attrs).sort()).toEqual(expectedAttrNames);
       expect(Array.isArray(data)).toBeTruthy();
       tmcSet.delete(tmc);
     }

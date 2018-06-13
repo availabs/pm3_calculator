@@ -19,6 +19,7 @@
     "d3": "^4.13.0",
     "d3-array": "1.2.1",
     "d3-dsv": "1.0.8",
+    "deep-freeze": "0.0.1",
     "eslint-config-prettier": "^2.9.0",
     "event-stream": "^3.3.4",
     "fast-csv": "^2.4.1",

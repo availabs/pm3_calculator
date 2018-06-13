@@ -30,7 +30,7 @@ const getTMCAttributes = async ({ state, tmcs, attributes }) => {
     ;
   `;
 
-  const response = await runQuery(sql, [tmcsList]);
+  const response = await runQuery(sql, tmcsList && [tmcsList]);
   const tmcAttributes = response.rows.reduce((acc, attrs) => {
     const { tmc } = attrs;
     if (addedTMCCol) {
