@@ -30,11 +30,7 @@ const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer');
 
 let bar = null;
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
+const toNumerics = require('./src/utils/toNumerics')
 
 const {
   SPEED_FILTER = 3,

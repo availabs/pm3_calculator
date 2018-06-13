@@ -29,11 +29,7 @@ const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer');
 
 const outputCols = require(join(__dirname, './utils/pm3OutputCols.json'));
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
+const toNumerics = require('./src/utils/toNumerics')
 
 const {
   CONCURRENCY = 8,

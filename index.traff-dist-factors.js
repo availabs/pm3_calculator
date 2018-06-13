@@ -37,11 +37,7 @@ const outputCols = [
   'peakSpeedDifferential'
 ];
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
+const toNumerics = require('./src/utils/toNumerics')
 
 const { CONCURRENCY = 4, STATE = 'nj' } = toNumerics(
   Object.assign({}, env, argv)

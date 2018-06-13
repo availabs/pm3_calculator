@@ -11,7 +11,7 @@ const { DownloadTMCPM3 } = require('./utils/data_retrieval');
 
 const argv = minimist(process.argv.slice(2));
 
-const toNumerics = require('./utils/toNumerics');
+const toNumerics = require('./src/utils/toNumerics');
 
 const {
   NPMRDS_VER = 2,

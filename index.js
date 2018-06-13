@@ -22,7 +22,7 @@ const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFa
 const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
 const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer')
 
-const toNumerics = require('./utils/toNumerics')
+const toNumerics = require('./src/utils/toNumerics')
 
 // NOTE: cli arguments override env arguments
 const {

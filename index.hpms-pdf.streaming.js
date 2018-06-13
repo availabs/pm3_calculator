@@ -24,11 +24,7 @@ const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer');
 
 const outputCols = require('./utils/hpmsPDFOutputCols.json');
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
+const toNumerics = require('./src/utils/toNumerics')
 
 const {
   YEAR = 2017,
