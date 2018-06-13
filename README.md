@@ -18,7 +18,44 @@ either a series of async database calls or streamed CSVs.
 1. `rm -rf node_modules`
 1. `npm install`
 
-## Running the calculator
+## Running the calculator via index.2.js
+
+This script is convenience script that provides the same interface and behavior
+as the legacy index.js script.
+
+### Example Usage
+
+By default, it will write to the same default output file as index.js.
+
+
+```
+./index.2.js --state=ny --year=2017 --tmc='104-04106'
+```
+
+However the output file can be specified with the `--outputFile` command line arg.
+
+```
+./index.2.js --state=ny --year=2017 --outputFile='/tmp/pm3.csv'
+```
+
+Additionally, a set of tmcs can be specified
+via the `--tmc` or `--tmcs` command line arg.
+
+```
+./index.2.js --state=ny --year=2017 --tmc='104-04106'
+```
+
+```
+./index.2.js --state=ny --year=2017 --tmc='104-04106,120P04988'
+```
+
+For testing, the `--head` cli arg will limit the output to specified numbuer of tmcs.
+
+```
+./index.2.js --state=ny --year=2017 --head=2 --outputFile='/tmp/pm3.csv'
+```
+
+## Running the calculator via bin/calculatePM3
 
 Note: index.js & index.streaming.js will soon be replaces with scripts
 that call bin/calculatePM3.js with the appropriate ENV variables.
@@ -26,7 +63,8 @@ that call bin/calculatePM3.js with the appropriate ENV variables.
 ### From STDIN
 
 ```
-xzcat ../tasks/hpmsPDF/albanyCountyNPMRDS.2017.csv.xz| ./calculatePM3.js --state=ny --year=2017 --npmrdsDataSource=STREAM
+xzcat ../tasks/hpmsPDF/albanyCountyNPMRDS.2017.csv.xz |
+  ./calculatePM3.js --state=ny --year=2017 --npmrdsDataSource=STREAM
 ```
 
 ### From a FILE
