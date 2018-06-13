@@ -6,7 +6,6 @@
 // https://babeljs.io/docs/plugins/transform-async-generator-functions/
 
 /* eslint no-restricted-syntax: 0 */
-/* eslint no-console: 0 */
 /* eslint global-require: 0 */
 
 const uuid = require('uuid/v1');
@@ -95,10 +94,8 @@ describe('TMCDataDAO End-to-End tests', () => {
     const tmcDataIterator = await generateTMCData(params);
 
     const tmcSet = new Set(tmcs);
-    console.log(tmcSet.size);
 
     for await (const { tmcAttributes, data } of tmcDataIterator) {
-      console.log('data', data.length);
       const { tmc } = tmcAttributes;
       expect(Object.keys(tmcAttributes).sort()).toEqual(expectedAttrNames);
       expect(Array.isArray(data)).toBeTruthy();

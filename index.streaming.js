@@ -17,7 +17,7 @@ const {
   getTrafficDistribution
 } = require('./utils/data_retrieval');
 
-const log = require('./utils/log');
+const log = require('./src/utils/log');
 
 const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');

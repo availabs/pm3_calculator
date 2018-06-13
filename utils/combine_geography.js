@@ -34,7 +34,7 @@ function CombineGeography(DIR,files) {
 			return output[key]
 		})
 		fs.writeFile(`${DIR}final_geos.json`, JSON.stringify(final), function(err) {
-		    if(err) { return console.log(err) }
+		    if(err) { return console.error(err) }
 		    console.log("The file was saved!")
 			return
 		});

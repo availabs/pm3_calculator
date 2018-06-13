@@ -20,7 +20,6 @@ const createCSVIterator = ({ csvPath, stream }) => {
       : join(process.cwd, csvPath);
 
     const csvFileType = extname(absolutePath).toLowerCase();
-    console.log(csvFileType);
 
     switch (csvFileType) {
       // Uncompressed input CSV. Just create (or send the passed in) read stream.

@@ -9,6 +9,9 @@ const precisionRound = require("./utils/precisionRound");
 const concat = require("./utils/concat");
 const getDateTime = require("./utils/getDateTime").fifteen;
 const percentile = require("percentile");
+
+const log = require('../src/utils/log')
+
 const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
   let tmc = tmcAtts.tmc;
   let dirFactor = +tmcAtts.faciltype > 1 ? 2 : 1;
@@ -68,7 +71,9 @@ const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
     return acc;
   }, {});
 
-  if (Object.keys(tmcFifteenMinIndex).length < 1) console.log(tmc, data);
+  if (Object.keys(tmcFifteenMinIndex).length < 1) {
+    log.debug({ tmc, data });
+  }
 
   return data;
 };

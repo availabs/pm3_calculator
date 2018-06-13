@@ -36,7 +36,7 @@ db_service.runQuery(sql, [], (err,data) => {
 		output[r.state + '_' + r.geo] = r	
 	})
 	fs.writeFile(`${DIR}geo_meta.json`, JSON.stringify(output), function(err) {
-	    if(err) { return console.log(err) }
+	    if(err) { return console.error(err) }
 	    console.log("The file was saved!")
 		return
 	});
