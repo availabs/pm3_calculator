@@ -1,3 +1,5 @@
+/* eslint camelcase: 0 */
+/* eslint no-param-reassign: 0 */
 const lottrGeoLevelCols = require('./meta/lottrCols.geo-level.json');
 const lottrBins = require('./meta/lottrBins.json');
 
@@ -12,17 +14,17 @@ const GEO_TYPES = ['county', 'mpo', 'ua'];
 function computeAggregations(STATE, data) {
   const [{ state: state_code }] = data;
 
-  let PERSON_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
+  const PERSON_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
     out[`pd_${i}`] = 0;
     return out;
   }, {});
 
-  let VEHICLE_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
+  const VEHICLE_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
     out[`vd_${i}`] = 0;
     return out;
   }, {});
 
-  let DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
+  const DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
     out[`d_${i}`] = 0;
     return out;
   }, {});
@@ -36,7 +38,7 @@ function computeAggregations(STATE, data) {
 
   // console.log(fullData[10000])
   // make a list of geographies
-  var geographies = data.reduce(
+  const geographies = data.reduce(
     (out, d) => {
       GEO_TYPES.forEach(geo => {
         if (!out[geo].includes(d[geo]) && d[geo] !== 'null') {
@@ -50,27 +52,29 @@ function computeAggregations(STATE, data) {
 
   // console.log('geographies', geographies)
   // geographies = {county: ['Albany']}
-  let output = Object.keys(geographies).map(geo_type => {
-    let final = {};
+  const output = Object.keys(geographies).map(geo_type => {
+    const final = {};
     final[geo_type] = geographies[geo_type].map(current_geo => {
       // console.log('current_geo', current_geo, geo_type)
-      let current_geo_data = data
+      const current_geo_data = data
         .filter(d => geo_type === 'state' || d[geo_type] === current_geo)
         .reduce(
-          (out, d, ri) => {
+          (out, d) => {
             // console.log(d)
             if (+d.nhs === 1) {
-              const avo = isNaN(+d.avg_vehicle_occupancy)
+              const avo = Number.isNaN(+d.avg_vehicle_occupancy)
                 ? 1.5
                 : +d.avg_vehicle_occupancy;
 
               MONTHS.forEach((month, i) => {
                 // console.log(`vd_${month}`, +d[`vd_${month}`])
-                out[`d_${i}`] += isNaN(+d[`d_${month}`]) ? 0 : +d[`d_${month}`];
-                out[`vd_${i}`] += isNaN(+d[`vd_${month}`])
+                out[`d_${i}`] += Number.isNaN(+d[`d_${month}`])
+                  ? 0
+                  : +d[`d_${month}`];
+                out[`vd_${i}`] += Number.isNaN(+d[`vd_${month}`])
                   ? 0
                   : +d[`vd_${month}`];
-                out[`pd_${i}`] += isNaN(+d[`vd_${month}`])
+                out[`pd_${i}`] += Number.isNaN(+d[`vd_${month}`])
                   ? 0
                   : +d[`vd_${month}`] * avo;
               });
@@ -86,11 +90,11 @@ function computeAggregations(STATE, data) {
                 const lottrCols = lottrBins.map(bin => `${bin}${monthSuffix}`);
 
                 // Clean up the input data
-                lottrCols.forEach(
-                  col => (d[col] = isNaN(+d[col]) ? 1 : +d[col])
-                );
+                lottrCols.forEach(col => {
+                  d[col] = Number.isNaN(+d[col]) ? 1 : +d[col];
+                });
 
-                let lottr = Math.max(...lottrCols.map(c => d[c]));
+                const lottr = Math.max(...lottrCols.map(c => d[c]));
 
                 if (lottr < 1.5) {
                   out[
@@ -98,17 +102,17 @@ function computeAggregations(STATE, data) {
                   ] += +d.length;
                 }
 
-                if (d.is_interstate && d.length && !isNaN(+d.length)) {
+                if (d.is_interstate && d.length && !Number.isNaN(+d.length)) {
                   const tttrCols = tttrBins.map(bin => `${bin}${monthSuffix}`);
 
                   tttrCols.forEach(col => {
-                    d[col] = isNaN(+d[col]) ? 1 : +d[col];
+                    d[col] = Number.isNaN(+d[col]) ? 1 : +d[col];
                     d[col] = d[col] === Infinity ? 3 : d[col];
                   });
 
                   let tttr = Math.max(...tttrCols.map(c => d[c]));
 
-                  if (isNaN(tttr) || tttr === Infinity) {
+                  if (Number.isNaN(tttr) || tttr === Infinity) {
                     tttr = 1;
                   }
 
@@ -152,7 +156,7 @@ function computeAggregations(STATE, data) {
   let allGeo = [];
 
   Object.keys(geographies).forEach((geo, i) => {
-    //console.log(output[i][geo])
+    // console.log(output[i][geo])
     allGeo = allGeo.concat(output[i][geo]);
   });
 

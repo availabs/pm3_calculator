@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 
+/* eslint no-console: 0 */
+
 const { env } = process;
 const { join } = require('path');
+const { sync: mkdirpSync } = require('mkdirp');
 
 const Promise = require('bluebird');
 const minimist = require('minimist');
 
-const toGeography = require('./utils/to_geography');
+const toGeography = require('./src/calculators/to_geography');
 const { DownloadTMCPM3 } = require('./utils/data_retrieval');
 
 const argv = minimist(process.argv.slice(2));
@@ -18,6 +21,8 @@ const {
   OUT_DIR = join(__dirname, '/data/states/')
 } = toNumerics(Object.assign({}, env, argv));
 
+mkdirpSync(OUT_DIR);
+
 const states =
   NPMRDS_VER === 1
     ? require('./utils/states.npmrdsv1.json')
@@ -25,33 +30,32 @@ const states =
 
 Promise.map(
   states,
-  state => {
-    return DownloadTMCPM3(state, NPMRDS_VER).then(data => {
-      return new Promise((resolve, reject) => {
-        const years = data.rows.reduce((out, curr) => {
-          if (!out.includes(curr.year)) {
-            out.push(curr.year);
-          }
-          return out;
-        }, []);
-        const files = [];
-        years.forEach(year => {
-          tmcYear = data.rows.filter(tmc => tmc.year === year);
-          console.log(state, year, tmcYear.length);
+  state =>
+    DownloadTMCPM3(state, NPMRDS_VER).then(
+      data =>
+        new Promise(resolve => {
+          const years = data.rows.reduce((out, curr) => {
+            if (!out.includes(curr.year)) {
+              out.push(curr.year);
+            }
+            return out;
+          }, []);
 
-          toGeography
-            .processGeography(state, year, OUT_DIR, tmcYear, NPMRDS_VER)
-            .then(filename => {
-              console.log('filename', filename);
-              files.push(filename);
-            });
-        });
+          const files = [];
 
-        resolve(files);
-      });
-    });
-  },
+          years.forEach(year => {
+            const tmcYear = data.rows.filter(tmc => tmc.year === year);
+            console.log(state, year, tmcYear.length);
+
+            toGeography
+              .processGeography(state, year, OUT_DIR, tmcYear, NPMRDS_VER)
+              .then(filename => {
+                files.push(filename);
+              });
+          });
+
+          resolve(files);
+        })
+    ),
   { concurrency: 1 }
-).then(outFiles => {
-  return console.log(outFiles);
-});
+).then(outFiles => console.log(outFiles));

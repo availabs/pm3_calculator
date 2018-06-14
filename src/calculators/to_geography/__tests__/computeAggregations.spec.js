@@ -1,7 +1,4 @@
-'use strict';
-
 const { execSync } = require('child_process');
-const { readFileSync } = require('fs');
 const { join } = require('path');
 
 const computeAggregations = require('../computeAggregations');
@@ -29,6 +26,7 @@ describe('computeAggregations Golden Master Tests', () => {
       }, {})
     );
 
+    expect(newOutput.length).toBeGreaterThan(0);
     expect(newOutputProjection).toEqual(theGoldenMaster);
     done();
   });

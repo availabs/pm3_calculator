@@ -1,28 +1,16 @@
 const { promisify } = require('util');
 const { basename, join } = require('path');
 const { readFile, writeFile } = require('fs');
+
 const writeFileAsync = promisify(writeFile);
 
-let d3 = require('d3-dsv');
-let Promise = require('bluebird');
+const d3 = require('d3-dsv');
+const Promise = require('bluebird');
+
+const log = require('../../utils/log');
 
 // var fileName = `${DIR}${STATE}_${YEAR}_${MEAN}_${TIME}.csv`
 const computeAggregations = require('./computeAggregations');
-
-function toGeography(DIR, fileName) {
-  return new Promise(function(resolve, reject) {
-    let STATE = fileName.split('_')[0];
-    let YEAR = fileName.split('_')[1];
-    console.log('read file', DIR + fileName);
-    const inf = join(DIR, fileName);
-    readFile(inf, 'utf8', function(err, data) {
-      var fullData = d3.csvParse(data);
-      processGeography(STATE, YEAR, DIR, fullData).then(output => {
-        resolve(output);
-      });
-    }); //end readile
-  }); //end promise
-} // end func
 
 async function processGeography(STATE, YEAR, DIR, data, NPMRDS_VER = 2) {
   const allGeo = computeAggregations(STATE, data);
@@ -37,6 +25,20 @@ async function processGeography(STATE, YEAR, DIR, data, NPMRDS_VER = 2) {
 
   return basename(outf);
 }
+
+function toGeography(DIR, fileName) {
+  return new Promise(resolve => {
+    const [STATE, YEAR] = fileName.split('_');
+
+    const inf = join(DIR, fileName);
+    log.info(`read file ${inf}`);
+
+    readFile(inf, 'utf8', (err, data) => {
+      const fullData = d3.csvParse(data);
+      processGeography(STATE, YEAR, DIR, fullData).then(resolve);
+    }); // end readile
+  }); // end promise
+} // end func
 
 module.exports = {
   toGeography,
