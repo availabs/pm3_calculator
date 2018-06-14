@@ -1,7 +1,7 @@
-const fiveteenMinIndexer = require('../calculators/fiveteenMinIndexer');
+const fiveteenMinIndexer = require('../src/calculators/fiveteenMinIndexer');
 const getTMCFromDatabase = require('../tasks/getTestData/getTMCFromDatabase');
-const CalculateTrafficDistFactors = require('../calculators/trafficDistributionFactors');
-const CalculatePHED = require('../calculators/phed');
+const CalculateTrafficDistFactors = require('../src/calculators/trafficDistributionFactors');
+const CalculatePHED = require('../src/calculators/phed');
 const { getTMCDataFromCSV } = require('../tasks/getTestData/getTMCFromCSV');
 const { shutItDown } = require('../src/services/db_service');
 const { getTrafficDistribution } = require('./../utils/data_retrieval');

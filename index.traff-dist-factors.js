@@ -2,27 +2,20 @@
 
 const { env } = process;
 
-const Promise = require('bluebird');
-const fs = require('fs');
-
-const { split, through, stringify } = require('event-stream');
+const { split } = require('event-stream');
 const transform = require('parallel-transform');
 
 const minimist = require('minimist');
+
 const argv = minimist(process.argv.slice(2));
 
-const {
-  DownloadTMCAtttributes,
-  getTrafficDistribution
-} = require('./utils/data_retrieval');
+const { DownloadTMCAtttributes } = require('./utils/data_retrieval');
 
 const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
-const CalculatePHED = require('./calculators/phed');
-const CalculateTTR = require('./calculators/ttr');
-const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
+const CalculateTrafficDistFactors = require('./src/calculators/trafficDistributionFactors');
 
 const outputCols = [
   'tmc',
@@ -37,14 +30,14 @@ const outputCols = [
   'peakSpeedDifferential'
 ];
 
-const toNumerics = require('./src/utils/toNumerics')
+const toNumerics = require('./src/utils/toNumerics');
 
 const { CONCURRENCY = 4, STATE = 'nj' } = toNumerics(
   Object.assign({}, env, argv)
 );
 
-const calculateTrafficDistributionFactors = tmcAttributes => {
-  return transform(
+const calculateTrafficDistributionFactors = tmcAttributes =>
+  transform(
     CONCURRENCY,
     // Data schema:
     // {
@@ -61,7 +54,7 @@ const calculateTrafficDistributionFactors = tmcAttributes => {
     //       },
     //       ...
     //    ]
-    function write(tmcData, callback) {
+    (tmcData, callback) => {
       const { metadata: { tmc }, data } = tmcData;
 
       const attrs = tmcAttributes[tmc];
@@ -89,10 +82,9 @@ const calculateTrafficDistributionFactors = tmcAttributes => {
         3
       );
 
-      return callback(null, Object.assign({}, { tmc }, distFactors));
+      callback(null, Object.assign({}, { tmc }, distFactors));
     }
   );
-};
 
 async function doIt() {
   const result = await DownloadTMCAtttributes(STATE);
@@ -103,8 +95,8 @@ async function doIt() {
   );
 
   // https://stackoverflow.com/a/15884508/3970755
-  process.stdout.on('error', function(err) {
-    if (err.code == 'EPIPE') {
+  process.stdout.on('error', err => {
+    if (err.code === 'EPIPE') {
       process.exit(0);
     }
   });

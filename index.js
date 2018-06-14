@@ -18,9 +18,9 @@ const {
   getTrafficDistribution
 } = require('./utils/data_retrieval');
 
-const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
-const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
-const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer')
+const CalculateTrafficDistFactors = require('./src/calculators/trafficDistributionFactors');
+const AggregateMeasureCalculator = require('./src/calculators/aggregatorMeasureCalculator');
+const fiveteenMinIndexer = require('./src/calculators/fiveteenMinIndexer')
 
 const toNumerics = require('./src/utils/toNumerics')
 

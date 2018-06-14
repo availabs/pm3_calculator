@@ -1,4 +1,4 @@
-const fiveteenMinIndexer = require('../calculators/fiveteenMinIndexer');
+const fiveteenMinIndexer = require('../src/calculators/fiveteenMinIndexer');
 const getTMCFromDatabase = require('../tasks/getTestData/getTMCFromDatabase');
 const { getTMCDataFromCSV } = require('../tasks/getTestData/getTMCFromCSV');
 const { shutItDown } = require('../src/services/db_service');

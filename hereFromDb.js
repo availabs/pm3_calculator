@@ -25,8 +25,8 @@ let d3 = require('d3-dsv');
 const minimist = require('minimist');
 const argv = minimist(process.argv.slice(2));
 
-const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
-const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer');
+const AggregateMeasureCalculator = require('./src/calculators/aggregatorMeasureCalculator');
+const fiveteenMinIndexer = require('./src/calculators/fiveteenMinIndexer');
 
 let bar = null;
 

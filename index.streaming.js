@@ -3,8 +3,6 @@
 const { env } = process;
 const assert = require('assert');
 
-const { join } = require('path');
-
 const { split } = require('event-stream');
 const transform = require('parallel-transform');
 
@@ -23,13 +21,13 @@ const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
-const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
-const AggregateMeasureCalculator = require('./calculators/aggregatorMeasureCalculator');
-const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer');
+const CalculateTrafficDistFactors = require('./src/calculators/trafficDistributionFactors');
+const AggregateMeasureCalculator = require('./src/calculators/aggregatorMeasureCalculator');
+const fiveteenMinIndexer = require('./src/calculators/fiveteenMinIndexer');
 
-const outputCols = require(join(__dirname, './utils/pm3OutputCols.json'));
+const outputCols = require('./utils/pm3OutputCols.json');
 
-const toNumerics = require('./src/utils/toNumerics')
+const toNumerics = require('./src/utils/toNumerics');
 
 const {
   CONCURRENCY = 8,

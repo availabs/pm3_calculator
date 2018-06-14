@@ -17,9 +17,9 @@ const { STREAM } = require('../src/constants/NPMRDS_DATA_SOURCES');
 
 const { generateTMCData } = require('../src/DAOs/TMCDataDAO');
 
-const calculateTrafficDistFactors = require('../calculators/trafficDistributionFactors');
-const AggregateMeasureCalculator = require('../calculators/aggregatorMeasureCalculator');
-const fiveteenMinIndexer = require('../calculators/fiveteenMinIndexer');
+const calculateTrafficDistFactors = require('../src/calculators/trafficDistributionFactors');
+const AggregateMeasureCalculator = require('../src/calculators/aggregatorMeasureCalculator');
+const fiveteenMinIndexer = require('../src/calculators/fiveteenMinIndexer');
 
 const { getTrafficDistribution } = require('../utils/data_retrieval');
 

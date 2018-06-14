@@ -18,9 +18,9 @@ const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
-const CalculateTrafficDistFactors = require('./calculators/trafficDistributionFactors');
-const MeasureAggregator = require('./calculators/hpmsPDFMeasureAggregator');
-const fiveteenMinIndexer = require('./calculators/fiveteenMinIndexer');
+const CalculateTrafficDistFactors = require('./src/calculators/trafficDistributionFactors');
+const MeasureAggregator = require('./src/calculators/hpmsPDFMeasureAggregator');
+const fiveteenMinIndexer = require('./src/calculators/fiveteenMinIndexer');
 
 const outputCols = require('./utils/hpmsPDFOutputCols.json');
 
