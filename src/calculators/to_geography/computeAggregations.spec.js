@@ -6,7 +6,7 @@ const computeAggregations = require('./computeAggregations');
 
 const tmcLevelPM3DataFilePath = join(
   __dirname,
-  '__test_data__/tmcLevelPM3Data.AlbanyCounty.json.xz'
+  '__test_data__/tmcLevelPM3Data.AlbanyCounty-with-others.json.xz'
 );
 
 const geoLevelPM3DataFilePath = join(
@@ -23,17 +23,19 @@ describe('computeAggregations unit Tests', () => {
     const {
       expectedInterstateTMCs,
       expectedNoninterstateTMCs
-    } = tmcLevelPM3Data.filter(({ nhs }) => nhs === 1).reduce(
-      (acc, { is_interstate }) => {
-        if (is_interstate) {
-          acc.expectedInterstateTMCs += 1;
-        } else {
-          acc.expectedNoninterstateTMCs += 1;
-        }
-        return acc;
-      },
-      { expectedInterstateTMCs: 0, expectedNoninterstateTMCs: 0 }
-    );
+    } = tmcLevelPM3Data
+      .filter(({ nhs, county }) => nhs === 1 && county === ALBANY_COUNTY_FIPS)
+      .reduce(
+        (acc, { is_interstate }) => {
+          if (is_interstate) {
+            acc.expectedInterstateTMCs += 1;
+          } else {
+            acc.expectedNoninterstateTMCs += 1;
+          }
+          return acc;
+        },
+        { expectedInterstateTMCs: 0, expectedNoninterstateTMCs: 0 }
+      );
 
     const [albanyCountyPM3] = computeAggregations('ny', tmcLevelPM3Data).filter(
       r => r.geo === ALBANY_COUNTY_FIPS
@@ -49,17 +51,19 @@ describe('computeAggregations unit Tests', () => {
     const {
       expectedInterstateMileage,
       expectedNoninterstateMileage
-    } = tmcLevelPM3Data.filter(({ nhs }) => nhs === 1).reduce(
-      (acc, { is_interstate, length }) => {
-        if (is_interstate && length) {
-          acc.expectedInterstateMileage += +length;
-        } else {
-          acc.expectedNoninterstateMileage += +length;
-        }
-        return acc;
-      },
-      { expectedInterstateMileage: 0, expectedNoninterstateMileage: 0 }
-    );
+    } = tmcLevelPM3Data
+      .filter(({ nhs, county }) => nhs === 1 && county === ALBANY_COUNTY_FIPS)
+      .reduce(
+        (acc, { is_interstate, length }) => {
+          if (is_interstate && length) {
+            acc.expectedInterstateMileage += +length;
+          } else {
+            acc.expectedNoninterstateMileage += +length;
+          }
+          return acc;
+        },
+        { expectedInterstateMileage: 0, expectedNoninterstateMileage: 0 }
+      );
 
     const [albanyCountyPM3] = computeAggregations('ny', tmcLevelPM3Data).filter(
       r => r.geo === ALBANY_COUNTY_FIPS

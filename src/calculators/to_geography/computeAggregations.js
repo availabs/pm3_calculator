@@ -1,5 +1,7 @@
 /* eslint camelcase: 0 */
 /* eslint no-param-reassign: 0 */
+
+const assert = require('assert');
 const lottrGeoLevelCols = require('./meta/lottrCols.geo-level.json');
 const lottrBins = require('./meta/lottrBins.json');
 
@@ -56,10 +58,15 @@ function computeAggregations(STATE, data) {
     const final = {};
     final[geo_type] = geographies[geo_type].map(current_geo => {
       // console.log('current_geo', current_geo, geo_type)
+      const seenTMCs = new Set();
       const current_geo_data = data
         .filter(d => geo_type === 'state' || d[geo_type] === current_geo)
         .reduce(
           (out, d) => {
+            // Make sure each TMC is considered only once.
+            assert(!seenTMCs.has(d.tmc));
+            seenTMCs.add(d.tmc);
+
             // console.log(d)
             if (+d.nhs === 1) {
               const avo = Number.isNaN(+d.avg_vehicle_occupancy)
