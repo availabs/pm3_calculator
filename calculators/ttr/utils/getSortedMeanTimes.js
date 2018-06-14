@@ -55,7 +55,6 @@ const getOvernightPeakSortedMeanTimes = ({ fifteenData, monthClause, mean }) =>
   getFilteredSortedMeanTimes({
     fifteenData,
     filter: d =>
-      WEEKDAYS.includes(d.dateTime.getDay()) &&
       (d.epoch < 24 || d.epoch > 80) &&
       monthClause(d),
     mean
