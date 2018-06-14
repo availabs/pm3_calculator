@@ -23,7 +23,7 @@ describe('computeAggregations unit Tests', () => {
     const {
       expectedInterstateTMCs,
       expectedNoninterstateTMCs
-    } = tmcLevelPM3Data.reduce(
+    } = tmcLevelPM3Data.filter(({ nhs }) => nhs === 1).reduce(
       (acc, { is_interstate }) => {
         if (is_interstate) {
           acc.expectedInterstateTMCs += 1;
@@ -49,7 +49,7 @@ describe('computeAggregations unit Tests', () => {
     const {
       expectedInterstateMileage,
       expectedNoninterstateMileage
-    } = tmcLevelPM3Data.reduce(
+    } = tmcLevelPM3Data.filter(({ nhs }) => nhs === 1).reduce(
       (acc, { is_interstate, length }) => {
         if (is_interstate && length) {
           acc.expectedInterstateMileage += +length;
