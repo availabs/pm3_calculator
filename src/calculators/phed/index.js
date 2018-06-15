@@ -13,6 +13,18 @@ const calculatePHED = (
   mean = DEFAULT_MEAN_TYPE,
   colMappings = 'avail'
 ) => {
+  // // For testing, serialize the argument params.
+  // require('fs').writeFileSync(
+  // '/tmp/calculatePHED.parameters.120P04340.json',
+  // JSON.stringify([
+  // tmcAttributes,
+  // tmcFiveteenMinIndex,
+  // distroArray,
+  // time,
+  // mean,
+  // colMappings
+  // ])
+  // );
   const data = {};
 
   for (let i = 0; i < TRAFFIC_TYPES.length; i += 1) {
