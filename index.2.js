@@ -48,7 +48,7 @@ const argv = minimist(process.argv.slice(2), {
   }
 });
 
-if (argv.TMC && argv.TMCS) {
+if (env.TMC && env.TMCS) {
   log.error(
     'ERROR: The TMC and TMCS environment variables cannot both be defined.'
   );
