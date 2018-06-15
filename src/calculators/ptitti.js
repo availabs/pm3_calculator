@@ -10,7 +10,7 @@ const concat = require("./utils/concat");
 const getDateTime = require("./utils/getDateTime").fifteen;
 const percentile = require("percentile");
 
-const log = require('../src/utils/log')
+const log = require('../utils/log')
 
 const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
   let tmc = tmcAtts.tmc;
