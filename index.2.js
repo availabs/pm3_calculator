@@ -4,7 +4,7 @@
 
 const { env } = process;
 const { spawn } = require('child_process');
-const { createWriteStream } = require('fs');
+const { createWriteStream, createReadStream } = require('fs');
 const { join, isAbsolute, relative, basename, dirname } = require('path');
 const minimist = require('minimist');
 const { sync: mkdirpSync } = require('mkdirp');
@@ -29,6 +29,8 @@ const {
   MEAN,
   OUTPUT_FILE,
   STATE,
+  TABLE_VERSION,
+  UPLOAD_TO_DB,
   TIME, // number of epochs to group
   TMC,
   TMCS,
@@ -44,6 +46,8 @@ const argv = minimist(process.argv.slice(2), {
     state: 'STATE',
     time: 'TIME',
     tmcs: ['TMC', 'TMCS', 'tmc'],
+    tableVersion: 'TABLE_VERSION',
+    uploadToDB: 'UPLOAD_TO_DB',
     year: 'YEAR'
   }
 });
@@ -63,6 +67,9 @@ const {
   state = STATE || 'ny',
   time = TIME || 12,
   tmcs = TMC || TMCS,
+  tableVersion = TABLE_VERSION ||
+    new Date().toISOString().replace(/-|:|\..*/g, ''),
+  uploadToDB = UPLOAD_TO_DB || true,
   year = YEAR || 2017
 } = toNumerics(argv);
 
@@ -105,9 +112,11 @@ log.info({
       head,
       mean,
       outputFilePath: relative(__dirname, outputFilePath),
+      tableVersion,
       state,
       time,
       tmcs,
+      uploadToDB,
       year
     }
   }
@@ -127,5 +136,30 @@ const { stdout, stderr } = spawn('bash', ['-c', `node ${pm3CalculatorPath}`], {
   encoding: 'utf8'
 });
 
-stdout.pipe(createWriteStream(outputFilePath));
+const outFileStream = createWriteStream(outputFilePath);
+stdout.pipe(outFileStream);
 stderr.pipe(process.stderr);
+
+if (uploadToDB) {
+  outFileStream.on('finish', () => {
+    const inFileStream = createReadStream(outputFilePath);
+    const loaderPath = join(__dirname, './bin/loadPM3Calculations.js');
+    const loader = spawn('bash', ['-c', `node ${loaderPath}`], {
+      encoding: 'utf8',
+      env: {
+        HEAD: head,
+        MEAN: mean,
+        NPMRDS_DATA_SOURCE: DATABASE,
+        STATE: state,
+        TABLE_VERSION: tableVersion,
+        TIME: time,
+        TMCS: tmcs,
+        YEAR: year
+      }
+    });
+
+    inFileStream.pipe(loader.stdin);
+    loader.stdout.pipe(process.stdout);
+    loader.stderr.pipe(process.stderr);
+  });
+}

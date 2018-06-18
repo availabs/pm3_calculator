@@ -4,7 +4,8 @@
 /* eslint no-param-reassign: 0 */
 /* eslint no-restricted-syntax: 0 */
 
-const { env } = process;
+const { hostname } = require('os');
+const { execSync } = require('child_process');
 const assert = require('assert');
 const minimist = require('minimist');
 const { pipeline: { obj: pipelineObj } } = require('mississippi');
@@ -25,6 +26,8 @@ const { getTrafficDistribution } = require('../utils/data_retrieval');
 
 const toNumerics = require('../src/utils/toNumerics');
 const log = require('../src/utils/log');
+
+const { env } = process;
 
 // https://stackoverflow.com/a/15884508/3970755
 process.stdout.on('error', err => {
@@ -69,19 +72,23 @@ const {
   year = YEAR || 2017
 } = toNumerics(argv);
 
+const calculatorStartState = {
+  hostname: hostname(),
+  gitHash: execSync('git rev-parse HEAD'),
+  csvPath,
+  head,
+  mean,
+  npmrdsDataSource,
+  state,
+  time,
+  tmcs,
+  year
+};
+
 log.info({
   startup: {
     main: 'bin/calculatePM3.js',
-    variables: {
-      csvPath,
-      head,
-      mean,
-      npmrdsDataSource,
-      state,
-      time,
-      tmcs,
-      year
-    }
+    calculatorStartState
   }
 });
 

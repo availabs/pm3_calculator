@@ -56,7 +56,12 @@ const calculatePHED = (
           delay,
           vehicle_delay_all,
           delay_all,
-          { dir_aadt: phed_meta.dir_aadt }
+          {
+            dir_aadt: phed_meta.dir_aadt,
+            // FIXME: This is a hack. Instead, make the code using this value
+            //        refer to a consistent property name.
+            directional_aadt: phed_meta.dir_aadt
+          }
         );
       } else {
         const OCC_FAC = tmcAttributes.avg_vehicle_occupancy;
