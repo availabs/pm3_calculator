@@ -6,19 +6,21 @@
 
 const { execSync } = require('child_process');
 const { join } = require('path');
+const {
+  get: getTMCLevelPM3TableName
+} = require('../src/utils/TMCLevelPM3TableName');
 
 const envFile = require('node-env-file');
 
 envFile(join(__dirname, '../config/postgres.env'));
-console.log('FOOOO');
 
 const {
-  HOSTNAME,
-  GIT_HASH,
-  TABLE_VERSION,
+  TMC_LEVEL_PM3_CALCULATOR_GIT_HASH,
+  TMC_LEVEL_PM3_CALC_VER,
   CSV_PATH,
   HEAD,
   MEAN,
+  NPMRDS_VER,
   NPMRDS_DATA_SOURCE,
   STATE,
   TIME,
@@ -26,24 +28,22 @@ const {
   YEAR
 } = process.env;
 
-if (!(TABLE_VERSION && STATE && YEAR)) {
+if (!(TMC_LEVEL_PM3_CALC_VER && STATE && YEAR)) {
   console.error(
-    'ERROR: TABLE_VERSION, STATE, AND YEAR are required ENV variables.'
+    'ERROR: TMC_LEVEL_PM3_CALC_VER, STATE, AND YEAR are required ENV variables.'
   );
   process.exit(1);
 }
 
-const getTableName = () => `"${STATE}".pm3_${YEAR}_v${TABLE_VERSION}`;
-
 const buildTableComment = () =>
   JSON.stringify(
     {
-      HOSTNAME,
-      GIT_HASH,
-      TABLE_VERSION,
+      TMC_LEVEL_PM3_CALCULATOR_GIT_HASH,
+      TMC_LEVEL_PM3_CALC_VER,
       CSV_PATH,
       HEAD,
       MEAN,
+      NPMRDS_VER,
       NPMRDS_DATA_SOURCE,
       STATE,
       TIME,
@@ -55,22 +55,26 @@ const buildTableComment = () =>
   );
 
 const loadTable = ({ tableName, tableComment }) => {
-  const cmd = `
+  const bashCMD = `
     read -r HEADER;
     psql \
       -c 'CREATE TABLE ${tableName} (LIKE "${STATE}".pm3 INCLUDING ALL);' \
       -c "COPY ${tableName} ($HEADER) FROM STDIN CSV;" \
-      -c "COMMENT ON TABLE ${tableName} IS '${tableComment}';"
+      -c 'COMMENT ON TABLE ${tableName} IS '\\''${tableComment}'\\'';'
     `;
 
-  console.log(cmd);
-
-  return execSync(cmd, { encoding: 'utf8', stdio: [process.stdin] });
+  return execSync(bashCMD, { encoding: 'utf8', stdio: [process.stdin] });
 };
 
 const doIt = async () => {
   try {
-    const tableName = getTableName();
+    const tableName = getTMCLevelPM3TableName({
+      state: STATE,
+      year: YEAR,
+      npmrdsVer: NPMRDS_VER,
+      tmcLevelPM3CalcVer: TMC_LEVEL_PM3_CALC_VER
+    });
+
     const tableComment = buildTableComment();
 
     const output = loadTable({ tableName, tableComment });

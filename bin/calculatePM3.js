@@ -74,7 +74,7 @@ const {
 
 const calculatorStartState = {
   hostname: hostname(),
-  gitHash: execSync('git rev-parse HEAD'),
+  gitHash: execSync('git rev-parse HEAD', { encoding: 'utf8' }).trim(),
   csvPath,
   head,
   mean,
@@ -159,7 +159,9 @@ const doIt = async ({ calculator, outputPipeline }) => {
       // INVARIANT: The NPMRDS data is for this TMC.
       assert(data.every(({ tmc: dTMC }) => dTMC === tmc));
 
-      outputPipeline.write(measures);
+      outputPipeline.write(
+        Object.assign(measures, { _state_: state.toLowerCase(), _year_: +year })
+      );
     }
   } catch (err) {
     log.error(err);

@@ -10,8 +10,10 @@ const db_service_here = require('../db_service_here');
 const traffic_distrubtions = require('../traffic_distribution');
 const traffic_distrubtions_cattlab = require('../traffic_distribution_cattlab');
 
-const geolevelPM3RequiredCols = require('./geolevelPM3RequiredCols');
-const { DownloadTMCData, DownloadTMCDataHERE } = require('./TMCDataDownloaders')
+const {
+  DownloadTMCData,
+  DownloadTMCDataHERE
+} = require('./TMCDataDownloaders');
 
 const RITIS_DATASOURCES = require('../RITIS_DATASOURCES');
 
@@ -52,20 +54,6 @@ const DownloadHereToInrixMap = function DownloadHereToInrixMap() {
     });
   });
 };
-
-const DownloadTMCPM3 = (state, NPMRDS_VER = 2) =>
-  new Promise((resolve, reject) => {
-    const sql = `
-      SELECT ${geolevelPM3RequiredCols}
-      FROM "${state}".pm3${+NPMRDS_VER === 1 ? '_npmrdsv1' : ''}
-   ;
-   `;
-
-    db_service.runQuery(sql, [], (err, data) => {
-      if (err) reject(err);
-      resolve(data);
-    });
-  });
 
 const inrixToAVAIL = d => {
   if (!d) {
@@ -204,5 +192,4 @@ module.exports = {
   ExtractTMCDataFromCSV,
   getTrafficDistribution,
   DownloadHereToInrixMap,
-  DownloadTMCPM3
 };

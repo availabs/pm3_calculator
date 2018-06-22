@@ -13,7 +13,7 @@ const MONTHS = ['total', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const GEO_TYPES = ['county', 'mpo', 'ua'];
 
-function computeAggregations(STATE, data) {
+function computeAggregations(state, data) {
   const [{ state: state_code }] = data;
 
   const PERSON_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
@@ -49,16 +49,19 @@ function computeAggregations(STATE, data) {
       });
       return out;
     },
-    { county: [], mpo: [], ua: [], state: [STATE] }
+    { county: [], mpo: [], ua: [], state: [state] }
   );
 
   // console.log('geographies', geographies)
   // geographies = {county: ['Albany']}
   const output = Object.keys(geographies).map(geo_type => {
     const final = {};
+
     final[geo_type] = geographies[geo_type].map(current_geo => {
       // console.log('current_geo', current_geo, geo_type)
       const seenTMCs = new Set();
+      const seenYears = new Set();
+
       const current_geo_data = data
         .filter(d => geo_type === 'state' || d[geo_type] === current_geo)
         .reduce(
@@ -66,6 +69,9 @@ function computeAggregations(STATE, data) {
             // Make sure each TMC is considered only once.
             assert(!seenTMCs.has(d.tmc));
             seenTMCs.add(d.tmc);
+
+            seenYears.add(+d.year);
+            assert(seenYears.size === 1);
 
             // console.log(d)
             if (+d.nhs === 1) {
@@ -136,7 +142,7 @@ function computeAggregations(STATE, data) {
             // default row
             geo: current_geo,
             type: geo_type,
-            state: STATE,
+            state,
             state_code,
             interstate_tmcs: 0,
             noninterstate_tmcs: 0,

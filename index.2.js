@@ -3,13 +3,21 @@
 /* eslint no-console: 0 */
 
 const { env } = process;
-const { spawn } = require('child_process');
+const { execSync, spawn } = require('child_process');
 const { createWriteStream, createReadStream } = require('fs');
 const { join, isAbsolute, relative, basename, dirname } = require('path');
 const minimist = require('minimist');
 const { sync: mkdirpSync } = require('mkdirp');
 
 const { DATABASE } = require('./src/constants/NPMRDS_DATA_SOURCES');
+
+const loaderPath = join(__dirname, './bin/loadTMCLevelPM3Calculations.js');
+
+const {
+  get: getDefaultTMCLevelPM3CalcFileName
+} = require('./src/utils/DefaultTMCLevelPM3CalcFileName.js');
+
+const getDefaultCalcVersionName = require('./src/utils/getDefaultCalcVersionName');
 
 const toNumerics = require('./src/utils/toNumerics');
 const log = require('./src/utils/log');
@@ -29,7 +37,7 @@ const {
   MEAN,
   OUTPUT_FILE,
   STATE,
-  TABLE_VERSION,
+  TMC_LEVEL_PM3_CALC_VER,
   UPLOAD_TO_DB,
   TIME, // number of epochs to group
   TMC,
@@ -46,7 +54,7 @@ const argv = minimist(process.argv.slice(2), {
     state: 'STATE',
     time: 'TIME',
     tmcs: ['TMC', 'TMCS', 'tmc'],
-    tableVersion: 'TABLE_VERSION',
+    tmcLevelPM3CalcVer: 'TMC_LEVEL_PM3_CALC_VER',
     uploadToDB: 'UPLOAD_TO_DB',
     year: 'YEAR'
   }
@@ -60,15 +68,14 @@ if (env.TMC && env.TMCS) {
 }
 
 const {
-  dir = DIR,
+  dir = DIR || join(__dirname, '../data/tmc-level-pm3/'),
   head = HEAD,
   mean = MEAN || 'mean',
   outputFile = OUTPUT_FILE,
   state = STATE || 'ny',
   time = TIME || 12,
   tmcs = TMC || TMCS,
-  tableVersion = TABLE_VERSION ||
-    new Date().toISOString().replace(/-|:|\..*/g, ''),
+  tmcLevelPM3CalcVer = TMC_LEVEL_PM3_CALC_VER || getDefaultCalcVersionName(),
   uploadToDB = UPLOAD_TO_DB || true,
   year = YEAR || 2017
 } = toNumerics(argv);
@@ -93,14 +100,21 @@ if (dir) {
   outputDir = join(__dirname, './data/');
 }
 
-const tmcsQualifier = tmcs ? `.${tmcs.replace(/,|_/, '_')}` : '';
-const headQualifier = head ? `.head-${head}` : '';
+const fBaseName = outputFile
+  ? basename(outputFile)
+  : getDefaultTMCLevelPM3CalcFileName({
+      head,
+      mean,
+      state,
+      time,
+      tmcLevelPM3CalcVer,
+      tmcs,
+      year
+    });
 
 const outputFilePath = join(
   outputDir,
-  outputFile
-    ? basename(outputFile)
-    : `${state}_${year}_${mean}_${time}${tmcsQualifier}${headQualifier}.csv`
+  outputFile ? basename(outputFile) : fBaseName
 );
 
 mkdirpSync(outputDir);
@@ -112,7 +126,7 @@ log.info({
       head,
       mean,
       outputFilePath: relative(__dirname, outputFilePath),
-      tableVersion,
+      tmcLevelPM3CalcVer,
       state,
       time,
       tmcs,
@@ -140,20 +154,22 @@ const outFileStream = createWriteStream(outputFilePath);
 stdout.pipe(outFileStream);
 stderr.pipe(process.stderr);
 
-if (uploadToDB) {
+if (uploadToDB && !(uploadToDB.match && uploadToDB.match(/f|false/i))) {
   outFileStream.on('finish', () => {
     const inFileStream = createReadStream(outputFilePath);
-    const loaderPath = join(__dirname, './bin/loadPM3Calculations.js');
     const loader = spawn('bash', ['-c', `node ${loaderPath}`], {
       encoding: 'utf8',
       env: {
         HEAD: head,
         MEAN: mean,
         NPMRDS_DATA_SOURCE: DATABASE,
+        TMC_LEVEL_PM3_CALCULATOR_GIT_HASH: execSync('git rev-parse HEAD', {
+          encoding: 'utf8'
+        }).trim(),
         STATE: state,
-        TABLE_VERSION: tableVersion,
         TIME: time,
         TMCS: tmcs,
+        TMC_LEVEL_PM3_CALC_VER: tmcLevelPM3CalcVer,
         YEAR: year
       }
     });
