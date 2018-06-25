@@ -6,8 +6,9 @@ const { env } = process;
 const { execSync, spawn } = require('child_process');
 const { createWriteStream, createReadStream } = require('fs');
 const { join, isAbsolute, relative, basename, dirname } = require('path');
-const minimist = require('minimist');
 const { sync: mkdirpSync } = require('mkdirp');
+
+const minimist = require('minimist');
 
 const { DATABASE } = require('./src/constants/NPMRDS_DATA_SOURCES');
 
@@ -68,7 +69,7 @@ if (env.TMC && env.TMCS) {
 }
 
 const {
-  dir = DIR || join(__dirname, '../data/tmc-level-pm3/'),
+  dir = DIR,
   head = HEAD,
   mean = MEAN || 'mean',
   outputFile = OUTPUT_FILE,
@@ -97,8 +98,9 @@ if (dir) {
     ? dirname(outputFile)
     : join(__dirname, dirname(outputFile));
 } else {
-  outputDir = join(__dirname, './data/');
+  outputDir = join(__dirname, 'data/tmc-level-pm3/');
 }
+mkdirpSync(outputDir);
 
 const fBaseName = outputFile
   ? basename(outputFile)
@@ -116,8 +118,6 @@ const outputFilePath = join(
   outputDir,
   outputFile ? basename(outputFile) : fBaseName
 );
-
-mkdirpSync(outputDir);
 
 log.info({
   startup: {
