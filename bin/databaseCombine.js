@@ -27,13 +27,11 @@ const {
 } = require('../src/utils/DefaultGeoLevelPM3CalcFileName');
 
 const {
-  get: getPM3TableName,
   parse: parsePM3TableName
 } = require('../src/utils/TMCLevelPM3TableName');
 
 const {
   getLeafTables,
-  pm3VersionTableExists,
   getMetadataFromTableComment
 } = require('../src/DAOs/PM3TableInfoDAO');
 
@@ -86,24 +84,16 @@ const doIt = async () => {
 
   for (let i = 0; i < states.length; i += 1) {
     const st = states[i];
-    const pm3TableName = getPM3TableName({
+
+    const leafTables = await getLeafTables({
       state: st,
       year,
       npmrdsVer,
-      // If a year is not specified, we filter for the pm3CalcVer in getLeafTables.
-      //   This way, we can get the version across years.
-      tmcLevelPM3CalcVer: year ? tmcLevelPM3CalcVer : undefined
+      tmcLevelPM3CalcVer
     });
 
-    if (!pm3VersionTableExists(pm3TableName)) {
-      console.error(`Table ${pm3TableName} does not exist.`);
-      continue;
-    }
-
-    const leafTables = await getLeafTables(pm3TableName, tmcLevelPM3CalcVer);
-
     if (!leafTables.length) {
-      console.log(`No ${tmcLevelPM3CalcVer} tables for ${st}.`);
+      console.log(`No ${tmcLevelPM3CalcVer || ''} tables for ${st}.`);
       continue;
     }
 

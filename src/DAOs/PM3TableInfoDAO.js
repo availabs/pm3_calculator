@@ -9,61 +9,73 @@ const pm3VersionTableExists = async tableName => {
   }
 };
 
-const getChildTables = async pm3TableName => {
-  if (!pm3VersionTableExists(pm3TableName)) {
-    throw new Error(`ERROR: ${pm3TableName} does not exist.`);
-  }
-
-  const tableNameDecomposed = pm3TableName.split('.');
-
-  const parentSchema =
-    tableNameDecomposed.length === 2
-      ? tableNameDecomposed[0].toLowerCase().replace(/"/g, '')
-      : 'public';
-
-  const [parentTableName] = tableNameDecomposed.slice(-1);
-
+const getTmcLevelPM3AllTablesForVersion = async ({
+  state = null,
+  year = null,
+  npmrdsVer = null,
+  tmcLevelPM3CalcVer = null
+}) => {
   const sql = `
     SELECT
-        cn.nspname AS schema_child,
-        c.relname AS tablename_child
-      FROM pg_inherits 
-        JOIN pg_class AS c ON (inhrelid = c.oid)
-        JOIN pg_class as p ON (inhparent = p.oid)
-        JOIN pg_namespace pn ON pn.oid = p.relnamespace
-        JOIN pg_namespace cn ON cn.oid = c.relnamespace
-      WHERE pn.nspname = $1 AND p.relname = $2
+      tmc_level_pm3_all_tables_for_version_fn($1, $2, $3, $4) AS table_name
     ;
   `;
 
-  const { rows } = await runQuery(sql, [parentSchema, parentTableName]);
+  const { rows } = await runQuery(sql, [
+    state,
+    year,
+    npmrdsVer,
+    tmcLevelPM3CalcVer
+  ]);
 
-  if (rows.length === 0) {
-    return null;
-  }
-
-  return rows.map(
-    ({ schema_child, tablename_child }) =>
-      `"${schema_child}".${tablename_child}`
-  );
+  return rows.map(({ table_name }) => table_name);
 };
 
-const getLeafTables = async (pm3TableName, tmcLevelPM3CalcVer) => {
-  const childTables = await getChildTables(pm3TableName);
+const getTmcLevelPM3AllActiveLeafTablesForVersion = async ({
+  state = null,
+  year = null,
+  npmrdsVer = null,
+  tmcLevelPM3CalcVer = null
+}) => {
+  const sql = `
+    SELECT
+      tmc_level_pm3_all_active_leaf_tables_for_version_fn($1, $2, $3, $4) AS table_name
+    ;
+  `;
 
-  // Base case
-  if (!childTables) {
-    if (tmcLevelPM3CalcVer) {
-      return pm3TableName.includes(tmcLevelPM3CalcVer) ? [pm3TableName] : [];
-    }
-    return pm3TableName;
+  const { rows } = await runQuery(sql, [
+    state,
+    year,
+    npmrdsVer,
+    tmcLevelPM3CalcVer
+  ]);
+
+  return rows.map(({ table_name }) => table_name);
+};
+
+const getLeafTables = async ({
+  state,
+  year,
+  npmrdsVer,
+  tmcLevelPM3CalcVer
+}) => {
+  // If tmcLevelPM3CalcVer specified, get the tables for that version
+  if (tmcLevelPM3CalcVer) {
+    return getTmcLevelPM3AllTablesForVersion({
+      state,
+      year,
+      npmrdsVer,
+      tmcLevelPM3CalcVer
+    });
   }
 
-  const descendents = await Promise.all(
-    childTables.map(ct => getChildTables(ct, tmcLevelPM3CalcVer))
-  );
-
-  return Array.prototype.concat(...descendents);
+  // tmcLevelPM3CalcVer not specified, return the active default version tables.
+  return getTmcLevelPM3AllActiveLeafTablesForVersion({
+    state,
+    year,
+    npmrdsVer,
+    tmcLevelPM3CalcVer
+  });
 };
 
 const getMetadataFromTableComment = async pm3TableName => {
@@ -75,7 +87,6 @@ const getMetadataFromTableComment = async pm3TableName => {
 
 module.exports = {
   pm3VersionTableExists,
-  getChildTables,
   getLeafTables,
   getMetadataFromTableComment
 };
