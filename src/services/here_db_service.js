@@ -2,14 +2,14 @@ const path = require('path');
 const { Pool } = require('pg');
 const envFile = require('node-env-file');
 
-envFile(path.join(__dirname, '../../config/postgres.env'));
+envFile(path.join(__dirname, '../../config/postgres.env.hermes'));
 
 const connectionInfo = {
-  PGHOST: process.env.PGHOST,
-  PGPORT: process.env.PGPORT,
-  PGUSER: process.env.PGUSER,
-  PGHOSTADDR: process.env.PGHOSTADDR,
-  PGDATABASE: process.env.PGDATABASE
+  host: process.env.NPMRDSv1_PGHOST,
+  port: process.env.NPMRDSv1_PGPORT,
+  user: process.env.NPMRDSv1_PGUSER,
+  password: process.env.NPMRDSv1_PGPASSWORD,
+  database: process.env.NPMRDSv1_PGDATABASE
 };
 
 const pool = new Pool(connectionInfo);
