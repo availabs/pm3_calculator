@@ -62,6 +62,8 @@ function computeAggregations(state, data) {
       const seenTMCs = new Set();
       const seenYears = new Set();
 
+      const lottrOperands = {};
+
       const current_geo_data = data
         .filter(d => geo_type === 'state' || d[geo_type] === current_geo)
         .reduce(
@@ -78,6 +80,8 @@ function computeAggregations(state, data) {
               const avo = Number.isNaN(+d.avg_vehicle_occupancy)
                 ? 1.5
                 : +d.avg_vehicle_occupancy;
+
+              const lottrWeight = +d.length * (+avo * 365);
 
               MONTHS.forEach((month, i) => {
                 // console.log(`vd_${month}`, +d[`vd_${month}`])
@@ -115,6 +119,13 @@ function computeAggregations(state, data) {
                   ] += +d.length;
                 }
 
+                if (lottr < 1.5 && lottrWeight) {
+                  const k = `lottr_${road_type}_weighted_passing${monthSuffix}`;
+                  lottrOperands[k] = lottrOperands[k]
+                    ? lottrOperands[k] + lottrWeight
+                    : lottrWeight;
+                }
+
                 if (d.is_interstate && d.length && !Number.isNaN(+d.length)) {
                   const tttrCols = tttrBins.map(bin => `${bin}${monthSuffix}`);
 
@@ -135,6 +146,13 @@ function computeAggregations(state, data) {
 
               out[`${road_type}_tmcs`] += 1;
               out[`${road_type}_mileage`] += +d.length;
+
+              if (lottrWeight) {
+                const k = `lottr_${road_type}_weighted_total`;
+                lottrOperands[k] = lottrOperands[k]
+                  ? lottrOperands[k] + +lottrWeight
+                  : lottrWeight;
+              }
             }
             return out;
           },
@@ -156,9 +174,20 @@ function computeAggregations(state, data) {
         );
 
       tttrGeoLevelCols.forEach(col => {
-        current_geo_data[col] = current_geo_data.interstate_mileage
-          ? current_geo_data[col] / current_geo_data.interstate_mileage
-          : 0;
+        if (col.match(/^lottr_/)) {
+          const numerator = col.replace(/_ttr/, '_weighted_passing');
+          const denominator = col.replace(/_ttr.*/, '_weighted_total');
+
+          current_geo_data[col] = lottrOperands[denominator]
+            ? lottrOperands[numerator] / lottrOperands[denominator]
+            : null;
+        }
+
+        if (col.match(/^tttr_/)) {
+          current_geo_data[col] = current_geo_data.interstate_mileage
+            ? current_geo_data[col] / current_geo_data.interstate_mileage
+            : 0;
+        }
       });
 
       return current_geo_data;

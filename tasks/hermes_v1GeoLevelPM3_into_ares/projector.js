@@ -253,7 +253,6 @@ const getPHEDForStateYear = async ({ state, year }) => {
         (state = $1)
         AND
         (_year_ = $2)
-AND (type = 'state')
       )
   `;
 
