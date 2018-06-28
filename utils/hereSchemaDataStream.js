@@ -9,11 +9,7 @@ const { join } = require('path');
 const { pipeline, pipe, each, from } = require('mississippi');
 const { split, merge } = require('event-stream');
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
+const toNumerics = require('../src/utils/toNumerics')
 
 const { YEAR = 2017, STATE = 'nj' } = toNumerics(Object.assign({}, env));
 

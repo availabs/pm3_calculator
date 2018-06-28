@@ -1,0 +1,21 @@
+{
+  "tmc": "char(9)",
+  "faciltype": "int",
+  "aadt": "int",
+  "aadt_singl": "int",
+  "aadt_combi": "int",
+  "aadt_combi": "int",
+  "direction": "char",
+  "congestion_level": "traffic_dist_congestion_level_type",
+  "directionality": "traffic_dist_directionality_type",
+  "nhs": "int",
+  "nhs_pct": "int",
+  "is_interstate": "boolean",
+  "is_controlled_access": "boolean",
+  "mpo": "varchar(10)",
+  "ua": "varchar(6)",
+  "state": "varchar(3)",
+  "state_code": "varchar(2)",
+  "bounding_box": "box2d",
+  "county": "varchar(6)"
+}

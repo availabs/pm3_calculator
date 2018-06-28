@@ -8,8 +8,8 @@ fi;
 INF_PATH=$1
 
 # Use optional second cli arg as output file path.
-# If not provided, alter the input file path by adding 'sorted' before 'csv'.
-OUTF_PATH=${2:-"${INF_PATH%csv}sorted.csv"}
+# If not provided, pipe to stdout
+OUTF_PATH=${2:-'/dev/stdout'}
 
 if [ ! -f "$INF_PATH" ]; then
   echo "No file found at $INF_PATH."

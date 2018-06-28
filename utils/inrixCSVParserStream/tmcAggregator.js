@@ -4,21 +4,21 @@ const { through } = require('event-stream');
 
 const tmcAggregator = () => {
   let curTMC;
-  let curTMCArr;
+  let curTMCArr = [];
 
   return through(
     function write(data) {
       const { tmc } = data;
 
       if (curTMC !== tmc) {
-        if (curTMCArr) {
+        if (curTMCArr.length) {
           this.emit('data', {
             metadata: { tmc: curTMC },
             data: curTMCArr
           });
         }
         curTMC = tmc;
-        curTMCArr = [];
+        curTMCArr.length = 0;
       }
 
       curTMCArr.push(data);

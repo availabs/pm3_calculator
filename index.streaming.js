@@ -1,176 +1,118 @@
 #!/usr/bin/env node
 
 const { env } = process;
+const assert = require('assert');
 
-let Promise = require('bluebird');
-let fs = require('fs');
-
-const { through, stringify } = require('event-stream');
+const { split } = require('event-stream');
+const transform = require('parallel-transform');
 
 const minimist = require('minimist');
+
 const argv = minimist(process.argv.slice(2));
 
-let {
+const {
   DownloadTMCAtttributes,
   getTrafficDistribution
 } = require('./utils/data_retrieval');
+
+const log = require('./src/utils/log');
 
 const csvInputStream = require('./utils/csvInputStream');
 const tmcAggregator = require('./utils/inrixCSVParserStream/tmcAggregator');
 const csvOutputStream = require('./utils/csvOutputStream');
 
-let CalculatePHED = require('./calculators/phed');
-let CalculateTTR = require('./calculators/ttr');
+const CalculateTrafficDistFactors = require('./src/calculators/trafficDistributionFactors');
+const AggregateMeasureCalculator = require('./src/calculators/aggregatorMeasureCalculator');
+const fiveteenMinIndexer = require('./src/calculators/fiveteenMinIndexer');
 
-const outputCols = [
-  'tmc',
-  'faciltype',
-  'aadt',
-  'length',
-  'avg_speedlimit',
-  'congestion_level',
-  'directionality',
-  'avg_vehicle_occupancy',
-  'nhs',
-  'nhs_pct',
-  'is_interstate',
-  'is_controlled_access',
-  'mpo',
-  'ua',
-  'county',
-  'state',
-  'directional_aadt',
-  'lottr_am',
-  'lottr_off',
-  'lottr_pm',
-  'lottr_weekend',
-  'tttr_am',
-  'tttr_off',
-  'tttr_pm',
-  'tttr_overnight',
-  'tttr_weekend',
-  'vd_1',
-  'vd_2',
-  'vd_3',
-  'vd_4',
-  'vd_5',
-  'vd_6',
-  'vd_7',
-  'vd_8',
-  'vd_9',
-  'vd_10',
-  'vd_11',
-  'vd_12',
-  'vd_total',
-  'd_1',
-  'd_2',
-  'd_3',
-  'd_4',
-  'd_5',
-  'd_6',
-  'd_7',
-  'd_8',
-  'd_9',
-  'd_10',
-  'd_11',
-  'd_12',
-  'd_total'
-];
+const outputCols = require('./utils/pm3OutputCols.json');
 
-const toNumerics = o =>
-  Object.keys(o).reduce((acc, k) => {
-    acc[k] = Number.isFinite(+o[k]) ? parseFloat(o[k]) : o[k];
-    return acc;
-  }, {});
+const toNumerics = require('./src/utils/toNumerics');
 
 const {
-  DIR = 'data/',
+  CONCURRENCY = 8,
   YEAR = 2017,
-  STATE = 'nj',
+  STATE = 'ny',
   MEAN = 'mean',
-  TIME = 3 //number of epochs to group
+  TIME = 12 // number of epochs to group
 } = toNumerics(Object.assign({}, env, argv));
 
-const calculateMeasuresStream = tmcAttributes => {
-  return through(
+log.info({
+  startup: {
+    main: 'index.streaming.js',
+    STATE,
+    YEAR,
+    MEAN,
+    TIME
+  }
+});
+
+const calculateMeasuresStream = (calculator, tmcAttributes) =>
+  transform(
+    CONCURRENCY,
+    { ordered: false },
     // Data schema:
     // {
     //    meta: {
     //      tmc: <tmc code>
-    //      year: <year>
     //    },
     //
     //    data: [
     //      {
-    //        npmrds_date
+    //        date
     //        epoch
     //        travel_time_all_vehicles
     //       },
     //       ...
     //    ]
-    function write(tmcData) {
+    async (tmcData, callback) => {
       const { metadata: { tmc }, data } = tmcData;
 
       const attrs = tmcAttributes[tmc];
 
+      // INVARIANT: The NPMRDS data is for this TMC.
+      const dataArrLen = data.length;
+      assert(data.every(({ tmc: dTMC }) => dTMC === tmc));
+
       if (!attrs) {
-        return;
+        return null;
       }
+
+      const { congestion_level, directionality } = CalculateTrafficDistFactors({
+        attrs,
+        data
+      });
+
+      attrs.congestion_level = congestion_level || attrs.congestion_level;
+      attrs.directionality = directionality || attrs.directionality;
 
       const trafficDistribution = getTrafficDistribution(
         attrs.directionality,
         attrs.congestion_level,
         attrs.is_controlled_access,
-        TIME
-      );
-
-      data.forEach(row => Object.assign(row, { npmrds_date: +row.date }));
-
-      const tmcFiveteenMinIndex = data.reduce((output, current) => {
-        const reduceIndex =
-          current.npmrds_date + '_' + Math.floor(current.epoch / 3);
-
-        if (!output[reduceIndex]) {
-          output[reduceIndex] = { speed: [], tt: [] };
-        }
-
-        output[reduceIndex].speed.push(
-          +attrs.length / (current.travel_time_all_vehicles / 3600)
-        );
-
-        output[reduceIndex].tt.push(
-          +Math.round(current.travel_time_all_vehicles)
-        );
-
-        return output;
-      }, {});
-
-      var phed = CalculatePHED(
-        attrs,
-        tmcFiveteenMinIndex,
-        trafficDistribution,
         TIME,
-        MEAN
+        'cattlab'
       );
 
-      var ttr = CalculateTTR(attrs, tmcFiveteenMinIndex);
+      const dirFactor = +tmc.faciltype > 1 ? 2 : 1;
 
-      const result = {
-        ...attrs,
-        ...ttr.lottr,
-        ...ttr.tttr,
-        ...phed.vehicle_delay,
-        ...phed.delay
-      };
+      attrs.directional_aadt = tmc.aadt / dirFactor;
 
-      this.emit('data', result);
-    },
+      const tmcFiveteenMinIndex = fiveteenMinIndexer(attrs, data);
 
-    function end() {
-      this.emit('end');
+      const measures = calculator(
+        attrs,
+        trafficDistribution,
+        tmcFiveteenMinIndex
+      );
+
+      // INVARIANT: The NPMRDS data is for this TMC.
+      assert(data.every(({ tmc: dTMC }) => dTMC === tmc));
+      assert(data.length === dataArrLen);
+
+      return process.nextTick(() => callback(null, measures));
     }
   );
-};
 
 async function doIt() {
   const result = await DownloadTMCAtttributes(STATE);
@@ -180,10 +122,20 @@ async function doIt() {
     {}
   );
 
+  // https://stackoverflow.com/a/15884508/3970755
+  process.stdout.on('error', err => {
+    if (err.code === 'EPIPE') {
+      process.exit(0);
+    }
+  });
+
+  const calculator = AggregateMeasureCalculator({ TIME, MEAN });
+
   process.stdin
+    .pipe(split())
     .pipe(csvInputStream())
     .pipe(tmcAggregator())
-    .pipe(calculateMeasuresStream(tmcAttributes))
+    .pipe(calculateMeasuresStream(calculator, tmcAttributes))
     .pipe(csvOutputStream(outputCols))
     .pipe(process.stdout);
 }

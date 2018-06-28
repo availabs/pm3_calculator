@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-const { split, through } = require('event-stream');
-const { obj: pumpify } = require('pumpify');
+const { through } = require('event-stream');
 
 const csvInputStream = () => {
   let header;
@@ -20,8 +19,10 @@ const csvInputStream = () => {
       const d = line.split(',');
       const row = {};
 
-      for (let i = 0; i < header.length; ++i) {
-        row[header[i]] = d[i];
+      for (let i = 0; i < header.length; i += 1) {
+        const v = d[i] !== '' ? d[i] : null;
+
+        row[header[i]] = v !== null && Number.isFinite(+v) ? +v : v;
       }
 
       this.emit('data', row);

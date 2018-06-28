@@ -4,31 +4,53 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./test/test-bundler.js"
+  },
   "license": "ISC",
   "dependencies": {
+    "JSONStream": "^1.3.3",
+    "binary-split": "^1.0.3",
     "bluebird": "3.5.1",
+    "bunyan": "^1.8.12",
     "d3": "^4.13.0",
     "d3-array": "1.2.1",
     "d3-dsv": "1.0.8",
+    "deep-freeze": "0.0.1",
+    "deepmerge": "^2.1.1",
+    "eslint-config-prettier": "^2.9.0",
     "event-stream": "^3.3.4",
     "fast-csv": "^2.4.1",
+    "json-stable-stringify": "^1.0.1",
+    "lodash": "^4.17.10",
     "minimist": "^1.2.0",
     "mississippi": "^3.0.0",
+    "mkdirp": "^0.5.1",
     "node-env-file": "0.1.8",
     "parallel-transform": "^1.1.0",
     "path": "0.12.7",
+    "percentile": "^1.2.0",
     "pg": "7.4.1",
-    "pg-copy-streams": "1.2.0",
+    "pg-copy-streams": "^1.2.0",
     "progress": "2.0.0",
-    "pumpify": "^1.4.0"
+    "pumpify": "^1.4.0",
+    "split2": "^2.2.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
+    "any-json": "^3.1.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-async-generator-functions": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
+    "eval": "^0.1.2",
+    "jest": "^22.4.4",
     "prettier": "^1.11.1"
   }
 }

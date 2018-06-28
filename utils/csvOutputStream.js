@@ -2,30 +2,29 @@
 
 const { through } = require('event-stream');
 
-const csvOutputStream = outputCols => {
+const csvOutputStream = (outputCols, delineator = ',') => {
   let sentHeader = false;
+  const line = new Array(outputCols.length);
 
   return through(
     function write(row) {
       if (!sentHeader) {
-        this.emit('data', outputCols.join(',') + '\n');
+        this.emit('data', `${outputCols.join(delineator)}\n`);
         sentHeader = true;
       }
 
-      const line = [];
-
-      for (let i = 0; i < outputCols.length; ++i) {
+      for (let i = 0; i < outputCols.length; i += 1) {
         const d = row[outputCols[i]];
-        if (Number.isFinite(+d)) {
-          line.push(+d);
+        if (d !== null && Number.isFinite(+d)) {
+          line[i] = d;
         } else if (d) {
-          line.push(d);
+          line[i] = d;
         } else {
-          line.push('');
+          line[i] = '';
         }
       }
 
-      this.emit('data', line.join(',') + '\n');
+      this.emit('data', `${line.join(delineator)}\n`);
     },
 
     function end() {

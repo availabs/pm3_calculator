@@ -1,3 +1,10 @@
 {
-  "extends": ["airbnb-base", "prettier"]
+  "env": {
+    "jest": true
+  },
+  "extends": ["airbnb-base", "prettier"],
+  "rules": {
+    "camelcase": 0
+  },
+  "parser": "babel-eslint"
 }
