@@ -21,6 +21,7 @@ ARR=(`find . -regex ".*\.[1-2][0-9][0-1][0-9][0-9][0-9].inrix-schema.csv" | sort
 
 for f in "${ARR[@]}"
 do
+  # "$SORTER_PATH" "$f" &
   "$SORTER_PATH" "$f"
 done
 

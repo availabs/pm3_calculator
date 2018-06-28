@@ -17,6 +17,6 @@ source ./partitionDownloadedCSVByMonth.sh
 
 source ./sortInrixSchemaCSVs.sh
 
-sources ./transformToHERESchema.sh
+source ./transformToHERESchema.sh
 
 popd > /dev/null
