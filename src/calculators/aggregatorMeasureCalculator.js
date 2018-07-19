@@ -27,9 +27,12 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     MEAN
   );
 
-  const ttipti = CalculatePtiTti(tmcAttrs, tmcFiveteenMinIndex, MEAN);
-
   const freeflow = CalculateFreeFlow(tmcAttrs, tmcFiveteenMinIndex);
+
+  const { freeflowTT } = freeflow
+
+  const ttipti = CalculatePtiTti(tmcAttrs, tmcFiveteenMinIndex, freeflowTT);
+
   return {
     ...tmcAttrs,
     ...ttr.lottr,

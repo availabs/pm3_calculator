@@ -12,31 +12,30 @@ const percentile = require("percentile");
 
 const log = require('../utils/log')
 
-const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
+const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, freeflow) => {
   let tmc = tmcAtts.tmc;
   let dirFactor = +tmcAtts.faciltype > 1 ? 2 : 1;
   let DirectionalAADT = tmcAtts.aadt / dirFactor;
-  let distroData = distribution;
 
   let months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   let monthBins = months.reduce((acc, d) => {
     acc[d] = { amPeak: [], pmPeak: [] };
     return acc;
   }, {});
+
   let total = {
     amPeak: [],
-    all: [],
     pmPeak: []
   };
+
   Object.keys(tmcFifteenMinIndex).forEach(k => {
     let month = +k.substring(4, 6);
     let epoch = k.split("_")[1];
     let day = getDateTime(k).getDay();
-    placeBin(total, tmcFifteenMinIndex[k].tt);
     if (day > 0 && day < 6)
       placeBinInPeak(epoch, monthBins[month], tmcFifteenMinIndex[k].tt);
   });
-  let freeflow = p30(total.all);
+
   //Calculate the avg for each month
   let monthScores = months.reduce((acc, d) => {
     if (monthBins[d].amPeak.length === 0 && monthBins[d].pmPeak.length === 0) {
@@ -78,8 +77,10 @@ const CalculatePtiTti = (tmcAtts, tmcFifteenMinIndex, distribution) => {
   return data;
 };
 const avg = arr => arr.reduce((sum, d) => d + sum, 0) / arr.length;
+
 const p30 = arr => percentile(30, arr);
 const p95 = arr => percentile(95, arr);
+
 const placeBinInPeak = (bin, store, d) => {
   if (bin >= 24 && bin < 36) {
     concat(store.amPeak, d);
@@ -87,7 +88,5 @@ const placeBinInPeak = (bin, store, d) => {
     concat(store.pmPeak, d);
   }
 };
-const placeBin = (store, d) => {
-  concat(store.all, d);
-};
+
 module.exports = CalculatePtiTti;
