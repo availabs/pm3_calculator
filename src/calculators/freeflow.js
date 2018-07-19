@@ -41,8 +41,11 @@ const CalculateFreeFlow = (tmcAtts, tmcFifteenMinIndex) => {
     return acc;
   }, []);
 
-  let freeflowTT = percentile(30, totalTTs);
-  let freeflowUTT = percentile(15, offPeakTTs);
+  // let freeflowTT = percentile(30, totalTTs);
+  let freeflowUTT = percentile(30, totalTTs);
+  // let freeflowUTT = percentile(15, offPeakTTs);
+  let freeflowTT = percentile(15, offPeakTTs);
+
   return {
     freeflowTT,
     freeflowUTT
