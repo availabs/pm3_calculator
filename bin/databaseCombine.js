@@ -150,7 +150,7 @@ const doIt = async () => {
                   { encoding: 'utf8' }
                 ).trim(),
                 GEO_LEVEL_PM3_CALC_VER: geoLevelPM3CalcVer,
-                TMC_LEVEL_PM3_TABLE_METADATA: leafTableMetadata
+                TMC_LEVEL_PM3_TABLE_METADATA: JSON.stringify(leafTableMetadata)
               }
             });
 
