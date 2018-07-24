@@ -131,7 +131,7 @@ const doIt = async () => {
 
       console.log(`wrote to ${fname}`);
 
-      if (uploadToDB) {
+      if (uploadToDB && !(uploadToDB.match && uploadToDB.match(/0|f|false/i))) {
         try {
           const leafTableMetadata = await getMetadataFromTableComment(
             leafTable

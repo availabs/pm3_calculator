@@ -31,6 +31,21 @@ function computeAggregations(state, data) {
     return out;
   }, {});
 
+  const TOTAL_PERSON_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
+    out[`tpd_${i}`] = 0;
+    return out;
+  }, {});
+
+  const TOTAL_VEHICLE_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
+    out[`tvd_${i}`] = 0;
+    return out;
+  }, {});
+
+  const TOTAL_DELAY_DATAHOLDER = MONTHS.reduce((out, d, i) => {
+    out[`td_${i}`] = 0;
+    return out;
+  }, {});
+
   const TTR_DATAHOLDER = Array.prototype
     .concat(lottrGeoLevelCols, tttrGeoLevelCols)
     .reduce((acc, col) => {
@@ -94,6 +109,16 @@ function computeAggregations(state, data) {
                 out[`pd_${i}`] += Number.isNaN(+d[`vd_${month}`])
                   ? 0
                   : +d[`vd_${month}`] * avo;
+
+                out[`td_${i}`] += Number.isNaN(+d[`td_${month}`])
+                  ? 0
+                  : +d[`td_${month}`];
+                out[`tvd_${i}`] += Number.isNaN(+d[`tvd_${month}`])
+                  ? 0
+                  : +d[`tvd_${month}`];
+                out[`tpd_${i}`] += Number.isNaN(+d[`tvd_${month}`])
+                  ? 0
+                  : +d[`tvd_${month}`] * avo;
               });
 
               const road_type = d.is_interstate
@@ -169,7 +194,10 @@ function computeAggregations(state, data) {
             ...TTR_DATAHOLDER,
             ...PERSON_DELAY_DATAHOLDER,
             ...VEHICLE_DELAY_DATAHOLDER,
-            ...DELAY_DATAHOLDER
+            ...DELAY_DATAHOLDER,
+            ...TOTAL_PERSON_DELAY_DATAHOLDER,
+            ...TOTAL_VEHICLE_DELAY_DATAHOLDER,
+            ...TOTAL_DELAY_DATAHOLDER
           }
         );
 

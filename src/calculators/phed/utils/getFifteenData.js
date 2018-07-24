@@ -18,6 +18,7 @@ const getFifteenData = ({
     const { tmc } = tmcAttributes;
     const ThresholdSpeed = Math.max(tmcAttributes.avg_speedlimit * 0.6, 20);
 
+    // NOTE: Here, epoch means the 15min bin, not the 5 min NPMRDS bin.
     const epoch = key.split('_')[1];
     let hour = Math.floor(epoch / 4).toString();
     hour = hour.length === 1 ? `0${hour}` : hour;
