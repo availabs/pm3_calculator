@@ -9,14 +9,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
   trafficDistribution,
   tmcFiveteenMinIndex
 ) => {
-  const phed = CalculatePHED(
-    tmcAttrs,
-    tmcFiveteenMinIndex,
-    trafficDistribution,
-    TIME,
-    MEAN
-  );
-
   const ttr = CalculateTTR(tmcAttrs, tmcFiveteenMinIndex, MEAN);
 
   const atri = CalculateATRI(
@@ -27,9 +19,21 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     MEAN
   );
 
-  const ttipti = CalculatePtiTti(tmcAttrs, tmcFiveteenMinIndex, MEAN);
-
   const freeflow = CalculateFreeFlow(tmcAttrs, tmcFiveteenMinIndex);
+
+  const { freeflowTT } = freeflow;
+
+  const phed = CalculatePHED(
+    tmcAttrs,
+    freeflowTT,
+    tmcFiveteenMinIndex,
+    trafficDistribution,
+    TIME,
+    MEAN
+  );
+
+  const ttipti = CalculatePtiTti(tmcAttrs, tmcFiveteenMinIndex, freeflowTT);
+
   return {
     ...tmcAttrs,
     ...ttr.lottr,

@@ -131,7 +131,7 @@ const doIt = async () => {
 
       console.log(`wrote to ${fname}`);
 
-      if (uploadToDB) {
+      if (uploadToDB && !(uploadToDB.match && uploadToDB.match(/0|f|false/i))) {
         try {
           const leafTableMetadata = await getMetadataFromTableComment(
             leafTable
@@ -150,7 +150,7 @@ const doIt = async () => {
                   { encoding: 'utf8' }
                 ).trim(),
                 GEO_LEVEL_PM3_CALC_VER: geoLevelPM3CalcVer,
-                TMC_LEVEL_PM3_TABLE_METADATA: leafTableMetadata
+                TMC_LEVEL_PM3_TABLE_METADATA: JSON.stringify(leafTableMetadata)
               }
             });
 

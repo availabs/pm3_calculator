@@ -1,3 +1,5 @@
+  // AMpeak: 6-9
+  // PMpeak: 4-7
 const percentile = require("percentile");
 const concat = require("./utils/concat");
 
@@ -20,9 +22,11 @@ const buildDateTime = key => {
 
 const getDay = dt => dt.getDay();
 const getTime = dt => dt.getHours();
+
 const validDayTime = (d, t) =>
-  (d > 0 && d < 5 && ((t >= 9 && t < 16) || (t >= 19 && t < 22))) ||
+  (d > 0 && d <= 5 && ((t >= 9 && t < 16) || (t >= 19 && t < 22))) ||
   ((d === 0 || d === 6) && (t >= 6 && t < 22));
+
 const validTime = datetime => validDayTime(getDay(datetime), getTime(datetime));
 
 const CalculateFreeFlow = (tmcAtts, tmcFifteenMinIndex) => {
@@ -41,8 +45,11 @@ const CalculateFreeFlow = (tmcAtts, tmcFifteenMinIndex) => {
     return acc;
   }, []);
 
-  let freeflowTT = percentile(30, totalTTs);
-  let freeflowUTT = percentile(15, offPeakTTs);
+  // let freeflowTT = percentile(30, totalTTs);
+  let freeflowUTT = percentile(30, totalTTs);
+  // let freeflowUTT = percentile(15, offPeakTTs);
+  let freeflowTT = percentile(15, offPeakTTs);
+
   return {
     freeflowTT,
     freeflowUTT
