@@ -12,11 +12,11 @@ const getFifteenData = ({
   distroArray,
   trafficType,
   mean,
-  time
+  time,
+  thresholdTravelTime
 }) =>
   Object.keys(tmcFiveteenMinIndex).map(key => {
     const { tmc } = tmcAttributes;
-    const ThresholdSpeed = Math.max(tmcAttributes.avg_speedlimit * 0.6, 20);
 
     // NOTE: Here, epoch means the 15min bin, not the 5 min NPMRDS bin.
     const epoch = key.split('_')[1];
@@ -44,10 +44,6 @@ const getFifteenData = ({
     );
     const hmeanTT = precisionRound(len / hsumTT, 0);
     const meanTT = precisionRound(sumTT / len, 0);
-
-    const thresholdTravelTime = Math.round(
-      tmcAttributes.length / ThresholdSpeed * 3600
-    );
 
     let hmean_delay =
       hmeanTT > thresholdTravelTime

@@ -77,7 +77,7 @@ const {
   time = TIME || 12,
   tmcs = TMC || TMCS,
   tmcLevelPM3CalcVer = TMC_LEVEL_PM3_CALC_VER || getDefaultCalcVersionName(),
-  uploadToDB = UPLOAD_TO_DB || true,
+  uploadToDB = UPLOAD_TO_DB || false,
   year = YEAR || 2017
 } = toNumerics(argv);
 

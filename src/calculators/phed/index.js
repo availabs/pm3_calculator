@@ -7,6 +7,7 @@ const calculateAllPHED = require('./calculateAllPHED');
 
 const calculatePHED = (
   tmcAttributes,
+  freeflowTT,
   tmcFiveteenMinIndex,
   distroArray,
   time = 12,
@@ -32,13 +33,18 @@ const calculatePHED = (
 
     if (colMappings === 'avail' || tt === '') {
       const {
-        vehicle_delay,
         delay,
-        vehicle_delay_all,
+        vehicle_delay,
         delay_all,
+        vehicle_delay_all,
+        delay_ff,
+        vehicle_delay_ff,
+        delay_all_ff,
+        vehicle_delay_all_ff,
         phed_meta
       } = calculateAllPHED(
         tmcAttributes,
+        freeflowTT,
         tmcFiveteenMinIndex,
         distroArray,
         time,
@@ -56,6 +62,10 @@ const calculatePHED = (
           delay,
           vehicle_delay_all,
           delay_all,
+          delay_ff,
+          vehicle_delay_ff,
+          delay_all_ff,
+          vehicle_delay_all_ff,
           {
             dir_aadt: phed_meta.dir_aadt,
             // FIXME: This is a hack. Instead, make the code using this value
