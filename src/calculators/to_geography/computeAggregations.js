@@ -96,7 +96,11 @@ function computeAggregations(state, data) {
                 ? 1.5
                 : +d.avg_vehicle_occupancy;
 
-              const lottrWeight = +d.length * (+avo * 365);
+              const { aadt, faciltype } = d
+              const dirFactor = Math.min(faciltype, 2);
+              const dir_aadt = aadt / dirFactor;
+
+              const lottrWeight = +d.length * +avo * +dir_aadt;
 
               MONTHS.forEach((month, i) => {
                 // console.log(`vd_${month}`, +d[`vd_${month}`])

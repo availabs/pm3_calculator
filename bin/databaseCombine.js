@@ -71,7 +71,7 @@ const {
   npmrdsVer = NPMRDS_VER || 2,
   state = STATE || 'ny',
   uploadToDB = UPLOAD_TO_DB || true,
-  year = YEAR
+  year = YEAR || 2017
 } = toNumerics(Object.assign({}, env, argv));
 
 mkdirpSync(dir);
