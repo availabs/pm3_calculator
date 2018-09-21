@@ -96,7 +96,7 @@ function computeAggregations(state, data) {
                 ? 1.5
                 : +d.avg_vehicle_occupancy;
 
-              const { aadt, faciltype } = d
+              const { aadt, faciltype } = d;
               const dirFactor = Math.min(faciltype, 2);
               const dir_aadt = aadt / dirFactor;
 
@@ -125,9 +125,8 @@ function computeAggregations(state, data) {
                   : +d[`tvd_${month}`] * avo;
               });
 
-              const road_type = d.is_interstate
-                ? 'interstate'
-                : 'noninterstate';
+              const road_type =
+                +d.f_system === 1 ? 'interstate' : 'noninterstate';
 
               MONTHS.forEach((m, i) => {
                 // If yearly, no suffix. If monthly, suffix = _M
@@ -155,7 +154,11 @@ function computeAggregations(state, data) {
                     : lottrWeight;
                 }
 
-                if (d.is_interstate && d.length && !Number.isNaN(+d.length)) {
+                if (
+                  road_type === 'interstate' &&
+                  d.length &&
+                  !Number.isNaN(+d.length)
+                ) {
                   const tttrCols = tttrBins.map(bin => `${bin}${monthSuffix}`);
 
                   tttrCols.forEach(col => {
