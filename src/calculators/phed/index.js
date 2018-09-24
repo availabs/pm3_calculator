@@ -9,7 +9,7 @@ const calculatePHED = (
   tmcAttributes,
   freeflowTT,
   tmcFiveteenMinIndex,
-  distroArray,
+  trafficDistribution,
   time = 12,
   mean = DEFAULT_MEAN_TYPE,
   colMappings = 'avail'
@@ -20,7 +20,7 @@ const calculatePHED = (
   // JSON.stringify([
   // tmcAttributes,
   // tmcFiveteenMinIndex,
-  // distroArray,
+  // trafficDistribution,
   // time,
   // mean,
   // colMappings
@@ -46,7 +46,7 @@ const calculatePHED = (
         tmcAttributes,
         freeflowTT,
         tmcFiveteenMinIndex,
-        distroArray,
+        trafficDistribution,
         time,
         mean,
         tt

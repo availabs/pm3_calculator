@@ -6,6 +6,7 @@
   "avg_speedlimit",
   "congestion_level",
   "avg_vehicle_occupancy",
+  "f_system",
   "nhs",
   "nhs_pct",
   "is_interstate",
