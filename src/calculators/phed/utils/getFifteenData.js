@@ -9,7 +9,7 @@ const getFifteenData = ({
   tmcAttributes,
   tmcFiveteenMinIndex,
   dir_aadt,
-  distroArray,
+  trafficDistribution,
   trafficType,
   mean,
   time,
@@ -58,7 +58,7 @@ const getFifteenData = ({
     hmean_delay = precisionRound(hmean_delay, 4);
     mean_delay = precisionRound(mean_delay, 4);
 
-    const TrafficVolume = distroArray.map(
+    const TrafficVolume = trafficDistribution.map(
       d => d * dir_aadt * DOW_ADJ_FACTORS[dateTime.getDay()]
     );
 
