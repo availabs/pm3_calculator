@@ -50,7 +50,6 @@ const calculateAllPHED = (
   });
 
   const fifteenPeaks_sl = getFifteenPeaks(fifteenData_sl);
-
   const fifteenTotal_sl = fifteenData_sl.filter(d => d.vehicle_delay);
 
   const {
