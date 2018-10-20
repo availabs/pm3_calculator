@@ -70,7 +70,7 @@ const {
   geoLevelPM3CalcVer = GEO_LEVEL_PM3_CALC_VER || getDefaultCalcVersionName(),
   npmrdsVer = NPMRDS_VER || 2,
   state = STATE || 'ny',
-  uploadToDB = UPLOAD_TO_DB || true,
+  uploadToDB = UPLOAD_TO_DB || false,
   year = YEAR || 2017
 } = toNumerics(Object.assign({}, env, argv));
 
