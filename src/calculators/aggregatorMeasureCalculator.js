@@ -26,8 +26,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     MEAN
   );
 
-  console.error(JSON.stringify(atri, null, 2).slice(0, 1000));
-
   const atri2_ffspeed = CalculateATRI_2({
     tmcAttrs,
     tmcFiveteenMinIndex,
@@ -36,8 +34,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     ffLabel: 'ffspeed'
   });
 
-  console.error(JSON.stringify(atri2_ffspeed, null, 2).slice(0, 1000));
-
   const atri2_ffspeedhmean = CalculateATRI_2({
     tmcAttrs,
     tmcFiveteenMinIndex,
@@ -45,8 +41,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     freeflowSpeed: freeflowSpeedHMean,
     ffLabel: 'ffspeedhmean'
   });
-
-  console.error(JSON.stringify(atri2_ffspeedhmean, null, 2).slice(0, 1000));
 
   const phed = CalculatePHED(
     tmcAttrs,
