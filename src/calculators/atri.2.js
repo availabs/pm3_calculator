@@ -155,6 +155,8 @@ const CalculateATRI_2 = ({
       const aadt = getAadt(tmcAttrs, trafficType);
       const dirAADT = aadt / dirFactor;
 
+      const delayType = trafficType2DelayType[trafficType];
+
       for (let month = 0; month < hrsDelayByMonthByHour.length; month += 1) {
         const monthDirAADT = dirAADT * DAYS_PER_MONTH[month] / 365;
 
@@ -164,15 +166,15 @@ const CalculateATRI_2 = ({
 
         const hoursOfDelayByHour = hrsDelayByMonthByHour[month];
 
-        const delayType = trafficType2DelayType[trafficType];
-
-        acc[k] = precisionRound(
-          hoursOfDelayByHour.reduce((sum, delaysBySpeedType, hour) => {
-            const delay = delaysBySpeedType[delayType];
-            return sum + delay * monthDirAADT * trafficDistribution[hour];
-          }, 0),
-          4
-        );
+        if (hoursOfDelayByHour) {
+          acc[k] = precisionRound(
+            hoursOfDelayByHour.reduce((sum, delaysBySpeedType, hour) => {
+              const delay = delaysBySpeedType[delayType];
+              return sum + delay * monthDirAADT * trafficDistribution[hour];
+            }, 0),
+            4
+          );
+        }
       }
 
       return acc;
