@@ -11,7 +11,9 @@ const minimist = require('minimist');
 const { pipeline: { obj: pipelineObj } } = require('mississippi');
 const deepFreeze = require('deep-freeze');
 
-const outputCols = require('../utils/pm3OutputCols.json');
+const pm3OutputCols = require('../utils/pm3OutputCols.json');
+const hpmsPDFOutputCols = require('../utils/hpmsPDFOutputCols');
+
 const csvOutputStream = require('../utils/csvOutputStream');
 
 const { STREAM } = require('../src/constants/NPMRDS_DATA_SOURCES');
@@ -20,6 +22,7 @@ const { generateTMCData } = require('../src/DAOs/TMCDataDAO');
 
 const calculateTrafficDistFactors = require('../src/calculators/trafficDistributionFactors');
 const AggregateMeasureCalculator = require('../src/calculators/aggregatorMeasureCalculator');
+const HPMSAggregateMeasureCalculator = require('../src/calculators/hpmsPDFMeasureAggregator');
 const fiveteenMinIndexer = require('../src/calculators/fiveteenMinIndexer');
 
 const { getTrafficDistribution } = require('../utils/data_retrieval');
@@ -45,7 +48,8 @@ const {
   TIME, // number of epochs to group
   TMC,
   TMCS,
-  YEAR
+  YEAR,
+  HPMS_SCHEMA
 } = toNumerics(env);
 
 const argv = minimist(process.argv.slice(2), {
@@ -69,7 +73,8 @@ const {
   state = STATE || 'ny',
   time = TIME || 12,
   tmcs = TMC || TMCS,
-  year = YEAR || 2017
+  year = YEAR || 2017,
+  hpmsSchema = /^[1-9]$|^T$|^TRUE$/gi.test(HPMS_SCHEMA)
 } = toNumerics(argv);
 
 const calculatorStartState = {
@@ -82,7 +87,8 @@ const calculatorStartState = {
   state,
   time,
   tmcs,
-  year
+  year,
+  hpmsSchema
 };
 
 log.info({
@@ -100,7 +106,8 @@ const doIt = async ({ calculator, outputPipeline }) => {
       tmcs: tmcs && tmcs.split(/,|\s/).map(tmc => tmc.toUpperCase()),
       npmrdsDataSource,
       csvPath,
-      head
+      head,
+      hpmsSchema
     };
 
     if (npmrdsDataSource === STREAM) {
@@ -169,7 +176,15 @@ const doIt = async ({ calculator, outputPipeline }) => {
   }
 };
 
+const Calculator = /^[1-9]$|^T$|^TRUE$/gi.test(hpmsSchema)
+  ? HPMSAggregateMeasureCalculator
+  : AggregateMeasureCalculator;
+
+const outputCols = /^[1-9]$|^T$|^TRUE$/gi.test(hpmsSchema)
+  ? hpmsPDFOutputCols
+  : pm3OutputCols;
+
 doIt({
-  calculator: AggregateMeasureCalculator({ TIME: time, MEAN: mean }),
+  calculator: Calculator({ TIME: time, MEAN: mean, YEAR: year }),
   outputPipeline: pipelineObj(csvOutputStream(outputCols), process.stdout)
 });

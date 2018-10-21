@@ -43,7 +43,8 @@ const {
   TIME, // number of epochs to group
   TMC,
   TMCS,
-  YEAR
+  YEAR,
+  HPMS_SCHEMA
 } = toNumerics(env);
 
 const argv = minimist(process.argv.slice(2), {
@@ -57,7 +58,8 @@ const argv = minimist(process.argv.slice(2), {
     tmcs: ['TMC', 'TMCS', 'tmc'],
     tmcLevelPM3CalcVer: 'TMC_LEVEL_PM3_CALC_VER',
     uploadToDB: 'UPLOAD_TO_DB',
-    year: 'YEAR'
+    year: 'YEAR',
+    hpmsSchema: 'HPMS_SCHEMA'
   }
 });
 
@@ -77,8 +79,9 @@ const {
   time = TIME || 12,
   tmcs = TMC || TMCS,
   tmcLevelPM3CalcVer = TMC_LEVEL_PM3_CALC_VER || getDefaultCalcVersionName(),
-  uploadToDB = UPLOAD_TO_DB || false,
-  year = YEAR || 2017
+  uploadToDB = /^[1-9]$|^T$|^TRUE$/gi.test(UPLOAD_TO_DB),
+  year = YEAR || 2017,
+  hpmsSchema = /^[1-9]$|^T$|^TRUE$/gi.test(HPMS_SCHEMA)
 } = toNumerics(argv);
 
 if (dir && outputFile) {
@@ -131,7 +134,8 @@ log.info({
       time,
       tmcs,
       uploadToDB,
-      year
+      year,
+      hpmsSchema
     }
   }
 });
@@ -145,7 +149,8 @@ const { stdout, stderr } = spawn('bash', ['-c', `node ${pm3CalculatorPath}`], {
     STATE: state,
     TIME: time,
     TMCS: tmcs,
-    YEAR: year
+    YEAR: year,
+    HPMS_SCHEMA: hpmsSchema
   },
   encoding: 'utf8'
 });
@@ -154,7 +159,7 @@ const outFileStream = createWriteStream(outputFilePath);
 stdout.pipe(outFileStream);
 stderr.pipe(process.stderr);
 
-if (uploadToDB && !(uploadToDB.match && uploadToDB.match(/f|false/i))) {
+if (/^[1-9]$|^T$|^TRUE$/gi.test(uploadToDB)) {
   outFileStream.on('finish', () => {
     const inFileStream = createReadStream(outputFilePath);
     const loader = spawn('bash', ['-c', `node ${loaderPath}`], {

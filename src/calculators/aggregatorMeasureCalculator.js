@@ -3,6 +3,7 @@ const _ = require('lodash');
 const CalculatePHED = require('./phed');
 const CalculateTTR = require('./ttr');
 const CalculateATRI = require('./atri');
+const CalculateATRI_2 = require('./atri.2');
 const CalculatePtiTti = require('./ptitti');
 const CalculateFreeFlow = require('./freeflow');
 
@@ -11,6 +12,10 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
   trafficDistribution,
   tmcFiveteenMinIndex
 ) => {
+  const freeflow = CalculateFreeFlow(tmcAttrs, tmcFiveteenMinIndex);
+
+  const { freeflowTT, freeflowSpeed, freeflowSpeedHMean } = freeflow;
+
   const ttr = CalculateTTR(tmcAttrs, tmcFiveteenMinIndex, MEAN);
 
   const atri = CalculateATRI(
@@ -21,9 +26,21 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     MEAN
   );
 
-  const freeflow = CalculateFreeFlow(tmcAttrs, tmcFiveteenMinIndex);
+  const atri2_ffspeed = CalculateATRI_2({
+    tmcAttrs,
+    tmcFiveteenMinIndex,
+    trafficDistribution,
+    freeflowSpeed,
+    ffLabel: 'ffspeed'
+  });
 
-  const { freeflowTT, freeflowSpeed, freeflowSpeedHMean } = freeflow;
+  const atri2_ffspeedhmean = CalculateATRI_2({
+    tmcAttrs,
+    tmcFiveteenMinIndex,
+    trafficDistribution,
+    freeflowSpeed: freeflowSpeedHMean,
+    ffLabel: 'ffspeedhmean'
+  });
 
   const phed = CalculatePHED(
     tmcAttrs,
@@ -99,6 +116,8 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     ...phedFFSpeed,
     ...phedFFSpeedHMean,
     ...atri,
+    ...atri2_ffspeed,
+    ...atri2_ffspeedhmean,
     ...ttipti,
     ...ttiptiFFSpeed,
     ...ttiptiFFSpeedHMean,
