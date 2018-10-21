@@ -1,0 +1,19 @@
+NOTE: All below CSVs are in data.tar.gz
+
+|file|description|
+|---|---|
+|albany.combi.csv|Albany County MacroView CSV download, vehicle class = single (10/18/2018)|
+|albany.singl.csv|Albany County MacroView CSV download, vehicle class = combination (10/18/2018)|
+|albany.truck.csv|Albany County MacroView CSV download, vehicle class = all trucks (10/18/2018)|
+|getTEDDataFromDB.sh|Dumps a CSV of TED data from DB|
+|getTEDDataFromDB.v20180529.sh|Dumps a CSV of TED data from DB using the version of the PM3 table in effect when first PM3_HPMS file was created|
+|nys.hpms.2017.patched-directions.csv|The original PM3_HPMS file, submitted 5/30/2018.|
+|nys.hpms.2017.v6.csv|
+|nys.hpms.2017.v6.more-decimal-places.csv|Latest PM3_HPMS file that was created. Used to splice in the TED measures.|
+|nys.hpms.2017.v6-withTED.csv|
+|nys.ted.2017.csv|Output of getTEDDataFromDB.sh|
+|nys.ted.2017.v20180529.csv|Output of getTEDDataFromDB.v20180529.sh|
+|qa.1.csv|Output of qa.1.sh|
+|qa.1.sh|Creates a CSV with TED values from nys.hpms.2017.v6-withTED.csv and MacroView CSV downloads.|
+|spliceInTED.sh|Creates the PM#_HPMS CSV with the TED measures spliced in. (Purpose of this task)|
+|whatIsUpWithPHED.md|Beginning investigations into why PHED is so different between 5/30/2018 and now.|

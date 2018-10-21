@@ -1,6 +1,8 @@
 const getFifteenData = require('./utils/getFifteenData');
 const { getSortedMeanTimesForBins } = require('./utils/getSortedMeanTimes');
 
+const { PASSENGER, TRUCK } = require('./constants/travelTimeTypes');
+
 const availFieldNameMappings = require('./constants/availFieldNameMappings');
 const fhwaFieldNameMappings = require('./constants/fhwaFieldNameMappings');
 
@@ -15,7 +17,8 @@ const CalculateTTR = (
 ) => {
   const months = new Set(['total']);
 
-  // NOTE: getFifteenData mutates the months set, adding months to it.
+  // NOTE: getFifteenData MUTATES the months set,
+  //       ADDING months to it.
   const fifteenData = getFifteenData(tmcFiveteenMinIndex, months);
 
   const measures = [...months].reduce(
@@ -33,17 +36,15 @@ const CalculateTTR = (
       });
 
       const monthKey = m === 'total' ? '' : `_${+m + 1}`;
-      const mappings =
+
+      const fieldNameMappings =
         colMappings === 'avail'
           ? availFieldNameMappings
           : fhwaFieldNameMappings;
 
       Object.entries(lottr(sortedMeanTimesForBins)).forEach(
         ([bin, measure]) => {
-          const binName = mappings[bin];
-          // NOTE: This is the filtering mechanism.
-          //       If the bin is not in the mappings,
-          //       it is excluded from the output.
+          const binName = fieldNameMappings[bin];
           if (binName) {
             acc.lottr[`${binName}${monthKey}`] = measure;
           }
@@ -51,14 +52,65 @@ const CalculateTTR = (
       );
 
       Object.entries(tttr(sortedMeanTimesForBins)).forEach(([bin, measure]) => {
-        const binName = mappings[bin];
-        // NOTE: This is the filtering mechanism.
-        //       If the bin is not in the mappings,
-        //       it is excluded from the output.
+        const binName = fieldNameMappings[bin];
         if (binName) {
           acc.tttr[`${binName}${monthKey}`] = measure;
         }
       });
+
+      if (colMappings === 'avail') {
+        const sortedMeanPassengerTimesForBins = getSortedMeanTimesForBins({
+          fifteenData,
+          monthClause:
+            m !== 'total' ? d => d.dateTime.getMonth() === +m : () => true,
+          mean,
+          vehicleType: PASSENGER
+        });
+
+        Object.entries(lottr(sortedMeanPassengerTimesForBins)).forEach(
+          ([bin, measure]) => {
+            const binName = fieldNameMappings[bin];
+            if (binName) {
+              acc.lottr[`${binName}_pass${monthKey}`] = measure;
+            }
+          }
+        );
+
+        Object.entries(tttr(sortedMeanPassengerTimesForBins)).forEach(
+          ([bin, measure]) => {
+            const binName = fieldNameMappings[bin];
+            if (binName) {
+              acc.tttr[`${binName}_pass${monthKey}`] = measure;
+            }
+          }
+        );
+
+        const sortedMeanTruckTimesForBins = getSortedMeanTimesForBins({
+          fifteenData,
+          monthClause:
+            m !== 'total' ? d => d.dateTime.getMonth() === +m : () => true,
+          mean,
+          vehicleType: TRUCK
+        });
+
+        Object.entries(lottr(sortedMeanTruckTimesForBins)).forEach(
+          ([bin, measure]) => {
+            const binName = fieldNameMappings[bin];
+            if (binName) {
+              acc.lottr[`${binName}_truck${monthKey}`] = measure;
+            }
+          }
+        );
+
+        Object.entries(tttr(sortedMeanTruckTimesForBins)).forEach(
+          ([bin, measure]) => {
+            const binName = fieldNameMappings[bin];
+            if (binName) {
+              acc.tttr[`${binName}_truck${monthKey}`] = measure;
+            }
+          }
+        );
+      }
 
       return acc;
     },

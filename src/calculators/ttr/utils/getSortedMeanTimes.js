@@ -1,3 +1,5 @@
+const { PASSENGER, TRUCK } = require('../constants/travelTimeTypes');
+
 const WEEKDAYS = [1, 2, 3, 4, 5];
 const WEEKENDS = [0, 6];
 
@@ -5,59 +7,99 @@ function numSort(a, b) {
   return +a - +b;
 }
 
-const getFilteredSortedMeanTimes = ({ fifteenData, filter, mean }) =>
+const getFilteredSortedMeanTimes = ({
+  fifteenData,
+  filter,
+  mean,
+  vehicleType
+}) =>
   fifteenData
     .filter(filter)
-    .map(d => d[mean])
+    .map(d => {
+      if (vehicleType === PASSENGER) {
+        return +d[`${mean}PV`];
+      } else if (vehicleType === TRUCK) {
+        return +d[`${mean}FT`];
+      }
+      return +d[mean];
+    })
     .sort(numSort);
 
-const getAMPeakSortedMeanTimes = ({ fifteenData, monthClause, mean }) =>
+const getAMPeakSortedMeanTimes = ({
+  fifteenData,
+  monthClause,
+  mean,
+  vehicleType
+}) =>
   getFilteredSortedMeanTimes({
     fifteenData,
     filter: d =>
       WEEKDAYS.includes(d.dateTime.getDay()) &&
       (d.epoch >= 24 && d.epoch < 40) &&
       monthClause(d),
-    mean
+    mean,
+    vehicleType
   });
 
-const getOffPeakSortedMeanTimes = ({ fifteenData, monthClause, mean }) =>
+const getOffPeakSortedMeanTimes = ({
+  fifteenData,
+  monthClause,
+  mean,
+  vehicleType
+}) =>
   getFilteredSortedMeanTimes({
     fifteenData,
     filter: d =>
       WEEKDAYS.includes(d.dateTime.getDay()) &&
       (d.epoch >= 40 && d.epoch < 64) &&
       monthClause(d),
-    mean
+    mean,
+    vehicleType
   });
 
-const getPMPeakSortedMeanTimes = ({ fifteenData, monthClause, mean }) =>
+const getPMPeakSortedMeanTimes = ({
+  fifteenData,
+  monthClause,
+  mean,
+  vehicleType
+}) =>
   getFilteredSortedMeanTimes({
     fifteenData,
     filter: d =>
       WEEKDAYS.includes(d.dateTime.getDay()) &&
       (d.epoch >= 64 && d.epoch < 80) &&
       monthClause(d),
-    mean
+    mean,
+    vehicleType
   });
 
-const getWeekendPeakSortedMeanTimes = ({ fifteenData, monthClause, mean }) =>
+const getWeekendPeakSortedMeanTimes = ({
+  fifteenData,
+  monthClause,
+  mean,
+  vehicleType
+}) =>
   getFilteredSortedMeanTimes({
     fifteenData,
     filter: d =>
       WEEKENDS.includes(d.dateTime.getDay()) &&
       (d.epoch >= 24 && d.epoch < 80) &&
       monthClause(d),
-    mean
+    mean,
+    vehicleType
   });
 
-const getOvernightPeakSortedMeanTimes = ({ fifteenData, monthClause, mean }) =>
+const getOvernightPeakSortedMeanTimes = ({
+  fifteenData,
+  monthClause,
+  mean,
+  vehicleType
+}) =>
   getFilteredSortedMeanTimes({
     fifteenData,
-    filter: d =>
-      (d.epoch < 24 || d.epoch > 80) &&
-      monthClause(d),
-    mean
+    filter: d => (d.epoch < 24 || d.epoch > 80) && monthClause(d),
+    mean,
+    vehicleType
   });
 
 const getSortedMeanTimesForBins = sortedMeanTimesParams => ({
