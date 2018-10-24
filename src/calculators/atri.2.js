@@ -17,8 +17,6 @@ const DAYS_PER_MONTH = [365, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const trafficType2SpeedType = {
   '': '',
-  singl: 'speedFT',
-  combi: 'speedFT',
   truck: 'speedFT',
   pass: 'speedPV'
 };

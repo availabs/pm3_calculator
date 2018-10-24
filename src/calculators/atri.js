@@ -73,11 +73,9 @@ const CalculateATRI = (
     st => (monthAvgs[st]["total"] = avgo[st].sum / avgo[st].len)
   );
   let freeflowSpeed = percentile(70, allSpeeds[""]) || 55;
-  let trafficTypes = ["", "singl", "combi", "truck", "pass"];
+  let trafficTypes = ["", "truck", "pass"];
   let ttSpeeds = {
     "": "",
-    singl: "speedFT",
-    combi: "speedFT",
     truck: "speedFT",
     pass: "speedPV"
   };
