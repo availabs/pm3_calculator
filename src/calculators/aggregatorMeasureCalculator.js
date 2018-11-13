@@ -14,7 +14,7 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
 ) => {
   const freeflow = CalculateFreeFlow(tmcAttrs, tmcFiveteenMinIndex);
 
-  const { freeflowTT, freeflowSpeed, freeflowSpeedHMean } = freeflow;
+  const { freeflowTT, freeflowSpeedHMean } = freeflow;
 
   const ttr = CalculateTTR(tmcAttrs, tmcFiveteenMinIndex, MEAN);
 
@@ -25,14 +25,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     TIME,
     MEAN
   );
-
-  const atri2_ffspeed = CalculateATRI_2({
-    tmcAttrs,
-    tmcFiveteenMinIndex,
-    trafficDistribution,
-    freeflowSpeed,
-    ffLabel: 'ffspeed'
-  });
 
   const atri2_ffspeedhmean = CalculateATRI_2({
     tmcAttrs,
@@ -54,20 +46,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
   const ffPHEDFields = Object.keys(phed).filter(k => /_ff_total$/.test(k));
   const { length } = tmcAttrs;
 
-  const phedFFSpeed = _.chain(
-    CalculatePHED(
-      tmcAttrs,
-      length / freeflowSpeed * 3600,
-      tmcFiveteenMinIndex,
-      trafficDistribution,
-      TIME,
-      MEAN
-    )
-  )
-    .pick(ffPHEDFields)
-    .mapKeys((v, k) => k.replace(/_ff_total/, '_ffspeed_total'))
-    .value();
-
   const phedFFSpeedHMean = _.chain(
     CalculatePHED(
       tmcAttrs,
@@ -86,17 +64,6 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
 
   const ffTIfields = Object.keys(ttipti).filter(k => /_total$/.test(k));
 
-  const ttiptiFFSpeed = _.chain(
-    CalculatePtiTti(
-      tmcAttrs,
-      tmcFiveteenMinIndex,
-      length / freeflowSpeed * 3600
-    )
-  )
-    .pick(ffTIfields)
-    .mapKeys((v, k) => k.replace(/_total$/, '_ffspeed_total'))
-    .value();
-
   const ttiptiFFSpeedHMean = _.chain(
     CalculatePtiTti(
       tmcAttrs,
@@ -113,13 +80,10 @@ const aggregateMeasureCalculator = ({ TIME, MEAN }) => (
     ...ttr.lottr,
     ...ttr.tttr,
     ...phed,
-    ...phedFFSpeed,
     ...phedFFSpeedHMean,
     ...atri,
-    ...atri2_ffspeed,
     ...atri2_ffspeedhmean,
     ...ttipti,
-    ...ttiptiFFSpeed,
     ...ttiptiFFSpeedHMean,
     ...freeflow,
     // Need to enclose the bounding box in quotes

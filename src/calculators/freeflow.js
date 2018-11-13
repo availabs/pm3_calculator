@@ -2,7 +2,6 @@
 // PMpeak: 4-7
 const percentile = require('percentile');
 const concat = require('./utils/concat');
-const precisionRound = require('./utils/precisionRound');
 
 const buildDateTime = key => {
   const epoch = key.split('_')[1];
@@ -48,19 +47,6 @@ const CalculateFreeFlow = (tmcAtts = {}, tmcFifteenMinIndex) => {
     return acc;
   }, []);
 
-  const offPeakSpeeds = length
-    ? TTs.filter(k => {
-        const datetime = buildDateTime(k);
-        return validTime(datetime);
-      }).reduce((acc, k) => {
-        const tts = tmcFifteenMinIndex[k].tt;
-        const speeds = tts.map(tt => precisionRound(length / tt * 3600, 1));
-
-        concat(acc, speeds);
-        return acc;
-      }, [])
-    : null;
-
   const offPeakSpeedsHMean = length
     ? TTs.filter(k => {
         const datetime = buildDateTime(k);
@@ -83,14 +69,12 @@ const CalculateFreeFlow = (tmcAtts = {}, tmcFifteenMinIndex) => {
   const freeflowUTT = percentile(30, totalTTs);
   const freeflowTT = percentile(15, offPeakTTs);
 
-  const freeflowSpeed = offPeakSpeeds && percentile(85, offPeakSpeeds);
   const freeflowSpeedHMean =
     offPeakSpeedsHMean && percentile(85, offPeakSpeedsHMean);
 
   return {
     freeflowTT,
     freeflowUTT,
-    freeflowSpeed,
     freeflowSpeedHMean
   };
 };

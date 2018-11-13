@@ -17,8 +17,6 @@ const DAYS_PER_MONTH = [365, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 const trafficType2SpeedType = {
   '': '',
-  singl: 'speedFT',
-  combi: 'speedFT',
   truck: 'speedFT',
   pass: 'speedPV'
 };
@@ -55,16 +53,23 @@ const getSpeedSumsByMonthByHour = tmcFiveteenMinIndex => {
       acc[m] = acc[m] || [];
       acc[m][h] = acc[m][h] || newSumNumObj();
 
-      const { speed, speedPV, speedFT } = tmcFiveteenMinIndex[fmiBinKey];
+      const fmiBin = tmcFiveteenMinIndex[fmiBinKey] || {};
+      const { speed, speedPV, speedFT } = fmiBin;
 
-      acc[m][h].speed.sum += speed.reduce((sum, s) => sum + s, 0);
-      acc[m][h].speed.num += speed.length;
+      if (speed) {
+        acc[m][h].speed.sum += speed.reduce((sum, s) => sum + s, 0);
+        acc[m][h].speed.num += speed.length;
+      }
 
-      acc[m][h].speedPV.sum += speedPV.reduce((sum, s) => sum + s, 0);
-      acc[m][h].speedPV.num += speedPV.length;
+      if (speedPV) {
+        acc[m][h].speedPV.sum += speedPV.reduce((sum, s) => sum + s, 0);
+        acc[m][h].speedPV.num += speedPV.length;
+      }
 
-      acc[m][h].speedFT.sum += speedFT.reduce((sum, s) => sum + s, 0);
-      acc[m][h].speedFT.num += speedFT.length;
+      if (speedFT) {
+        acc[m][h].speedFT.sum += speedFT.reduce((sum, s) => sum + s, 0);
+        acc[m][h].speedFT.num += speedFT.length;
+      }
 
       return acc;
     },
@@ -75,18 +80,26 @@ const getSpeedSumsByMonthByHour = tmcFiveteenMinIndex => {
   speedSumsByMonthByHour[0] = speedSumsByMonthByHour.reduce(
     (acc, hourlySpeedSums) => {
       for (let hr = 0; hr < hourlySpeedSums.length; hr += 1) {
-        const { speed, speedPV, speedFT } = hourlySpeedSums[hr];
-
         acc[hr] = acc[hr] || newSumNumObj();
 
-        acc[hr].speed.sum += speed.sum;
-        acc[hr].speed.num += speed.num;
+        const speedSums = hourlySpeedSums[hr] || {};
 
-        acc[hr].speedPV.sum += speedPV.sum;
-        acc[hr].speedPV.num += speedPV.num;
+        const { speed, speedPV, speedFT } = speedSums;
 
-        acc[hr].speedFT.sum += speedFT.sum;
-        acc[hr].speedFT.num += speedFT.num;
+        if (speed) {
+          acc[hr].speed.sum += speed.sum || 0;
+          acc[hr].speed.num += speed.num || 0;
+        }
+
+        if (speedPV) {
+          acc[hr].speedPV.sum += speedPV.sum || 0;
+          acc[hr].speedPV.num += speedPV.num || 0;
+        }
+
+        if (speedFT) {
+          acc[hr].speedFT.sum += speedFT.sum || 0;
+          acc[hr].speedFT.num += speedFT.num || 0;
+        }
       }
 
       return acc;
@@ -99,19 +112,19 @@ const getSpeedSumsByMonthByHour = tmcFiveteenMinIndex => {
 
 const getAvgSpeedByMonthByHour = speedSumsByMonthByHour =>
   speedSumsByMonthByHour.map(hourlySpeedSums =>
-    hourlySpeedSums.map(({ speed, speedPV, speedFT }) => ({
-      speed: speed.sum / speed.num || null,
-      speedPV: speedPV.sum / speedPV.num || null,
-      speedFT: speedFT.sum / speedFT.num || null
+    hourlySpeedSums.map(({ speed, speedPV, speedFT } = {}) => ({
+      avgSpeed: speed ? speed.sum / speed.num : null,
+      avgSpeedPV: speedPV ? speedPV.sum / speedPV.num : null,
+      avgSpeedFT: speedFT ? speedFT.sum / speedFT.num : null
     }))
   );
 
 const getHoursOfDelayByMonthByHour = (avgSpeedByMonthByHour, freeflowSpeed) =>
   avgSpeedByMonthByHour.map(avgSpeedByHour =>
-    avgSpeedByHour.map(({ speed, speedPV, speedFT }) => ({
-      delayHrs: freeflowSpeed > speed ? freeflowSpeed - speed : 0,
-      delayHrsPV: freeflowSpeed > speedPV ? freeflowSpeed - speedPV : 0,
-      delayHrsFT: freeflowSpeed > speedFT ? freeflowSpeed - speedFT : 0
+    avgSpeedByHour.map(({ avgSpeed, avgSpeedPV, avgSpeedFT } = {}) => ({
+      delayHrs: freeflowSpeed > avgSpeed ? freeflowSpeed - avgSpeed : 0,
+      delayHrsPV: freeflowSpeed > avgSpeedPV ? freeflowSpeed - avgSpeedPV : 0,
+      delayHrsFT: freeflowSpeed > avgSpeedFT ? freeflowSpeed - avgSpeedFT : 0
     }))
   );
 
@@ -140,6 +153,8 @@ const CalculateATRI_2 = ({
       const aadt = getAadt(tmcAttrs, trafficType);
       const dirAADT = aadt / dirFactor;
 
+      const delayType = trafficType2DelayType[trafficType];
+
       for (let month = 0; month < hrsDelayByMonthByHour.length; month += 1) {
         const monthDirAADT = dirAADT * DAYS_PER_MONTH[month] / 365;
 
@@ -149,15 +164,15 @@ const CalculateATRI_2 = ({
 
         const hoursOfDelayByHour = hrsDelayByMonthByHour[month];
 
-        const delayType = trafficType2DelayType[trafficType];
-
-        acc[k] = precisionRound(
-          hoursOfDelayByHour.reduce((sum, delaysBySpeedType, hour) => {
-            const delay = delaysBySpeedType[delayType];
-            return sum + delay * monthDirAADT * trafficDistribution[hour];
-          }, 0),
-          4
-        );
+        if (hoursOfDelayByHour) {
+          acc[k] = precisionRound(
+            hoursOfDelayByHour.reduce((sum, delaysBySpeedType, hour) => {
+              const delay = delaysBySpeedType[delayType];
+              return sum + delay * monthDirAADT * trafficDistribution[hour];
+            }, 0),
+            4
+          );
+        }
       }
 
       return acc;

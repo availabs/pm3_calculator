@@ -36,7 +36,8 @@ const getFifteenData = ({
     const len = tmcFiveteenMinIndex[key].speed.length;
 
     const sumTT = getTT(tmcFiveteenMinIndex, key, trafficType).reduce(
-      (a, b) => a + b
+      (a, b) => a + b,
+      0
     );
     const hsumTT = getTT(tmcFiveteenMinIndex, key, trafficType).reduce(
       (a, b) => a + 1 / b,
