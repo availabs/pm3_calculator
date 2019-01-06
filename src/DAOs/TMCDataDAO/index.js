@@ -43,6 +43,10 @@ async function* generateTMCData(config) {
     }
   }
 
+  if (config.head) {
+    return
+  }
+
   for (const tmc of tmcSet) {
     yield {
       tmcAttributes: tmcAttributes[tmc] || {},
