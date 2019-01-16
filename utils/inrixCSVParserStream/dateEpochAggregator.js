@@ -14,7 +14,10 @@ const outputCols = [
   'epoch',
   'travel_time_all_vehicles',
   'travel_time_passenger_vehicles',
-  'travel_time_freight_trucks'
+  'travel_time_freight_trucks',
+  'data_density_all_vehicles',
+  'data_density_passenger_vehicles',
+  'data_density_freight_trucks'
 ];
 
 const dateEpochAggregator = () => {
@@ -74,6 +77,9 @@ const dateEpochAggregator = () => {
 
         curCSVRow[`travel_time_${vehicleType}`] =
           +data.travel_time_seconds || null;
+
+        curCSVRow[`data_density_${vehicleType}`] =
+          data.data_density || null;
       } catch (err) {
         console.error(JSON.stringify(data, null, 4));
         console.error(err);
