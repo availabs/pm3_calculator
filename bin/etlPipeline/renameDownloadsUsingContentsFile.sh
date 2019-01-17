@@ -17,25 +17,33 @@ pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 source ./stateAbbreviations.sh
 source ./datasources.sh
 
-for state_name in "${!STATE_ABBREVIATIONS[@]}"
-do
-  state_name_regex="${state_name_regex}${state_name}|"
-done
-
-state_name_regex="${state_name_regex/%\|/}"
-
 find "$ETL_WORK_DIR" -type f -name "*${INRIX_DOWNLOAD_ZIP_EXTENSION}" |\
-while read inf 
+while read -r inf 
 do
-  contents="$(unzip -p "$inf" Contents.txt)"
+  state_col_num="$(\
+    unzip -p "$inf" TMC_Identification.csv |
+      head -1 |
+      tr ',' '\n' |
+      nl |
+      grep state |
+      sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
+  )"
 
-  # Extract the part of the description that is '<State Name> (<Number> TMCs)'
-  # Remove ' (<Number> TMCs)'
-  state_name="$( echo "$contents" | grep -Eoiw "$state_name_regex" )"
-  state_name="${state_name,,}" # To lower case
+  state_name="$(
+    unzip -p "$inf" TMC_Identification.csv |
+      awk -F, "NR>1{ print tolower(\$${state_col_num}) }" |
+      sort -u
+  )"
+
+  if [ "$(wc -l <<< "$state_name")" -gt 1 ]; then
+    echo 'ERROR: Downloads must contain data for a single state.'
+    echo '       Multiple states listed in TMC_Identification.'
+    exit 1
+  fi
 
   state="${STATE_ABBREVIATIONS[${state_name}]}"
 
+  contents="$(unzip -p "$inf" Contents.txt)"
   start_date="$(date -d "$(echo "$contents" | tr '\n' ' ' | sed 's/.*from //g; s/ through.*//g')" '+%Y%m')"
   end_date="$(date -d "$(echo "$contents" | tr '\n' ' ' | sed 's/.*through //')" '+%Y%m')"
 
@@ -44,16 +52,14 @@ do
     || date_range="$start_date"
 
   # https://stackoverflow.com/a/4594371/3970755
-  datasources="$(\
-    echo "$contents" |\
-    grep -Po '\(Trucks\)|\(Passenger vehicles\)|\(Trucks and passenger vehicles\)' |\
-    sort |\
-    sed 's/(Trucks)/TRUCK/g; s/(Passenger vehicles)/PASS/g; s/(Trucks and passenger vehicles)/ALL/g;' |\
-    tr '\n' '-'
+  datasources="$(
+    echo "$contents" |
+    grep -Po '\(Trucks\)|\(Passenger vehicles\)|\(Trucks and passenger vehicles\)' |
+    sort |
+    sed 's/(Trucks)/TRUCK/g; s/(Passenger vehicles)/PASS/g; s/(Trucks and passenger vehicles)/ALL/g;' |
+    tr '\n' '-' |
+    sed 's/-$//g'
   )"
-
-  # Remove the last '-'
-  datasources="$(echo "$datasources" | sed 's/.$//')"
 
   if [[ -z "$state" ]] || [[ -z "$date_range" ]] || [[ -z "$datasources" ]]
   then
