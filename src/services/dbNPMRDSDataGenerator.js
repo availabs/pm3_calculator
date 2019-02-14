@@ -33,7 +33,9 @@ async function* generateData({
   }
 
   let tmcsList = tmcs && Array.isArray(tmcs) ? tmcs : [tmcs];
-  tmcsList = tmcsList || (await getTMCsForState(state));
+
+  // FIXME: Currently won't support years other than conflation years.
+  tmcsList = tmcsList || (await getTMCsForState(state, year));
 
   for await (const tmc of tmcsList) {
     head -= 1;

@@ -1,14 +1,8 @@
-const { runQuery } = require('../services/db_service');
+const { getTMCAttributes } = require('../DAOs/TMCAttributesDAO');
 
-const getTMCsForState = async state => {
-  const sql = `
-    SELECT
-        tmc
-      FROM "${state}".tmc_attributes
-    ;
-  `;
-
-  return (await runQuery(sql)).rows.map(({ tmc }) => tmc).sort();
-};
+const getTMCsForState = async (state, conflationYear) =>
+  (await getTMCAttributes({ state, attributes: 'tmc', conflationYear })).rows
+    .map(({ tmc }) => tmc)
+    .sort();
 
 module.exports = getTMCsForState;
