@@ -20,6 +20,15 @@ source ./datasources.sh
 find "$ETL_WORK_DIR" -type f -name "*${INRIX_DOWNLOAD_ZIP_EXTENSION}" |\
 while read -r inf 
 do
+  country_col_num="$(\
+    unzip -p "$inf" TMC_Identification.csv |
+      head -1 |
+      tr ',' '\n' |
+      nl |
+      grep country |
+      sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
+  )"
+
   state_col_num="$(\
     unzip -p "$inf" TMC_Identification.csv |
       head -1 |
@@ -29,11 +38,25 @@ do
       sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
   )"
 
-  state_name="$(
+  countries="$(
     unzip -p "$inf" TMC_Identification.csv |
-      awk -F, "NR>1{ print tolower(\$${state_col_num}) }" |
+      awk -F, "NR>1{ print tolower(\$${country_col_num}) }" |
       sort -u
   )"
+
+  if grep -q 'usa' <<< "$countries"; then
+    state_name="$(
+      unzip -p "$inf" TMC_Identification.csv |
+        awk -F, "\$${country_col_num} == \"USA\" { print tolower(\$${state_col_num}) }" |
+        sort -u
+    )"
+  else
+    state_name="$(
+      unzip -p "$inf" TMC_Identification.csv |
+        awk -F, "NR>1{ print tolower(\$${state_col_num}) }" |
+        sort -u
+    )"
+  fi
 
   if [ "$(wc -l <<< "$state_name")" -gt 1 ]; then
     echo 'ERROR: Downloads must contain data for a single state.'
@@ -41,7 +64,11 @@ do
     exit 1
   fi
 
-  state="${STATE_ABBREVIATIONS[${state_name}]}"
+  if [[ "${#state_name}" -eq 2 ]]; then
+    state="${state_name,,}"
+  else
+    state="${STATE_ABBREVIATIONS[${state_name}]}"
+  fi
 
   contents="$(unzip -p "$inf" Contents.txt)"
   start_date="$(date -d "$(echo "$contents" | tr '\n' ' ' | sed 's/.*from //g; s/ through.*//g')" '+%Y%m')"
