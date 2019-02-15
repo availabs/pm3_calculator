@@ -45,11 +45,17 @@ do
   )"
 
   if grep -q 'usa' <<< "$countries"; then
-    state_name="$(
-      unzip -p "$inf" TMC_Identification.csv |
-        awk -F, "\$${country_col_num} == \"USA\" { print tolower(\$${state_col_num}) }" |
-        sort -u
-    )"
+    for state_name in "${!STATE_ABBREVIATIONS[@]}"
+    do
+      state_name_regex="${state_name_regex}${state_name}|"
+    done
+
+    contents="$(unzip -p "$inf" Contents.txt)"
+
+    # Extract the part of the description that is '<State Name> (<Number> TMCs)'
+    # Remove ' (<Number> TMCs)'
+    state_name="$( echo "$contents" | grep -Eoiw "$state_name_regex" )"
+    state_name="${state_name,,}" # To lower case
   else
     state_name="$(
       unzip -p "$inf" TMC_Identification.csv |
