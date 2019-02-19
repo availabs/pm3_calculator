@@ -29,15 +29,6 @@ do
       sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
   )"
 
-  state_col_num="$(\
-    unzip -p "$inf" TMC_Identification.csv |
-      head -1 |
-      tr ',' '\n' |
-      nl |
-      grep state |
-      sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
-  )"
-
   countries="$(
     unzip -p "$inf" TMC_Identification.csv |
       awk -F, "NR>1{ print tolower(\$${country_col_num}) }" |
@@ -57,6 +48,15 @@ do
     state_name="$( echo "$contents" | grep -Eoiw "$state_name_regex" )"
     state_name="${state_name,,}" # To lower case
   else
+    state_col_num="$(\
+      unzip -p "$inf" TMC_Identification.csv |
+        head -1 |
+        tr ',' '\n' |
+        nl |
+        grep state |
+        sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
+    )"
+
     state_name="$(
       unzip -p "$inf" TMC_Identification.csv |
         awk -F, "NR>1{ print tolower(\$${state_col_num}) }" |
@@ -64,6 +64,10 @@ do
     )"
   fi
 
+  ## RITIS breaks this rule. NY region downloads contain Canadian and New Jersey TMCs.
+  ##   Had to weaken the test to looking only at the Contents file for US states.
+  ##   Canadian provinces are downloaded by requesting specific TMCs.
+  ##     The test is therefore stronger for them.
   if [ "$(wc -l <<< "$state_name")" -gt 1 ]; then
     echo 'ERROR: Downloads must contain data for a single state.'
     echo '       Multiple states listed in TMC_Identification.'
