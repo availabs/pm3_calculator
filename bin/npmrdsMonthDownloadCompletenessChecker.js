@@ -18,26 +18,38 @@ const vehicleTypes = {
 };
 
 function getCompletenessLedger(year, month) {
-  const startDate = new Date(`${month}/01/${year}`);
-
-  // '2019-01-01 00:00:00'
+  const startDate = new Date(`${month}/01/${year} 12:00:00`);
 
   const ledger = {};
+
   const currentDate = startDate;
+
+  const mm = `0${month}`.slice(-2);
+
   while (currentDate.getMonth() + 1 === month) {
-    const mm = `0${currentDate.getMonth() + 1}`.slice(-2);
-    const dd = `0${currentDate.getDate()}`.slice(-2);
+    const d = +currentDate.getDate();
+    const dd = `0${d}`.slice(-2);
 
     for (let h = 0; h < 24; h += 1) {
       const HH = `0${h}`.slice(-2);
       for (let m = 0; m < 60; m += 5) {
         const MM = `0${m}`.slice(-2);
+
+        // Handles Daylight Savings Time
+        //   Daylight Savings starts on the second Sunday in March.
+        //   When daylight savings starts, we need to set the counter to 1
+        //     because there will be no data for 2-3am.
+        
+        const ct =
+          month === 3 && d > 7 && d < 15 && h === 2 && !currentDate.getDay()
+            ? 1
+            : 0;
+        
         ledger[`${year}-${mm}-${dd} ${HH}:${MM}:00`] = {
-          [ALL]: 0,
-          [PASS]: 0,
-          [TRUCK]: 0
+          [ALL]: ct,
+          [PASS]: ct,
+          [TRUCK]: ct
         };
-        // TODO: Handle daylight savings
       }
     }
 
@@ -76,8 +88,8 @@ const getMissingDataLedger = ledger => {
 const verifyDataCompleteness = () => {
   let curTmc = null;
 
-  let dataYear = null
-  let dataMonth = null
+  let dataYear = null;
+  let dataMonth = null;
 
   let ledgerTemplate = null;
   let curLedger = null;
@@ -91,19 +103,18 @@ const verifyDataCompleteness = () => {
         const year = +measurement_tstamp.slice(0, 4);
         const month = +measurement_tstamp.slice(5, 7);
 
-        dataYear = dataYear || year
-        dataMonth = dataMonth || month
+        dataYear = dataYear || year;
+        dataMonth = dataMonth || month;
 
-        if (
-          (year !== dataYear) || (month !== dataMonth)) {
-          throw new Error('ERROR: Data should be for a single month.')
+        if (year !== dataYear || month !== dataMonth) {
+          throw new Error('ERROR: Data should be for a single month.');
         }
 
         if (curTmc && curTmc !== tmc_code) {
           const missingData = getMissingDataLedger(curLedger);
           if (missingData) {
             foundMissing = true;
-          throw new Error('ERROR: Missing data.')
+            throw new Error('ERROR: Missing data.');
           }
           curTmc = null;
         }
