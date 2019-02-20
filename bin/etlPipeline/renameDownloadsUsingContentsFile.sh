@@ -10,7 +10,7 @@ then
   exit 1
 fi
 
-INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.inrix-download.zip}"
+INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.raw-inrix-download.zip}"
 
 pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 

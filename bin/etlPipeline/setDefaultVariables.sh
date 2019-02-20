@@ -51,7 +51,7 @@ ETL_WORK_DIR="$(\
   readlink -m "${ETL_WORK_DIR:="${this_dir}/../../etl/${ETL_UUID}.etl-work-dir"}" \
 )"
 
-INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.inrix-download.zip}"
+INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.raw-inrix-download.zip}"
 
 CANONICAL_ARCHIVE_DIR="$(\
   readlink -m "${CANONICAL_ARCHIVE_DIR:=$(readlink -m "${this_dir}/../../archive/canonical-archive/")}" \

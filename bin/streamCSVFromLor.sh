@@ -16,4 +16,4 @@ fi
 
 [[ -z $MONTH ]] && MM='' || MM="$(printf '%02.f' "${MONTH}")"
 
-scp "lor:/mnt/Data/pm3_calculator/etl/${STATE}/${STATE}.${YEAR}${MM}.here-schema.sorted.csv" /dev/stdout
+scp "lor:/mnt/Data/pm3_calculator/etl/${STATE}/${STATE}.${YEAR}${MM}.npmrds.csv" /dev/stdout
