@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Loop over the data CSVs included in the RITIS massive data downloader output,
+#   outputting their contents to STDOUT as a single CSV.
+#
+# USAGE:
+#   The 1st CLI arguement to this script is the list of ZIP archive paths.
+#
+# Output is the concatenated data CSVs.
+
 # Import the NPMRDS_DATASOURCES associative array
 source "$( dirname "${BASH_SOURCE[0]}")/datasources.sh"
 
@@ -36,6 +44,7 @@ do
 
   ARCHIVE_ABSOLUTE_PATHS+=("$abs_path")
 
+  # ASSUMPTION: the data file is the largest file in the downloaded archive.
   # The data.zip included multiple files. We need the name of the datafile.
   # This file name varies.
   # The following gets the filename of the largest csv file in the archive.
