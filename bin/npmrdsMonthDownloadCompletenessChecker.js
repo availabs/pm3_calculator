@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-/* eslint no-console: 0 */
+/* eslint no-console: 0, camelcase: 0 */
 
 const { split, through } = require('event-stream');
+const deepEqual = require('deep-equal');
 const clone = require('clone');
 
 const csvInputStream = require('../utils/csvInputStream');
@@ -39,12 +40,12 @@ function getCompletenessLedger(year, month) {
         //   Daylight Savings starts on the second Sunday in March.
         //   When daylight savings starts, we need to set the counter to 1
         //     because there will be no data for 2-3am.
-        
+
         const ct =
           month === 3 && d > 7 && d < 15 && h === 2 && !currentDate.getDay()
             ? 1
             : 0;
-        
+
         ledger[`${year}-${mm}-${dd} ${HH}:${MM}:00`] = {
           [ALL]: ct,
           [PASS]: ct,
@@ -59,30 +60,78 @@ function getCompletenessLedger(year, month) {
   return ledger;
 }
 
-const getMissingDataLedger = ledger => {
-  let missingData = null;
+const getDataGaps = ledger => {
   const measurement_tstamps = Object.keys(ledger);
+
+  const data_gaps = [];
+
+  let prevDatasourcesMissingData = [];
+  let curDatasourcesMissingData = [];
+
+  let curGap = [];
 
   for (let i = 0; i < measurement_tstamps.length; i += 1) {
     const ts = measurement_tstamps[i];
+
+    curDatasourcesMissingData = [];
     if (!ledger[ts][ALL]) {
-      missingData = missingData || {};
-      missingData[ts] = missingData[ts] || [];
-      missingData[ts].push('all');
+      curDatasourcesMissingData.push(ALL);
     }
     if (!ledger[ts][PASS]) {
-      missingData = missingData || {};
-      missingData[ts] = missingData[ts] || [];
-      missingData[ts].push('pass');
+      curDatasourcesMissingData.push(PASS);
     }
     if (!ledger[ts][TRUCK]) {
-      missingData = missingData || {};
-      missingData[ts] = missingData[ts] || [];
-      missingData[ts].push('truck');
+      curDatasourcesMissingData.push(TRUCK);
     }
+
+    const prevGapBroken =
+      prevDatasourcesMissingData.length &&
+      !deepEqual(prevDatasourcesMissingData, curDatasourcesMissingData);
+
+    const continuedGap =
+      curDatasourcesMissingData.length &&
+      deepEqual(prevDatasourcesMissingData, curDatasourcesMissingData);
+
+    const newGapStarted =
+      curDatasourcesMissingData.length &&
+      !deepEqual(prevDatasourcesMissingData, curDatasourcesMissingData);
+
+    // Previous datasources gap broken
+    //   Record the gap
+    if (prevGapBroken) {
+      data_gaps.push({
+        datasources: prevDatasourcesMissingData,
+        start: curGap[0],
+        end: curGap[1]
+      });
+
+      curGap = [];
+    }
+
+    // Gap continues for same datasources
+    //   Update the gap end timestamp
+    if (continuedGap) {
+      curGap[1] = ts;
+    }
+
+    // New Gap
+    //   set the gap start and end timestamps
+    if (newGapStarted) {
+      curGap = [ts, ts];
+    }
+
+    prevDatasourcesMissingData = curDatasourcesMissingData;
   }
 
-  return missingData;
+  if (curGap.length) {
+    data_gaps.push({
+      datasources: prevDatasourcesMissingData,
+      start: curGap[0],
+      end: curGap[1]
+    });
+  }
+
+  return data_gaps.length ? data_gaps : null;
 };
 
 const verifyDataCompleteness = () => {
@@ -111,10 +160,11 @@ const verifyDataCompleteness = () => {
         }
 
         if (curTmc && curTmc !== tmc_code) {
-          const missingData = getMissingDataLedger(curLedger);
-          if (missingData) {
+          const data_gaps = getDataGaps(curLedger);
+          if (data_gaps) {
+            console.log(JSON.stringify({ tmc_code, data_gaps }));
             foundMissing = true;
-            throw new Error('ERROR: Missing data.');
+            // throw new Error('ERROR: Missing data.');
           }
           curTmc = null;
         }
@@ -143,14 +193,8 @@ const verifyDataCompleteness = () => {
   );
 };
 
-async function doIt() {
-  process.stdin
-    .pipe(split())
-    .pipe(csvInputStream())
-    .pipe(verifyDataCompleteness())
-    .pipe(process.stdout);
-}
-
-doIt();
-
-module.exports = verifyDataCompleteness;
+process.stdin
+.pipe(split())
+.pipe(csvInputStream())
+.pipe(verifyDataCompleteness())
+.pipe(process.stdout);

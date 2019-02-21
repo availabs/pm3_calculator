@@ -17,12 +17,29 @@ pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
 
 CHECKER=../npmrdsMonthDownloadCompletenessChecker.js
 
-find "$ETL_WORK_DIR" -type f -name "*${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}" |
-  sort |
-  while read -r inf 
-  do
-    zcat "$inf" | node "$CHECKER"
-  done
+set +e
+DATA_GAPS_LOG="$(
+  echo 'Loop start' > /dev/stderr
+  find "$ETL_WORK_DIR" -type f -name "*${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}" |
+    sort |
+    while read -r inf 
+    do
+      echo "$inf" > /dev/stderr
+      zcat "$inf" | node "$CHECKER"
+    done
+
+  echo 'Loop end' > /dev/stderr
+)"
 
 popd > /dev/null
+
+set -e
+
+if [ ! -z "$DATA_GAPS_LOG" ]; then
+  echo "DATA GAP FOUND"
+  echo "$DATA_GAPS_LOG" > "${ETL_WORK_DIR}/data_gaps_log.ndjson"
+  exit 1
+else
+  echo "NO DATA GAP"
+fi
 
