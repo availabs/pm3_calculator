@@ -19,16 +19,12 @@ CHECKER=../npmrdsMonthDownloadCompletenessChecker.js
 
 set +e
 DATA_GAPS_LOG="$(
-  echo 'Loop start' > /dev/stderr
   find "$ETL_WORK_DIR" -type f -name "*${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}" |
     sort |
     while read -r inf 
     do
-      echo "$inf" > /dev/stderr
       zcat "$inf" | node "$CHECKER"
     done
-
-  echo 'Loop end' > /dev/stderr
 )"
 
 popd > /dev/null

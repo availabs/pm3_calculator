@@ -61,6 +61,9 @@ COLD_STORAGE_ARCHIVE_DIR="$(\
   readlink -m "${COLD_STORAGE_ARCHIVE_DIR:=$(readlink -m "${this_dir}/../../archive/cold-storage/")}" \
 )"
 
+INRIX_SCHEMA_CSV_EXTENSION="${INRIX_SCHEMA_CSV_EXTENSION:=.inrix-schema.csv}"
+INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION="${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION:="${INRIX_SCHEMA_CSV_EXTENSION/csv/sorted.csv.gz}"}"
+
 # Defined these env variables iff STATE is defined
 if [ ! -z "$STATE" ]
 then
@@ -75,9 +78,6 @@ then
   ## The __MONTH__ placeholder is replaced with the respective month in the code using this template.
   PARTITIONED_INRIX_CSV_PATH_TEMPLATE="${PARTITIONED_INRIX_CSV_PATH_TEMPLATE:="${ETL_WORK_DIR}/${STATE}.__MONTH__${INRIX_SCHEMA_CSV_EXTENSION}"}"
 fi
-
-INRIX_SCHEMA_CSV_EXTENSION="${INRIX_SCHEMA_CSV_EXTENSION:=.inrix-schema.csv}"
-INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION="${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION:="${INRIX_SCHEMA_CSV_EXTENSION/csv/sorted.csv.gz}"}"
 
 CANONICAL_SCHEMA_CSV_GZ_EXTENSION="${CANONICAL_SCHEMA_CSV_GZ_EXTENSION:=.npmrds.csv.gz}"
 
