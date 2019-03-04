@@ -57,8 +57,10 @@ do
         sed 's/^[[:blank:]]*//g; s/[[:blank:]].*//g'
     )"
 
+    # Get rid of diacritics: https://stackoverflow.com/a/10210451
     state_name="$(
       unzip -p "$inf" TMC_Identification.csv |
+        sed 'y/āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜĀÁǍÀĒÉĚÈĪÍǏÌŌÓǑÒŪÚǓÙǕǗǙǛ/aaaaeeeeiiiioooouuuuüüüüAAAAEEEEIIIIOOOOUUUUÜÜÜÜ/' |
         awk -F, "NR>1{ print tolower(\$${state_col_num}) }" |
         sort -u
     )"
