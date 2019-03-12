@@ -2,7 +2,7 @@
 
 const { runQuery } = require('../services/db_service');
 
-const getTMCAttributes = async ({ state, tmcs, attributes }) => {
+const getTMCAttributes = async ({ state, tmcs, attributes , year}) => {
   const schema = state || 'public';
 
   let addedTMCCol = false;
@@ -24,13 +24,14 @@ const getTMCAttributes = async ({ state, tmcs, attributes }) => {
   const tmcsList = tmcs && (Array.isArray(tmcs) ? tmcs : [tmcs]);
 
   const sql = `
-    SELECT ${cols.join()}
-      FROM "${schema}".tmc_attributes
+    SELECT ${cols}
+      FROM "${schema}".tmc_metadata_${year}
       ${tmcsList ? 'WHERE tmc = ANY($1)' : ''}
     ;
   `;
 
   const response = await runQuery(sql, tmcsList && [tmcsList]);
+
   const tmcAttributes = response.rows.reduce((acc, attrs) => {
     const { tmc } = attrs;
     if (addedTMCCol) {

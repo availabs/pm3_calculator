@@ -28,6 +28,7 @@
     "fast-csv": "^2.4.1",
     "json-stable-stringify": "^1.0.1",
     "lodash": "^4.17.10",
+    "markdown-pdf": "^9.0.0",
     "minimist": "^1.2.0",
     "mississippi": "^3.0.0",
     "mkdirp": "^0.5.1",

@@ -18,7 +18,8 @@ async function* generateTMCData(config) {
   const tmcAttributes = await getTMCAttributes({
     state: config.state,
     attributes,
-    tmcs: tmcList
+    tmcs: tmcList,
+    year: config.year
   });
 
   const tmcSet = new Set(tmcList || Object.keys(tmcAttributes));
@@ -44,7 +45,7 @@ async function* generateTMCData(config) {
   }
 
   if (config.head) {
-    return
+    return;
   }
 
   for (const tmc of tmcSet) {
