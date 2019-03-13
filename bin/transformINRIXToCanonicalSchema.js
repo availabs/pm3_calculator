@@ -12,7 +12,10 @@ const outputCols = [
   'epoch',
   'travel_time_all_vehicles',
   'travel_time_passenger_vehicles',
-  'travel_time_freight_trucks'
+  'travel_time_freight_trucks',
+  'data_density_all_vehicles',
+  'data_density_passenger_vehicles',
+  'data_density_freight_trucks'
 ];
 
 async function doIt() {

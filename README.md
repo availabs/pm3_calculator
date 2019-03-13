@@ -89,3 +89,13 @@ xzcat ../tasks/hpmsPDF/albanyCountyNPMRDS.2017.csv.xz |
 * To switch between local development and production databases,
   it is helpful to use a softlink named `config/postgres.env` that points
   to either a `postgres.env.local` or a `postgres.env.prod`
+
+## NPMRDS Data ETL Pipeline
+
+```
+tasks/downloadFromRitis$ ./downloadAndTransform.sh 'https://npmrds.ritis.org/export/download/q9cd786e-ba72-4fca-a088-3841c0ff977d?dl=1,https://npmrds.ritis.org/export/download/b209ec6f-adv5-3043-b104-6e247bc13d2f?dl=1,https://npmrds.ritis.org/export/download/94c146a6-9839-4037-8e9b-fb4d1e4dc78e?dl=1'
+```
+
+The output files will be in
+* archive/cold_storage
+* archive/canonical_archive

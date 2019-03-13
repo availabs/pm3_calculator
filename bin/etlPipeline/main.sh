@@ -4,6 +4,7 @@ set -e
 
 DOWNLOAD_LINKS="${1:-$DOWNLOAD_LINKS}"
 
+# We need to do this here to preserve relative paths.
 source "$( dirname "${BASH_SOURCE[0]}" )/setDefaultVariables.sh" ''
 
 pushd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null
@@ -50,28 +51,30 @@ echo 'partitionDownloadedCSVsByMonth'
 echo 'sortInrixSchemaCSVs'
 source ./sortInrixSchemaCSVs.sh ''
 
-if [ "${ETL_TRANSFORM_TO_HERE_SCHEMA}" == true ]
+if [ "$ETL_CHECK_DOWNLOAD_COMPLETENESS" == true ]
 then
-  echo 'transformToHERESchema'
-  source ./transformToHERESchema.sh ''
+  echo 'checkDownloadCompleteness'
+  source ./checkDownloadCompleteness.sh ''
+else
+  echo 'Skipping checkDownloadCompleteness.'
+fi
+
+if [ "${ETL_TRANSFORM_TO_CANONICAL_SCHEMA}" == true ]
+then
+  echo 'transformToCanonicalSchema'
+  source ./transformToCanonicalSchema.sh ''
 fi
 
 if [ "${ETL_ARCHIVE}" == true ]
 then
-  echo 'mvINRIXDownloadedZIPsToArchive'
-  source ./mvINRIXDownloadedZIPsToArchive.sh ''
+  echo 'rmINRIXSchemaCSVs' 
+  source ./rmINRIXSchemaCSVs.sh ''
 
-  echo 'mvINRIXSchemaCSVsToArchive'
-  source ./mvINRIXSchemaCSVsToArchive.sh ''
+  echo 'copyCanonicalSchemaFilesToArchive'
+  source ./copyCanonicalSchemaFilesToArchive.sh ''
 
-  echo 'mvHERESchemaFilesToArchive'
-  source ./mvHERESchemaFilesToArchive.sh ''
-fi
-
-if [ "${ETL_CLEANUP}" == true ]
-then
-  echo 'removeETLWorkDir'
-  source ./removeETLWorkDir.sh ''
+  echo 'archiveETLWorkDirForColdStorage'
+  source ./archiveETLWorkDirForColdStorage.sh ''
 fi
 
 popd > /dev/null

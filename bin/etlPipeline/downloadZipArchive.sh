@@ -18,7 +18,7 @@ then
   exit 1
 fi
 
-INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.inrix-download.zip}"
+INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.raw-inrix-download.zip}"
 
 mkdir -p "$ETL_WORK_DIR"
 

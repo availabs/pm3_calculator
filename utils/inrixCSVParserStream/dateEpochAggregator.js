@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+/* eslint no-console:0 */
+
 const { through } = require('event-stream');
 
 const vehicleTypes = {
@@ -14,7 +16,10 @@ const outputCols = [
   'epoch',
   'travel_time_all_vehicles',
   'travel_time_passenger_vehicles',
-  'travel_time_freight_trucks'
+  'travel_time_freight_trucks',
+  'data_density_all_vehicles',
+  'data_density_passenger_vehicles',
+  'data_density_freight_trucks'
 ];
 
 const dateEpochAggregator = () => {
@@ -23,6 +28,10 @@ const dateEpochAggregator = () => {
   return through(
     function write(data) {
       try {
+        if (data.travel_time_seconds === null) {
+          return;
+        }
+
         const tmc = data.tmc_code;
 
         const date = +(
@@ -33,7 +42,7 @@ const dateEpochAggregator = () => {
 
         const hh = +data.measurement_tstamp.slice(11, 13);
         const mm = +data.measurement_tstamp.slice(14, 16);
-        const epoch = parseInt(hh * 12 + Math.floor(mm / 5));
+        const epoch = parseInt(hh * 12 + Math.floor(mm / 5), 10);
 
         if (
           curCSVRow.tmc > tmc ||
@@ -58,7 +67,7 @@ const dateEpochAggregator = () => {
           if (curCSVRow.tmc) {
             this.emit('data', curCSVRow);
           }
-          for (let i = 0; i < outputCols.length; ++i) {
+          for (let i = 0; i < outputCols.length; i += 1) {
             curCSVRow[outputCols[i]] = null;
           }
         }
@@ -74,6 +83,8 @@ const dateEpochAggregator = () => {
 
         curCSVRow[`travel_time_${vehicleType}`] =
           +data.travel_time_seconds || null;
+
+        curCSVRow[`data_density_${vehicleType}`] = data.data_density || null;
       } catch (err) {
         console.error(JSON.stringify(data, null, 4));
         console.error(err);
@@ -82,7 +93,9 @@ const dateEpochAggregator = () => {
     },
 
     function end() {
-      this.emit('data', curCSVRow);
+      if (curCSVRow && curCSVRow.tmc) {
+        this.emit('data', curCSVRow);
+      } 
       this.emit('end');
     }
   );

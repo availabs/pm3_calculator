@@ -13,7 +13,7 @@ fi
 
 ETL_WORK_DIR="$( readlink -m "$ETL_WORK_DIR" )"
 
-INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.inrix-download.zip}"
+INRIX_DOWNLOAD_ZIP_EXTENSION="${INRIX_DOWNLOAD_ZIP_EXTENSION:=.raw-inrix-download.zip}"
 
 source "$( dirname "${BASH_SOURCE[0]}" )/stateAbbreviations.sh"
 

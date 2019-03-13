@@ -20,7 +20,7 @@ OUT_DIR=$(readlink -f "${OUT_DIR}")
 
 cd "${DATA_DIR}"
 
-ARR=(`find . -regex ".*${STATE}.${YEAR}[0-1][0-9].here-schema.sorted.csv" | sort`)
+ARR=(`find . -regex ".*${STATE}.${YEAR}[0-1][0-9].npmrds.csv" | sort`)
 
 export GZIP=-9
 for f in "${ARR[@]}"
