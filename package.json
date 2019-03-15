@@ -25,6 +25,7 @@
     "deepmerge": "^2.1.1",
     "eslint-config-prettier": "^2.9.0",
     "event-stream": "^3.3.4",
+    "excel4node": "^1.7.0",
     "fast-csv": "^2.4.1",
     "json-stable-stringify": "^1.0.1",
     "lodash": "^4.17.10",
