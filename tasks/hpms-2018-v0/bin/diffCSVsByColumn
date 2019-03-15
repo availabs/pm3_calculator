@@ -1,0 +1,5 @@
+#!/bin/bash
+
+diff <(formatter "$1") <(formatter "$2") |
+  sed -e '/^[0-9]\|^-/d; s/< /l,/g; s/> /r,/g' |
+  sort -t',' -k2,2 -k3,3 -k1,1

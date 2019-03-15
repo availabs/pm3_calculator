@@ -1,0 +1,5 @@
+diffCSVsByColumn <(cat lor/ny.2018.sorted.csv | cut -d, -f3-)  <(cat ahimsa/ny.2018.sorted.csv | cut -d, -f3-) | sed 's/^l/lor/; s/^r/ahimsa/'  > 2018_diff.lor-ahimsa
+
+grep -F -f analysis/ny_2018_tmcs data/ahimsa/ny.2018.tmc-level-pm3-calculations.mean_12.v20190313T161555.csv > data/ahimsa/ny.2018.subset.csv
+
+hpms-2018-v0-analysis git:(versioned-tmc-metadata-refactor) ✗ diffCSVsByColumn <(cut -d, -f4- nys.hpms-aggregations.2017.v7-ares.csv | LC_ALL=C sort -r) <(cut -d, -f4- nys.hpms-aggregations.2018.v0-ares.csv | LC_ALL=C sort -r) | sed 's/^l/v6/; s/^r/v7/' | sed '/""/d' | column -t -s, | awk -v i=2 'NR>1 && $i!=p { print "" }{ p=$i } 1' > nys.hpms-aggregation.2017-2018-diff-summary

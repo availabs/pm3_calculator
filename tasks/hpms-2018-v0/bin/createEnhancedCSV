@@ -1,0 +1,93 @@
+#!/bin/bash
+
+set -e
+
+DIRNAME="$( dirname "${BASH_SOURCE[0]}" )"
+
+INFILE="$1"
+
+## Validate the input file
+if [ -z "$INFILE" ]; then
+  (>&2 echo "ERROR: Specify the unenhanced input file as the 1st cli argumnent." )
+  exit 1
+fi
+
+if ! [ -f "$INFILE" ]; then
+  (>&2 echo "ERROR: No file found at $INFILE" )
+  exit 1
+fi
+
+if ! grep -Fq Travel_Time_Code "$INFILE"; then
+  (>&2 echo "ERROR: input file does not have a 'Travel_Time_Code' column" )
+  exit 1
+fi
+
+
+# Get the column number of the Year in the input file
+YEAR_COL_NUM="$(
+  head -1 "$INFILE" |
+    tr , '\n' |
+    nl |
+    grep Year_Record |
+    cut -f1 |
+    xargs
+)"
+
+# Get the year from the input file
+YEAR="$(
+  tail -1 "$INFILE" |
+    cut -d, -f"$YEAR_COL_NUM"
+)"
+
+
+# Get the column number of the Travel_Time_Code in the input file
+TMC_COL_FILE1="$(
+  head -1 "$INFILE" |         # Get the header
+    tr , '\n' |               # One column name per line
+    nl |                      # Number the lines
+    grep Travel_Time_Code |   # Get the Travel_Time_Code line
+    cut -f1 |                 # Extract only the 1st column
+    xargs                     # Trim whitespace
+)"
+
+
+# The path to the tmc-2-geos mapping csv
+TMC_2_GEO_FILE="${DIRNAME}/lib/ny.tmc2geos_${YEAR}.csv"
+
+# Get the column number of the Travel_Time_Code in the tmc-2-geos mapping csv
+TMC_COL_FILE2="$(
+  head -1 "$TMC_2_GEO_FILE" |
+    tr , '\n' |
+    nl |
+    grep Travel_Time_Code |
+    cut -f1 |
+    xargs
+)"
+
+
+# The join program move the join column to the first column
+#   unless you specify the column order
+FILE_1_FIELDS=$(
+  head -1 "$INFILE" |
+    tr , '\n' |
+    nl |
+    cut -f1 |
+    sed 's/ //g; s/^/1./g;' |
+    tr '\n' ,
+)
+
+FILE_2_FIELDS=$(
+  head -1 "$TMC_2_GEO_FILE" |
+    tr , '\n' |
+    nl |
+    sed '/Travel_Time_Code/d' |
+    cut -f1 |
+    sed 's/ //g; s/^/2./g' |
+    tr '\n' , |
+    sed 's/,$//'
+)
+
+OUTPUT_FORMAT="${FILE_1_FIELDS}${FILE_2_FIELDS}"
+
+# Output the extended CSV
+ join --header -t, -o"$OUTPUT_FORMAT" -1"$TMC_COL_FILE1" -2"$TMC_COL_FILE2" "$INFILE" "$TMC_2_GEO_FILE"

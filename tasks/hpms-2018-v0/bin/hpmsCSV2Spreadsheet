@@ -1,0 +1,108 @@
+#!/usr/bin/env node
+
+/* eslint no-console:0 */
+
+const csv = require('fast-csv');
+const xl = require('excel4node');
+
+const options = {
+  objectMode: true,
+  headers: true,
+  ignoreEmpty: true,
+  discardUnmappedColumns: true,
+  trim: true
+};
+
+const wb = new xl.Workbook();
+
+const ws1 = wb.addWorksheet('PM3 TMC-Level');
+// const ws2 = wb.addWorksheet('PM3 Geography-Level');
+
+const STR = 'string';
+const NUM = 'number';
+
+const tmcLevelColsTypes = new Map([
+  ['Year_Record', NUM],
+  ['State_Code', NUM],
+  ['Travel_Time_Code', STR],
+  ['F_System', NUM],
+  ['Urban_Code', NUM],
+  ['Facility_Type', NUM],
+  ['NHS', NUM],
+  ['Segment_Length', NUM],
+  ['Directionality', NUM],
+  ['DIR_AADT', NUM],
+  ['LOTTR_AMP', NUM],
+  ['TT_AMP50PCT', NUM],
+  ['TT_AMP80PCT', NUM],
+  ['LOTTR_MIDD', NUM],
+  ['TT_MIDD50PCT', NUM],
+  ['TT_MIDD80PCT', NUM],
+  ['LOTTR_PMP', NUM],
+  ['TT_PMP50PCT', NUM],
+  ['TT_PMP80PCT', NUM],
+  ['LOTTR_WE', NUM],
+  ['TT_WE50PCT', NUM],
+  ['TT_WE80PCT', NUM],
+  ['TTTR_AMP', NUM],
+  ['TTT_AMP50PCT', NUM],
+  ['TTT_AMP95PCT', NUM],
+  ['TTTR_MIDD', NUM],
+  ['TTT_MIDD50PCT', NUM],
+  ['TTT_MIDD95PCT', NUM],
+  ['TTTR_PMP', NUM],
+  ['TTT_PMP50PCT', NUM],
+  ['TTT_PMP95PCT', NUM],
+  ['TTTR_WE', NUM],
+  ['TTT_WE50PCT', NUM],
+  ['TTT_WE95PCT', NUM],
+  ['TTTR_OVN', NUM],
+  ['TTT_OVN50PCT', NUM],
+  ['TTT_OVN95PCT', NUM],
+  ['PHED', NUM],
+  ['OCC_FAC', NUM],
+  ['METRIC_SOURCE', NUM],
+  ['COMMENTS', STR]
+]);
+
+const tmcLevelCols = [...tmcLevelColsTypes.keys()];
+
+let curSpreadsheetRow = 1;
+
+tmcLevelCols.forEach((col, i) =>
+  ws1.cell(curSpreadsheetRow, i + 1).string(col)
+);
+
+curSpreadsheetRow += 1;
+
+const warnedCols = new Set();
+
+const collectInputData = data => {
+  tmcLevelCols.forEach((col, i) => {
+    const colType = tmcLevelColsTypes.get(col);
+    if (colType === NUM) {
+      const val = +data[col];
+      ws1
+        .cell(curSpreadsheetRow, i + 1)
+        .number(Number.isFinite(val) ? val : null);
+    } else if (colType === STR) {
+      const val = data[col] || '';
+      ws1.cell(curSpreadsheetRow, i + 1).string(val);
+    } else if (!warnedCols.has(col)) {
+      console.error(`WARNING: Unrecognized Column ${col}`);
+      warnedCols.add(col);
+    }
+  });
+  curSpreadsheetRow += 1;
+};
+
+const finish = () =>
+  wb.writeToBuffer().then(buffer => {
+    process.stdout.write(buffer);
+  });
+
+const csvStream = csv(options)
+  .on('data', collectInputData)
+  .on('end', finish);
+
+process.stdin.pipe(csvStream);

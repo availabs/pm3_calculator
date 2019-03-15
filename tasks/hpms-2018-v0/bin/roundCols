@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+/* eslint no-param-reassign: 0 */
+
+const csv = require('fast-csv');
+
+function precisionRound(number, precision = 0) {
+  number = Number.isNaN(number) ? 1 : number;
+  number = number === Infinity ? 10 : number;
+  const factor = 10 ** precision;
+  return Math.round(number * factor) / factor;
+}
+module.exports = precisionRound;
+
+
+csv
+  .fromStream(process.stdin, { headers: true })
+  .transform(data => {
+
+    Object.keys(data)
+      .filter(k => k.match(/PCT$/))
+      .forEach(k => {
+        data[k] = precisionRound(data[k]);
+      });
+
+    data.OCC_FAC = precisionRound(data.OCC_FAC, 1)
+    data.DIR_AADT = precisionRound(data.DIR_AADT)
+    data.DIR_AADT = precisionRound(data.DIR_AADT)
+    return data;
+  })
+  .pipe(csv.createWriteStream({ headers: true }))
+  .pipe(process.stdout);
