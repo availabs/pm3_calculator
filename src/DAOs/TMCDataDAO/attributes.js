@@ -4,7 +4,7 @@ module.exports = [
   'aadt',
   'aadt_singl',
   'aadt_combi',
-  'length',
+  'miles AS length',
   'direction',
   'avg_speedlimit',
   'congestion_level',

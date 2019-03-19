@@ -1,0 +1,58 @@
+#!/bin/bash
+
+set -e
+set -a
+
+YEAR="$1"
+
+if [ -z "$YEAR" ]; then
+  ( >&2 echo "Specify the conflation year as the 1st cli argument" )
+  exit 1
+fi
+
+FORMAT="${2^^}"
+
+if [ -z "$FORMAT" ]; then
+  ( >&2 echo "Specify the output format (CSV or JSON) as the 2nd cli argument" )
+  exit 1
+elif [ "$FORMAT" != 'CSV' ] && [ "$FORMAT" != 'JSON' ]; then
+  ( >&2 echo "Invalid output format. Select either CSV or JSON." )
+  exit 1
+fi
+
+# Get the PG connection creds
+pushd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null
+
+. ../../../config/postgres.env.ares
+
+popd >/dev/null
+
+
+if [ "$FORMAT" = 'CSV' ]; then
+  SQL="
+    COPY (
+      SELECT
+          tmc AS \"Travel_Time_Code\",
+          county_code AS \"County_Code\",
+          mpo_code AS \"Mpo_Code\"
+        FROM ny.tmc_metadata_$YEAR
+        ORDER BY tmc
+    ) TO STDOUT WITH CSV HEADER ;
+  "
+else
+  SQL="
+    COPY (
+      SELECT 
+          json_agg( row_to_json(t) )
+        FROM (
+          SELECT
+              tmc,
+              county_code,
+              mpo_code
+            FROM ny.tmc_metadata_$YEAR
+        ) as t
+    ) TO STDOUT;
+  "
+fi
+
+psql -c "$SQL" 

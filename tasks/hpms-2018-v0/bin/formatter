@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Formats a CSV like psql's expanded table format mode
+
+# ASSUMES: Key is in the first column
+
+# WARNING: Currently, any pipes will be replaced with commas
+
+# USAGE: Pipe the CSV, or specify as first cli arg.
+
+while read row; do
+  KEY=$(cut -d, -f1 <<< "$row")
+  DATA="$(echo "$row" | sed 's/"\(.*\),\(.*\)"/\1|\2/g' | tr ',' '\n')"
+  if [[ -z "$COLS" ]]; then
+    COLS="$DATA"
+    continue
+  fi
+
+  paste -d, <(echo "$COLS") <(sed 's/|/,/g' <<< "$DATA") |
+    while read xtended; do
+      echo "$KEY,$xtended"
+    done
+done < "${1:-/dev/stdin}"
