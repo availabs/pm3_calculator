@@ -1,0 +1,5682 @@
+geolevel,geocode,geoname,state
+MPO,02196800,Anchorage Metropolitan Area Transportation Solutions,ak
+MPO,02200300,Fairbanks Metropolitan Area Transportation System,ak
+MPO,01196401,Mobile Area Transportation Study,al
+MPO,01196402,Gadsden-Etowah MPO,al
+MPO,01197401,Tuscaloosa Area MPO,al
+MPO,01197402,Shoals Area MPO,al
+MPO,01197501,Montgomery MPO,al
+MPO,01197502,Auburn - Opelika MPO,al
+MPO,01197601,Huntsville MPO,al
+MPO,01197602,Calhoun Area Metropolitan Planning Organization,al
+MPO,01197700,Birmingham MPO,al
+MPO,01198200,Decatur Area MPO,al
+MPO,01198300,Southeast Wiregrass Area MPO,al
+MPO,01201300,Eastern Shore MPO,al
+MPO,12197000,Florida-Alabama Transportation Planning Organization,al
+MPO,13196401,Columbus-Phenix City Metropolitan Planning Organization,al
+MPO,05196400,Southeast Arkansas Regional Planning Commission,ar
+MPO,05197300,Frontier MPO,ar
+MPO,05197400,Metroplan,ar
+MPO,05198200,Northwest Arkansas Regional Planning Commission,ar
+MPO,05198300,West Memphis Area Transportation Study,ar
+MPO,05200301,Tri-Lakes MPO,ar
+MPO,05200302,Jonesboro MPO,ar
+MPO,48197505,Texarkana MPO,ar
+MPO,04197301,Maricopa Association of Governments,az
+MPO,04197302,Pima Association of Governments,az
+MPO,04198300,Yuma MPO,az
+MPO,04199600,Flagstaff MPO,az
+MPO,04200300,Central Yavapai MPO,az
+MPO,04201301,Lake Havasu Metropolitan Planning Organization,az
+MPO,04201302,Sierra Vista Metropolitan Planning Organization,az
+MPO,04201303,Sun Corridor Metropolitan Planning Organization,az
+MPO,06196600,Santa Barbara County Association of Governments,ca
+MPO,06196700,Sacramento Area COG,ca
+MPO,06196800,San Joaquin COG,ca
+MPO,06197001,Metropolitan Transportation Commission,ca
+MPO,06197002,Kern COG,ca
+MPO,06197201,San Diego Association of Governments,ca
+MPO,06197202,Fresno Council of Governments,ca
+MPO,06197203,Stanislaus COG,ca
+MPO,06197501,Southern California Association of Governments,ca
+MPO,06197502,Association of Monterey Bay Area Governments,ca
+MPO,06198000,Butte County Association of Governments,ca
+MPO,06198100,Shasta Regional Transportation Agency,ca
+MPO,06198200,Tulare County Association of Governments,ca
+MPO,06198600,Merced County Association of Governments,ca
+MPO,06199200,San Luis Obispo COG,ca
+MPO,06200301,Kings County Association of Governments,ca
+MPO,06200302,Madera County Transportation Commission,ca
+MPO,32199800,Tahoe MPO,ca
+MPO,08197701,Denver Regional COG,co
+MPO,08197702,Pikes Peak Area COG,co
+MPO,08197703,Pueblo Area COG MPO and TPR,co
+MPO,08198200,Grand Valley Metropolitan Planning Organization,co
+MPO,08198800,North Front Range MPO,co
+MPO,09197401,South Central Regional COG,ct
+MPO,09197402,Southeastern Connecticut COG,ct
+MPO,09197501,Capital Region COG,ct
+MPO,09197502,Naugatuck Valley Council of Governments,ct
+MPO,09197504,Housatonic Valley MPO,ct
+MPO,09198100,South Western MPO,ct
+MPO,09198101,Greater Bridgeport / Valley MPO,ct
+MPO,09201499,Lower Connecticut River Valley MPO,ct
+MPO,36198201,NYMTC,ct
+MPO,11196500,National Capital Region Transportation Planning Board,dc
+MPO,10197100,Wilmington Area Planning Council,de
+MPO,10199000,Dover / Kent County MPO,de
+MPO,24200400,Salisbury-Wicomico MPO,de
+MPO,12197000,Florida-Alabama Transportation Planning Organization,fl
+MPO,12197600,Lee County MPO,fl
+MPO,12197701,Miami-Dade MPO,fl
+MPO,12197702,Broward MPO,fl
+MPO,12197703,METROPLAN Orlando,fl
+MPO,12197704,Hillsborough MPO,fl
+MPO,12197705,River to Sea Transporation Planning Organization,fl
+MPO,12197706,Capital Region Transportation Planning Agency,fl
+MPO,12197801,Palm Beach MPO,fl
+MPO,12197802,North Florida Transportation Planning Organization,fl
+MPO,12197803,Pinellas County MPO,fl
+MPO,12197804,Sarasota-Manatee MPO,fl
+MPO,12197805,Polk County Transportation Planning Organization,fl
+MPO,12197806,Gainesville MTPO,fl
+MPO,12198001,Okaloosa-Walton Transportation Planning Organization,fl
+MPO,12198002,Bay County Transportation Planning Organization,fl
+MPO,12198100,Ocala - Marion County Tranportation Planning Organization,fl
+MPO,12198201,Pasco County MPO,fl
+MPO,12198202,Collier MPO,fl
+MPO,12198203,St. Lucie Transportation Planning Organization,fl
+MPO,12198300,Space Coast Transportation Planning Organization,fl
+MPO,12199201,Charlotte-Punta Gorda MPO,fl
+MPO,12199202,Hernando/Citrus County MPO,fl
+MPO,12199301,Martin MPO,fl
+MPO,12199302,Indian River County MPO,fl
+MPO,12200300,Lake-Sumter MPO,fl
+MPO,12201400,Heartland Regional TPO,fl
+MPO,13196401,Columbus-Phenix City Metropolitan Planning Organization,ga
+MPO,13196402,Macon Area Transportation Study,ga
+MPO,13196500,Dougherty Area Regional Transportation Study,ga
+MPO,13196900,Madison Athens-Clarke Oconee Regional Transportation Study,ga
+MPO,13197000,Augusta Regional Transportation Study,ga
+MPO,13197100,Atlanta Regional Commission,ga
+MPO,13198200,Warner Robins Area Transportation Study,ga
+MPO,13198301,Coastal Region MPO,ga
+MPO,13198302,Floyd-Rome Urban Transportation Study,ga
+MPO,13199100,Brunswick Area Transportation Study,ga
+MPO,13200301,Gainesville-Hall MPO,ga
+MPO,13200302,Greater Dalton MPO,ga
+MPO,13200303,Valdosta-Lowndes MPO,ga
+MPO,13200304,Hinesville Area MPO,ga
+MPO,13201300,Cartersville-Bartow Metropolitan Planning Organization,ga
+MPO,47197703,Chattanooga-Hamilton County/North Georgia Transportation Planning Orga,ga
+MPO,15197500,Oahu MPO,hi
+MPO,15201300,Maui MPO,hi
+MPO,17196600,Bi-State Regional Commission,ia
+MPO,19196400,Corridor Metropolitan Planning Organization,ia
+MPO,19196600,Sioux City MPO,ia
+MPO,19197300,Black Hawk Metropolitan Area Transportation Policy Board,ia
+MPO,19197400,East Central Intergovernmental Association,ia
+MPO,19198000,Johnson County COG,ia
+MPO,19198300,Des Moines Area MPO,ia
+MPO,19200300,Ames Area MPO,ia
+MPO,31197400,Metropolitan Area Planning Agency,ia
+MPO,16197700,Community Planning Association of Southwest Idaho,id
+MPO,16198200,Bannock Transportation Planning Organization,id
+MPO,16199200,Bonneville MPO,id
+MPO,16200301,Kootenai MPO,id
+MPO,16200302,Lewis-Clark Valley MPO,id
+MPO,17196201,The Chicago Metropolitan Agency for Planning,il
+MPO,17196202,Springfield Area Transportation Study,il
+MPO,17196401,Rockford Metropolitan Agency for Planning,il
+MPO,17196402,Champaign County Regional Planning Commission,il
+MPO,17196403,Decatur Urbanized Area Transportation Study,il
+MPO,17196600,Bi-State Regional Commission,il
+MPO,17196700,McLean County Regional Planning Commission,il
+MPO,17197600,Tri-County Regional Planning Commission (IL),il
+MPO,17198300,Kankakee County Regional Planning Commission,il
+MPO,17200301,Danville Area Transportation Study,il
+MPO,17200302,DeKalb Sycamore Area Transportation Study,il
+MPO,17201300,Southern Illinois Metropolitan Planning Organization,il
+MPO,19197400,East Central Intergovernmental Association,il
+MPO,29197300,East-West Gateway Council of Government,il
+MPO,55197499,State Line Area Transportation Study,il
+MPO,18196900,Madison County COG,in
+MPO,18197401,Michiana Area COG,in
+MPO,18197402,Northeastern Indiana Regional Coordinating Council,in
+MPO,18197501,Northwest Indiana Regional Planning Commission,in
+MPO,18197502,"West Central Indiana Economic Development District, Inc.",in
+MPO,18197601,Area Plan Commission of Tippecanoe County,in
+MPO,18197602,Delaware-Muncie Metropolitan Plan Commission,in
+MPO,18197800,Indianapolis MPO,in
+MPO,18198201,Bloomington/Monroe County Metropolitan Planning Organization,in
+MPO,18198202,Kokomo & Howard County Governmental Coordinating Council,in
+MPO,18198600,Evansville MPO,in
+MPO,18200300,Columbus Area MPO,in
+MPO,21197300,Louisville Area MPO,in
+MPO,39197400,Ohio-Kentucky-Indiana Regional Council of Governments,in
+MPO,20197200,Metropolitan Topeka Planning Organization,ks
+MPO,20197600,Wichita Area MPO,ks
+MPO,20198200,Lawrence-Douglas County Metropolitan Planning Office,ks
+MPO,20201300,Flint Hills Metropolitan Planning Organization,ks
+MPO,29197401,Mid-America Regional Council,ks
+MPO,18198600,Evansville MPO,ky
+MPO,21197300,Louisville Area MPO,ky
+MPO,21197401,Lexington Area MPO,ky
+MPO,21197402,Owensboro-Daviess County MPO,ky
+MPO,21200201,Radcliff-Elizabethtown MPO,ky
+MPO,21200202,Bowling Green-Warren County MPO,ky
+MPO,39197400,Ohio-Kentucky-Indiana Regional Council of Governments,ky
+MPO,47197701,Nashville Area MPO,ky
+MPO,47197802,Clarksville Urbanized Area MPO,ky
+MPO,54197400,KYOVA Interstate Planning Commission,ky
+MPO,22196200,Regional Planning Commission,la
+MPO,22196800,Northwest Louisiana COG,la
+MPO,22197201,Capital Regional Planning Commission,la
+MPO,22197202,Lafayette Area MPO,la
+MPO,22197300,Ouachata Council of Governments,la
+MPO,22197500,Alexandria-Pineville MPO,la
+MPO,22198200,Houma-Thibodaux MPO,la
+MPO,22198400,Imperial Calcasieu Regional Planning & Development Commission,la
+MPO,22201300,South Tangipahoa MPO,la
+MPO,25197201,Old Colony MPO,ma
+MPO,25197202,Berkshire MPO,ma
+MPO,25197300,Boston Region MPO,ma
+MPO,25197601,Pioneer Valley MPO,ma
+MPO,25197602,Central Massachusetts MPO,ma
+MPO,25197603,Merrimack Valley MPO,ma
+MPO,25197604,Northern Middlesex MPO,ma
+MPO,25198700,Montachusett MPO,ma
+MPO,25199000,Cape Cod MPO,ma
+MPO,25199800,Southeastern Massachusetts MPO,ma
+MPO,10197100,Wilmington Area Planning Council,md
+MPO,11196500,National Capital Region Transportation Planning Board,md
+MPO,24198200,Cumberland Area MPO,md
+MPO,24198600,Hagerstown-Eastern Panhandle MPO,md
+MPO,24199200,Baltimore Regional Transportation Board,md
+MPO,24200400,Salisbury-Wicomico MPO,md
+MPO,24201500,Calvert - St. MaryÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’,md
+MPO,23196400,Androscoggin Transportation Resource Center,me
+MPO,23197500,Portland Area Comprehensive Transportation System (ME),me
+MPO,23198201,Bangor Area Comprehensive Transportation System,me
+MPO,23198202,Kittery Area Comprehensive Transportation System,me
+MPO,26196300,Genesee County Metropolitan Planning Commission,mi
+MPO,26196500,Saginaw Metropolitan Area Transportation Study,mi
+MPO,26196800,Region 2 Planning Commission,mi
+MPO,26197301,Tri-County Regional Planning Commission (MI),mi
+MPO,26197302,West Michigan Shoreline Regional Development Commission,mi
+MPO,26197401,Southeast Michigan COG,mi
+MPO,26197402,Southwest Michigan Planning Commission,mi
+MPO,26197403,Battle Creek Area Transportation Study,mi
+MPO,26197404,Bay City Area Transportation Study,mi
+MPO,26197900,Kalamazoo Area Transportation Study,mi
+MPO,26199000,Grand Valley Metropolitan Council,mi
+MPO,26199100,Macatawa Area Coordinating Council,mi
+MPO,26201300,Midland Area Transportation Study,mi
+MPO,27197000,St. Cloud Area Planning Organization,mn
+MPO,27197200,Rochester-Olmsted COG,mn
+MPO,27197300,Metropolitan Council,mn
+MPO,27197500,Duluth-Superior Metropolitan Interstate Council,mn
+MPO,27201300,Mankato / North Mankato Area Planning Organization,mn
+MPO,38197200,Fargo-Moorhead Metropolitan COG,mn
+MPO,38198202,Grand Forks-East Grand Forks MPO,mn
+MPO,55196700,La Crosse Area Planning Committee,mn
+MPO,29197101,Ozarks Transportation Organization,mo
+MPO,29197102,St. Joseph Area Transportation Study Organization,mo
+MPO,29197300,East-West Gateway Council of Government,mo
+MPO,29197401,Mid-America Regional Council,mo
+MPO,29197402,Columbia Area Transportation Study Organization,mo
+MPO,29198200,Joplin Area Transportation Study Organization,mo
+MPO,29200300,Capital Area MPO (MO),mo
+MPO,29201300,Southeast Metropolitan Planning Organization (SEMPO),mo
+MPO,28197300,Gulf Regional Planning Commission,ms
+MPO,28197500,Central Mississippi Planning & Development District,ms
+MPO,28198200,Hattiesburg-Petal-Forrest-Lamar MPO,ms
+MPO,47197702,Memphis Urban Area MPO,ms
+MPO,30196400,Yellowstone County Planning Board,mt
+MPO,30197100,Great Falls Planning and Community Development Department,mt
+MPO,30198200,Missoula Metropolitan Planning Organization,mt
+MPO,37196000,Greensboro Urban Area MPO,nc
+MPO,37196400,Capital Area MPO (NC),nc
+MPO,37197000,French Broad River MPO,nc
+MPO,37197300,Burlington-Graham MPO,nc
+MPO,37197401,Winston-Salem Urban Area MPO,nc
+MPO,37197402,Fayetteville Area MPO,nc
+MPO,37197403,Gaston Cleveland Lincoln MPO,nc
+MPO,37197800,Wilmington Urban Area MPO,nc
+MPO,37197900,Charlotte Regional Transportation Planning Organization,nc
+MPO,37198001,Durham-Chapel Hill-Carrboro MPO,nc
+MPO,37198002,Cabarrus-Rowan MPO,nc
+MPO,37198003,High Point Urban Area MPO,nc
+MPO,37198004,Jacksonville Urban Area MPO,nc
+MPO,37198201,Greater Hickory MPO,nc
+MPO,37198202,Goldsboro Urban Area MPO,nc
+MPO,37199201,Greenville Urban Area MPO,nc
+MPO,37199202,Rocky Mount Urban Area MPO,nc
+MPO,37201300,New Bern Area MPO,nc
+MPO,45199200,Grand-Strand Area Transportation Study,nc
+MPO,38197200,Fargo-Moorhead Metropolitan COG,nd
+MPO,38198201,Bismarck-Mandan MPO,nd
+MPO,38198202,Grand Forks-East Grand Forks MPO,nd
+MPO,19196600,Sioux City MPO,ne
+MPO,31197300,Lincoln Area MPO,ne
+MPO,31197400,Metropolitan Area Planning Agency,ne
+MPO,31201300,Grand Island Area Metropolitan Planning Organization,ne
+MPO,33197200,Rockingham Planning Commission,nh
+MPO,33197301,Southern New Hampshire Planning Commission,nh
+MPO,33197302,Nashua Regional Planning Commission,nh
+MPO,33198200,Strafford Regional Planning Commission,nh
+MPO,34198200,North Jersey Transportation Planning Authority,nj
+MPO,34199300,South Jersey Transportation Planning Organization,nj
+MPO,36198201,NYMTC,nj
+MPO,42196501,Delaware Valley Regional Planning Commission,nj
+MPO,35197200,Mid-Region COG,nm
+MPO,35198201,Mesilla Valley MPO,nm
+MPO,35198202,Santa Fe MPO,nm
+MPO,35200300,Farmington MPO,nm
+MPO,48197302,El Paso MPO,nm
+MPO,32197900,Regional Transportation Commission of Washoe County,nv
+MPO,32198300,Regional Transportation Commission of Southern Nevada,nv
+MPO,32199800,Tahoe MPO,nv
+MPO,32200300,Carson Area Metropolitan Planning Organization,nv
+MPO,34198200,North Jersey Transportation Planning Authority,ny
+MPO,36196500,SMTC,ny
+MPO,36197200,HOCTS,ny
+MPO,36197300,CDTC,ny
+MPO,36197401,GBNRTC,ny
+MPO,36197402,BMTS,ny
+MPO,36197500,ECTC,ny
+MPO,36197700,GTC,ny
+MPO,36198201,NYMTC,ny
+MPO,36198202,OCTC,ny
+MPO,36198203,PDCTC,ny
+MPO,36198204,A/GFTC,ny
+MPO,36199200,ITCTC,ny
+MPO,36200300,UCTC,ny
+MPO,36201400,WJCATC,ny
+MPO,39196201,Akron Metropolitan Area Transportation Study,oh
+MPO,39196202,Stark County Area Transportation Study,oh
+MPO,39196203,Richland County Regional Planning Commission,oh
+MPO,39196401,Clark County-Springfield Transportation Study,oh
+MPO,39196402,Lima-Allen County Regional Planning Commission,oh
+MPO,39196800,Northeast Ohio Areawide Coordinating Agency,oh
+MPO,39197301,Mid-Ohio Regional Planning Commission,oh
+MPO,39197302,Miami Valley Regional Planning Commission,oh
+MPO,39197303,Eastgate Regional COG,oh
+MPO,39197304,Brook-Hancock-Jefferson Metropolitan Planning Commission,oh
+MPO,39197400,Ohio-Kentucky-Indiana Regional Council of Governments,oh
+MPO,39197500,Toledo Metropolitan Area COG,oh
+MPO,39198200,Licking County Area Transportation Study,oh
+MPO,39200300,Policy Committee of the Erie Regional Planning Commission,oh
+MPO,54197400,KYOVA Interstate Planning Commission,oh
+MPO,54197502,Belmont-Ohio-Marshall Transportation Study,oh
+MPO,54197503,Wood-Washington-Wirt Interstate Planning Commission,oh
+MPO,05197300,Frontier MPO,ok
+MPO,40196500,Association of Central Oklahoma Governments,ok
+MPO,40197300,Lawton MPO,ok
+MPO,40197400,Indian Nations COG,ok
+MPO,41197300,Central Lane MPO,or
+MPO,41197900,Portland Area Comprehensive Transportation System (OR),or
+MPO,41198200,Rogue Valley MPO,or
+MPO,41198700,Salem-Keizer Area Transportation Study,or
+MPO,41200200,Bend MPO,or
+MPO,41200300,Corvallis Area MPO,or
+MPO,41201301,Albany Area Metropolitan Planning Organization,or
+MPO,41201302,Middle Rogue MPO,or
+MPO,53198202,Longview-Kelso-Rainier MPO,or
+MPO,53201300,Walla Walla Valley MPO,or
+MPO,36197402,BMTS,pa
+MPO,42196401,Lehigh Valley Transportation Study,pa
+MPO,42196402,Lackawanna-Luzerne Transportation Study,pa
+MPO,42196403,Lancaster County Transportation Coordinating Committee,pa
+MPO,42196404,York Area MPO,pa
+MPO,42196405,Reading Area Transportation Study,pa
+MPO,42196406,Erie MPO,pa
+MPO,42196501,Delaware Valley Regional Planning Commission,pa
+MPO,42196502,Harrisburg Area Transportation Study,pa
+MPO,42196503,Cambria County MPO,pa
+MPO,42196504,Blair County Planning Commission,pa
+MPO,42196800,Williamsport Area Transportation Study,pa
+MPO,42197400,Southwestern Pennsylvania Commission,pa
+MPO,42198201,Centre County MPO,pa
+MPO,42198202,Shenango Valley Area Transportation Study,pa
+MPO,42200300,Lebanon County MPO,pa
+MPO,42201311,Northeastern Pennsylvania Planning Alliance MPO,pa
+MPO,42201312,Susquehanna Economic Development Association Council of Governments,pa
+MPO,42201313,Franklin County MPO,pa
+MPO,42201314,Adams County Transportation Planning Organization,pa
+MPO,44197400,State Planning Council,ri
+MPO,13197000,Augusta Regional Transportation Study,sc
+MPO,45196200,Greenville-Pickens Area Transportation Study,sc
+MPO,45197000,Columbia Area Transportation Study,sc
+MPO,45197500,Spartanburg Area Transportation Study,sc
+MPO,45197700,Charleston Area Transportation Study,sc
+MPO,45198200,Florence Area Transportation Study,sc
+MPO,45198300,Rock Hill-Fort Mill Area Transportation Study,sc
+MPO,45199100,Sumter Urban Area Transportation Study,sc
+MPO,45199200,Grand-Strand Area Transportation Study,sc
+MPO,45199300,Anderson Area Transportation Study,sc
+MPO,45201300,Lowcountry Area Transportation Study,sc
+MPO,19196600,Sioux City MPO,sd
+MPO,46197300,South Eastern COG,sd
+MPO,46198100,Rapid City Area MPO,sd
+MPO,47197701,Nashville Area MPO,tn
+MPO,47197702,Memphis Urban Area MPO,tn
+MPO,47197703,Chattanooga-Hamilton County/North Georgia Transportation Planning Orga,tn
+MPO,47197704,Kingsport MTPO,tn
+MPO,47197801,Knoxville Regional Transportation Planning Organization,tn
+MPO,47197802,Clarksville Urbanized Area MPO,tn
+MPO,47198201,Johnson City Metropolitan Transportation Planning Organization,tn
+MPO,47198202,Jackson Urban Area MPO,tn
+MPO,47198203,Bristol MPO,tn
+MPO,47200301,Lakeway MPO,tn
+MPO,47200302,Cleveland Area MPO,tn
+MPO,48196400,San Angelo MPO,tx
+MPO,48196900,Abilene MPO,tx
+MPO,48197001,South East Texas Regional Planning Commission,tx
+MPO,48197002,Bryan-College Station MPO,tx
+MPO,48197301,Capital Area MPO (TX),tx
+MPO,48197302,El Paso MPO,tx
+MPO,48197303,Corpus Christi MPO,tx
+MPO,48197304,Laredo Urban Transportation Study,tx
+MPO,48197305,Brownsville MPO,tx
+MPO,48197401,North Central Texas COG,tx
+MPO,48197402,Houston-Galveston Area Council,tx
+MPO,48197403,Waco MPO,tx
+MPO,48197404,Tyler Area MPO,tx
+MPO,48197501,Killeen-Temple Metropolitan Planning Organization,tx
+MPO,48197502,Amarillo MPO,tx
+MPO,48197503,Wichita Falls MPO,tx
+MPO,48197504,Longview MPO,tx
+MPO,48197505,Texarkana MPO,tx
+MPO,48197600,Lubbock MPO,tx
+MPO,48197700,Alamo Area MPO,tx
+MPO,48198000,Sherman-Denison MPO,tx
+MPO,48198200,Victoria MPO,tx
+MPO,48199301,Hidalgo County MPO,tx
+MPO,48199302,Harlingen-San Benito MPO,tx
+MPO,48200500,Permian Basin MPO,tx
+MPO,49197300,Wasatch Front Regional Council,ut
+MPO,49197400,Mountainland Association of Governments,ut
+MPO,49199200,Cache MPO,ut
+MPO,49200200,Dixie MPO,ut
+MPO,11196500,National Capital Region Transportation Planning Board,va
+MPO,47197704,Kingsport MTPO,va
+MPO,47198203,Bristol MPO,va
+MPO,51197401,Richmond Area MPO,va
+MPO,51197402,Roanoke Valley MPO,va
+MPO,51197403,Tri Cities Area MPO,va
+MPO,51197900,Central Virginia MPO,va
+MPO,51198200,Charlottesville-Albemarle MPO,va
+MPO,51198300,Danville MPO,va
+MPO,51199100,Hampton Roads Transportation Planning Organization,va
+MPO,51199200,Fredericksburg Area MPO,va
+MPO,51200301,Blacksburg-Christiansburg-Montgomery Area MPO,va
+MPO,51200302,Winchester-Frederick County MPO,va
+MPO,51200303,Harrisonburg-Rockingham MPO,va
+MPO,51201200,Staunton-Augusta-Waynesboro MPO,va
+MPO,50198300,Chittenden County RPC,vt
+MPO,16200302,Lewis-Clark Valley MPO,wa
+MPO,53196600,Whatcom COG,wa
+MPO,53197100,Tri-Cities Metropolitan Area Transportation Study,wa
+MPO,53197401,Spokane Regional Transportation Council,wa
+MPO,53197402,Yakima Valley MPO,wa
+MPO,53198201,Thurston Regional Planning Council,wa
+MPO,53198202,Longview-Kelso-Rainier MPO,wa
+MPO,53199100,Puget Sound Regional Council,wa
+MPO,53199200,Southwest Washington Regional Transportation Council,wa
+MPO,53200301,Skagit MPO,wa
+MPO,53200302,Wenatchee Valley Transportation Council,wa
+MPO,53201300,Walla Walla Valley MPO,wa
+MPO,19197400,East Central Intergovernmental Association,wi
+MPO,27197300,Metropolitan Council,wi
+MPO,27197500,Duluth-Superior Metropolitan Interstate Council,wi
+MPO,55196100,Southeastern Wisconsin Regional Planning Commission,wi
+MPO,55196700,La Crosse Area Planning Committee,wi
+MPO,55197100,Madison Area Transportation Planning Board,wi
+MPO,55197301,Appleton/Fox Cities MPO,wi
+MPO,55197302,Oshkosh MPO,wi
+MPO,55197400,Green Bay MPO,wi
+MPO,55197499,State Line Area Transportation Study,wi
+MPO,55198201,Chippewa-Eau Claire MPO,wi
+MPO,55198202,Sheboygan MPO,wi
+MPO,55198203,Janesville Area MPO,wi
+MPO,55198300,Wausau Metropolitan Planning Organization,wi
+MPO,55200200,Fond du Lac Area MPO,wi
+MPO,24198600,Hagerstown-Eastern Panhandle MPO,wv
+MPO,39197304,Brook-Hancock-Jefferson Metropolitan Planning Commission,wv
+MPO,54197400,KYOVA Interstate Planning Commission,wv
+MPO,54197501,Regional Intergovernmental Council,wv
+MPO,54197502,Belmont-Ohio-Marshall Transportation Study,wv
+MPO,54197503,Wood-Washington-Wirt Interstate Planning Commission,wv
+MPO,54200300,Morgantown Monongalia MPO,wv
+MPO,54201300,Fayette/Raleigh MPO (FRMPO),wv
+MPO,56198101,Cheyenne MPO,wy
+MPO,56198102,Casper Area MPO,wy
+COUNTY,45001,Abbeville,sc
+COUNTY,22001,Acadia,la
+COUNTY,51001,Accomack,va
+COUNTY,16001,Ada,id
+COUNTY,19001,Adair,ia
+COUNTY,21001,Adair,ky
+COUNTY,29001,Adair,mo
+COUNTY,40001,Adair,ok
+COUNTY,08001,Adams,co
+COUNTY,19003,Adams,ia
+COUNTY,16003,Adams,id
+COUNTY,17001,Adams,il
+COUNTY,18001,Adams,in
+COUNTY,28001,Adams,ms
+COUNTY,38001,Adams,nd
+COUNTY,31001,Adams,ne
+COUNTY,39001,Adams,oh
+COUNTY,42001,Adams,pa
+COUNTY,53001,Adams,wa
+COUNTY,55001,Adams,wi
+COUNTY,50001,Addison,vt
+COUNTY,45003,Aiken,sc
+COUNTY,27001,Aitkin,mn
+COUNTY,12001,Alachua,fl
+COUNTY,37001,Alamance,nc
+COUNTY,06001,Alameda,ca
+COUNTY,08003,Alamosa,co
+COUNTY,36001,Albany,ny
+COUNTY,56001,Albany,wy
+COUNTY,51003,Albemarle,va
+COUNTY,26001,Alcona,mi
+COUNTY,28003,Alcorn,ms
+COUNTY,17003,Alexander,il
+COUNTY,37003,Alexander,nc
+COUNTY,51510,Alexandria,va
+COUNTY,26003,Alger,mi
+COUNTY,88057,Algoma,on
+COUNTY,19005,Allamakee,ia
+COUNTY,26005,Allegan,mi
+COUNTY,24001,Allegany,md
+COUNTY,36003,Allegany,ny
+COUNTY,51005,Alleghany,va
+COUNTY,42003,Allegheny,pa
+COUNTY,18003,Allen,in
+COUNTY,20001,Allen,ks
+COUNTY,21003,Allen,ky
+COUNTY,22003,Allen,la
+COUNTY,39003,Allen,oh
+COUNTY,45005,Allendale,sc
+COUNTY,26007,Alpena,mi
+COUNTY,06003,Alpine,ca
+COUNTY,06005,Amador,ca
+COUNTY,51007,Amelia,va
+COUNTY,51009,Amherst,va
+COUNTY,02020,Anchorage,ak
+COUNTY,20003,Anderson,ks
+COUNTY,21005,Anderson,ky
+COUNTY,45007,Anderson,sc
+COUNTY,47001,Anderson,tn
+COUNTY,48001,Anderson,tx
+COUNTY,29003,Andrew,mo
+COUNTY,48003,Andrews,tx
+COUNTY,23001,Androscoggin,me
+COUNTY,48005,Angelina,tx
+COUNTY,24003,Anne Arundel,md
+COUNTY,27003,Anoka,mn
+COUNTY,37007,Anson,nc
+COUNTY,31003,Antelope,ne
+COUNTY,26009,Antrim,mi
+COUNTY,04001,Apache,az
+COUNTY,19007,Appanoose,ia
+COUNTY,13001,Appling,ga
+COUNTY,51011,Appomattox,va
+COUNTY,08005,Arapahoe,co
+COUNTY,48009,Archer,tx
+COUNTY,08007,Archuleta,co
+COUNTY,26011,Arenac,mi
+COUNTY,05001,Arkansas,ar
+COUNTY,51013,Arlington,va
+COUNTY,42005,Armstrong,pa
+COUNTY,48011,Armstrong,tx
+COUNTY,23003,Aroostook,me
+COUNTY,22005,Ascension,la
+COUNTY,39005,Ashland,oh
+COUNTY,55003,Ashland,wi
+COUNTY,05003,Ashley,ar
+COUNTY,39007,Ashtabula,oh
+COUNTY,53003,Asotin,wa
+COUNTY,22007,Assumption,la
+COUNTY,48013,Atascosa,tx
+COUNTY,20005,Atchison,ks
+COUNTY,29005,Atchison,mo
+COUNTY,39009,Athens,oh
+COUNTY,13003,Atkinson,ga
+COUNTY,34001,Atlantic,nj
+COUNTY,40005,Atoka,ok
+COUNTY,29007,Audrain,mo
+COUNTY,19009,Audubon,ia
+COUNTY,39011,Auglaize,oh
+COUNTY,51015,Augusta,va
+COUNTY,46003,Aurora,sd
+COUNTY,48015,Austin,tx
+COUNTY,01001,Autauga,al
+COUNTY,37011,Avery,nc
+COUNTY,22009,Avoyelles,la
+COUNTY,08009,Baca,co
+COUNTY,13005,Bacon,ga
+COUNTY,48017,Bailey,tx
+COUNTY,12003,Baker,fl
+COUNTY,41001,Baker,or
+COUNTY,01003,Baldwin,al
+COUNTY,13009,Baldwin,ga
+COUNTY,21007,Ballard,ky
+COUNTY,,Baltimore City,md
+COUNTY,,Baltimore County,md
+COUNTY,45009,Bamberg,sc
+COUNTY,13011,Banks,ga
+COUNTY,31007,Banner,ne
+COUNTY,16005,Bannock,id
+COUNTY,26013,Baraga,mi
+COUNTY,01005,Barbour,al
+COUNTY,54001,Barbour,wv
+COUNTY,38003,Barnes,nd
+COUNTY,25001,Barnstable,ma
+COUNTY,45011,Barnwell,sc
+COUNTY,21009,Barren,ky
+COUNTY,55005,Barron,wi
+COUNTY,13013,Barrow,ga
+COUNTY,29009,Barry,mo
+COUNTY,18005,Bartholomew,in
+COUNTY,20009,Barton,ks
+COUNTY,29011,Barton,mo
+COUNTY,13015,Bartow,ga
+COUNTY,48021,Bastrop,tx
+COUNTY,29013,Bates,mo
+COUNTY,21011,Bath,ky
+COUNTY,51017,Bath,va
+COUNTY,05005,Baxter,ar
+COUNTY,12005,Bay,fl
+COUNTY,26017,Bay,mi
+COUNTY,55007,Bayfield,wi
+COUNTY,48023,Baylor,tx
+COUNTY,46005,Beadle,sd
+COUNTY,16007,Bear Lake,id
+COUNTY,90070,Beauce-Sartigan,qc
+COUNTY,37013,Beaufort,nc
+COUNTY,45013,Beaufort,sc
+COUNTY,22011,Beauregard,la
+COUNTY,40007,Beaver,ok
+COUNTY,42007,Beaver,pa
+COUNTY,49001,Beaver,ut
+COUNTY,30001,Beaverhead,mt
+COUNTY,27005,Becker,mn
+COUNTY,40009,Beckham,ok
+COUNTY,42009,Bedford,pa
+COUNTY,47003,Bedford,tn
+COUNTY,,Bedford County,va
+COUNTY,48025,Bee,tx
+COUNTY,33001,Belknap,nh
+COUNTY,21013,Bell,ky
+COUNTY,48027,Bell,tx
+COUNTY,39013,Belmont,oh
+COUNTY,27007,Beltrami,mn
+COUNTY,16009,Benewah,id
+COUNTY,13017,Ben Hill,ga
+COUNTY,46007,Bennett,sd
+COUNTY,50003,Bennington,vt
+COUNTY,38005,Benson,nd
+COUNTY,08011,Bent,co
+COUNTY,05007,Benton,ar
+COUNTY,19011,Benton,ia
+COUNTY,18007,Benton,in
+COUNTY,27009,Benton,mn
+COUNTY,29015,Benton,mo
+COUNTY,28009,Benton,ms
+COUNTY,41003,Benton,or
+COUNTY,47005,Benton,tn
+COUNTY,53005,Benton,wa
+COUNTY,26019,Benzie,mi
+COUNTY,34003,Bergen,nj
+COUNTY,45015,Berkeley,sc
+COUNTY,54003,Berkeley,wv
+COUNTY,42011,Berks,pa
+COUNTY,25003,Berkshire,ma
+COUNTY,35001,Bernalillo,nm
+COUNTY,13019,Berrien,ga
+COUNTY,26021,Berrien,mi
+COUNTY,37015,Bertie,nc
+COUNTY,48029,Bexar,tx
+COUNTY,01007,Bibb,al
+COUNTY,13021,Bibb,ga
+COUNTY,22013,Bienville,la
+COUNTY,30003,Big Horn,mt
+COUNTY,56003,Big Horn,wy
+COUNTY,27011,Big Stone,mn
+COUNTY,38007,Billings,nd
+COUNTY,16011,Bingham,id
+COUNTY,19013,Black Hawk,ia
+COUNTY,37017,Bladen,nc
+COUNTY,16013,Blaine,id
+COUNTY,30005,Blaine,mt
+COUNTY,31009,Blaine,ne
+COUNTY,40011,Blaine,ok
+COUNTY,42013,Blair,pa
+COUNTY,48031,Blanco,tx
+COUNTY,51021,Bland,va
+COUNTY,13023,Bleckley,ga
+COUNTY,47007,Bledsoe,tn
+COUNTY,01009,Blount,al
+COUNTY,47009,Blount,tn
+COUNTY,27013,Blue Earth,mn
+COUNTY,16015,Boise,id
+COUNTY,28011,Bolivar,ms
+COUNTY,29017,Bollinger,mo
+COUNTY,17005,Bond,il
+COUNTY,46009,Bon Homme,sd
+COUNTY,16017,Bonner,id
+COUNTY,16019,Bonneville,id
+COUNTY,05009,Boone,ar
+COUNTY,19015,Boone,ia
+COUNTY,17007,Boone,il
+COUNTY,18011,Boone,in
+COUNTY,21015,Boone,ky
+COUNTY,29019,Boone,mo
+COUNTY,54005,Boone,wv
+COUNTY,48035,Bosque,tx
+COUNTY,22015,Bossier,la
+COUNTY,51023,Botetourt,va
+COUNTY,38009,Bottineau,nd
+COUNTY,08013,Boulder,co
+COUNTY,16021,Boundary,id
+COUNTY,20011,Bourbon,ks
+COUNTY,21017,Bourbon,ky
+COUNTY,48037,Bowie,tx
+COUNTY,38011,Bowman,nd
+COUNTY,31013,Box Butte,ne
+COUNTY,49003,Box Elder,ut
+COUNTY,21019,Boyd,ky
+COUNTY,31015,Boyd,ne
+COUNTY,21021,Boyle,ky
+COUNTY,21023,Bracken,ky
+COUNTY,12007,Bradford,fl
+COUNTY,42015,Bradford,pa
+COUNTY,47011,Bradley,tn
+COUNTY,26023,Branch,mi
+COUNTY,13025,Brantley,ga
+COUNTY,54007,Braxton,wv
+COUNTY,48039,Brazoria,tx
+COUNTY,48041,Brazos,tx
+COUNTY,21025,Breathitt,ky
+COUNTY,19017,Bremer,ia
+COUNTY,12009,Brevard,fl
+COUNTY,48043,Brewster,tx
+COUNTY,25005,Bristol,ma
+COUNTY,44001,Bristol,ri
+COUNTY,51520,Bristol,va
+COUNTY,30007,Broadwater,mt
+COUNTY,90046,Brome-Missisquoi,qc
+COUNTY,36005,Bronx,ny
+COUNTY,54009,Brooke,wv
+COUNTY,46011,Brookings,sd
+COUNTY,13027,Brooks,ga
+COUNTY,48047,Brooks,tx
+COUNTY,36007,Broome,ny
+COUNTY,08014,Broomfield,co
+COUNTY,12011,Broward,fl
+COUNTY,17009,Brown,il
+COUNTY,18013,Brown,in
+COUNTY,20013,Brown,ks
+COUNTY,27015,Brown,mn
+COUNTY,31017,Brown,ne
+COUNTY,39015,Brown,oh
+COUNTY,46013,Brown,sd
+COUNTY,48049,Brown,tx
+COUNTY,55009,Brown,wi
+COUNTY,46015,Brule,sd
+COUNTY,37019,Brunswick,nc
+COUNTY,51025,Brunswick,va
+COUNTY,13029,Bryan,ga
+COUNTY,40013,Bryan,ok
+COUNTY,19019,Buchanan,ia
+COUNTY,29021,Buchanan,mo
+COUNTY,51027,Buchanan,va
+COUNTY,42017,Bucks,pa
+COUNTY,19021,Buena Vista,ia
+COUNTY,31019,Buffalo,ne
+COUNTY,55011,Buffalo,wi
+COUNTY,21029,Bullitt,ky
+COUNTY,13031,Bulloch,ga
+COUNTY,37021,Buncombe,nc
+COUNTY,17011,Bureau,il
+COUNTY,13033,Burke,ga
+COUNTY,37023,Burke,nc
+COUNTY,38013,Burke,nd
+COUNTY,38015,Burleigh,nd
+COUNTY,48051,Burleson,tx
+COUNTY,34005,Burlington,nj
+COUNTY,48053,Burnet,tx
+COUNTY,55013,Burnett,wi
+COUNTY,31021,Burt,ne
+COUNTY,01013,Butler,al
+COUNTY,19023,Butler,ia
+COUNTY,20015,Butler,ks
+COUNTY,21031,Butler,ky
+COUNTY,29023,Butler,mo
+COUNTY,31023,Butler,ne
+COUNTY,39017,Butler,oh
+COUNTY,42019,Butler,pa
+COUNTY,06007,Butte,ca
+COUNTY,16023,Butte,id
+COUNTY,46019,Butte,sd
+COUNTY,13035,Butts,ga
+COUNTY,37025,Cabarrus,nc
+COUNTY,54011,Cabell,wv
+COUNTY,49005,Cache,ut
+COUNTY,22017,Caddo,la
+COUNTY,40015,Caddo,ok
+COUNTY,06009,Calaveras,ca
+COUNTY,22019,Calcasieu,la
+COUNTY,21033,Caldwell,ky
+COUNTY,22021,Caldwell,la
+COUNTY,29025,Caldwell,mo
+COUNTY,37027,Caldwell,nc
+COUNTY,48055,Caldwell,tx
+COUNTY,50005,Caledonia,vt
+COUNTY,01015,Calhoun,al
+COUNTY,05013,Calhoun,ar
+COUNTY,12013,Calhoun,fl
+COUNTY,13037,Calhoun,ga
+COUNTY,19025,Calhoun,ia
+COUNTY,17013,Calhoun,il
+COUNTY,26025,Calhoun,mi
+COUNTY,45017,Calhoun,sc
+COUNTY,48057,Calhoun,tx
+COUNTY,48059,Callahan,tx
+COUNTY,29027,Callaway,mo
+COUNTY,21035,Calloway,ky
+COUNTY,55015,Calumet,wi
+COUNTY,24009,Calvert,md
+COUNTY,16025,Camas,id
+COUNTY,42021,Cambria,pa
+COUNTY,13039,Camden,ga
+COUNTY,29029,Camden,mo
+COUNTY,37029,Camden,nc
+COUNTY,34007,Camden,nj
+COUNTY,48061,Cameron,tx
+COUNTY,48063,Camp,tx
+COUNTY,21037,Campbell,ky
+COUNTY,46021,Campbell,sd
+COUNTY,47013,Campbell,tn
+COUNTY,51031,Campbell,va
+COUNTY,56005,Campbell,wy
+COUNTY,40017,Canadian,ok
+COUNTY,13043,Candler,ga
+COUNTY,47015,Cannon,tn
+COUNTY,16027,Canyon,id
+COUNTY,29031,Cape Girardeau,mo
+COUNTY,34009,Cape May,nj
+COUNTY,30009,Carbon,mt
+COUNTY,42025,Carbon,pa
+COUNTY,49007,Carbon,ut
+COUNTY,56007,Carbon,wy
+COUNTY,16029,Caribou,id
+COUNTY,21039,Carlisle,ky
+COUNTY,27017,Carlton,mn
+COUNTY,24011,Caroline,md
+COUNTY,51033,Caroline,va
+COUNTY,05015,Carroll,ar
+COUNTY,13045,Carroll,ga
+COUNTY,19027,Carroll,ia
+COUNTY,17015,Carroll,il
+COUNTY,18015,Carroll,in
+COUNTY,21041,Carroll,ky
+COUNTY,24013,Carroll,md
+COUNTY,29033,Carroll,mo
+COUNTY,28015,Carroll,ms
+COUNTY,33003,Carroll,nh
+COUNTY,47017,Carroll,tn
+COUNTY,51035,Carroll,va
+COUNTY,48065,Carson,tx
+COUNTY,,Carson City,nv
+COUNTY,21043,Carter,ky
+COUNTY,29035,Carter,mo
+COUNTY,30011,Carter,mt
+COUNTY,40019,Carter,ok
+COUNTY,47019,Carter,tn
+COUNTY,37031,Carteret,nc
+COUNTY,27019,Carver,mn
+COUNTY,30013,Cascade,mt
+COUNTY,21045,Casey,ky
+COUNTY,19029,Cass,ia
+COUNTY,17017,Cass,il
+COUNTY,18017,Cass,in
+COUNTY,26027,Cass,mi
+COUNTY,27021,Cass,mn
+COUNTY,29037,Cass,mo
+COUNTY,38017,Cass,nd
+COUNTY,31025,Cass,ne
+COUNTY,48067,Cass,tx
+COUNTY,16031,Cassia,id
+COUNTY,48069,Castro,tx
+COUNTY,37033,Caswell,nc
+COUNTY,22025,Catahoula,la
+COUNTY,37035,Catawba,nc
+COUNTY,13047,Catoosa,ga
+COUNTY,35003,Catron,nm
+COUNTY,36009,Cattaraugus,ny
+COUNTY,38019,Cavalier,nd
+COUNTY,36011,Cayuga,ny
+COUNTY,24015,Cecil,md
+COUNTY,19031,Cedar,ia
+COUNTY,29039,Cedar,mo
+COUNTY,31027,Cedar,ne
+COUNTY,42027,Centre,pa
+COUNTY,19033,Cerro Gordo,ia
+COUNTY,08015,Chaffee,co
+COUNTY,01017,Chambers,al
+COUNTY,48071,Chambers,tx
+COUNTY,17019,Champaign,il
+COUNTY,39021,Champaign,oh
+COUNTY,29041,Chariton,mo
+COUNTY,24017,Charles,md
+COUNTY,46023,Charles Mix,sd
+COUNTY,45019,Charleston,sc
+COUNTY,26029,Charlevoix,mi
+COUNTY,12015,Charlotte,fl
+COUNTY,51037,Charlotte,va
+COUNTY,51540,Charlottesville,va
+COUNTY,13049,Charlton,ga
+COUNTY,20017,Chase,ks
+COUNTY,31029,Chase,ne
+COUNTY,13051,Chatham,ga
+COUNTY,37037,Chatham,nc
+COUNTY,13053,Chattahoochee,ga
+COUNTY,13055,Chattooga,ga
+COUNTY,20019,Chautauqua,ks
+COUNTY,36013,Chautauqua,ny
+COUNTY,35005,Chaves,nm
+COUNTY,47021,Cheatham,tn
+COUNTY,26031,Cheboygan,mi
+COUNTY,53007,Chelan,wa
+COUNTY,36015,Chemung,ny
+COUNTY,36017,Chenango,ny
+COUNTY,01019,Cherokee,al
+COUNTY,13057,Cherokee,ga
+COUNTY,19035,Cherokee,ia
+COUNTY,20021,Cherokee,ks
+COUNTY,37039,Cherokee,nc
+COUNTY,45021,Cherokee,sc
+COUNTY,48073,Cherokee,tx
+COUNTY,31031,Cherry,ne
+COUNTY,51550,Chesapeake,va
+COUNTY,33005,Cheshire,nh
+COUNTY,42029,Chester,pa
+COUNTY,45023,Chester,sc
+COUNTY,47023,Chester,tn
+COUNTY,45025,Chesterfield,sc
+COUNTY,51041,Chesterfield,va
+COUNTY,08017,Cheyenne,co
+COUNTY,31033,Cheyenne,ne
+COUNTY,19037,Chickasaw,ia
+COUNTY,28017,Chickasaw,ms
+COUNTY,05017,Chicot,ar
+COUNTY,48075,Childress,tx
+COUNTY,01021,Chilton,al
+COUNTY,26033,Chippewa,mi
+COUNTY,27023,Chippewa,mn
+COUNTY,55017,Chippewa,wi
+COUNTY,27025,Chisago,mn
+COUNTY,50007,Chittenden,vt
+COUNTY,01023,Choctaw,al
+COUNTY,40023,Choctaw,ok
+COUNTY,30015,Chouteau,mt
+COUNTY,37041,Chowan,nc
+COUNTY,17021,Christian,il
+COUNTY,21047,Christian,ky
+COUNTY,29043,Christian,mo
+COUNTY,32001,Churchill,nv
+COUNTY,35006,Cibola,nm
+COUNTY,40025,Cimarron,ok
+COUNTY,12017,Citrus,fl
+COUNTY,41005,Clackamas,or
+COUNTY,22027,Claiborne,la
+COUNTY,28021,Claiborne,ms
+COUNTY,47025,Claiborne,tn
+COUNTY,53009,Clallam,wa
+COUNTY,26035,Clare,mi
+COUNTY,45027,Clarendon,sc
+COUNTY,42031,Clarion,pa
+COUNTY,05019,Clark,ar
+COUNTY,16033,Clark,id
+COUNTY,17023,Clark,il
+COUNTY,18019,Clark,in
+COUNTY,20025,Clark,ks
+COUNTY,21049,Clark,ky
+COUNTY,29045,Clark,mo
+COUNTY,32003,Clark,nv
+COUNTY,39023,Clark,oh
+COUNTY,46025,Clark,sd
+COUNTY,53011,Clark,wa
+COUNTY,55019,Clark,wi
+COUNTY,01025,Clarke,al
+COUNTY,13059,Clarke,ga
+COUNTY,19039,Clarke,ia
+COUNTY,28023,Clarke,ms
+COUNTY,51043,Clarke,va
+COUNTY,41007,Clatsop,or
+COUNTY,05021,Clay,ar
+COUNTY,12019,Clay,fl
+COUNTY,13061,Clay,ga
+COUNTY,19041,Clay,ia
+COUNTY,17025,Clay,il
+COUNTY,18021,Clay,in
+COUNTY,20027,Clay,ks
+COUNTY,21051,Clay,ky
+COUNTY,27027,Clay,mn
+COUNTY,29047,Clay,mo
+COUNTY,28025,Clay,ms
+COUNTY,37043,Clay,nc
+COUNTY,46027,Clay,sd
+COUNTY,47027,Clay,tn
+COUNTY,48077,Clay,tx
+COUNTY,54015,Clay,wv
+COUNTY,13063,Clayton,ga
+COUNTY,19043,Clayton,ia
+COUNTY,08019,Clear Creek,co
+COUNTY,42033,Clearfield,pa
+COUNTY,16035,Clearwater,id
+COUNTY,27029,Clearwater,mn
+COUNTY,01029,Cleburne,al
+COUNTY,39025,Clermont,oh
+COUNTY,05025,Cleveland,ar
+COUNTY,37045,Cleveland,nc
+COUNTY,40027,Cleveland,ok
+COUNTY,13065,Clinch,ga
+COUNTY,19045,Clinton,ia
+COUNTY,17027,Clinton,il
+COUNTY,18023,Clinton,in
+COUNTY,21053,Clinton,ky
+COUNTY,26037,Clinton,mi
+COUNTY,29049,Clinton,mo
+COUNTY,36019,Clinton,ny
+COUNTY,39027,Clinton,oh
+COUNTY,42035,Clinton,pa
+COUNTY,20029,Cloud,ks
+COUNTY,28027,Coahoma,ms
+COUNTY,40029,Coal,ok
+COUNTY,90044,Coaticook,qc
+COUNTY,13067,Cobb,ga
+COUNTY,04003,Cochise,az
+COUNTY,47029,Cocke,tn
+COUNTY,04005,Coconino,az
+COUNTY,46029,Codington,sd
+COUNTY,01031,Coffee,al
+COUNTY,13069,Coffee,ga
+COUNTY,47031,Coffee,tn
+COUNTY,20031,Coffey,ks
+COUNTY,48081,Coke,tx
+COUNTY,01033,Colbert,al
+COUNTY,29051,Cole,mo
+COUNTY,48083,Coleman,tx
+COUNTY,17029,Coles,il
+COUNTY,31037,Colfax,ne
+COUNTY,35007,Colfax,nm
+COUNTY,45029,Colleton,sc
+COUNTY,12021,Collier,fl
+COUNTY,48085,Collin,tx
+COUNTY,51570,Colonial Heights,va
+COUNTY,48089,Colorado,tx
+COUNTY,13071,Colquitt,ga
+COUNTY,05027,Columbia,ar
+COUNTY,12023,Columbia,fl
+COUNTY,13073,Columbia,ga
+COUNTY,36021,Columbia,ny
+COUNTY,41009,Columbia,or
+COUNTY,42037,Columbia,pa
+COUNTY,53013,Columbia,wa
+COUNTY,55021,Columbia,wi
+COUNTY,39029,Columbiana,oh
+COUNTY,37047,Columbus,nc
+COUNTY,06011,Colusa,ca
+COUNTY,48091,Comal,tx
+COUNTY,40031,Comanche,ok
+COUNTY,48093,Comanche,tx
+COUNTY,48095,Concho,tx
+COUNTY,22029,Concordia,la
+COUNTY,01035,Conecuh,al
+COUNTY,08021,Conejos,co
+COUNTY,06013,Contra Costa,ca
+COUNTY,56009,Converse,wy
+COUNTY,05029,Conway,ar
+COUNTY,13075,Cook,ga
+COUNTY,17031,Cook,il
+COUNTY,27031,Cook,mn
+COUNTY,48097,Cooke,tx
+COUNTY,29053,Cooper,mo
+COUNTY,33007,Coos,nh
+COUNTY,41011,Coos,or
+COUNTY,01037,Coosa,al
+COUNTY,28029,Copiah,ms
+COUNTY,46031,Corson,sd
+COUNTY,36023,Cortland,ny
+COUNTY,48099,Coryell,tx
+COUNTY,39031,Coshocton,oh
+COUNTY,08023,Costilla,co
+COUNTY,40033,Cotton,ok
+COUNTY,27033,Cottonwood,mn
+COUNTY,01039,Covington,al
+COUNTY,28031,Covington,ms
+COUNTY,51580,Covington,va
+COUNTY,13077,Coweta,ga
+COUNTY,20035,Cowley,ks
+COUNTY,53015,Cowlitz,wa
+COUNTY,40035,Craig,ok
+COUNTY,05031,Craighead,ar
+COUNTY,48103,Crane,tx
+COUNTY,37049,Craven,nc
+COUNTY,05033,Crawford,ar
+COUNTY,13079,Crawford,ga
+COUNTY,19047,Crawford,ia
+COUNTY,17033,Crawford,il
+COUNTY,18025,Crawford,in
+COUNTY,20037,Crawford,ks
+COUNTY,26039,Crawford,mi
+COUNTY,29055,Crawford,mo
+COUNTY,39033,Crawford,oh
+COUNTY,42039,Crawford,pa
+COUNTY,55023,Crawford,wi
+COUNTY,40037,Creek,ok
+COUNTY,01041,Crenshaw,al
+COUNTY,13081,Crisp,ga
+COUNTY,05035,Crittenden,ar
+COUNTY,47033,Crockett,tn
+COUNTY,48105,Crockett,tx
+COUNTY,41013,Crook,or
+COUNTY,56011,Crook,wy
+COUNTY,48107,Crosby,tx
+COUNTY,05037,Cross,ar
+COUNTY,27035,Crow Wing,mn
+COUNTY,48109,Culberson,tx
+COUNTY,01043,Cullman,al
+COUNTY,51047,Culpeper,va
+COUNTY,17035,Cumberland,il
+COUNTY,23005,Cumberland,me
+COUNTY,37051,Cumberland,nc
+COUNTY,34011,Cumberland,nj
+COUNTY,42041,Cumberland,pa
+COUNTY,47035,Cumberland,tn
+COUNTY,51049,Cumberland,va
+COUNTY,31039,Cuming,ne
+COUNTY,37053,Currituck,nc
+COUNTY,35009,Curry,nm
+COUNTY,41015,Curry,or
+COUNTY,16037,Custer,id
+COUNTY,30017,Custer,mt
+COUNTY,31041,Custer,ne
+COUNTY,40039,Custer,ok
+COUNTY,46033,Custer,sd
+COUNTY,39035,Cuyahoga,oh
+COUNTY,13083,Dade,ga
+COUNTY,49009,Daggett,ut
+COUNTY,27037,Dakota,mn
+COUNTY,31043,Dakota,ne
+COUNTY,01045,Dale,al
+COUNTY,48111,Dallam,tx
+COUNTY,01047,Dallas,al
+COUNTY,05039,Dallas,ar
+COUNTY,19049,Dallas,ia
+COUNTY,29059,Dallas,mo
+COUNTY,48113,Dallas,tx
+COUNTY,55025,Dane,wi
+COUNTY,51590,Danville,va
+COUNTY,37055,Dare,nc
+COUNTY,39037,Darke,oh
+COUNTY,45031,Darlington,sc
+COUNTY,42043,Dauphin,pa
+COUNTY,37057,Davidson,nc
+COUNTY,47037,Davidson,tn
+COUNTY,37059,Davie,nc
+COUNTY,18027,Daviess,in
+COUNTY,21059,Daviess,ky
+COUNTY,29061,Daviess,mo
+COUNTY,19051,Davis,ia
+COUNTY,49011,Davis,ut
+COUNTY,46035,Davison,sd
+COUNTY,31045,Dawes,ne
+COUNTY,13085,Dawson,ga
+COUNTY,30021,Dawson,mt
+COUNTY,31047,Dawson,ne
+COUNTY,48115,Dawson,tx
+COUNTY,46037,Day,sd
+COUNTY,48117,Deaf Smith,tx
+COUNTY,18029,Dearborn,in
+COUNTY,35011,De Baca,nm
+COUNTY,13087,Decatur,ga
+COUNTY,19053,Decatur,ia
+COUNTY,18031,Decatur,in
+COUNTY,20039,Decatur,ks
+COUNTY,47039,Decatur,tn
+COUNTY,30023,Deer Lodge,mt
+COUNTY,39039,Defiance,oh
+COUNTY,01049,DeKalb,al
+COUNTY,13089,DeKalb,ga
+COUNTY,17037,DeKalb,il
+COUNTY,18033,DeKalb,in
+COUNTY,29063,DeKalb,mo
+COUNTY,19055,Delaware,ia
+COUNTY,18035,Delaware,in
+COUNTY,36025,Delaware,ny
+COUNTY,39041,Delaware,oh
+COUNTY,40041,Delaware,ok
+COUNTY,42045,Delaware,pa
+COUNTY,06015,Del Norte,ca
+COUNTY,08029,Delta,co
+COUNTY,26041,Delta,mi
+COUNTY,48119,Delta,tx
+COUNTY,02068,Denali,ak
+COUNTY,48121,Denton,tx
+COUNTY,08031,Denver,co
+COUNTY,41017,Deschutes,or
+COUNTY,05041,Desha,ar
+COUNTY,19057,Des Moines,ia
+COUNTY,12027,DeSoto,fl
+COUNTY,28033,DeSoto,ms
+COUNTY,22031,De Soto,la
+COUNTY,31049,Deuel,ne
+COUNTY,46039,Deuel,sd
+COUNTY,40043,Dewey,ok
+COUNTY,46041,Dewey,sd
+COUNTY,48123,DeWitt,tx
+COUNTY,17039,De Witt,il
+COUNTY,48125,Dickens,tx
+COUNTY,38021,Dickey,nd
+COUNTY,19059,Dickinson,ia
+COUNTY,20041,Dickinson,ks
+COUNTY,26043,Dickinson,mi
+COUNTY,47043,Dickson,tn
+COUNTY,45033,Dillon,sc
+COUNTY,48127,Dimmit,tx
+COUNTY,51053,Dinwiddie,va
+COUNTY,,District of Columbia,dc
+COUNTY,38023,Divide,nd
+COUNTY,12029,Dixie,fl
+COUNTY,31051,Dixon,ne
+COUNTY,54017,Doddridge,wv
+COUNTY,13091,Dodge,ga
+COUNTY,27039,Dodge,mn
+COUNTY,31053,Dodge,ne
+COUNTY,55027,Dodge,wi
+COUNTY,08033,Dolores,co
+COUNTY,,Doña Ana,nm
+COUNTY,20043,Doniphan,ks
+COUNTY,48129,Donley,tx
+COUNTY,13093,Dooly,ga
+COUNTY,55029,Door,wi
+COUNTY,24019,Dorchester,md
+COUNTY,45035,Dorchester,sc
+COUNTY,13095,Dougherty,ga
+COUNTY,08035,Douglas,co
+COUNTY,13097,Douglas,ga
+COUNTY,17041,Douglas,il
+COUNTY,20045,Douglas,ks
+COUNTY,27041,Douglas,mn
+COUNTY,31055,Douglas,ne
+COUNTY,32005,Douglas,nv
+COUNTY,41019,Douglas,or
+COUNTY,46043,Douglas,sd
+COUNTY,53017,Douglas,wa
+COUNTY,55031,Douglas,wi
+COUNTY,05043,Drew,ar
+COUNTY,18037,Dubois,in
+COUNTY,19061,Dubuque,ia
+COUNTY,49013,Duchesne,ut
+COUNTY,31057,Dundy,ne
+COUNTY,29069,Dunklin,mo
+COUNTY,38025,Dunn,nd
+COUNTY,55033,Dunn,wi
+COUNTY,17043,DuPage,il
+COUNTY,37061,Duplin,nc
+COUNTY,37063,Durham,nc
+COUNTY,36027,Dutchess,ny
+COUNTY,12031,Duval,fl
+COUNTY,48131,Duval,tx
+COUNTY,47045,Dyer,tn
+COUNTY,08037,Eagle,co
+COUNTY,13099,Early,ga
+COUNTY,22033,East Baton Rouge,la
+COUNTY,22035,East Carroll,la
+COUNTY,22037,East Feliciana,la
+COUNTY,48133,Eastland,tx
+COUNTY,26045,Eaton,mi
+COUNTY,55035,Eau Claire,wi
+COUNTY,13101,Echols,ga
+COUNTY,48135,Ector,tx
+COUNTY,38027,Eddy,nd
+COUNTY,35015,Eddy,nm
+COUNTY,17045,Edgar,il
+COUNTY,37065,Edgecombe,nc
+COUNTY,45037,Edgefield,sc
+COUNTY,21061,Edmonson,ky
+COUNTY,46045,Edmunds,sd
+COUNTY,17047,Edwards,il
+COUNTY,20047,Edwards,ks
+COUNTY,48137,Edwards,tx
+COUNTY,13103,Effingham,ga
+COUNTY,17049,Effingham,il
+COUNTY,08039,Elbert,co
+COUNTY,13105,Elbert,ga
+COUNTY,06017,El Dorado,ca
+COUNTY,42047,Elk,pa
+COUNTY,18039,Elkhart,in
+COUNTY,32007,Elko,nv
+COUNTY,20051,Ellis,ks
+COUNTY,40045,Ellis,ok
+COUNTY,48139,Ellis,tx
+COUNTY,20053,Ellsworth,ks
+COUNTY,01051,Elmore,al
+COUNTY,16039,Elmore,id
+COUNTY,08041,El Paso,co
+COUNTY,48141,El Paso,tx
+COUNTY,13107,Emanuel,ga
+COUNTY,49015,Emery,ut
+COUNTY,19063,Emmet,ia
+COUNTY,26047,Emmet,mi
+COUNTY,38029,Emmons,nd
+COUNTY,51595,Emporia,va
+COUNTY,48143,Erath,tx
+COUNTY,36029,Erie,ny
+COUNTY,39043,Erie,oh
+COUNTY,42049,Erie,pa
+COUNTY,01053,Escambia,al
+COUNTY,12033,Escambia,fl
+COUNTY,32009,Esmeralda,nv
+COUNTY,25009,Essex,ma
+COUNTY,34013,Essex,nj
+COUNTY,36031,Essex,ny
+COUNTY,88037,Essex,on
+COUNTY,51057,Essex,va
+COUNTY,50009,Essex,vt
+COUNTY,01055,Etowah,al
+COUNTY,32011,Eureka,nv
+COUNTY,22039,Evangeline,la
+COUNTY,13109,Evans,ga
+COUNTY,02090,Fairbanks North Star,ak
+COUNTY,,Fairfax City,va
+COUNTY,,Fairfax County,va
+COUNTY,09001,Fairfield,ct
+COUNTY,39045,Fairfield,oh
+COUNTY,45039,Fairfield,sc
+COUNTY,46047,Fall River,sd
+COUNTY,48145,Falls,tx
+COUNTY,51610,Falls Church,va
+COUNTY,13111,Fannin,ga
+COUNTY,48147,Fannin,tx
+COUNTY,27043,Faribault,mn
+COUNTY,46049,Faulk,sd
+COUNTY,05045,Faulkner,ar
+COUNTY,51061,Fauquier,va
+COUNTY,01057,Fayette,al
+COUNTY,13113,Fayette,ga
+COUNTY,19065,Fayette,ia
+COUNTY,17051,Fayette,il
+COUNTY,18041,Fayette,in
+COUNTY,21067,Fayette,ky
+COUNTY,39047,Fayette,oh
+COUNTY,42051,Fayette,pa
+COUNTY,47047,Fayette,tn
+COUNTY,48149,Fayette,tx
+COUNTY,54019,Fayette,wv
+COUNTY,47049,Fentress,tn
+COUNTY,30027,Fergus,mt
+COUNTY,53019,Ferry,wa
+COUNTY,27045,Fillmore,mn
+COUNTY,31059,Fillmore,ne
+COUNTY,20055,Finney,ks
+COUNTY,12035,Flagler,fl
+COUNTY,30029,Flathead,mt
+COUNTY,21069,Fleming,ky
+COUNTY,45041,Florence,sc
+COUNTY,55037,Florence,wi
+COUNTY,13115,Floyd,ga
+COUNTY,19067,Floyd,ia
+COUNTY,18043,Floyd,in
+COUNTY,21071,Floyd,ky
+COUNTY,55039,Fond du Lac,wi
+COUNTY,17053,Ford,il
+COUNTY,20057,Ford,ks
+COUNTY,42053,Forest,pa
+COUNTY,55041,Forest,wi
+COUNTY,28035,Forrest,ms
+COUNTY,13117,Forsyth,ga
+COUNTY,37067,Forsyth,nc
+COUNTY,48157,Fort Bend,tx
+COUNTY,38031,Foster,nd
+COUNTY,18045,Fountain,in
+COUNTY,01059,Franklin,al
+COUNTY,05047,Franklin,ar
+COUNTY,12037,Franklin,fl
+COUNTY,13119,Franklin,ga
+COUNTY,19069,Franklin,ia
+COUNTY,17055,Franklin,il
+COUNTY,18047,Franklin,in
+COUNTY,20059,Franklin,ks
+COUNTY,21073,Franklin,ky
+COUNTY,22041,Franklin,la
+COUNTY,25011,Franklin,ma
+COUNTY,23007,Franklin,me
+COUNTY,29071,Franklin,mo
+COUNTY,28037,Franklin,ms
+COUNTY,37069,Franklin,nc
+COUNTY,36033,Franklin,ny
+COUNTY,39049,Franklin,oh
+COUNTY,42055,Franklin,pa
+COUNTY,47051,Franklin,tn
+COUNTY,48159,Franklin,tx
+COUNTY,50011,Franklin,vt
+COUNTY,53021,Franklin,wa
+COUNTY,,Franklin County,va
+COUNTY,24021,Frederick,md
+COUNTY,51069,Frederick,va
+COUNTY,51630,Fredericksburg,va
+COUNTY,27047,Freeborn,mn
+COUNTY,48161,Freestone,tx
+COUNTY,08043,Fremont,co
+COUNTY,19071,Fremont,ia
+COUNTY,16043,Fremont,id
+COUNTY,56013,Fremont,wy
+COUNTY,06019,Fresno,ca
+COUNTY,48163,Frio,tx
+COUNTY,31063,Frontier,ne
+COUNTY,05049,Fulton,ar
+COUNTY,13121,Fulton,ga
+COUNTY,17057,Fulton,il
+COUNTY,18049,Fulton,in
+COUNTY,21075,Fulton,ky
+COUNTY,36035,Fulton,ny
+COUNTY,39051,Fulton,oh
+COUNTY,42057,Fulton,pa
+COUNTY,31065,Furnas,ne
+COUNTY,12039,Gadsden,fl
+COUNTY,31067,Gage,ne
+COUNTY,48165,Gaines,tx
+COUNTY,51640,Galax,va
+COUNTY,17059,Gallatin,il
+COUNTY,21077,Gallatin,ky
+COUNTY,30031,Gallatin,mt
+COUNTY,39053,Gallia,oh
+COUNTY,48167,Galveston,tx
+COUNTY,31069,Garden,ne
+COUNTY,08045,Garfield,co
+COUNTY,30033,Garfield,mt
+COUNTY,40047,Garfield,ok
+COUNTY,49017,Garfield,ut
+COUNTY,53023,Garfield,wa
+COUNTY,05051,Garland,ar
+COUNTY,21079,Garrard,ky
+COUNTY,24023,Garrett,md
+COUNTY,40049,Garvin,ok
+COUNTY,48169,Garza,tx
+COUNTY,29073,Gasconade,mo
+COUNTY,37071,Gaston,nc
+COUNTY,37073,Gates,nc
+COUNTY,20061,Geary,ks
+COUNTY,39055,Geauga,oh
+COUNTY,26049,Genesee,mi
+COUNTY,36037,Genesee,ny
+COUNTY,29075,Gentry,mo
+COUNTY,28039,George,ms
+COUNTY,45043,Georgetown,sc
+COUNTY,18051,Gibson,in
+COUNTY,47053,Gibson,tn
+COUNTY,04007,Gila,az
+COUNTY,12041,Gilchrist,fl
+COUNTY,47055,Giles,tn
+COUNTY,51071,Giles,va
+COUNTY,48171,Gillespie,tx
+COUNTY,41021,Gilliam,or
+COUNTY,13123,Gilmer,ga
+COUNTY,30035,Glacier,mt
+COUNTY,12043,Glades,fl
+COUNTY,48173,Glasscock,tx
+COUNTY,06021,Glenn,ca
+COUNTY,34015,Gloucester,nj
+COUNTY,51073,Gloucester,va
+COUNTY,13127,Glynn,ga
+COUNTY,26053,Gogebic,mi
+COUNTY,30037,Golden Valley,mt
+COUNTY,38033,Golden Valley,nd
+COUNTY,48175,Goliad,tx
+COUNTY,48177,Gonzales,tx
+COUNTY,51075,Goochland,va
+COUNTY,27049,Goodhue,mn
+COUNTY,16047,Gooding,id
+COUNTY,13129,Gordon,ga
+COUNTY,56015,Goshen,wy
+COUNTY,20063,Gove,ks
+COUNTY,13131,Grady,ga
+COUNTY,40051,Grady,ok
+COUNTY,33009,Grafton,nh
+COUNTY,37075,Graham,nc
+COUNTY,47057,Grainger,tn
+COUNTY,08049,Grand,co
+COUNTY,49019,Grand,ut
+COUNTY,38035,Grand Forks,nd
+COUNTY,50013,Grand Isle,vt
+COUNTY,26055,Grand Traverse,mi
+COUNTY,30039,Granite,mt
+COUNTY,05053,Grant,ar
+COUNTY,18053,Grant,in
+COUNTY,21081,Grant,ky
+COUNTY,22043,Grant,la
+COUNTY,27051,Grant,mn
+COUNTY,38037,Grant,nd
+COUNTY,31075,Grant,ne
+COUNTY,35017,Grant,nm
+COUNTY,41023,Grant,or
+COUNTY,46051,Grant,sd
+COUNTY,53025,Grant,wa
+COUNTY,55043,Grant,wi
+COUNTY,54023,Grant,wv
+COUNTY,37077,Granville,nc
+COUNTY,26057,Gratiot,mi
+COUNTY,21083,Graves,ky
+COUNTY,20069,Gray,ks
+COUNTY,48179,Gray,tx
+COUNTY,53027,Grays Harbor,wa
+COUNTY,21085,Grayson,ky
+COUNTY,48181,Grayson,tx
+COUNTY,51077,Grayson,va
+COUNTY,31077,Greeley,ne
+COUNTY,55045,Green,wi
+COUNTY,54025,Greenbrier,wv
+COUNTY,01063,Greene,al
+COUNTY,05055,Greene,ar
+COUNTY,13133,Greene,ga
+COUNTY,19073,Greene,ia
+COUNTY,17061,Greene,il
+COUNTY,18055,Greene,in
+COUNTY,29077,Greene,mo
+COUNTY,28041,Greene,ms
+COUNTY,37079,Greene,nc
+COUNTY,36039,Greene,ny
+COUNTY,39057,Greene,oh
+COUNTY,42059,Greene,pa
+COUNTY,47059,Greene,tn
+COUNTY,51079,Greene,va
+COUNTY,55047,Green Lake,wi
+COUNTY,51081,Greensville,va
+COUNTY,21089,Greenup,ky
+COUNTY,45045,Greenville,sc
+COUNTY,20073,Greenwood,ks
+COUNTY,45047,Greenwood,sc
+COUNTY,48183,Gregg,tx
+COUNTY,46053,Gregory,sd
+COUNTY,28043,Grenada,ms
+COUNTY,38039,Griggs,nd
+COUNTY,48185,Grimes,tx
+COUNTY,19075,Grundy,ia
+COUNTY,17063,Grundy,il
+COUNTY,29079,Grundy,mo
+COUNTY,47061,Grundy,tn
+COUNTY,35019,Guadalupe,nm
+COUNTY,48187,Guadalupe,tx
+COUNTY,39059,Guernsey,oh
+COUNTY,37081,Guilford,nc
+COUNTY,12045,Gulf,fl
+COUNTY,08051,Gunnison,co
+COUNTY,19077,Guthrie,ia
+COUNTY,13135,Gwinnett,ga
+COUNTY,46055,Haakon,sd
+COUNTY,13137,Habersham,ga
+COUNTY,02100,Haines,ak
+COUNTY,01065,Hale,al
+COUNTY,48189,Hale,tx
+COUNTY,37083,Halifax,nc
+COUNTY,51083,Halifax,va
+COUNTY,13139,Hall,ga
+COUNTY,31079,Hall,ne
+COUNTY,48191,Hall,tx
+COUNTY,47063,Hamblen,tn
+COUNTY,12047,Hamilton,fl
+COUNTY,19079,Hamilton,ia
+COUNTY,18057,Hamilton,in
+COUNTY,20075,Hamilton,ks
+COUNTY,31081,Hamilton,ne
+COUNTY,36041,Hamilton,ny
+COUNTY,39061,Hamilton,oh
+COUNTY,47065,Hamilton,tn
+COUNTY,48193,Hamilton,tx
+COUNTY,46057,Hamlin,sd
+COUNTY,25013,Hampden,ma
+COUNTY,25015,Hampshire,ma
+COUNTY,45049,Hampton,sc
+COUNTY,51650,Hampton,va
+COUNTY,13141,Hancock,ga
+COUNTY,19081,Hancock,ia
+COUNTY,17067,Hancock,il
+COUNTY,18059,Hancock,in
+COUNTY,23009,Hancock,me
+COUNTY,28045,Hancock,ms
+COUNTY,39063,Hancock,oh
+COUNTY,54029,Hancock,wv
+COUNTY,46059,Hand,sd
+COUNTY,51085,Hanover,va
+COUNTY,46061,Hanson,sd
+COUNTY,13143,Haralson,ga
+COUNTY,12049,Hardee,fl
+COUNTY,47069,Hardeman,tn
+COUNTY,48197,Hardeman,tx
+COUNTY,19083,Hardin,ia
+COUNTY,21093,Hardin,ky
+COUNTY,39065,Hardin,oh
+COUNTY,47071,Hardin,tn
+COUNTY,48199,Hardin,tx
+COUNTY,46063,Harding,sd
+COUNTY,54031,Hardy,wv
+COUNTY,24025,Harford,md
+COUNTY,21095,Harlan,ky
+COUNTY,31083,Harlan,ne
+COUNTY,40057,Harmon,ok
+COUNTY,37085,Harnett,nc
+COUNTY,41025,Harney,or
+COUNTY,40059,Harper,ok
+COUNTY,13145,Harris,ga
+COUNTY,48201,Harris,tx
+COUNTY,19085,Harrison,ia
+COUNTY,18061,Harrison,in
+COUNTY,29081,Harrison,mo
+COUNTY,28047,Harrison,ms
+COUNTY,39067,Harrison,oh
+COUNTY,48203,Harrison,tx
+COUNTY,54033,Harrison,wv
+COUNTY,51660,Harrisonburg,va
+COUNTY,13147,Hart,ga
+COUNTY,21099,Hart,ky
+COUNTY,09003,Hartford,ct
+COUNTY,48205,Hartley,tx
+COUNTY,20079,Harvey,ks
+COUNTY,20081,Haskell,ks
+COUNTY,48207,Haskell,tx
+COUNTY,15001,Hawaii,hi
+COUNTY,47073,Hawkins,tn
+COUNTY,31085,Hayes,ne
+COUNTY,48209,Hays,tx
+COUNTY,37087,Haywood,nc
+COUNTY,47075,Haywood,tn
+COUNTY,13149,Heard,ga
+COUNTY,48211,Hemphill,tx
+COUNTY,05057,Hempstead,ar
+COUNTY,17071,Henderson,il
+COUNTY,21101,Henderson,ky
+COUNTY,37089,Henderson,nc
+COUNTY,47077,Henderson,tn
+COUNTY,48213,Henderson,tx
+COUNTY,18063,Hendricks,in
+COUNTY,12051,Hendry,fl
+COUNTY,27053,Hennepin,mn
+COUNTY,51087,Henrico,va
+COUNTY,01067,Henry,al
+COUNTY,13151,Henry,ga
+COUNTY,19087,Henry,ia
+COUNTY,17073,Henry,il
+COUNTY,18065,Henry,in
+COUNTY,21103,Henry,ky
+COUNTY,29083,Henry,mo
+COUNTY,39069,Henry,oh
+COUNTY,47079,Henry,tn
+COUNTY,51089,Henry,va
+COUNTY,36043,Herkimer,ny
+COUNTY,12053,Hernando,fl
+COUNTY,37091,Hertford,nc
+COUNTY,38041,Hettinger,nd
+COUNTY,47081,Hickman,tn
+COUNTY,29085,Hickory,mo
+COUNTY,35023,Hidalgo,nm
+COUNTY,48215,Hidalgo,tx
+COUNTY,39071,Highland,oh
+COUNTY,51091,Highland,va
+COUNTY,12055,Highlands,fl
+COUNTY,30041,Hill,mt
+COUNTY,48217,Hill,tx
+COUNTY,12057,Hillsborough,fl
+COUNTY,33011,Hillsborough,nh
+COUNTY,26059,Hillsdale,mi
+COUNTY,28049,Hinds,ms
+COUNTY,31087,Hitchcock,ne
+COUNTY,39073,Hocking,oh
+COUNTY,48219,Hockley,tx
+COUNTY,37093,Hoke,nc
+COUNTY,12059,Holmes,fl
+COUNTY,28051,Holmes,ms
+COUNTY,29087,Holt,mo
+COUNTY,31089,Holt,ne
+COUNTY,15003,Honolulu,hi
+COUNTY,48221,Hood,tx
+COUNTY,41027,Hood River,or
+COUNTY,31091,Hooker,ne
+COUNTY,51670,Hopewell,va
+COUNTY,21107,Hopkins,ky
+COUNTY,48223,Hopkins,tx
+COUNTY,45051,Horry,sc
+COUNTY,05059,Hot Spring,ar
+COUNTY,56017,Hot Springs,wy
+COUNTY,26061,Houghton,mi
+COUNTY,01069,Houston,al
+COUNTY,13153,Houston,ga
+COUNTY,27055,Houston,mn
+COUNTY,48225,Houston,tx
+COUNTY,19089,Howard,ia
+COUNTY,18067,Howard,in
+COUNTY,24027,Howard,md
+COUNTY,31093,Howard,ne
+COUNTY,48227,Howard,tx
+COUNTY,29091,Howell,mo
+COUNTY,27057,Hubbard,mn
+COUNTY,34017,Hudson,nj
+COUNTY,48229,Hudspeth,tx
+COUNTY,08055,Huerfano,co
+COUNTY,46065,Hughes,sd
+COUNTY,06023,Humboldt,ca
+COUNTY,19091,Humboldt,ia
+COUNTY,32013,Humboldt,nv
+COUNTY,28053,Humphreys,ms
+COUNTY,47085,Humphreys,tn
+COUNTY,48231,Hunt,tx
+COUNTY,34019,Hunterdon,nj
+COUNTY,42061,Huntingdon,pa
+COUNTY,18069,Huntington,in
+COUNTY,26063,Huron,mi
+COUNTY,39077,Huron,oh
+COUNTY,46067,Hutchinson,sd
+COUNTY,37095,Hyde,nc
+COUNTY,46069,Hyde,sd
+COUNTY,22045,Iberia,la
+COUNTY,22047,Iberville,la
+COUNTY,19093,Ida,ia
+COUNTY,16049,Idaho,id
+COUNTY,06025,Imperial,ca
+COUNTY,05063,Independence,ar
+COUNTY,42063,Indiana,pa
+COUNTY,12061,Indian River,fl
+COUNTY,26065,Ingham,mi
+COUNTY,06027,Inyo,ca
+COUNTY,26067,Ionia,mi
+COUNTY,26069,Iosco,mi
+COUNTY,19095,Iowa,ia
+COUNTY,55049,Iowa,wi
+COUNTY,37097,Iredell,nc
+COUNTY,26071,Iron,mi
+COUNTY,49021,Iron,ut
+COUNTY,55051,Iron,wi
+COUNTY,17075,Iroquois,il
+COUNTY,13155,Irwin,ga
+COUNTY,26073,Isabella,mi
+COUNTY,27059,Isanti,mn
+COUNTY,53029,Island,wa
+COUNTY,51093,Isle of Wight,va
+COUNTY,27061,Itasca,mn
+COUNTY,28057,Itawamba,ms
+COUNTY,48237,Jack,tx
+COUNTY,01071,Jackson,al
+COUNTY,05067,Jackson,ar
+COUNTY,08057,Jackson,co
+COUNTY,12063,Jackson,fl
+COUNTY,13157,Jackson,ga
+COUNTY,19097,Jackson,ia
+COUNTY,17077,Jackson,il
+COUNTY,18071,Jackson,in
+COUNTY,20085,Jackson,ks
+COUNTY,22049,Jackson,la
+COUNTY,26075,Jackson,mi
+COUNTY,27063,Jackson,mn
+COUNTY,29095,Jackson,mo
+COUNTY,28059,Jackson,ms
+COUNTY,37099,Jackson,nc
+COUNTY,39079,Jackson,oh
+COUNTY,40065,Jackson,ok
+COUNTY,41029,Jackson,or
+COUNTY,46071,Jackson,sd
+COUNTY,48239,Jackson,tx
+COUNTY,55053,Jackson,wi
+COUNTY,54035,Jackson,wv
+COUNTY,51095,James City,va
+COUNTY,19099,Jasper,ia
+COUNTY,18073,Jasper,in
+COUNTY,29097,Jasper,mo
+COUNTY,28061,Jasper,ms
+COUNTY,45053,Jasper,sc
+COUNTY,48241,Jasper,tx
+COUNTY,18075,Jay,in
+COUNTY,13161,Jeff Davis,ga
+COUNTY,48243,Jeff Davis,tx
+COUNTY,01073,Jefferson,al
+COUNTY,05069,Jefferson,ar
+COUNTY,08059,Jefferson,co
+COUNTY,12065,Jefferson,fl
+COUNTY,13163,Jefferson,ga
+COUNTY,19101,Jefferson,ia
+COUNTY,16051,Jefferson,id
+COUNTY,17081,Jefferson,il
+COUNTY,18077,Jefferson,in
+COUNTY,20087,Jefferson,ks
+COUNTY,21111,Jefferson,ky
+COUNTY,22051,Jefferson,la
+COUNTY,29099,Jefferson,mo
+COUNTY,28063,Jefferson,ms
+COUNTY,30043,Jefferson,mt
+COUNTY,31095,Jefferson,ne
+COUNTY,36045,Jefferson,ny
+COUNTY,39081,Jefferson,oh
+COUNTY,40067,Jefferson,ok
+COUNTY,41031,Jefferson,or
+COUNTY,42065,Jefferson,pa
+COUNTY,47089,Jefferson,tn
+COUNTY,48245,Jefferson,tx
+COUNTY,53031,Jefferson,wa
+COUNTY,55055,Jefferson,wi
+COUNTY,54037,Jefferson,wv
+COUNTY,22053,Jefferson Davis,la
+COUNTY,28065,Jefferson Davis,ms
+COUNTY,13165,Jenkins,ga
+COUNTY,18079,Jennings,in
+COUNTY,46073,Jerauld,sd
+COUNTY,16053,Jerome,id
+COUNTY,17083,Jersey,il
+COUNTY,21113,Jessamine,ky
+COUNTY,20089,Jewell,ks
+COUNTY,48249,Jim Wells,tx
+COUNTY,17085,Jo Daviess,il
+COUNTY,05071,Johnson,ar
+COUNTY,13167,Johnson,ga
+COUNTY,19103,Johnson,ia
+COUNTY,17087,Johnson,il
+COUNTY,18081,Johnson,in
+COUNTY,20091,Johnson,ks
+COUNTY,21115,Johnson,ky
+COUNTY,29101,Johnson,mo
+COUNTY,31097,Johnson,ne
+COUNTY,47091,Johnson,tn
+COUNTY,48251,Johnson,tx
+COUNTY,56019,Johnson,wy
+COUNTY,37101,Johnston,nc
+COUNTY,13169,Jones,ga
+COUNTY,19105,Jones,ia
+COUNTY,28067,Jones,ms
+COUNTY,37103,Jones,nc
+COUNTY,46075,Jones,sd
+COUNTY,48253,Jones,tx
+COUNTY,41033,Josephine,or
+COUNTY,49023,Juab,ut
+COUNTY,30045,Judith Basin,mt
+COUNTY,,Juneau,ak
+COUNTY,55057,Juneau,wi
+COUNTY,42067,Juniata,pa
+COUNTY,26077,Kalamazoo,mi
+COUNTY,26079,Kalkaska,mi
+COUNTY,27065,Kanabec,mn
+COUNTY,54039,Kanawha,wv
+COUNTY,27067,Kandiyohi,mn
+COUNTY,17089,Kane,il
+COUNTY,49025,Kane,ut
+COUNTY,17091,Kankakee,il
+COUNTY,48255,Karnes,tx
+COUNTY,15007,Kauai,hi
+COUNTY,48257,Kaufman,tx
+COUNTY,40071,Kay,ok
+COUNTY,31099,Kearney,ne
+COUNTY,20093,Kearny,ks
+COUNTY,31101,Keith,ne
+COUNTY,28069,Kemper,ms
+COUNTY,02122,Kenai Peninsula,ak
+COUNTY,17093,Kendall,il
+COUNTY,48259,Kendall,tx
+COUNTY,48261,Kenedy,tx
+COUNTY,23011,Kennebec,me
+COUNTY,55059,Kenosha,wi
+COUNTY,10001,Kent,de
+COUNTY,24029,Kent,md
+COUNTY,26081,Kent,mi
+COUNTY,44003,Kent,ri
+COUNTY,21117,Kenton,ky
+COUNTY,19107,Keokuk,ia
+COUNTY,06029,Kern,ca
+COUNTY,48265,Kerr,tx
+COUNTY,45055,Kershaw,sc
+COUNTY,55061,Kewaunee,wi
+COUNTY,38043,Kidder,nd
+COUNTY,31105,Kimball,ne
+COUNTY,48267,Kimble,tx
+COUNTY,48269,King,tx
+COUNTY,53033,King,wa
+COUNTY,51097,King and Queen,va
+COUNTY,40073,Kingfisher,ok
+COUNTY,51099,King George,va
+COUNTY,20095,Kingman,ks
+COUNTY,06031,Kings,ca
+COUNTY,36047,Kings,ny
+COUNTY,46077,Kingsbury,sd
+COUNTY,51101,King William,va
+COUNTY,48271,Kinney,tx
+COUNTY,08061,Kiowa,co
+COUNTY,20097,Kiowa,ks
+COUNTY,40075,Kiowa,ok
+COUNTY,08063,Kit Carson,co
+COUNTY,53035,Kitsap,wa
+COUNTY,53037,Kittitas,wa
+COUNTY,27069,Kittson,mn
+COUNTY,41035,Klamath,or
+COUNTY,48273,Kleberg,tx
+COUNTY,53039,Klickitat,wa
+COUNTY,21119,Knott,ky
+COUNTY,17095,Knox,il
+COUNTY,18083,Knox,in
+COUNTY,21121,Knox,ky
+COUNTY,23013,Knox,me
+COUNTY,29103,Knox,mo
+COUNTY,39083,Knox,oh
+COUNTY,47093,Knox,tn
+COUNTY,48275,Knox,tx
+COUNTY,27071,Koochiching,mn
+COUNTY,16055,Kootenai,id
+COUNTY,18085,Kosciusko,in
+COUNTY,19109,Kossuth,ia
+COUNTY,20099,Labette,ks
+COUNTY,42069,Lackawanna,pa
+COUNTY,29105,Laclede,mo
+COUNTY,27073,Lac qui Parle,mn
+COUNTY,55063,La Crosse,wi
+COUNTY,05073,Lafayette,ar
+COUNTY,12067,Lafayette,fl
+COUNTY,22055,Lafayette,la
+COUNTY,29107,Lafayette,mo
+COUNTY,28071,Lafayette,ms
+COUNTY,55065,Lafayette,wi
+COUNTY,22057,Lafourche,la
+COUNTY,18087,LaGrange,in
+COUNTY,06033,Lake,ca
+COUNTY,12069,Lake,fl
+COUNTY,17097,Lake,il
+COUNTY,18089,Lake,in
+COUNTY,26085,Lake,mi
+COUNTY,30047,Lake,mt
+COUNTY,39085,Lake,oh
+COUNTY,41037,Lake,or
+COUNTY,46079,Lake,sd
+COUNTY,27077,Lake of the Woods,mn
+COUNTY,13171,Lamar,ga
+COUNTY,28073,Lamar,ms
+COUNTY,48277,Lamar,tx
+COUNTY,48279,Lamb,tx
+COUNTY,88038,Lambton,on
+COUNTY,38045,LaMoure,nd
+COUNTY,48281,Lampasas,tx
+COUNTY,31109,Lancaster,ne
+COUNTY,42071,Lancaster,pa
+COUNTY,45057,Lancaster,sc
+COUNTY,32015,Lander,nv
+COUNTY,41039,Lane,or
+COUNTY,55067,Langlade,wi
+COUNTY,13173,Lanier,ga
+COUNTY,04012,La Paz,az
+COUNTY,26087,Lapeer,mi
+COUNTY,08067,La Plata,co
+COUNTY,18091,LaPorte,in
+COUNTY,56021,Laramie,wy
+COUNTY,08069,Larimer,co
+COUNTY,21123,Larue,ky
+COUNTY,17099,LaSalle,il
+COUNTY,22059,La Salle,la
+COUNTY,48283,La Salle,tx
+COUNTY,08071,Las Animas,co
+COUNTY,06035,Lassen,ca
+COUNTY,16057,Latah,id
+COUNTY,01077,Lauderdale,al
+COUNTY,28075,Lauderdale,ms
+COUNTY,47097,Lauderdale,tn
+COUNTY,21125,Laurel,ky
+COUNTY,13175,Laurens,ga
+COUNTY,45059,Laurens,sc
+COUNTY,01079,Lawrence,al
+COUNTY,05075,Lawrence,ar
+COUNTY,17101,Lawrence,il
+COUNTY,18093,Lawrence,in
+COUNTY,21127,Lawrence,ky
+COUNTY,29109,Lawrence,mo
+COUNTY,28077,Lawrence,ms
+COUNTY,39087,Lawrence,oh
+COUNTY,42073,Lawrence,pa
+COUNTY,46081,Lawrence,sd
+COUNTY,47099,Lawrence,tn
+COUNTY,35025,Lea,nm
+COUNTY,28079,Leake,ms
+COUNTY,20103,Leavenworth,ks
+COUNTY,42075,Lebanon,pa
+COUNTY,01081,Lee,al
+COUNTY,05077,Lee,ar
+COUNTY,12071,Lee,fl
+COUNTY,13177,Lee,ga
+COUNTY,19111,Lee,ia
+COUNTY,17103,Lee,il
+COUNTY,28081,Lee,ms
+COUNTY,37105,Lee,nc
+COUNTY,45061,Lee,sc
+COUNTY,48287,Lee,tx
+COUNTY,51105,Lee,va
+COUNTY,88007,Leeds and Grenville,on
+COUNTY,28083,Leflore,ms
+COUNTY,40079,Le Flore,ok
+COUNTY,90056,Le Haut-Richelieu,qc
+COUNTY,42077,Lehigh,pa
+COUNTY,16059,Lemhi,id
+COUNTY,26091,Lenawee,mi
+COUNTY,37107,Lenoir,nc
+COUNTY,12073,Leon,fl
+COUNTY,48289,Leon,tx
+COUNTY,90068,Les Jardins-de-Napierville,qc
+COUNTY,21131,Leslie,ky
+COUNTY,27079,Le Sueur,mn
+COUNTY,21133,Letcher,ky
+COUNTY,12075,Levy,fl
+COUNTY,16061,Lewis,id
+COUNTY,21135,Lewis,ky
+COUNTY,29111,Lewis,mo
+COUNTY,36049,Lewis,ny
+COUNTY,47101,Lewis,tn
+COUNTY,53041,Lewis,wa
+COUNTY,54041,Lewis,wv
+COUNTY,30049,Lewis and Clark,mt
+COUNTY,45063,Lexington,sc
+COUNTY,51678,Lexington,va
+COUNTY,12077,Liberty,fl
+COUNTY,13179,Liberty,ga
+COUNTY,30051,Liberty,mt
+COUNTY,48291,Liberty,tx
+COUNTY,39089,Licking,oh
+COUNTY,01083,Limestone,al
+COUNTY,05079,Lincoln,ar
+COUNTY,08073,Lincoln,co
+COUNTY,16063,Lincoln,id
+COUNTY,20105,Lincoln,ks
+COUNTY,21137,Lincoln,ky
+COUNTY,22061,Lincoln,la
+COUNTY,23015,Lincoln,me
+COUNTY,27081,Lincoln,mn
+COUNTY,29113,Lincoln,mo
+COUNTY,28085,Lincoln,ms
+COUNTY,30053,Lincoln,mt
+COUNTY,37109,Lincoln,nc
+COUNTY,31111,Lincoln,ne
+COUNTY,35027,Lincoln,nm
+COUNTY,32017,Lincoln,nv
+COUNTY,40081,Lincoln,ok
+COUNTY,41041,Lincoln,or
+COUNTY,46083,Lincoln,sd
+COUNTY,47103,Lincoln,tn
+COUNTY,53043,Lincoln,wa
+COUNTY,55069,Lincoln,wi
+COUNTY,56023,Lincoln,wy
+COUNTY,19113,Linn,ia
+COUNTY,20107,Linn,ks
+COUNTY,29115,Linn,mo
+COUNTY,41043,Linn,or
+COUNTY,48295,Lipscomb,tx
+COUNTY,09005,Litchfield,ct
+COUNTY,05081,Little River,ar
+COUNTY,48297,Live Oak,tx
+COUNTY,17105,Livingston,il
+COUNTY,21139,Livingston,ky
+COUNTY,22063,Livingston,la
+COUNTY,26093,Livingston,mi
+COUNTY,29117,Livingston,mo
+COUNTY,36051,Livingston,ny
+COUNTY,08075,Logan,co
+COUNTY,17107,Logan,il
+COUNTY,20109,Logan,ks
+COUNTY,21141,Logan,ky
+COUNTY,38047,Logan,nd
+COUNTY,31113,Logan,ne
+COUNTY,39091,Logan,oh
+COUNTY,40083,Logan,ok
+COUNTY,54045,Logan,wv
+COUNTY,13183,Long,ga
+COUNTY,05085,Lonoke,ar
+COUNTY,39093,Lorain,oh
+COUNTY,35028,Los Alamos,nm
+COUNTY,06037,Los Angeles,ca
+COUNTY,47105,Loudon,tn
+COUNTY,51107,Loudoun,va
+COUNTY,19115,Louisa,ia
+COUNTY,51109,Louisa,va
+COUNTY,40085,Love,ok
+COUNTY,01085,Lowndes,al
+COUNTY,13185,Lowndes,ga
+COUNTY,28087,Lowndes,ms
+COUNTY,48303,Lubbock,tx
+COUNTY,19117,Lucas,ia
+COUNTY,39095,Lucas,oh
+COUNTY,26095,Luce,mi
+COUNTY,13187,Lumpkin,ga
+COUNTY,35029,Luna,nm
+COUNTY,51111,Lunenburg,va
+COUNTY,42079,Luzerne,pa
+COUNTY,42081,Lycoming,pa
+COUNTY,46085,Lyman,sd
+COUNTY,51680,Lynchburg,va
+COUNTY,48305,Lynn,tx
+COUNTY,19119,Lyon,ia
+COUNTY,20111,Lyon,ks
+COUNTY,21143,Lyon,ky
+COUNTY,27083,Lyon,mn
+COUNTY,32019,Lyon,nv
+COUNTY,26097,Mackinac,mi
+COUNTY,26099,Macomb,mi
+COUNTY,01087,Macon,al
+COUNTY,13193,Macon,ga
+COUNTY,17115,Macon,il
+COUNTY,29121,Macon,mo
+COUNTY,37113,Macon,nc
+COUNTY,47111,Macon,tn
+COUNTY,17117,Macoupin,il
+COUNTY,06039,Madera,ca
+COUNTY,01089,Madison,al
+COUNTY,05087,Madison,ar
+COUNTY,12079,Madison,fl
+COUNTY,13195,Madison,ga
+COUNTY,19121,Madison,ia
+COUNTY,16065,Madison,id
+COUNTY,17119,Madison,il
+COUNTY,18095,Madison,in
+COUNTY,21151,Madison,ky
+COUNTY,22065,Madison,la
+COUNTY,29123,Madison,mo
+COUNTY,28089,Madison,ms
+COUNTY,30057,Madison,mt
+COUNTY,37115,Madison,nc
+COUNTY,31119,Madison,ne
+COUNTY,36053,Madison,ny
+COUNTY,39097,Madison,oh
+COUNTY,47113,Madison,tn
+COUNTY,48313,Madison,tx
+COUNTY,51113,Madison,va
+COUNTY,21153,Magoffin,ky
+COUNTY,19123,Mahaska,ia
+COUNTY,27087,Mahnomen,mn
+COUNTY,39099,Mahoning,oh
+COUNTY,40093,Major,ok
+COUNTY,41045,Malheur,or
+COUNTY,51683,Manassas,va
+COUNTY,51685,Manassas Park,va
+COUNTY,12081,Manatee,fl
+COUNTY,26101,Manistee,mi
+COUNTY,55071,Manitowoc,wi
+COUNTY,55073,Marathon,wi
+COUNTY,01091,Marengo,al
+COUNTY,04013,Maricopa,az
+COUNTY,29125,Maries,mo
+COUNTY,06041,Marin,ca
+COUNTY,55075,Marinette,wi
+COUNTY,01093,Marion,al
+COUNTY,05089,Marion,ar
+COUNTY,12083,Marion,fl
+COUNTY,13197,Marion,ga
+COUNTY,19125,Marion,ia
+COUNTY,17121,Marion,il
+COUNTY,18097,Marion,in
+COUNTY,20115,Marion,ks
+COUNTY,21155,Marion,ky
+COUNTY,29127,Marion,mo
+COUNTY,28091,Marion,ms
+COUNTY,39101,Marion,oh
+COUNTY,41047,Marion,or
+COUNTY,45067,Marion,sc
+COUNTY,47115,Marion,tn
+COUNTY,48315,Marion,tx
+COUNTY,54049,Marion,wv
+COUNTY,06043,Mariposa,ca
+COUNTY,45069,Marlboro,sc
+COUNTY,26103,Marquette,mi
+COUNTY,55077,Marquette,wi
+COUNTY,01095,Marshall,al
+COUNTY,19127,Marshall,ia
+COUNTY,17123,Marshall,il
+COUNTY,18099,Marshall,in
+COUNTY,20117,Marshall,ks
+COUNTY,21157,Marshall,ky
+COUNTY,27089,Marshall,mn
+COUNTY,28093,Marshall,ms
+COUNTY,40095,Marshall,ok
+COUNTY,47117,Marshall,tn
+COUNTY,54051,Marshall,wv
+COUNTY,12085,Martin,fl
+COUNTY,18101,Martin,in
+COUNTY,21159,Martin,ky
+COUNTY,27091,Martin,mn
+COUNTY,37117,Martin,nc
+COUNTY,48317,Martin,tx
+COUNTY,51690,Martinsville,va
+COUNTY,17125,Mason,il
+COUNTY,21161,Mason,ky
+COUNTY,26105,Mason,mi
+COUNTY,53045,Mason,wa
+COUNTY,54053,Mason,wv
+COUNTY,17127,Massac,il
+COUNTY,02170,Matanuska-Susitna,ak
+COUNTY,15009,Maui,hi
+COUNTY,47119,Maury,tn
+COUNTY,48323,Maverick,tx
+COUNTY,40097,Mayes,ok
+COUNTY,40087,McClain,ok
+COUNTY,30055,McCone,mt
+COUNTY,46087,McCook,sd
+COUNTY,21145,McCracken,ky
+COUNTY,21147,McCreary,ky
+COUNTY,48307,McCulloch,tx
+COUNTY,40089,McCurtain,ok
+COUNTY,29119,McDonald,mo
+COUNTY,17109,McDonough,il
+COUNTY,37111,McDowell,nc
+COUNTY,54047,McDowell,wv
+COUNTY,13189,McDuffie,ga
+COUNTY,17111,McHenry,il
+COUNTY,38049,McHenry,nd
+COUNTY,13191,McIntosh,ga
+COUNTY,38051,McIntosh,nd
+COUNTY,40091,McIntosh,ok
+COUNTY,42083,McKean,pa
+COUNTY,38053,McKenzie,nd
+COUNTY,35031,McKinley,nm
+COUNTY,17113,McLean,il
+COUNTY,38055,McLean,nd
+COUNTY,48309,McLennan,tx
+COUNTY,27085,McLeod,mn
+COUNTY,47107,McMinn,tn
+COUNTY,48311,McMullen,tx
+COUNTY,47109,McNairy,tn
+COUNTY,20113,McPherson,ks
+COUNTY,20119,Meade,ks
+COUNTY,21163,Meade,ky
+COUNTY,46093,Meade,sd
+COUNTY,37119,Mecklenburg,nc
+COUNTY,51117,Mecklenburg,va
+COUNTY,26107,Mecosta,mi
+COUNTY,39103,Medina,oh
+COUNTY,48325,Medina,tx
+COUNTY,27093,Meeker,mn
+COUNTY,39105,Meigs,oh
+COUNTY,47121,Meigs,tn
+COUNTY,46095,Mellette,sd
+COUNTY,,Memphrémagog,qc
+COUNTY,06045,Mendocino,ca
+COUNTY,26109,Menominee,mi
+COUNTY,06047,Merced,ca
+COUNTY,17131,Mercer,il
+COUNTY,21167,Mercer,ky
+COUNTY,29129,Mercer,mo
+COUNTY,38057,Mercer,nd
+COUNTY,34021,Mercer,nj
+COUNTY,39107,Mercer,oh
+COUNTY,42085,Mercer,pa
+COUNTY,54055,Mercer,wv
+COUNTY,13199,Meriwether,ga
+COUNTY,31121,Merrick,ne
+COUNTY,33013,Merrimack,nh
+COUNTY,08077,Mesa,co
+COUNTY,21169,Metcalfe,ky
+COUNTY,18103,Miami,in
+COUNTY,20121,Miami,ks
+COUNTY,39109,Miami,oh
+COUNTY,12086,Miami-Dade,fl
+COUNTY,09007,Middlesex,ct
+COUNTY,25017,Middlesex,ma
+COUNTY,34023,Middlesex,nj
+COUNTY,51119,Middlesex,va
+COUNTY,26111,Midland,mi
+COUNTY,48329,Midland,tx
+COUNTY,42087,Mifflin,pa
+COUNTY,48331,Milam,tx
+COUNTY,49027,Millard,ut
+COUNTY,27095,Mille Lacs,mn
+COUNTY,05091,Miller,ar
+COUNTY,13201,Miller,ga
+COUNTY,29131,Miller,mo
+COUNTY,19129,Mills,ia
+COUNTY,48333,Mills,tx
+COUNTY,55079,Milwaukee,wi
+COUNTY,46097,Miner,sd
+COUNTY,08079,Mineral,co
+COUNTY,30061,Mineral,mt
+COUNTY,32021,Mineral,nv
+COUNTY,54057,Mineral,wv
+COUNTY,54059,Mingo,wv
+COUNTY,16067,Minidoka,id
+COUNTY,46099,Minnehaha,sd
+COUNTY,05093,Mississippi,ar
+COUNTY,29133,Mississippi,mo
+COUNTY,30063,Missoula,mt
+COUNTY,13205,Mitchell,ga
+COUNTY,20123,Mitchell,ks
+COUNTY,37121,Mitchell,nc
+COUNTY,48335,Mitchell,tx
+COUNTY,01097,Mobile,al
+COUNTY,06049,Modoc,ca
+COUNTY,08081,Moffat,co
+COUNTY,04015,Mohave,az
+COUNTY,29135,Moniteau,mo
+COUNTY,34025,Monmouth,nj
+COUNTY,06051,Mono,ca
+COUNTY,19133,Monona,ia
+COUNTY,54061,Monongalia,wv
+COUNTY,01099,Monroe,al
+COUNTY,05095,Monroe,ar
+COUNTY,12087,Monroe,fl
+COUNTY,13207,Monroe,ga
+COUNTY,19135,Monroe,ia
+COUNTY,17133,Monroe,il
+COUNTY,18105,Monroe,in
+COUNTY,26115,Monroe,mi
+COUNTY,29137,Monroe,mo
+COUNTY,28095,Monroe,ms
+COUNTY,36055,Monroe,ny
+COUNTY,39111,Monroe,oh
+COUNTY,42089,Monroe,pa
+COUNTY,47123,Monroe,tn
+COUNTY,55081,Monroe,wi
+COUNTY,54063,Monroe,wv
+COUNTY,48337,Montague,tx
+COUNTY,26117,Montcalm,mi
+COUNTY,06053,Monterey,ca
+COUNTY,08083,Montezuma,co
+COUNTY,01101,Montgomery,al
+COUNTY,05097,Montgomery,ar
+COUNTY,13209,Montgomery,ga
+COUNTY,19137,Montgomery,ia
+COUNTY,17135,Montgomery,il
+COUNTY,18107,Montgomery,in
+COUNTY,20125,Montgomery,ks
+COUNTY,21173,Montgomery,ky
+COUNTY,24031,Montgomery,md
+COUNTY,29139,Montgomery,mo
+COUNTY,28097,Montgomery,ms
+COUNTY,37123,Montgomery,nc
+COUNTY,36057,Montgomery,ny
+COUNTY,39113,Montgomery,oh
+COUNTY,42091,Montgomery,pa
+COUNTY,47125,Montgomery,tn
+COUNTY,48339,Montgomery,tx
+COUNTY,51121,Montgomery,va
+COUNTY,26119,Montmorency,mi
+COUNTY,42093,Montour,pa
+COUNTY,08085,Montrose,co
+COUNTY,46101,Moody,sd
+COUNTY,37125,Moore,nc
+COUNTY,47127,Moore,tn
+COUNTY,48341,Moore,tx
+COUNTY,35033,Mora,nm
+COUNTY,22067,Morehouse,la
+COUNTY,01103,Morgan,al
+COUNTY,08087,Morgan,co
+COUNTY,13211,Morgan,ga
+COUNTY,17137,Morgan,il
+COUNTY,18109,Morgan,in
+COUNTY,21175,Morgan,ky
+COUNTY,29141,Morgan,mo
+COUNTY,47129,Morgan,tn
+COUNTY,49029,Morgan,ut
+COUNTY,54065,Morgan,wv
+COUNTY,31123,Morrill,ne
+COUNTY,20127,Morris,ks
+COUNTY,34027,Morris,nj
+COUNTY,48343,Morris,tx
+COUNTY,27097,Morrison,mn
+COUNTY,39117,Morrow,oh
+COUNTY,41049,Morrow,or
+COUNTY,38059,Morton,nd
+COUNTY,17139,Moultrie,il
+COUNTY,38061,Mountrail,nd
+COUNTY,27099,Mower,mn
+COUNTY,21177,Muhlenberg,ky
+COUNTY,41051,Multnomah,or
+COUNTY,13213,Murray,ga
+COUNTY,27101,Murray,mn
+COUNTY,40099,Murray,ok
+COUNTY,19139,Muscatine,ia
+COUNTY,13215,Muscogee,ga
+COUNTY,26121,Muskegon,mi
+COUNTY,39119,Muskingum,oh
+COUNTY,40101,Muskogee,ok
+COUNTY,30065,Musselshell,mt
+COUNTY,48347,Nacogdoches,tx
+COUNTY,06055,Napa,ca
+COUNTY,37127,Nash,nc
+COUNTY,12089,Nassau,fl
+COUNTY,36059,Nassau,ny
+COUNTY,22069,Natchitoches,la
+COUNTY,56025,Natrona,wy
+COUNTY,04017,Navajo,az
+COUNTY,48349,Navarro,tx
+COUNTY,21179,Nelson,ky
+COUNTY,38063,Nelson,nd
+COUNTY,51125,Nelson,va
+COUNTY,20131,Nemaha,ks
+COUNTY,31127,Nemaha,ne
+COUNTY,20133,Neosho,ks
+COUNTY,05099,Nevada,ar
+COUNTY,06057,Nevada,ca
+COUNTY,45071,Newberry,sc
+COUNTY,10003,New Castle,de
+COUNTY,37129,New Hanover,nc
+COUNTY,09009,New Haven,ct
+COUNTY,51127,New Kent,va
+COUNTY,09011,New London,ct
+COUNTY,29143,New Madrid,mo
+COUNTY,44005,Newport,ri
+COUNTY,51700,Newport News,va
+COUNTY,05101,Newton,ar
+COUNTY,13217,Newton,ga
+COUNTY,18111,Newton,in
+COUNTY,29145,Newton,mo
+COUNTY,28101,Newton,ms
+COUNTY,48351,Newton,tx
+COUNTY,36061,New York,ny
+COUNTY,16069,Nez Perce,id
+COUNTY,36063,Niagara,ny
+COUNTY,88026,Niagara,on
+COUNTY,21181,Nicholas,ky
+COUNTY,54067,Nicholas,wv
+COUNTY,27103,Nicollet,mn
+COUNTY,56027,Niobrara,wy
+COUNTY,18113,Noble,in
+COUNTY,39121,Noble,oh
+COUNTY,40103,Noble,ok
+COUNTY,27105,Nobles,mn
+COUNTY,29147,Nodaway,mo
+COUNTY,48353,Nolan,tx
+COUNTY,25021,Norfolk,ma
+COUNTY,51710,Norfolk,va
+COUNTY,37131,Northampton,nc
+COUNTY,42095,Northampton,pa
+COUNTY,51131,Northampton,va
+COUNTY,42097,Northumberland,pa
+COUNTY,51133,Northumberland,va
+COUNTY,20137,Norton,ks
+COUNTY,51720,Norton,va
+COUNTY,51135,Nottoway,va
+COUNTY,40105,Nowata,ok
+COUNTY,28103,Noxubee,ms
+COUNTY,48355,Nueces,tx
+COUNTY,32023,Nye,nv
+COUNTY,26125,Oakland,mi
+COUNTY,47131,Obion,tn
+COUNTY,19141,O'Brien,ia
+COUNTY,34029,Ocean,nj
+COUNTY,26127,Oceana,mi
+COUNTY,13219,Oconee,ga
+COUNTY,45073,Oconee,sc
+COUNTY,55083,Oconto,wi
+COUNTY,26129,Ogemaw,mi
+COUNTY,,Oglala Lakota,sd
+COUNTY,17141,Ogle,il
+COUNTY,13221,Oglethorpe,ga
+COUNTY,18115,Ohio,in
+COUNTY,21183,Ohio,ky
+COUNTY,54069,Ohio,wv
+COUNTY,12091,Okaloosa,fl
+COUNTY,53047,Okanogan,wa
+COUNTY,12093,Okeechobee,fl
+COUNTY,40107,Okfuskee,ok
+COUNTY,40109,Oklahoma,ok
+COUNTY,40111,Okmulgee,ok
+COUNTY,28105,Oktibbeha,ms
+COUNTY,21185,Oldham,ky
+COUNTY,48359,Oldham,tx
+COUNTY,38065,Oliver,nd
+COUNTY,27109,Olmsted,mn
+COUNTY,16071,Oneida,id
+COUNTY,36065,Oneida,ny
+COUNTY,55085,Oneida,wi
+COUNTY,36067,Onondaga,ny
+COUNTY,37133,Onslow,nc
+COUNTY,36069,Ontario,ny
+COUNTY,26131,Ontonagon,mi
+COUNTY,06059,Orange,ca
+COUNTY,12095,Orange,fl
+COUNTY,18117,Orange,in
+COUNTY,37135,Orange,nc
+COUNTY,36071,Orange,ny
+COUNTY,48361,Orange,tx
+COUNTY,51137,Orange,va
+COUNTY,50017,Orange,vt
+COUNTY,45075,Orangeburg,sc
+COUNTY,29149,Oregon,mo
+COUNTY,22071,Orleans,la
+COUNTY,36073,Orleans,ny
+COUNTY,50019,Orleans,vt
+COUNTY,20139,Osage,ks
+COUNTY,29151,Osage,mo
+COUNTY,40113,Osage,ok
+COUNTY,20141,Osborne,ks
+COUNTY,12097,Osceola,fl
+COUNTY,19143,Osceola,ia
+COUNTY,26133,Osceola,mi
+COUNTY,26135,Oscoda,mi
+COUNTY,36075,Oswego,ny
+COUNTY,08089,Otero,co
+COUNTY,35035,Otero,nm
+COUNTY,31131,Otoe,ne
+COUNTY,26137,Otsego,mi
+COUNTY,36077,Otsego,ny
+COUNTY,20143,Ottawa,ks
+COUNTY,26139,Ottawa,mi
+COUNTY,39123,Ottawa,oh
+COUNTY,40115,Ottawa,ok
+COUNTY,27111,Otter Tail,mn
+COUNTY,05103,Ouachita,ar
+COUNTY,22073,Ouachita,la
+COUNTY,08091,Ouray,co
+COUNTY,55087,Outagamie,wi
+COUNTY,47133,Overton,tn
+COUNTY,18119,Owen,in
+COUNTY,16073,Owyhee,id
+COUNTY,23017,Oxford,me
+COUNTY,55089,Ozaukee,wi
+COUNTY,53049,Pacific,wa
+COUNTY,19145,Page,ia
+COUNTY,51139,Page,va
+COUNTY,12099,Palm Beach,fl
+COUNTY,19147,Palo Alto,ia
+COUNTY,48363,Palo Pinto,tx
+COUNTY,28107,Panola,ms
+COUNTY,48365,Panola,tx
+COUNTY,08093,Park,co
+COUNTY,30067,Park,mt
+COUNTY,56029,Park,wy
+COUNTY,18121,Parke,in
+COUNTY,48367,Parker,tx
+COUNTY,48369,Parmer,tx
+COUNTY,12101,Pasco,fl
+COUNTY,37139,Pasquotank,nc
+COUNTY,34031,Passaic,nj
+COUNTY,51141,Patrick,va
+COUNTY,13223,Paulding,ga
+COUNTY,39125,Paulding,oh
+COUNTY,20145,Pawnee,ks
+COUNTY,40117,Pawnee,ok
+COUNTY,16075,Payette,id
+COUNTY,40119,Payne,ok
+COUNTY,13225,Peach,ga
+COUNTY,28109,Pearl River,ms
+COUNTY,48371,Pecos,tx
+COUNTY,38067,Pembina,nd
+COUNTY,29155,Pemiscot,mo
+COUNTY,37141,Pender,nc
+COUNTY,21191,Pendleton,ky
+COUNTY,54071,Pendleton,wv
+COUNTY,53051,Pend Oreille,wa
+COUNTY,27113,Pennington,mn
+COUNTY,46103,Pennington,sd
+COUNTY,23019,Penobscot,me
+COUNTY,17143,Peoria,il
+COUNTY,55091,Pepin,wi
+COUNTY,46105,Perkins,sd
+COUNTY,37143,Perquimans,nc
+COUNTY,01105,Perry,al
+COUNTY,05105,Perry,ar
+COUNTY,17145,Perry,il
+COUNTY,18123,Perry,in
+COUNTY,21193,Perry,ky
+COUNTY,29157,Perry,mo
+COUNTY,28111,Perry,ms
+COUNTY,39127,Perry,oh
+COUNTY,42099,Perry,pa
+COUNTY,47135,Perry,tn
+COUNTY,32027,Pershing,nv
+COUNTY,37145,Person,nc
+COUNTY,51730,Petersburg,va
+COUNTY,30069,Petroleum,mt
+COUNTY,29159,Pettis,mo
+COUNTY,29161,Phelps,mo
+COUNTY,31137,Phelps,ne
+COUNTY,42101,Philadelphia,pa
+COUNTY,05107,Phillips,ar
+COUNTY,08095,Phillips,co
+COUNTY,20147,Phillips,ks
+COUNTY,30071,Phillips,mt
+COUNTY,17147,Piatt,il
+COUNTY,39129,Pickaway,oh
+COUNTY,01107,Pickens,al
+COUNTY,13227,Pickens,ga
+COUNTY,45077,Pickens,sc
+COUNTY,47137,Pickett,tn
+COUNTY,13229,Pierce,ga
+COUNTY,38069,Pierce,nd
+COUNTY,31139,Pierce,ne
+COUNTY,53053,Pierce,wa
+COUNTY,55093,Pierce,wi
+COUNTY,01109,Pike,al
+COUNTY,13231,Pike,ga
+COUNTY,17149,Pike,il
+COUNTY,18125,Pike,in
+COUNTY,21195,Pike,ky
+COUNTY,29163,Pike,mo
+COUNTY,28113,Pike,ms
+COUNTY,39131,Pike,oh
+COUNTY,42103,Pike,pa
+COUNTY,04019,Pima,az
+COUNTY,04021,Pinal,az
+COUNTY,27115,Pine,mn
+COUNTY,12103,Pinellas,fl
+COUNTY,27117,Pipestone,mn
+COUNTY,08097,Pitkin,co
+COUNTY,37147,Pitt,nc
+COUNTY,40121,Pittsburg,ok
+COUNTY,51143,Pittsylvania,va
+COUNTY,49031,Piute,ut
+COUNTY,06061,Placer,ca
+COUNTY,22075,Plaquemines,la
+COUNTY,29165,Platte,mo
+COUNTY,31141,Platte,ne
+COUNTY,56031,Platte,wy
+COUNTY,54073,Pleasants,wv
+COUNTY,19149,Plymouth,ia
+COUNTY,25023,Plymouth,ma
+COUNTY,19151,Pocahontas,ia
+COUNTY,54075,Pocahontas,wv
+COUNTY,05111,Poinsett,ar
+COUNTY,22077,Pointe Coupee,la
+COUNTY,05113,Polk,ar
+COUNTY,12105,Polk,fl
+COUNTY,13233,Polk,ga
+COUNTY,19153,Polk,ia
+COUNTY,27119,Polk,mn
+COUNTY,29167,Polk,mo
+COUNTY,37149,Polk,nc
+COUNTY,31143,Polk,ne
+COUNTY,41053,Polk,or
+COUNTY,47139,Polk,tn
+COUNTY,48373,Polk,tx
+COUNTY,55095,Polk,wi
+COUNTY,30073,Pondera,mt
+COUNTY,28115,Pontotoc,ms
+COUNTY,40123,Pontotoc,ok
+COUNTY,05115,Pope,ar
+COUNTY,39133,Portage,oh
+COUNTY,55097,Portage,wi
+COUNTY,18127,Porter,in
+COUNTY,51740,Portsmouth,va
+COUNTY,18129,Posey,in
+COUNTY,20149,Pottawatomie,ks
+COUNTY,40125,Pottawatomie,ok
+COUNTY,19155,Pottawattamie,ia
+COUNTY,42105,Potter,pa
+COUNTY,46107,Potter,sd
+COUNTY,48375,Potter,tx
+COUNTY,30075,Powder River,mt
+COUNTY,21197,Powell,ky
+COUNTY,30077,Powell,mt
+COUNTY,16077,Power,id
+COUNTY,19157,Poweshiek,ia
+COUNTY,51145,Powhatan,va
+COUNTY,05117,Prairie,ar
+COUNTY,30079,Prairie,mt
+COUNTY,20151,Pratt,ks
+COUNTY,39135,Preble,oh
+COUNTY,28117,Prentiss,ms
+COUNTY,48377,Presidio,tx
+COUNTY,26141,Presque Isle,mi
+COUNTY,54077,Preston,wv
+COUNTY,55099,Price,wi
+COUNTY,51147,Prince Edward,va
+COUNTY,51149,Prince George,va
+COUNTY,24033,Prince George's,md
+COUNTY,51153,Prince William,va
+COUNTY,44007,Providence,ri
+COUNTY,08099,Prowers,co
+COUNTY,08101,Pueblo,co
+COUNTY,05119,Pulaski,ar
+COUNTY,13235,Pulaski,ga
+COUNTY,17153,Pulaski,il
+COUNTY,18131,Pulaski,in
+COUNTY,21199,Pulaski,ky
+COUNTY,29169,Pulaski,mo
+COUNTY,51155,Pulaski,va
+COUNTY,40127,Pushmataha,ok
+COUNTY,12107,Putnam,fl
+COUNTY,13237,Putnam,ga
+COUNTY,17155,Putnam,il
+COUNTY,18133,Putnam,in
+COUNTY,36079,Putnam,ny
+COUNTY,39137,Putnam,oh
+COUNTY,47141,Putnam,tn
+COUNTY,54079,Putnam,wv
+COUNTY,35037,Quay,nm
+COUNTY,24035,Queen Anne's,md
+COUNTY,36081,Queens,ny
+COUNTY,13239,Quitman,ga
+COUNTY,28119,Quitman,ms
+COUNTY,13241,Rabun,ga
+COUNTY,55101,Racine,wi
+COUNTY,51750,Radford,va
+COUNTY,48379,Rains,tx
+COUNTY,54081,Raleigh,wv
+COUNTY,29173,Ralls,mo
+COUNTY,27123,Ramsey,mn
+COUNTY,38071,Ramsey,nd
+COUNTY,48381,Randall,tx
+COUNTY,01111,Randolph,al
+COUNTY,05121,Randolph,ar
+COUNTY,13243,Randolph,ga
+COUNTY,17157,Randolph,il
+COUNTY,18135,Randolph,in
+COUNTY,29175,Randolph,mo
+COUNTY,37151,Randolph,nc
+COUNTY,54083,Randolph,wv
+COUNTY,28121,Rankin,ms
+COUNTY,38073,Ransom,nd
+COUNTY,22079,Rapides,la
+COUNTY,51157,Rappahannock,va
+COUNTY,30081,Ravalli,mt
+COUNTY,29177,Ray,mo
+COUNTY,27125,Red Lake,mn
+COUNTY,48387,Red River,tx
+COUNTY,31145,Red Willow,ne
+COUNTY,27127,Redwood,mn
+COUNTY,48389,Reeves,tx
+COUNTY,48391,Refugio,tx
+COUNTY,20155,Reno,ks
+COUNTY,36083,Rensselaer,ny
+COUNTY,27129,Renville,mn
+COUNTY,38075,Renville,nd
+COUNTY,20157,Republic,ks
+COUNTY,29179,Reynolds,mo
+COUNTY,47143,Rhea,tn
+COUNTY,20159,Rice,ks
+COUNTY,27131,Rice,mn
+COUNTY,49033,Rich,ut
+COUNTY,31147,Richardson,ne
+COUNTY,17159,Richland,il
+COUNTY,22083,Richland,la
+COUNTY,30083,Richland,mt
+COUNTY,38077,Richland,nd
+COUNTY,39139,Richland,oh
+COUNTY,45079,Richland,sc
+COUNTY,55103,Richland,wi
+COUNTY,13245,Richmond,ga
+COUNTY,37153,Richmond,nc
+COUNTY,36085,Richmond,ny
+COUNTY,,Richmond City,va
+COUNTY,,Richmond County,va
+COUNTY,20161,Riley,ks
+COUNTY,35039,Rio Arriba,nm
+COUNTY,08103,Rio Blanco,co
+COUNTY,08105,Rio Grande,co
+COUNTY,18137,Ripley,in
+COUNTY,54085,Ritchie,wv
+COUNTY,06065,Riverside,ca
+COUNTY,47145,Roane,tn
+COUNTY,54087,Roane,wv
+COUNTY,,Roanoke City,va
+COUNTY,,Roanoke County,va
+COUNTY,46109,Roberts,sd
+COUNTY,48393,Roberts,tx
+COUNTY,47147,Robertson,tn
+COUNTY,48395,Robertson,tx
+COUNTY,37155,Robeson,nc
+COUNTY,27133,Rock,mn
+COUNTY,31149,Rock,ne
+COUNTY,55105,Rock,wi
+COUNTY,51163,Rockbridge,va
+COUNTY,21203,Rockcastle,ky
+COUNTY,13247,Rockdale,ga
+COUNTY,37157,Rockingham,nc
+COUNTY,33015,Rockingham,nh
+COUNTY,51165,Rockingham,va
+COUNTY,17161,Rock Island,il
+COUNTY,36087,Rockland,ny
+COUNTY,48397,Rockwall,tx
+COUNTY,40131,Rogers,ok
+COUNTY,38079,Rolette,nd
+COUNTY,20163,Rooks,ks
+COUNTY,30085,Roosevelt,mt
+COUNTY,35041,Roosevelt,nm
+COUNTY,26143,Roscommon,mi
+COUNTY,27135,Roseau,mn
+COUNTY,30087,Rosebud,mt
+COUNTY,39141,Ross,oh
+COUNTY,08107,Routt,co
+COUNTY,21205,Rowan,ky
+COUNTY,37159,Rowan,nc
+COUNTY,48399,Runnels,tx
+COUNTY,18139,Rush,in
+COUNTY,20165,Rush,ks
+COUNTY,48401,Rusk,tx
+COUNTY,55107,Rusk,wi
+COUNTY,01113,Russell,al
+COUNTY,20167,Russell,ks
+COUNTY,21207,Russell,ky
+COUNTY,51167,Russell,va
+COUNTY,37161,Rutherford,nc
+COUNTY,47149,Rutherford,tn
+COUNTY,50021,Rutland,vt
+COUNTY,22085,Sabine,la
+COUNTY,48403,Sabine,tx
+COUNTY,19161,Sac,ia
+COUNTY,06067,Sacramento,ca
+COUNTY,23023,Sagadahoc,me
+COUNTY,26145,Saginaw,mi
+COUNTY,08109,Saguache,co
+COUNTY,34033,Salem,nj
+COUNTY,51775,Salem,va
+COUNTY,05125,Saline,ar
+COUNTY,17165,Saline,il
+COUNTY,20169,Saline,ks
+COUNTY,29195,Saline,mo
+COUNTY,49035,Salt Lake,ut
+COUNTY,45081,Saluda,sc
+COUNTY,37163,Sampson,nc
+COUNTY,48405,San Augustine,tx
+COUNTY,06069,San Benito,ca
+COUNTY,06071,San Bernardino,ca
+COUNTY,46111,Sanborn,sd
+COUNTY,06073,San Diego,ca
+COUNTY,35043,Sandoval,nm
+COUNTY,39143,Sandusky,oh
+COUNTY,06075,San Francisco,ca
+COUNTY,17167,Sangamon,il
+COUNTY,26151,Sanilac,mi
+COUNTY,48407,San Jacinto,tx
+COUNTY,06077,San Joaquin,ca
+COUNTY,08111,San Juan,co
+COUNTY,35045,San Juan,nm
+COUNTY,49037,San Juan,ut
+COUNTY,06079,San Luis Obispo,ca
+COUNTY,06081,San Mateo,ca
+COUNTY,08113,San Miguel,co
+COUNTY,35047,San Miguel,nm
+COUNTY,48409,San Patricio,tx
+COUNTY,49039,Sanpete,ut
+COUNTY,48411,San Saba,tx
+COUNTY,06083,Santa Barbara,ca
+COUNTY,06085,Santa Clara,ca
+COUNTY,04023,Santa Cruz,az
+COUNTY,06087,Santa Cruz,ca
+COUNTY,35049,Santa Fe,nm
+COUNTY,12113,Santa Rosa,fl
+COUNTY,12115,Sarasota,fl
+COUNTY,36091,Saratoga,ny
+COUNTY,38081,Sargent,nd
+COUNTY,31153,Sarpy,ne
+COUNTY,55111,Sauk,wi
+COUNTY,31155,Saunders,ne
+COUNTY,55113,Sawyer,wi
+COUNTY,36093,Schenectady,ny
+COUNTY,48413,Schleicher,tx
+COUNTY,13249,Schley,ga
+COUNTY,36095,Schoharie,ny
+COUNTY,26153,Schoolcraft,mi
+COUNTY,17169,Schuyler,il
+COUNTY,29197,Schuyler,mo
+COUNTY,36097,Schuyler,ny
+COUNTY,42107,Schuylkill,pa
+COUNTY,39145,Scioto,oh
+COUNTY,37165,Scotland,nc
+COUNTY,05127,Scott,ar
+COUNTY,19163,Scott,ia
+COUNTY,17171,Scott,il
+COUNTY,18143,Scott,in
+COUNTY,20171,Scott,ks
+COUNTY,21209,Scott,ky
+COUNTY,27139,Scott,mn
+COUNTY,29201,Scott,mo
+COUNTY,28123,Scott,ms
+COUNTY,47151,Scott,tn
+COUNTY,51169,Scott,va
+COUNTY,31157,Scotts Bluff,ne
+COUNTY,13251,Screven,ga
+COUNTY,48415,Scurry,tx
+COUNTY,05129,Searcy,ar
+COUNTY,05131,Sebastian,ar
+COUNTY,08115,Sedgwick,co
+COUNTY,20173,Sedgwick,ks
+COUNTY,12117,Seminole,fl
+COUNTY,13253,Seminole,ga
+COUNTY,40133,Seminole,ok
+COUNTY,36099,Seneca,ny
+COUNTY,39147,Seneca,oh
+COUNTY,47153,Sequatchie,tn
+COUNTY,40135,Sequoyah,ok
+COUNTY,05133,Sevier,ar
+COUNTY,47155,Sevier,tn
+COUNTY,49041,Sevier,ut
+COUNTY,20175,Seward,ks
+COUNTY,31159,Seward,ne
+COUNTY,29203,Shannon,mo
+COUNTY,28125,Sharkey,ms
+COUNTY,05135,Sharp,ar
+COUNTY,06089,Shasta,ca
+COUNTY,55115,Shawano,wi
+COUNTY,20177,Shawnee,ks
+COUNTY,55117,Sheboygan,wi
+COUNTY,01117,Shelby,al
+COUNTY,19165,Shelby,ia
+COUNTY,17173,Shelby,il
+COUNTY,18145,Shelby,in
+COUNTY,21211,Shelby,ky
+COUNTY,29205,Shelby,mo
+COUNTY,39149,Shelby,oh
+COUNTY,47157,Shelby,tn
+COUNTY,48419,Shelby,tx
+COUNTY,51171,Shenandoah,va
+COUNTY,27141,Sherburne,mn
+COUNTY,20179,Sheridan,ks
+COUNTY,30091,Sheridan,mt
+COUNTY,38083,Sheridan,nd
+COUNTY,31161,Sheridan,ne
+COUNTY,56033,Sheridan,wy
+COUNTY,20181,Sherman,ks
+COUNTY,31163,Sherman,ne
+COUNTY,41055,Sherman,or
+COUNTY,48421,Sherman,tx
+COUNTY,26155,Shiawassee,mi
+COUNTY,16079,Shoshone,id
+COUNTY,27143,Sibley,mn
+COUNTY,06091,Sierra,ca
+COUNTY,35051,Sierra,nm
+COUNTY,30093,Silver Bow,mt
+COUNTY,21213,Simpson,ky
+COUNTY,28127,Simpson,ms
+COUNTY,19167,Sioux,ia
+COUNTY,31165,Sioux,ne
+COUNTY,06093,Siskiyou,ca
+COUNTY,53057,Skagit,wa
+COUNTY,02230,Skagway,ak
+COUNTY,53059,Skamania,wa
+COUNTY,38087,Slope,nd
+COUNTY,20183,Smith,ks
+COUNTY,47159,Smith,tn
+COUNTY,48423,Smith,tx
+COUNTY,51173,Smyth,va
+COUNTY,53061,Snohomish,wa
+COUNTY,42109,Snyder,pa
+COUNTY,35053,Socorro,nm
+COUNTY,06095,Solano,ca
+COUNTY,24039,Somerset,md
+COUNTY,23025,Somerset,me
+COUNTY,34035,Somerset,nj
+COUNTY,42111,Somerset,pa
+COUNTY,48425,Somervell,tx
+COUNTY,06097,Sonoma,ca
+COUNTY,51175,Southampton,va
+COUNTY,,Southeast Fairbanks,ak
+COUNTY,13255,Spalding,ga
+COUNTY,45083,Spartanburg,sc
+COUNTY,18147,Spencer,in
+COUNTY,46115,Spink,sd
+COUNTY,53063,Spokane,wa
+COUNTY,51177,Spotsylvania,va
+COUNTY,20185,Stafford,ks
+COUNTY,51179,Stafford,va
+COUNTY,06099,Stanislaus,ca
+COUNTY,46117,Stanley,sd
+COUNTY,37167,Stanly,nc
+COUNTY,31167,Stanton,ne
+COUNTY,38089,Stark,nd
+COUNTY,39151,Stark,oh
+COUNTY,18149,Starke,in
+COUNTY,48427,Starr,tx
+COUNTY,51790,Staunton,va
+COUNTY,22087,St. Bernard,la
+COUNTY,22089,St. Charles,la
+COUNTY,29183,St. Charles,mo
+COUNTY,01115,St. Clair,al
+COUNTY,17163,St. Clair,il
+COUNTY,26147,St. Clair,mi
+COUNTY,29185,St. Clair,mo
+COUNTY,55109,St. Croix,wi
+COUNTY,27145,Stearns,mn
+COUNTY,27147,Steele,mn
+COUNTY,38091,Steele,nd
+COUNTY,,Ste Genevieve,mo
+COUNTY,13257,Stephens,ga
+COUNTY,40137,Stephens,ok
+COUNTY,17177,Stephenson,il
+COUNTY,48431,Sterling,tx
+COUNTY,18151,Steuben,in
+COUNTY,36101,Steuben,ny
+COUNTY,27149,Stevens,mn
+COUNTY,53065,Stevens,wa
+COUNTY,13259,Stewart,ga
+COUNTY,47161,Stewart,tn
+COUNTY,05123,St. Francis,ar
+COUNTY,29187,St. Francois,mo
+COUNTY,30095,Stillwater,mt
+COUNTY,22093,St. James,la
+COUNTY,12109,St. Johns,fl
+COUNTY,22095,St. John the Baptist,la
+COUNTY,18141,St. Joseph,in
+COUNTY,26149,St. Joseph,mi
+COUNTY,22097,St. Landry,la
+COUNTY,36089,St. Lawrence,ny
+COUNTY,27137,St. Louis,mn
+COUNTY,,St. Louis City,mo
+COUNTY,,St. Louis County,mo
+COUNTY,12111,St. Lucie,fl
+COUNTY,22099,St. Martin,la
+COUNTY,22101,St. Mary,la
+COUNTY,24037,St. Mary's,md
+COUNTY,29207,Stoddard,mo
+COUNTY,37169,Stokes,nc
+COUNTY,29209,Stone,mo
+COUNTY,28131,Stone,ms
+COUNTY,32029,Storey,nv
+COUNTY,19169,Story,ia
+COUNTY,33017,Strafford,nh
+COUNTY,22103,St. Tammany,la
+COUNTY,38093,Stutsman,nd
+COUNTY,56035,Sublette,wy
+COUNTY,25025,Suffolk,ma
+COUNTY,36103,Suffolk,ny
+COUNTY,51800,Suffolk,va
+COUNTY,18153,Sullivan,in
+COUNTY,29211,Sullivan,mo
+COUNTY,33019,Sullivan,nh
+COUNTY,36105,Sullivan,ny
+COUNTY,47163,Sullivan,tn
+COUNTY,46119,Sully,sd
+COUNTY,54089,Summers,wv
+COUNTY,08117,Summit,co
+COUNTY,39153,Summit,oh
+COUNTY,49043,Summit,ut
+COUNTY,20191,Sumner,ks
+COUNTY,47165,Sumner,tn
+COUNTY,01119,Sumter,al
+COUNTY,12119,Sumter,fl
+COUNTY,13261,Sumter,ga
+COUNTY,45085,Sumter,sc
+COUNTY,28133,Sunflower,ms
+COUNTY,37171,Surry,nc
+COUNTY,42115,Susquehanna,pa
+COUNTY,10005,Sussex,de
+COUNTY,34037,Sussex,nj
+COUNTY,51183,Sussex,va
+COUNTY,06101,Sutter,ca
+COUNTY,48435,Sutton,tx
+COUNTY,12121,Suwannee,fl
+COUNTY,37173,Swain,nc
+COUNTY,30097,Sweet Grass,mt
+COUNTY,56037,Sweetwater,wy
+COUNTY,27151,Swift,mn
+COUNTY,48437,Swisher,tx
+COUNTY,13263,Talbot,ga
+COUNTY,24041,Talbot,md
+COUNTY,13265,Taliaferro,ga
+COUNTY,01121,Talladega,al
+COUNTY,01123,Tallapoosa,al
+COUNTY,19171,Tama,ia
+COUNTY,29213,Taney,mo
+COUNTY,22105,Tangipahoa,la
+COUNTY,35055,Taos,nm
+COUNTY,48439,Tarrant,tx
+COUNTY,28137,Tate,ms
+COUNTY,13267,Tattnall,ga
+COUNTY,12123,Taylor,fl
+COUNTY,13269,Taylor,ga
+COUNTY,21217,Taylor,ky
+COUNTY,48441,Taylor,tx
+COUNTY,55119,Taylor,wi
+COUNTY,17179,Tazewell,il
+COUNTY,51185,Tazewell,va
+COUNTY,06103,Tehama,ca
+COUNTY,13271,Telfair,ga
+COUNTY,08119,Teller,co
+COUNTY,22107,Tensas,la
+COUNTY,22109,Terrebonne,la
+COUNTY,13273,Terrell,ga
+COUNTY,48443,Terrell,tx
+COUNTY,48445,Terry,tx
+COUNTY,30099,Teton,mt
+COUNTY,56039,Teton,wy
+COUNTY,29215,Texas,mo
+COUNTY,40139,Texas,ok
+COUNTY,31169,Thayer,ne
+COUNTY,13275,Thomas,ga
+COUNTY,20193,Thomas,ks
+COUNTY,31171,Thomas,ne
+COUNTY,31173,Thurston,ne
+COUNTY,53067,Thurston,wa
+COUNTY,13277,Tift,ga
+COUNTY,41057,Tillamook,or
+COUNTY,40141,Tillman,ok
+COUNTY,36107,Tioga,ny
+COUNTY,42117,Tioga,pa
+COUNTY,28139,Tippah,ms
+COUNTY,18157,Tippecanoe,in
+COUNTY,18159,Tipton,in
+COUNTY,47167,Tipton,tn
+COUNTY,28141,Tishomingo,ms
+COUNTY,48449,Titus,tx
+COUNTY,21219,Todd,ky
+COUNTY,27153,Todd,mn
+COUNTY,46121,Todd,sd
+COUNTY,09013,Tolland,ct
+COUNTY,48451,Tom Green,tx
+COUNTY,36109,Tompkins,ny
+COUNTY,49045,Tooele,ut
+COUNTY,30101,Toole,mt
+COUNTY,13279,Toombs,ga
+COUNTY,35057,Torrance,nm
+COUNTY,38095,Towner,nd
+COUNTY,13281,Towns,ga
+COUNTY,38097,Traill,nd
+COUNTY,48453,Travis,tx
+COUNTY,30103,Treasure,mt
+COUNTY,20195,Trego,ks
+COUNTY,55121,Trempealeau,wi
+COUNTY,13283,Treutlen,ga
+COUNTY,21221,Trigg,ky
+COUNTY,21223,Trimble,ky
+COUNTY,06105,Trinity,ca
+COUNTY,46123,Tripp,sd
+COUNTY,13285,Troup,ga
+COUNTY,47169,Trousdale,tn
+COUNTY,39155,Trumbull,oh
+COUNTY,54093,Tucker,wv
+COUNTY,06107,Tulare,ca
+COUNTY,40143,Tulsa,ok
+COUNTY,28143,Tunica,ms
+COUNTY,06109,Tuolumne,ca
+COUNTY,13287,Turner,ga
+COUNTY,46125,Turner,sd
+COUNTY,01125,Tuscaloosa,al
+COUNTY,39157,Tuscarawas,oh
+COUNTY,26157,Tuscola,mi
+COUNTY,13289,Twiggs,ga
+COUNTY,16083,Twin Falls,id
+COUNTY,48457,Tyler,tx
+COUNTY,54095,Tyler,wv
+COUNTY,37177,Tyrrell,nc
+COUNTY,56041,Uinta,wy
+COUNTY,49047,Uintah,ut
+COUNTY,36111,Ulster,ny
+COUNTY,41059,Umatilla,or
+COUNTY,47171,Unicoi,tn
+COUNTY,05139,Union,ar
+COUNTY,13291,Union,ga
+COUNTY,19175,Union,ia
+COUNTY,17181,Union,il
+COUNTY,18161,Union,in
+COUNTY,22111,Union,la
+COUNTY,28145,Union,ms
+COUNTY,37179,Union,nc
+COUNTY,34039,Union,nj
+COUNTY,35059,Union,nm
+COUNTY,39159,Union,oh
+COUNTY,41061,Union,or
+COUNTY,42119,Union,pa
+COUNTY,45087,Union,sc
+COUNTY,46127,Union,sd
+COUNTY,48459,Upshur,tx
+COUNTY,54097,Upshur,wv
+COUNTY,13293,Upson,ga
+COUNTY,48461,Upton,tx
+COUNTY,49049,Utah,ut
+COUNTY,48463,Uvalde,tx
+COUNTY,,Valdez-Cordova,ak
+COUNTY,35061,Valencia,nm
+COUNTY,16085,Valley,id
+COUNTY,30105,Valley,mt
+COUNTY,48465,Val Verde,tx
+COUNTY,05141,Van Buren,ar
+COUNTY,26159,Van Buren,mi
+COUNTY,47175,Van Buren,tn
+COUNTY,37181,Vance,nc
+COUNTY,18163,Vanderburgh,in
+COUNTY,39161,Van Wert,oh
+COUNTY,48467,Van Zandt,tx
+COUNTY,42121,Venango,pa
+COUNTY,06111,Ventura,ca
+COUNTY,17183,Vermilion,il
+COUNTY,22113,Vermilion,la
+COUNTY,18165,Vermillion,in
+COUNTY,22115,Vernon,la
+COUNTY,29217,Vernon,mo
+COUNTY,55123,Vernon,wi
+COUNTY,48469,Victoria,tx
+COUNTY,18167,Vigo,in
+COUNTY,55125,Vilas,wi
+COUNTY,39163,Vinton,oh
+COUNTY,51810,Virginia Beach,va
+COUNTY,12127,Volusia,fl
+COUNTY,17185,Wabash,il
+COUNTY,18169,Wabash,in
+COUNTY,27157,Wabasha,mn
+COUNTY,20197,Wabaunsee,ks
+COUNTY,27159,Wadena,mn
+COUNTY,40145,Wagoner,ok
+COUNTY,53069,Wahkiakum,wa
+COUNTY,37183,Wake,nc
+COUNTY,12129,Wakulla,fl
+COUNTY,23027,Waldo,me
+COUNTY,01127,Walker,al
+COUNTY,13295,Walker,ga
+COUNTY,48471,Walker,tx
+COUNTY,53071,Walla Walla,wa
+COUNTY,48473,Waller,tx
+COUNTY,41063,Wallowa,or
+COUNTY,38099,Walsh,nd
+COUNTY,28147,Walthall,ms
+COUNTY,12131,Walton,fl
+COUNTY,13297,Walton,ga
+COUNTY,46129,Walworth,sd
+COUNTY,55127,Walworth,wi
+COUNTY,19179,Wapello,ia
+COUNTY,38101,Ward,nd
+COUNTY,48475,Ward,tx
+COUNTY,13299,Ware,ga
+COUNTY,13301,Warren,ga
+COUNTY,19181,Warren,ia
+COUNTY,17187,Warren,il
+COUNTY,18171,Warren,in
+COUNTY,21227,Warren,ky
+COUNTY,29219,Warren,mo
+COUNTY,28149,Warren,ms
+COUNTY,37185,Warren,nc
+COUNTY,34041,Warren,nj
+COUNTY,36113,Warren,ny
+COUNTY,39165,Warren,oh
+COUNTY,42123,Warren,pa
+COUNTY,47177,Warren,tn
+COUNTY,51187,Warren,va
+COUNTY,18173,Warrick,in
+COUNTY,49051,Wasatch,ut
+COUNTY,41065,Wasco,or
+COUNTY,27161,Waseca,mn
+COUNTY,56043,Washakie,wy
+COUNTY,55129,Washburn,wi
+COUNTY,01129,Washington,al
+COUNTY,05143,Washington,ar
+COUNTY,08121,Washington,co
+COUNTY,12133,Washington,fl
+COUNTY,13303,Washington,ga
+COUNTY,19183,Washington,ia
+COUNTY,16087,Washington,id
+COUNTY,17189,Washington,il
+COUNTY,20201,Washington,ks
+COUNTY,21229,Washington,ky
+COUNTY,22117,Washington,la
+COUNTY,24043,Washington,md
+COUNTY,23029,Washington,me
+COUNTY,27163,Washington,mn
+COUNTY,29221,Washington,mo
+COUNTY,28151,Washington,ms
+COUNTY,37187,Washington,nc
+COUNTY,31177,Washington,ne
+COUNTY,36115,Washington,ny
+COUNTY,39167,Washington,oh
+COUNTY,40147,Washington,ok
+COUNTY,41067,Washington,or
+COUNTY,42125,Washington,pa
+COUNTY,44009,Washington,ri
+COUNTY,47179,Washington,tn
+COUNTY,48477,Washington,tx
+COUNTY,49053,Washington,ut
+COUNTY,51191,Washington,va
+COUNTY,50023,Washington,vt
+COUNTY,55131,Washington,wi
+COUNTY,40149,Washita,ok
+COUNTY,32031,Washoe,nv
+COUNTY,26161,Washtenaw,mi
+COUNTY,37189,Watauga,nc
+COUNTY,27165,Watonwan,mn
+COUNTY,55133,Waukesha,wi
+COUNTY,55135,Waupaca,wi
+COUNTY,55137,Waushara,wi
+COUNTY,13305,Wayne,ga
+COUNTY,19185,Wayne,ia
+COUNTY,17191,Wayne,il
+COUNTY,18177,Wayne,in
+COUNTY,26163,Wayne,mi
+COUNTY,29223,Wayne,mo
+COUNTY,28153,Wayne,ms
+COUNTY,37191,Wayne,nc
+COUNTY,31179,Wayne,ne
+COUNTY,36117,Wayne,ny
+COUNTY,39169,Wayne,oh
+COUNTY,42127,Wayne,pa
+COUNTY,47181,Wayne,tn
+COUNTY,49055,Wayne,ut
+COUNTY,54099,Wayne,wv
+COUNTY,51820,Waynesboro,va
+COUNTY,47183,Weakley,tn
+COUNTY,48479,Webb,tx
+COUNTY,49057,Weber,ut
+COUNTY,13307,Webster,ga
+COUNTY,19187,Webster,ia
+COUNTY,21233,Webster,ky
+COUNTY,22119,Webster,la
+COUNTY,29225,Webster,mo
+COUNTY,28155,Webster,ms
+COUNTY,08123,Weld,co
+COUNTY,38103,Wells,nd
+COUNTY,22121,West Baton Rouge,la
+COUNTY,36119,Westchester,ny
+COUNTY,22125,West Feliciana,la
+COUNTY,42129,Westmoreland,pa
+COUNTY,56045,Weston,wy
+COUNTY,54103,Wetzel,wv
+COUNTY,26165,Wexford,mi
+COUNTY,48481,Wharton,tx
+COUNTY,53073,Whatcom,wa
+COUNTY,30107,Wheatland,mt
+COUNTY,13309,Wheeler,ga
+COUNTY,31183,Wheeler,ne
+COUNTY,41069,Wheeler,or
+COUNTY,48483,Wheeler,tx
+COUNTY,05145,White,ar
+COUNTY,13311,White,ga
+COUNTY,17193,White,il
+COUNTY,18181,White,in
+COUNTY,47185,White,tn
+COUNTY,32033,White Pine,nv
+COUNTY,17195,Whiteside,il
+COUNTY,13313,Whitfield,ga
+COUNTY,18183,Whitley,in
+COUNTY,21235,Whitley,ky
+COUNTY,53075,Whitman,wa
+COUNTY,30109,Wibaux,mt
+COUNTY,48485,Wichita,tx
+COUNTY,24045,Wicomico,md
+COUNTY,48487,Wilbarger,tx
+COUNTY,01131,Wilcox,al
+COUNTY,13315,Wilcox,ga
+COUNTY,13317,Wilkes,ga
+COUNTY,37193,Wilkes,nc
+COUNTY,27167,Wilkin,mn
+COUNTY,13319,Wilkinson,ga
+COUNTY,28157,Wilkinson,ms
+COUNTY,17197,Will,il
+COUNTY,48489,Willacy,tx
+COUNTY,38105,Williams,nd
+COUNTY,39171,Williams,oh
+COUNTY,45089,Williamsburg,sc
+COUNTY,51830,Williamsburg,va
+COUNTY,17199,Williamson,il
+COUNTY,47187,Williamson,tn
+COUNTY,48491,Williamson,tx
+COUNTY,20205,Wilson,ks
+COUNTY,37195,Wilson,nc
+COUNTY,47189,Wilson,tn
+COUNTY,48493,Wilson,tx
+COUNTY,51840,Winchester,va
+COUNTY,09015,Windham,ct
+COUNTY,50025,Windham,vt
+COUNTY,50027,Windsor,vt
+COUNTY,22127,Winn,la
+COUNTY,17201,Winnebago,il
+COUNTY,55139,Winnebago,wi
+COUNTY,19191,Winneshiek,ia
+COUNTY,27169,Winona,mn
+COUNTY,01133,Winston,al
+COUNTY,28159,Winston,ms
+COUNTY,48497,Wise,tx
+COUNTY,51195,Wise,va
+COUNTY,21237,Wolfe,ky
+COUNTY,39173,Wood,oh
+COUNTY,48499,Wood,tx
+COUNTY,55141,Wood,wi
+COUNTY,54107,Wood,wv
+COUNTY,19193,Woodbury,ia
+COUNTY,17203,Woodford,il
+COUNTY,21239,Woodford,ky
+COUNTY,20207,Woodson,ks
+COUNTY,40153,Woodward,ok
+COUNTY,25027,Worcester,ma
+COUNTY,24047,Worcester,md
+COUNTY,13321,Worth,ga
+COUNTY,19195,Worth,ia
+COUNTY,19197,Wright,ia
+COUNTY,27171,Wright,mn
+COUNTY,29229,Wright,mo
+COUNTY,39175,Wyandot,oh
+COUNTY,20209,Wyandotte,ks
+COUNTY,36121,Wyoming,ny
+COUNTY,42131,Wyoming,pa
+COUNTY,54109,Wyoming,wv
+COUNTY,51197,Wythe,va
+COUNTY,37197,Yadkin,nc
+COUNTY,53077,Yakima,wa
+COUNTY,28161,Yalobusha,ms
+COUNTY,41071,Yamhill,or
+COUNTY,37199,Yancey,nc
+COUNTY,46135,Yankton,sd
+COUNTY,36123,Yates,ny
+COUNTY,04025,Yavapai,az
+COUNTY,28163,Yazoo,ms
+COUNTY,05149,Yell,ar
+COUNTY,27173,Yellow Medicine,mn
+COUNTY,30111,Yellowstone,mt
+COUNTY,06113,Yolo,ca
+COUNTY,23031,York,me
+COUNTY,31185,York,ne
+COUNTY,42133,York,pa
+COUNTY,45091,York,sc
+COUNTY,51199,York,va
+COUNTY,48503,Young,tx
+COUNTY,06115,Yuba,ca
+COUNTY,,Yukon-Koyukuk,ak
+COUNTY,04027,Yuma,az
+COUNTY,08125,Yuma,co
+COUNTY,48505,Zapata,tx
+COUNTY,48507,Zavala,tx
+COUNTY,46137,Ziebach,sd
+UA,00037,"Abbeville, LA",la
+UA,00064,"Abbeville, SC",sc
+UA,00118,"Aberdeen, MS",ms
+UA,00145,"Aberdeen, SD",sd
+UA,00172,"Aberdeen, WA",wa
+UA,00199,"Aberdeen--Bel Air South--Bel Air North, MD",md
+UA,00226,"Abernathy, TX",tx
+UA,00253,"Abilene, KS",ks
+UA,00280,"Abilene, TX",tx
+UA,00415,"Ada, OK",ok
+UA,00469,"Adel, GA",ga
+UA,00577,"Adrian, MI",mi
+UA,00658,"Ahoskie, NC",nc
+UA,00766,"Akron, OH",oh
+UA,00793,"Alachua, FL",fl
+UA,00820,"Alamogordo, NM",nm
+UA,00847,"Alamosa, CO",co
+UA,00901,"Albany, GA",ga
+UA,00921,"Albany, MN",mn
+UA,00955,"Albany, OR",or
+UA,00970,"Albany--Schenectady, NY",ny
+UA,00982,"Albemarle, NC",nc
+UA,01009,"Albert Lea, MN",mn
+UA,01036,"Albertville, AL",al
+UA,01063,"Albia, IA",ia
+UA,01090,"Albion, MI",mi
+UA,01171,"Albuquerque, NM",nm
+UA,01252,"Alexander City, AL",al
+UA,01279,"Alexandria, LA",la
+UA,01306,"Alexandria, MN",mn
+UA,01414,"Alice, TX",tx
+UA,01441,"Allegan, MI",mi
+UA,01468,"Allendale, SC",sc
+UA,01495,"Allentown, PA--NJ",nj
+UA,01495,"Allentown, PA--NJ",pa
+UA,01522,"Alliance, NE",ne
+UA,01549,"Alliance, OH",oh
+UA,01603,"Alma, GA",ga
+UA,01630,"Alma--St. Louis, MI",mi
+UA,01657,"Almont, MI",mi
+UA,01684,"Alpena, MI",mi
+UA,01711,"Alpine, TX",tx
+UA,01738,"Altavista, VA",va
+UA,01765,"Alton, IL--MO",il
+UA,01792,"Altoona, PA",pa
+UA,01900,"Alvarado, TX",tx
+UA,01927,"Amarillo, TX",tx
+UA,02008,"Americus, GA",ga
+UA,02062,"Ames, IA",ia
+UA,02116,"Amite City, LA",la
+UA,02224,"Anacortes, WA",wa
+UA,02305,"Anchorage, AK",ak
+UA,02332,"Anchorage Northeast, AK",ak
+UA,02359,"Andalusia, AL",al
+UA,02386,"Anderson, IN",in
+UA,02413,"Anderson, SC",sc
+UA,02440,"Andrews, SC",sc
+UA,02467,"Andrews, TX",tx
+UA,02494,"Angels, CA",ca
+UA,02548,"Angola, IN",in
+UA,02575,"Anna, IL",il
+UA,02602,"Ann Arbor, MI",mi
+UA,02629,"Anniston--Oxford, AL",al
+UA,02656,"Antigo, WI",wi
+UA,02683,"Antioch, CA",ca
+UA,02710,"Apalachicola, FL",fl
+UA,02764,"Appleton, WI",wi
+UA,02791,"Arab, AL",al
+UA,02825,"Arbuckle, CA",ca
+UA,02912,"Arcadia--Southeast Arcadia, FL",fl
+UA,02926,"Arcata--McKinleyville, CA",ca
+UA,03007,"Ardmore, OK",ok
+UA,03142,"Arkansas City, KS",ks
+UA,03158,"Arlington, TN",tn
+UA,03196,"Arroyo Grande--Grover Beach, CA",ca
+UA,03223,"Artesia, NM",nm
+UA,03277,"Ashburn, GA",ga
+UA,03331,"Asheboro, NC",nc
+UA,03358,"Asheville, NC",nc
+UA,03365,"Ashland, MO",mo
+UA,03385,"Ashland, OH",oh
+UA,03395,"Ashland, PA",pa
+UA,03412,"Ashland, WI",wi
+UA,03466,"Ashtabula, OH",oh
+UA,03547,"Astoria, OR",or
+UA,03601,"Atchison, KS--MO",ks
+UA,03655,"Athens, AL",al
+UA,03682,"Athens, OH",oh
+UA,03709,"Athens, TN",tn
+UA,03736,"Athens, TX",tx
+UA,03763,"Athens-Clarke County, GA",ga
+UA,03790,"Athol, MA",ma
+UA,03817,"Atlanta, GA",ga
+UA,03844,"Atlanta, TX",tx
+UA,03898,"Atlantic City, NJ",nj
+UA,03957,"Atoka, TN",tn
+UA,04033,"Auburn, AL",al
+UA,04060,"Auburn, IN",in
+UA,04130,"Auburn--North Auburn, CA",ca
+UA,04168,"Augusta, KS",ks
+UA,04195,"Augusta, ME",me
+UA,04222,"Augusta-Richmond County, GA--SC",ga
+UA,04222,"Augusta-Richmond County, GA--SC",sc
+UA,04330,"Au Sable, MI",mi
+UA,04357,"Austin, MN",mn
+UA,04384,"Austin, TX",tx
+UA,04549,"Avondale--Goodyear, AZ",az
+UA,04587,"Aztec, NM",nm
+UA,04600,"Bad Axe, MI",mi
+UA,04627,"Bainbridge, GA",ga
+UA,04654,"Baker City, OR",or
+UA,04681,"Bakersfield, CA",ca
+UA,04708,"Bald Knob, AR",ar
+UA,04762,"Baldwin, WI",wi
+UA,04816,"Ballinger, TX",tx
+UA,04843,"Baltimore, MD",md
+UA,04897,"Bamberg, SC",sc
+UA,04924,"Bandon, OR",or
+UA,04951,"Bangor, ME",me
+UA,05005,"Baraboo, WI",wi
+UA,05032,"Barbourville, KY",ky
+UA,05167,"Barnstable Town, MA",ma
+UA,05221,"Barre--Montpelier, VT",vt
+UA,05248,"Barron, WI",wi
+UA,05302,"Barstow, CA",ca
+UA,05329,"Bartlesville, OK",ok
+UA,05437,"Bastrop, LA",la
+UA,05464,"Bastrop, TX",tx
+UA,05545,"Batesville, AR",ar
+UA,05572,"Batesville, IN",in
+UA,05599,"Batesville, MS",ms
+UA,05680,"Baton Rouge, LA",la
+UA,05707,"Battle Creek, MI",mi
+UA,05761,"Battle Mountain, NV",nv
+UA,05788,"Baxley, GA",ga
+UA,05815,"Baxter Springs, KS",ks
+UA,05842,"Bayard, NM",nm
+UA,05869,"Bay City, MI",mi
+UA,05923,"Bay Minette, AL",al
+UA,05958,"Bealeton, VA",va
+UA,06004,"Beatrice, NE",ne
+UA,06031,"Beaufort--Port Royal, SC",sc
+UA,06058,"Beaumont, TX",tx
+UA,06112,"Beaver Dam, WI",wi
+UA,06128,"Becker, MN",mn
+UA,06139,"Beckley, WV",wv
+UA,06166,"Bedford, IN",in
+UA,06193,"Bedford, PA",pa
+UA,06220,"Bedford, VA",va
+UA,06274,"Beeville, TX",tx
+UA,06355,"Belfast, ME",me
+UA,06382,"Belgrade, MT",mt
+UA,06436,"Bellefontaine, OH",oh
+UA,06490,"Belle Fourche, SD",sd
+UA,06517,"Belle Glade, FL",fl
+UA,06571,"Belle Plaine, MN",mn
+UA,06625,"Bellevue, OH",oh
+UA,06652,"Bellingham, WA",wa
+UA,06692,"Bells, TN",tn
+UA,06706,"Bellville, TX",tx
+UA,06760,"Beloit, WI--IL",il
+UA,06760,"Beloit, WI--IL",wi
+UA,06779,"Belton, SC",sc
+UA,06787,"Belvidere, NJ--PA",nj
+UA,06814,"Belzoni, MS",ms
+UA,06841,"Bemidji, MN",mn
+UA,06868,"Bend, OR",or
+UA,06895,"Bennettsville, SC",sc
+UA,06922,"Bennington, VT",vt
+UA,06949,"Benson, AZ",az
+UA,06976,"Benson, MN",mn
+UA,07003,"Benson, NC",nc
+UA,07030,"Benton, IL",il
+UA,07057,"Benton, KY",ky
+UA,07084,"Benton, LA",la
+UA,07138,"Benton Harbor--St. Joseph--Fair Plain, MI",mi
+UA,07165,"Berea, KY",ky
+UA,07192,"Berlin, NH",nh
+UA,07508,"Big Bear City, CA",ca
+UA,07624,"Big Rapids, MI",mi
+UA,07651,"Big Spring, TX",tx
+UA,07678,"Big Stone Gap, VA",va
+UA,07705,"Billings, MT",mt
+UA,07732,"Binghamton, NY--PA",ny
+UA,07732,"Binghamton, NY--PA",pa
+UA,07759,"Birch Bay, WA",wa
+UA,07786,"Birmingham, AL",al
+UA,07840,"Bishop, CA",ca
+UA,07867,"Bishop, TX",tx
+UA,07921,"Bismarck, ND",nd
+UA,07948,"Blackfoot, ID",id
+UA,07975,"Black River Falls, WI",wi
+UA,08002,"Blacksburg, VA",va
+UA,08029,"Blackshear, GA",ga
+UA,08137,"Blair, NE",ne
+UA,08164,"Blairsville, PA",pa
+UA,08191,"Blakely, GA",ga
+UA,08353,"Bloomfield, NM",nm
+UA,08380,"Bloomington, IN",in
+UA,08407,"Bloomington--Normal, IL",il
+UA,08434,"Bloomsburg--Berwick, PA",pa
+UA,08461,"Blountstown, FL",fl
+UA,08488,"Blue Earth, MN",mn
+UA,08515,"Bluefield, WV--VA",va
+UA,08515,"Bluefield, WV--VA",wv
+UA,08623,"Blythe, CA--AZ",az
+UA,08623,"Blythe, CA--AZ",ca
+UA,08650,"Blytheville, AR",ar
+UA,08677,"Boardman, OR",or
+UA,08704,"Boerne, TX",tx
+UA,08731,"Bogalusa, LA",la
+UA,08749,"Boiling Spring Lakes, NC",nc
+UA,08785,"Boise City, ID",id
+UA,08812,"Bolivar, MO",mo
+UA,08866,"Bolivar, TN",tn
+UA,08920,"Bonham, TX",tx
+UA,08974,"Bonita Springs, FL",fl
+UA,09028,"Boone, IA",ia
+UA,09055,"Boone, NC",nc
+UA,09109,"Booneville, MS",ms
+UA,09271,"Boston, MA--NH--RI",ma
+UA,09271,"Boston, MA--NH--RI",nh
+UA,09298,"Boulder, CO",co
+UA,09325,"Boulder City, NV",nv
+UA,09352,"Bowie, TX",tx
+UA,09379,"Bowling Green, KY",ky
+UA,09406,"Bowling Green, MO",mo
+UA,09433,"Bowling Green, OH",oh
+UA,09514,"Bozeman, MT",mt
+UA,09532,"Brackettville, TX",tx
+UA,09541,"Bradford, PA--NY",pa
+UA,09568,"Brady, TX",tx
+UA,09600,"Braidwood--Coal City--Wilmington, IL",il
+UA,09622,"Brainerd, MN",mn
+UA,09649,"Brandon, SD",sd
+UA,09676,"Branson, MO",mo
+UA,09703,"Brattleboro, VT--NH",vt
+UA,09730,"Brawley, CA",ca
+UA,09801,"Breaux Bridge, LA",la
+UA,09811,"Breckenridge, CO",co
+UA,09892,"Bremen, GA",ga
+UA,09946,"Bremerton, WA",wa
+UA,09973,"Brenham, TX",tx
+UA,10000,"Brent, AL",al
+UA,10081,"Brewton, AL",al
+UA,10135,"Bridgeport, TX",tx
+UA,10162,"Bridgeport--Stamford, CT--NY",ct
+UA,10162,"Bridgeport--Stamford, CT--NY",ny
+UA,10189,"Bridgeton, NJ",nj
+UA,10198,"Bridgeville, DE",de
+UA,10324,"Brinkley, AR",ar
+UA,10351,"Bristol--Bristol, TN--VA",tn
+UA,10351,"Bristol--Bristol, TN--VA",va
+UA,10405,"Broadway, VA",va
+UA,10459,"Brodhead, WI",wi
+UA,10513,"Broken Bow, NE",ne
+UA,10540,"Broken Bow, OK",ok
+UA,10567,"Brookfield, MO",mo
+UA,10594,"Brookhaven, MS",ms
+UA,10621,"Brookings, OR",or
+UA,10648,"Brookings, SD",sd
+UA,10702,"Brookshire, TX",tx
+UA,10810,"Brookville, PA",pa
+UA,10837,"Brownfield, TX",tx
+UA,10891,"Browns Mills--Fort Dix, NJ",nj
+UA,10918,"Brownstown, IN",in
+UA,10972,"Brownsville, TX",tx
+UA,10999,"Brownwood, TX",tx
+UA,11026,"Brunswick, GA",ga
+UA,11040,"Brunswick, ME",me
+UA,11053,"Brunswick, MD--VA",md
+UA,11107,"Bryan, OH",oh
+UA,11134,"Buckeye, AZ",az
+UA,11161,"Buckhannon, WV",wv
+UA,11215,"Bucyrus, OH",oh
+UA,11296,"Buffalo, MN",mn
+UA,11323,"Buffalo, MO",mo
+UA,11350,"Buffalo, NY",ny
+UA,11377,"Buffalo, WY",wy
+UA,11431,"Bullhead City, AZ--NV",az
+UA,11593,"Burkburnett, TX",tx
+UA,11620,"Burley, ID",id
+UA,11647,"Burlington, CO",co
+UA,11674,"Burlington, IA--IL",ia
+UA,11728,"Burlington, NC",nc
+UA,11755,"Burlington, VT",vt
+UA,11782,"Burlington, WI",wi
+UA,11809,"Burnet, TX",tx
+UA,11890,"Bushnell, FL",fl
+UA,11998,"Butler, PA",pa
+UA,12025,"Butner, NC",nc
+UA,12052,"Butte-Silver Bow, MT",mt
+UA,12079,"Byron, IL",il
+UA,12106,"Byron, MN",mn
+UA,12160,"Cadillac, MI",mi
+UA,12187,"Cadiz, KY",ky
+UA,12241,"Cairo, GA",ga
+UA,12268,"Cairo, IL",il
+UA,12322,"Caldwell, OH",oh
+UA,12349,"Caldwell, TX",tx
+UA,12457,"Calhoun, GA",ga
+UA,12565,"California City, CA",ca
+UA,12754,"Camarillo, CA",ca
+UA,12808,"Cambridge, MD",md
+UA,12835,"Cambridge, MN",mn
+UA,12862,"Cambridge, OH",oh
+UA,12872,"Cambridge, WI",wi
+UA,12916,"Camden, AR",ar
+UA,12943,"Camden, ME",me
+UA,12970,"Camden, SC",sc
+UA,13024,"Camdenton, MO",mo
+UA,13051,"Cameron, MO",mo
+UA,13132,"Camilla, GA",ga
+UA,13159,"Campbellsville, KY",ky
+UA,13170,"Camp Verde, AZ",az
+UA,13240,"Cannon Falls, MN",mn
+UA,13267,"Cañon City, CO",co
+UA,13321,"Canton, MS",ms
+UA,13375,"Canton, OH",oh
+UA,13429,"Canton, TX",tx
+UA,13456,"Canyon, TX",tx
+UA,13510,"Cape Coral, FL",fl
+UA,13537,"Cape Girardeau, MO--IL",mo
+UA,13591,"Carbondale, IL",il
+UA,13645,"Caribou, ME",me
+UA,13753,"Carlisle, IA",ia
+UA,13807,"Carlsbad, NM",nm
+UA,13834,"Carlyle, IL",il
+UA,13969,"Carrizo Springs, TX",tx
+UA,13996,"Carroll, IA",ia
+UA,14023,"Carrollton, GA",ga
+UA,14077,"Carrollton, MO",mo
+UA,14158,"Carson City, NV",nv
+UA,14185,"Cartersville, GA",ga
+UA,14266,"Carthage, MO",mo
+UA,14347,"Carthage, TX",tx
+UA,14401,"Casa Grande, AZ",az
+UA,14482,"Casper, WY",wy
+UA,14536,"Cassville, MO",mo
+UA,14570,"Castle Rock, WA",wa
+UA,14698,"Cedar City, UT",ut
+UA,14752,"Cedar Rapids, IA",ia
+UA,14806,"Cedartown, GA",ga
+UA,14860,"Celina, OH",oh
+UA,14887,"Center, TX",tx
+UA,14995,"Central City--Greenville, KY",ky
+UA,15022,"Centralia, IL",il
+UA,15076,"Centralia, WA",wa
+UA,15103,"Century, FL--AL",fl
+UA,15130,"Chadron, NE",ne
+UA,15184,"Chambersburg, PA",pa
+UA,15211,"Champaign, IL",il
+UA,15319,"Chardon, OH",oh
+UA,15346,"Chariton, IA",ia
+UA,15400,"Charleston, IL",il
+UA,15481,"Charleston, WV",wv
+UA,15508,"Charleston--North Charleston, SC",sc
+UA,15589,"Charlestown, RI",ri
+UA,15600,"Charles Town--Ranson, WV",wv
+UA,15643,"Charlotte, MI",mi
+UA,15670,"Charlotte, NC--SC",nc
+UA,15670,"Charlotte, NC--SC",sc
+UA,15724,"Charlottesville, VA",va
+UA,15769,"Chatfield, MN",mn
+UA,15832,"Chattanooga, TN--GA",ga
+UA,15832,"Chattanooga, TN--GA",tn
+UA,15859,"Cheboygan, MI",mi
+UA,15940,"Chelsea, MI",mi
+UA,15994,"Cheraw, SC",sc
+UA,16048,"Cherokee Village, AR",ar
+UA,16102,"Chesapeake Beach, MD",md
+UA,16156,"Chester, IL",il
+UA,16183,"Chester, SC",sc
+UA,16237,"Cheyenne, WY",wy
+UA,16264,"Chicago, IL--IN",il
+UA,16264,"Chicago, IL--IN",in
+UA,16291,"Chickasha, OK",ok
+UA,16318,"Chico, CA",ca
+UA,16372,"Childress, TX",tx
+UA,16426,"Chillicothe, MO",mo
+UA,16453,"Chillicothe, OH",oh
+UA,16480,"Chilton, WI",wi
+UA,16561,"Chino Valley, AZ",az
+UA,16588,"Chipley, FL",fl
+UA,16615,"Chisholm, MN",mn
+UA,16696,"Chowchilla, CA",ca
+UA,16885,"Cincinnati, OH--KY--IN",ky
+UA,16885,"Cincinnati, OH--KY--IN",oh
+UA,16912,"Circleville, OH",oh
+UA,17074,"Clare, MI",mi
+UA,17101,"Claremont, NH",nh
+UA,17128,"Claremore, OK",ok
+UA,17155,"Clarinda, IA",ia
+UA,17209,"Clarion, PA",pa
+UA,17236,"Clarksburg, WV",wv
+UA,17263,"Clarksdale, MS",ms
+UA,17290,"Clarksville, AR",ar
+UA,17317,"Clarksville, TN--KY",tn
+UA,17344,"Clarksville, TX",tx
+UA,17371,"Claxton, GA",ga
+UA,17420,"Clayton, GA",ga
+UA,17452,"Clearfield, PA",pa
+UA,17479,"Clearlake, CA",ca
+UA,17506,"Clear Lake, IA",ia
+UA,17533,"Cleburne, TX",tx
+UA,17560,"Cle Elum, WA",wa
+UA,17625,"Cleveland, GA",ga
+UA,17641,"Cleveland, MS",ms
+UA,17668,"Cleveland, OH",oh
+UA,17722,"Cleveland, TN",tn
+UA,17749,"Cleveland, TX",tx
+UA,17857,"Clifton Forge, VA",va
+UA,17884,"Clinton, IL",il
+UA,17938,"Clinton, IA--IL",ia
+UA,17938,"Clinton, IA--IL",il
+UA,17965,"Clinton, MO",mo
+UA,17992,"Clinton, NC",nc
+UA,18019,"Clinton, OK",ok
+UA,18046,"Clinton, SC",sc
+UA,18100,"Clintonville, WI",wi
+UA,18127,"Cloquet, MN",mn
+UA,18181,"Cloverdale, CA",ca
+UA,18208,"Clovis, NM",nm
+UA,18262,"Clyde, TX",tx
+UA,18397,"Cody, WY",wy
+UA,18424,"Coeburn, VA",va
+UA,18451,"Coeur d'Alene, ID",id
+UA,18505,"Cokato, MN",mn
+UA,18532,"Colby, KS",ks
+UA,18559,"Colchester, CT",ct
+UA,18667,"Coldwater, MI",mi
+UA,18694,"Coleman, TX",tx
+UA,18712,"Colfax, CA",ca
+UA,18721,"Colfax, WA",wa
+UA,18748,"College Station--Bryan, TX",tx
+UA,18760,"Collinsville, OK",ok
+UA,18856,"Colorado Springs, CO",co
+UA,18910,"Columbia, MS",ms
+UA,18937,"Columbia, MO",mo
+UA,18964,"Columbia, SC",sc
+UA,18991,"Columbia, TN",tn
+UA,19018,"Columbia City, IN",in
+UA,19099,"Columbus, GA--AL",al
+UA,19099,"Columbus, GA--AL",ga
+UA,19126,"Columbus, IN",in
+UA,19180,"Columbus, MS",ms
+UA,19207,"Columbus, NE",ne
+UA,19234,"Columbus, OH",oh
+UA,19261,"Columbus, TX",tx
+UA,19288,"Columbus, WI",wi
+UA,19342,"Colusa, CA",ca
+UA,19396,"Comanche, TX",tx
+UA,19450,"Commerce, GA",ga
+UA,19504,"Concord, CA",ca
+UA,19531,"Concord, NH",nh
+UA,19558,"Concord, NC",nc
+UA,19585,"Concordia, KS",ks
+UA,19693,"Connersville, IN",in
+UA,19755,"Conroe--The Woodlands, TX",tx
+UA,19801,"Conway, AR",ar
+UA,19828,"Cookeville, TN",tn
+UA,19936,"Coos Bay, OR",or
+UA,20071,"Cordele, GA",ga
+UA,20098,"Corinth, MS",ms
+UA,20152,"Cornelia--Baldwin, GA",ga
+UA,20179,"Corning, AR",ar
+UA,20206,"Corning, CA",ca
+UA,20287,"Corpus Christi, TX",tx
+UA,20314,"Corry, PA",pa
+UA,20341,"Corsicana, TX",tx
+UA,20368,"Cortez, CO",co
+UA,20422,"Corvallis, OR",or
+UA,20476,"Coshocton, OH",oh
+UA,20503,"Cottage Grove, OR",or
+UA,20584,"Cottonwood, CA",ca
+UA,20595,"Cottonwood--Verde Village, AZ",az
+UA,20611,"Cotulla, TX",tx
+UA,20719,"Covington, TN",tn
+UA,20746,"Covington, VA",va
+UA,20827,"Craig, CO",co
+UA,20881,"Crawfordsville, IN",in
+UA,20890,"Crawfordville, FL",fl
+UA,20908,"Crescent City, CA",ca
+UA,20935,"Crescent City, FL",fl
+UA,20980,"Cresson, PA",pa
+UA,21016,"Creston, IA",ia
+UA,21043,"Crestview, FL",fl
+UA,21070,"Creswell, OR",or
+UA,21124,"Crewe, VA",va
+UA,21178,"Crittenden, KY",ky
+UA,21232,"Crookston, MN",mn
+UA,21394,"Crossville, TN",tn
+UA,21421,"Crowley, LA",la
+UA,21529,"Crystal River, FL",fl
+UA,21583,"Cuba, MO",mo
+UA,21610,"Cuero, TX",tx
+UA,21637,"Cullman, AL",al
+UA,21664,"Cullowhee, NC",nc
+UA,21691,"Culpeper, VA",va
+UA,21718,"Cumberland, KY",ky
+UA,21745,"Cumberland, MD--WV--PA",md
+UA,21826,"Cuthbert, GA",ga
+UA,21928,"Dahlgren, VA--MD",md
+UA,21934,"Dahlonega, GA",ga
+UA,21988,"Dalhart, TX",tx
+UA,22042,"Dallas--Fort Worth--Arlington, TX",tx
+UA,22069,"Dalton, GA",ga
+UA,22079,"Dalton, OH",oh
+UA,22096,"Danbury, CT--NY",ct
+UA,22110,"Dandridge, TN",tn
+UA,22204,"Danville, IL",il
+UA,22231,"Danville, KY",ky
+UA,22253,"Danville, VA--NC",va
+UA,22285,"Daphne--Fairhope, AL",al
+UA,22366,"Davenport, IA--IL",ia
+UA,22366,"Davenport, IA--IL",il
+UA,22420,"Davis, CA",ca
+UA,22427,"Davis, OK",ok
+UA,22447,"Dawson, GA",ga
+UA,22501,"Dayton, NV",nv
+UA,22528,"Dayton, OH",oh
+UA,22555,"Dayton, TN",tn
+UA,22690,"Decatur, AL",al
+UA,22717,"Decatur, IL",il
+UA,22744,"Decatur, IN",in
+UA,22771,"Decatur, TX",tx
+UA,22798,"Decorah, IA",ia
+UA,22879,"Defiance, OH",oh
+UA,22933,"De Funiak Springs, FL",fl
+UA,22960,"DeKalb, IL",il
+UA,22987,"Delano, CA",ca
+UA,22995,"Delano, MN",mn
+UA,23041,"Delavan, WI",wi
+UA,23095,"Delhi, LA",la
+UA,23203,"Del Rio, TX",tx
+UA,23230,"Delta, CO",co
+UA,23284,"Delta, UT",ut
+UA,23311,"Deltona, FL",fl
+UA,23338,"Deming, NM",nm
+UA,23365,"Demopolis, AL",al
+UA,23419,"Denison, IA",ia
+UA,23473,"Denton, MD",md
+UA,23500,"Denton--Lewisville, TX",tx
+UA,23513,"Denton Southwest, TX",tx
+UA,23527,"Denver--Aurora, CO",co
+UA,23608,"De Queen, AR",ar
+UA,23662,"DeRidder, LA",la
+UA,23743,"Des Moines, IA",ia
+UA,23797,"De Soto, MO",mo
+UA,23824,"Detroit, MI",mi
+UA,23851,"Detroit Lakes, MN",mn
+UA,23878,"Devils Lake, ND",nd
+UA,23959,"DeWitt, AR",ar
+UA,24013,"Dexter, MO",mo
+UA,24067,"Diboll, TX",tx
+UA,24094,"Dickinson, ND",nd
+UA,24121,"Dickson, TN",tn
+UA,24148,"Dilley, TX",tx
+UA,24175,"Dillon, MT",mt
+UA,24202,"Dillon, SC",sc
+UA,24283,"Dixon, CA",ca
+UA,24310,"Dixon, IL",il
+UA,24337,"Dodge City, KS",ks
+UA,24364,"Dodgeville, WI",wi
+UA,24391,"Donaldsonville, LA",la
+UA,24418,"Donalsonville, GA",ga
+UA,24472,"Dothan, AL",al
+UA,24499,"Douglas, AZ",az
+UA,24526,"Douglas, GA",ga
+UA,24539,"Douglas, MI",mi
+UA,24553,"Douglas, WY",wy
+UA,24580,"Dover, DE",de
+UA,24607,"Dover--Rochester, NH--ME",nh
+UA,24715,"Dublin, GA",ga
+UA,24769,"Dublin, TX",tx
+UA,24796,"DuBois, PA",pa
+UA,24823,"Dubuque, IA--IL",ia
+UA,24850,"Duluth, MN--WI",mn
+UA,24850,"Duluth, MN--WI",wi
+UA,24877,"Dumas, AR",ar
+UA,24904,"Dumas, TX",tx
+UA,24931,"Duncan, OK",ok
+UA,25025,"Dunlap, TN",tn
+UA,25039,"Dunn, NC",nc
+UA,25147,"Durango, CO",co
+UA,25201,"Durant, OK",ok
+UA,25228,"Durham, NC",nc
+UA,25255,"Dwight, IL",il
+UA,25309,"Dyersburg, TN",tn
+UA,25336,"Dyersville, IA",ia
+UA,25363,"Eagar, AZ",az
+UA,25498,"Eagle Pass, TX",tx
+UA,25579,"Earlimart, CA",ca
+UA,25687,"East Liverpool, OH--WV--PA",oh
+UA,25687,"East Liverpool, OH--WV--PA",pa
+UA,25687,"East Liverpool, OH--WV--PA",wv
+UA,25714,"Eastman, GA",ga
+UA,25741,"Easton, MD",md
+UA,25849,"East Stroudsburg, PA--NJ",nj
+UA,25849,"East Stroudsburg, PA--NJ",pa
+UA,25876,"East Tawas, MI",mi
+UA,25903,"East Troy, WI",wi
+UA,25957,"Eaton, OH",oh
+UA,26011,"Eatonton, GA",ga
+UA,26038,"Eau Claire, WI",wi
+UA,26065,"Ebensburg, PA",pa
+UA,26119,"Edenton, NC",nc
+UA,26146,"Edgefield, SC",sc
+UA,26173,"Edgerton, WI",wi
+UA,26254,"Edna, TX",tx
+UA,26275,"Edwards, CO",co
+UA,26308,"Effingham, IL",il
+UA,26362,"Elberton, GA",ga
+UA,26389,"El Campo, TX",tx
+UA,26416,"El Centro--Calexico, CA",ca
+UA,26443,"Eldon, MO",mo
+UA,26470,"El Dorado, AR",ar
+UA,26497,"Eldorado, IL",il
+UA,26524,"El Dorado, KS",ks
+UA,26659,"Elgin, TX",tx
+UA,26686,"Elizabeth City, NC",nc
+UA,26750,"Elizabethtown--Radcliff, KY",ky
+UA,26794,"Elkhart, IN--MI",in
+UA,26821,"Elkhorn, WI",wi
+UA,26875,"Elkins, WV",wv
+UA,26902,"Elko, NV",nv
+UA,26956,"Elkton, VA",va
+UA,26983,"Ellensburg, WA",wa
+UA,27037,"Ellijay, GA",ga
+UA,27118,"Elmira, NY",ny
+UA,27226,"El Paso, IL",il
+UA,27253,"El Paso, TX--NM",tx
+UA,27261,"El Paso de Robles (Paso Robles)--Atascadero, CA",ca
+UA,27280,"El Reno, OK",ok
+UA,27300,"Elverson, PA",pa
+UA,27307,"Elwood, IN",in
+UA,27361,"Ely, NV",nv
+UA,27496,"Emmitsburg, MD--PA",md
+UA,27523,"Emporia, KS",ks
+UA,27550,"Emporia, VA",va
+UA,27604,"England, AR",ar
+UA,27631,"Enid, OK",ok
+UA,27658,"Ennis, TX",tx
+UA,27685,"Enterprise, AL",al
+UA,27750,"Epping, NH",nh
+UA,27766,"Erie, PA",pa
+UA,27793,"Erwin, TN",tn
+UA,27820,"Escalon, CA",ca
+UA,27847,"Escanaba, MI",mi
+UA,27874,"Espanola, NM",nm
+UA,27928,"Estes Park, CO",co
+UA,27955,"Estherville, IA",ia
+UA,28009,"Etowah, TN",tn
+UA,28063,"Eudora, KS",ks
+UA,28090,"Eufaula, AL--GA",al
+UA,28117,"Eugene, OR",or
+UA,28144,"Eunice, LA",la
+UA,28198,"Eureka, CA",ca
+UA,28262,"Eureka, MO",mo
+UA,28306,"Evanston, WY",wy
+UA,28333,"Evansville, IN--KY",in
+UA,28333,"Evansville, IN--KY",ky
+UA,28360,"Evansville, WI",wi
+UA,28441,"Evergreen, CO",co
+UA,28495,"Excelsior Springs, MO",mo
+UA,28549,"Fairbanks, AK",ak
+UA,28576,"Fairbury, IL",il
+UA,28603,"Fairbury, NE",ne
+UA,28657,"Fairfield, CA",ca
+UA,28684,"Fairfield, IL",il
+UA,28711,"Fairfield, IA",ia
+UA,28738,"Fairfield, TX",tx
+UA,28819,"Fair Haven, VT",vt
+UA,28846,"Fairmont, MN",mn
+UA,28873,"Fairmont, WV",wv
+UA,29008,"Falfurrias, TX",tx
+UA,29035,"Fallon, NV",nv
+UA,29062,"Falls City, NE",ne
+UA,29089,"Fargo, ND--MN",mn
+UA,29089,"Fargo, ND--MN",nd
+UA,29116,"Faribault, MN",mn
+UA,29143,"Farmersville, TX",tx
+UA,29251,"Farmington, MO",mo
+UA,29278,"Farmington, NM",nm
+UA,29305,"Farmville, NC",nc
+UA,29332,"Farmville, VA",va
+UA,29440,"Fayetteville, NC",nc
+UA,29467,"Fayetteville, TN",tn
+UA,29494,"Fayetteville--Springdale--Rogers, AR--MO",ar
+UA,29575,"Fergus Falls, MN",mn
+UA,29602,"Fernandina Beach, FL",fl
+UA,29656,"Fernley, NV",nv
+UA,29710,"Fillmore, CA",ca
+UA,29737,"Findlay, OH",oh
+UA,29775,"Firestone--Frederick, CO",co
+UA,29791,"Fitzgerald, GA",ga
+UA,29818,"Flagstaff, AZ",az
+UA,29872,"Flint, MI",mi
+UA,29953,"Florence, AL",al
+UA,30034,"Florence, OR",or
+UA,30061,"Florence, SC",sc
+UA,30088,"Floresville, TX",tx
+UA,30171,"Foley, AL",al
+UA,30196,"Folkston, GA",ga
+UA,30223,"Fond du Lac, WI",wi
+UA,30250,"Fordyce, AR",ar
+UA,30331,"Forest City, NC",nc
+UA,30439,"Forney, TX",tx
+UA,30493,"Forsyth, GA",ga
+UA,30547,"Fort Atkinson, WI",wi
+UA,30601,"Fort Branch, IN",in
+UA,30628,"Fort Collins, CO",co
+UA,30682,"Fort Dodge, IA",ia
+UA,30748,"Fort Leonard Wood, MO",mo
+UA,30755,"Fort Lupton, CO",co
+UA,30790,"Fort Meade, FL",fl
+UA,30817,"Fort Morgan, CO",co
+UA,30844,"Fort Payne, AL",al
+UA,30898,"Fort Scott, KS",ks
+UA,30925,"Fort Smith, AR--OK",ar
+UA,30925,"Fort Smith, AR--OK",ok
+UA,30952,"Fort Stockton, TX",tx
+UA,30979,"Fortuna, CA",ca
+UA,31033,"Fort Valley, GA",ga
+UA,31060,"Fort Walton Beach--Navarre--Wright, FL",fl
+UA,31087,"Fort Wayne, IN",in
+UA,31114,"Fostoria, OH",oh
+UA,31150,"Four Corners, FL",fl
+UA,31168,"Fowlerville, MI",mi
+UA,31249,"Frankfort, KY",ky
+UA,31330,"Franklin, NH",nh
+UA,31384,"Franklin, NC",nc
+UA,31411,"Franklin (Venango County), PA",pa
+UA,31438,"Franklin, VA",va
+UA,31450,"Franklin--Highland Lake, NJ",nj
+UA,31478,"Fraser, CO",co
+UA,31519,"Frederick, MD",md
+UA,31573,"Fredericksburg, TX",tx
+UA,31600,"Fredericksburg, VA",va
+UA,31627,"Fredericktown, MO",mo
+UA,31681,"Freeport, IL",il
+UA,31762,"Fremont, NE",ne
+UA,31789,"Fremont, OH",oh
+UA,31843,"Fresno, CA",ca
+UA,31924,"Front Royal, VA",va
+UA,31978,"Frostproof, FL",fl
+UA,32032,"Fulton, KY--TN",ky
+UA,32086,"Fulton, MO",mo
+UA,32113,"Gadsden, AL",al
+UA,32140,"Gaffney, SC",sc
+UA,32167,"Gainesville, FL",fl
+UA,32194,"Gainesville, GA",ga
+UA,32221,"Gainesville, TX",tx
+UA,32248,"Galax, VA",va
+UA,32329,"Galesburg, IL",il
+UA,32356,"Galion, OH",oh
+UA,32383,"Galliano--Larose--Cut Off, LA",la
+UA,32437,"Gallup, NM",nm
+UA,32451,"Galt, CA",ca
+UA,32491,"Galveston, TX",tx
+UA,32518,"Garden City, KS",ks
+UA,32572,"Gardnerville Ranchos, NV",nv
+UA,32626,"Garnett, KS",ks
+UA,32653,"Gastonia, NC--SC",nc
+UA,32734,"Gaylord, MI",mi
+UA,32761,"Geneseo, IL",il
+UA,32869,"Genoa, IL",il
+UA,32950,"Georgetown, DE",de
+UA,32977,"Georgetown, KY",ky
+UA,33031,"Georgetown, SC",sc
+UA,33166,"Gibson City, IL",il
+UA,33193,"Giddings, TX",tx
+UA,33220,"Gillespie, IL",il
+UA,33247,"Gillette, WY",wy
+UA,33274,"Gilman, IL",il
+UA,33301,"Gilmer, TX",tx
+UA,33328,"Gilroy--Morgan Hill, CA",ca
+UA,33436,"Glasgow, KY",ky
+UA,33463,"Glasgow, MT",mt
+UA,33517,"Glendive, MT",mt
+UA,33598,"Glens Falls, NY",ny
+UA,33625,"Glenwood, IA",ia
+UA,33635,"Glenwood, MD",md
+UA,33652,"Glenwood Springs, CO",co
+UA,33679,"Globe, AZ",az
+UA,33695,"Gloucester Courthouse, VA",va
+UA,33749,"Gold Beach, OR",or
+UA,33814,"Goldsboro, NC",nc
+UA,33841,"Gonzales, CA",ca
+UA,33868,"Gonzales, TX",tx
+UA,33922,"Goodland, KS",ks
+UA,33938,"Goodrich, MI",mi
+UA,34072,"Graceville, FL",fl
+UA,34084,"Grafton, ND",nd
+UA,34165,"Granbury, TX",tx
+UA,34219,"Grand Forks, ND--MN",mn
+UA,34219,"Grand Forks, ND--MN",nd
+UA,34246,"Grand Island, NE",ne
+UA,34273,"Grand Junction, CO",co
+UA,34300,"Grand Rapids, MI",mi
+UA,34327,"Grand Rapids, MN",mn
+UA,34381,"Grandview, WA",wa
+UA,34435,"Grangeville, ID",id
+UA,34462,"Granite Falls, MN",mn
+UA,34489,"Grants, NM",nm
+UA,34516,"Grants Pass, OR",or
+UA,34543,"Grantsville, UT",ut
+UA,34597,"Grass Valley, CA",ca
+UA,34613,"Gray, GA",ga
+UA,34624,"Grayling, MI",mi
+UA,34651,"Grayson, KY",ky
+UA,34678,"Great Barrington, MA",ma
+UA,34705,"Great Bend, KS",ks
+UA,34759,"Great Falls, MT",mt
+UA,34786,"Greeley, CO",co
+UA,34813,"Green Bay, WI",wi
+UA,34840,"Greencastle, IN",in
+UA,34894,"Greeneville, TN",tn
+UA,34921,"Greenfield, CA",ca
+UA,34975,"Greenfield, MA",ma
+UA,35083,"Green River, WY",wy
+UA,35137,"Greensboro, GA",ga
+UA,35164,"Greensboro, NC",nc
+UA,35191,"Greensburg, IN",in
+UA,35299,"Greenville, IL",il
+UA,35353,"Greenville, MS",ms
+UA,35380,"Greenville, NC",nc
+UA,35407,"Greenville, OH",oh
+UA,35434,"Greenville, PA",pa
+UA,35461,"Greenville, SC",sc
+UA,35488,"Greenville, TX",tx
+UA,35569,"Greenwood, MS",ms
+UA,35596,"Greenwood, SC",sc
+UA,35623,"Grenada, MS",ms
+UA,35690,"Grifton, NC",nc
+UA,35704,"Grinnell, IA",ia
+UA,35839,"Guadalupe, CA",ca
+UA,35920,"Gulfport, MS",ms
+UA,35974,"Gun Barrel City, TX",tx
+UA,36082,"Guthrie, OK",ok
+UA,36109,"Guymon, OK",ok
+UA,36190,"Hagerstown, MD--WV--PA",md
+UA,36190,"Hagerstown, MD--WV--PA",pa
+UA,36190,"Hagerstown, MD--WV--PA",wv
+UA,36244,"Haleyville, AL",al
+UA,36271,"Half Moon Bay, CA",ca
+UA,36352,"Hamburg, AR",ar
+UA,36396,"Hamilton, AL",al
+UA,36514,"Hammond, LA",la
+UA,36541,"Hammonton, NJ",nj
+UA,36703,"Hanford, CA",ca
+UA,36730,"Hannibal, MO",mo
+UA,36784,"Hanover, PA",pa
+UA,36798,"Hardeeville, SC",sc
+UA,36838,"Harlan, IA",ia
+UA,36892,"Harlingen, TX",tx
+UA,36919,"Harrah, OK",ok
+UA,36946,"Harriman--Kingston--Rockwood, TN",tn
+UA,36973,"Harrington, DE",de
+UA,37000,"Harrisburg, IL",il
+UA,37081,"Harrisburg, PA",pa
+UA,37108,"Harrison, AR",ar
+UA,37145,"Harrison, OH--IN",oh
+UA,37162,"Harrisonburg, VA",va
+UA,37189,"Harrisonville, MO",mo
+UA,37216,"Harrodsburg, KY",ky
+UA,37243,"Hartford, CT",ct
+UA,37459,"Harvard, IL",il
+UA,37540,"Hastings, MN",mn
+UA,37567,"Hastings, NE",ne
+UA,37594,"Hattiesburg, MS",ms
+UA,37621,"Havana, FL",fl
+UA,37648,"Havana, IL",il
+UA,37675,"Havelock, NC",nc
+UA,37729,"Hawkinsville, GA",ga
+UA,37756,"Hawthorne, NV",nv
+UA,37783,"Hays, KS",ks
+UA,37823,"Hayward, WI",wi
+UA,37837,"Hazard, KY",ky
+UA,37891,"Hazlehurst, GA",ga
+UA,37945,"Hazleton, PA",pa
+UA,37959,"Headland, AL",al
+UA,37972,"Hearne, TX",tx
+UA,37999,"Heavener, OK",ok
+UA,38053,"Heber, UT",ut
+UA,38161,"Helena, MT",mt
+UA,38172,"Helena-West Helena, AR",ar
+UA,38215,"Hemet, CA",ca
+UA,38269,"Henderson, NC",nc
+UA,38296,"Henderson, TN",tn
+UA,38323,"Henderson, TX",tx
+UA,38350,"Henrietta, TX",tx
+UA,38404,"Henryetta, OK",ok
+UA,38431,"Hereford, TX",tx
+UA,38485,"Hermiston, OR",or
+UA,38593,"Hiawatha, KS",ks
+UA,38620,"Hibbing, MN",mn
+UA,38647,"Hickory, NC",nc
+UA,38809,"High Point, NC",nc
+UA,38823,"High Springs, FL",fl
+UA,38863,"Hillsboro, IL",il
+UA,38917,"Hillsboro, OH",oh
+UA,38944,"Hillsboro, TX",tx
+UA,38998,"Hillsdale, MI",mi
+UA,39052,"Hilo, HI",hi
+UA,39079,"Hilton Head Island, SC",sc
+UA,39133,"Hinesville, GA",ga
+UA,39214,"Hobbs, NM",nm
+UA,39268,"Hohenwald, TN",tn
+UA,39322,"Holbrook, AZ",az
+UA,39403,"Holdrege, NE",ne
+UA,39430,"Holland, MI",mi
+UA,39511,"Hollister, CA",ca
+UA,39565,"Holly Springs, MS",ms
+UA,39619,"Holtville, CA",ca
+UA,39700,"Homerville, GA",ga
+UA,39758,"Homosassa Springs--Beverly Hills--Citrus Springs, FL",fl
+UA,39781,"Hondo, TX",tx
+UA,39808,"Honea Path, SC",sc
+UA,39916,"Hood River, OR--WA",or
+UA,39916,"Hood River, OR--WA",wa
+UA,39943,"Hooks, TX",tx
+UA,39970,"Hoopeston, IL",il
+UA,40024,"Hope, AR",ar
+UA,40078,"Hopkinsville, KY",ky
+UA,40213,"Hot Springs, AR",ar
+UA,40240,"Hot Springs, SD",sd
+UA,40294,"Houghton, MI",mi
+UA,40348,"Houlton, ME",me
+UA,40375,"Houma, LA",la
+UA,40429,"Houston, TX",tx
+UA,40547,"Hudson, WI--MN",mn
+UA,40547,"Hudson, WI--MN",wi
+UA,40564,"Hugo, OK",ok
+UA,40645,"Humboldt, TN",tn
+UA,40672,"Huntingburg, IN",in
+UA,40699,"Huntingdon, PA",pa
+UA,40726,"Huntington, IN",in
+UA,40753,"Huntington, WV--KY--OH",ky
+UA,40753,"Huntington, WV--KY--OH",oh
+UA,40753,"Huntington, WV--KY--OH",wv
+UA,40780,"Huntsville, AL",al
+UA,40807,"Huntsville, TX",tx
+UA,40861,"Huron, SD",sd
+UA,40888,"Hurricane, UT",ut
+UA,40915,"Hutchinson, KS",ks
+UA,40942,"Hutchinson, MN",mn
+UA,40969,"Idabel, OK",ok
+UA,40996,"Idaho Falls, ID",id
+UA,41050,"Imlay City, MI",mi
+UA,41077,"Immokalee, FL",fl
+UA,41158,"Independence, KS",ks
+UA,41185,"Indiana, PA",pa
+UA,41212,"Indianapolis, IN",in
+UA,41266,"Indianola, MS",ms
+UA,41347,"Indio--Cathedral City, CA",ca
+UA,41374,"Interlachen, FL",fl
+UA,41563,"Iowa, LA",la
+UA,41590,"Iowa City, IA",ia
+UA,41617,"Iowa Falls, IA",ia
+UA,41644,"Iowa Park, TX",tx
+UA,41671,"Iron Mountain--Kingsford, MI--WI",mi
+UA,41833,"Ishpeming, MI",mi
+UA,41914,"Ithaca, NY",ny
+UA,42022,"Jackson, AL",al
+UA,42157,"Jackson, MI",mi
+UA,42184,"Jackson, MN",mn
+UA,42211,"Jackson, MS",ms
+UA,42265,"Jackson, TN",tn
+UA,42319,"Jackson, WY",wy
+UA,42346,"Jacksonville, FL",fl
+UA,42373,"Jacksonville, IL",il
+UA,42400,"Jacksonville, NC",nc
+UA,42427,"Jacksonville, TX",tx
+UA,42439,"Jackson--Wellston, OH",oh
+UA,42508,"Jamestown, ND",nd
+UA,42562,"Janesville, WI",wi
+UA,42616,"Jasper, AL",al
+UA,42670,"Jasper, GA",ga
+UA,42697,"Jasper, IN",in
+UA,42751,"Jasper, TX",tx
+UA,42859,"Jefferson, IA",ia
+UA,42967,"Jefferson City, MO",mo
+UA,42978,"Jefferson Township North, NJ",nj
+UA,43021,"Jennings, LA",la
+UA,43048,"Jerome, ID",id
+UA,43064,"Jersey Shore, PA",pa
+UA,43075,"Jerseyville, IL",il
+UA,43102,"Jesup, GA",ga
+UA,43115,"Jewett City, CT",ct
+UA,43210,"Johnson City, TN",tn
+UA,43217,"Johnson Creek, WI",wi
+UA,43291,"Johnstown, PA",pa
+UA,43345,"Jonesboro, AR",ar
+UA,43372,"Jonesboro, LA",la
+UA,43399,"Joplin, MO",mo
+UA,43426,"Jordan, MN",mn
+UA,43507,"Junction City, KS",ks
+UA,43561,"Juneau, AK",ak
+UA,43615,"Kahului, HI",hi
+UA,43642,"Kailua (Hawaii County)--Holualoa, HI",hi
+UA,43669,"Kailua (Honolulu County)--Kaneohe, HI",hi
+UA,43711,"Kalama, WA",wa
+UA,43723,"Kalamazoo, MI",mi
+UA,43777,"Kalispell, MT",mt
+UA,43804,"Kalkaska, MI",mi
+UA,43858,"Kane, PA",pa
+UA,43885,"Kankakee, IL",il
+UA,43912,"Kansas City, MO--KS",ks
+UA,43912,"Kansas City, MO--KS",mo
+UA,43939,"Kapaa, HI",hi
+UA,44020,"Karnes City, TX",tx
+UA,44047,"Kasson, MN",mn
+UA,44074,"Kaufman, TX",tx
+UA,44155,"Kearney, MO",mo
+UA,44182,"Kearney, NE",ne
+UA,44209,"Keene, NH",nh
+UA,44263,"Kellogg, ID",id
+UA,44371,"Kendallville, IN",in
+UA,44398,"Kenedy, TX",tx
+UA,44425,"Kennebunk, ME",me
+UA,44452,"Kennett, MO",mo
+UA,44479,"Kennewick--Pasco, WA",wa
+UA,44506,"Kenosha, WI--IL",wi
+UA,44533,"Kenton, OH",oh
+UA,44560,"Keokuk, IA--IL",ia
+UA,44560,"Keokuk, IA--IL",il
+UA,44641,"Kerrville, TX",tx
+UA,44789,"Key Largo, FL",fl
+UA,44803,"Keyser, WV--MD",wv
+UA,44857,"Key West, FL",fl
+UA,44884,"Kiel--New Holstein, WI",wi
+UA,44911,"Kihei, HI",hi
+UA,44938,"Kilgore, TX",tx
+UA,44965,"Kill Devil Hills, NC",nc
+UA,44992,"Killeen, TX",tx
+UA,45073,"King City, CA",ca
+UA,45112,"King George, VA",va
+UA,45127,"Kingman, AZ",az
+UA,45235,"Kingsport, TN--VA",tn
+UA,45235,"Kingsport, TN--VA",va
+UA,45262,"Kingston, NY",ny
+UA,45289,"Kingstree, SC",sc
+UA,45316,"Kingsville, TX",tx
+UA,45397,"Kinston, NC",nc
+UA,45424,"Kirksville, MO",mo
+UA,45436,"Kirtland, NM",nm
+UA,45451,"Kissimmee, FL",fl
+UA,45478,"Kittanning--Ford City, PA",pa
+UA,45505,"Klamath Falls--Altamont, OR",or
+UA,45613,"Knoxville, IA",ia
+UA,45640,"Knoxville, TN",tn
+UA,45694,"Kokomo, IN",in
+UA,45802,"Kutztown, PA",pa
+UA,45829,"LaBelle--Port LaBelle, FL",fl
+UA,45856,"Laconia, NH",nh
+UA,45910,"La Crosse, WI--MN",mn
+UA,45910,"La Crosse, WI--MN",wi
+UA,45937,"Lady Lake--The Villages, FL",fl
+UA,45991,"LaFayette, GA",ga
+UA,46018,"Lafayette, IN",in
+UA,46045,"Lafayette, LA",la
+UA,46099,"Lafayette, TN",tn
+UA,46126,"Lafayette--Louisville--Erie, CO",co
+UA,46153,"La Follette, TN",tn
+UA,46207,"La Grande, OR",or
+UA,46234,"LaGrange, GA",ga
+UA,46342,"La Grange, TX",tx
+UA,46423,"Laie--Hauula, HI",hi
+UA,46450,"La Junta, CO",co
+UA,46531,"Lake Charles, LA",la
+UA,46558,"Lake City, FL",fl
+UA,46585,"Lake City, MN",mn
+UA,46612,"Lake City, SC",sc
+UA,46684,"Lake Delton, WI",wi
+UA,46693,"Lake Geneva, WI",wi
+UA,46747,"Lake Havasu City, AZ",az
+UA,46801,"Lake Jackson--Angleton, TX",tx
+UA,46828,"Lakeland, FL",fl
+UA,46882,"Lake Mills, WI",wi
+UA,46980,"Lake of the Woods--Pinetop-Lakeside, AZ",az
+UA,47000,"Lake Park, GA",ga
+UA,47010,"Lake Placid, FL",fl
+UA,47044,"Lake Pocotopaug--East Hampton, CT",ct
+UA,47071,"Lakeport, CA",ca
+UA,47098,"Lake Providence, LA",la
+UA,47132,"Lakes--Knik-Fairview--Wasilla, AK",ak
+UA,47152,"Lakeview, OR",or
+UA,47179,"Lake Village, AR",ar
+UA,47287,"Lamar, CO",co
+UA,47395,"Lamesa, TX",tx
+UA,47422,"Lampasas, TX",tx
+UA,47503,"Lancaster, OH",oh
+UA,47530,"Lancaster, PA",pa
+UA,47557,"Lancaster, SC",sc
+UA,47611,"Lancaster--Palmdale, CA",ca
+UA,47638,"Lander, WY",wy
+UA,47719,"Lansing, MI",mi
+UA,47746,"Lapeer, MI",mi
+UA,47827,"Laramie, WY",wy
+UA,47854,"Laredo, TX",tx
+UA,47935,"Las Cruces, NM",nm
+UA,47989,"Las Vegas, NM",nm
+UA,47995,"Las Vegas--Henderson, NV",nv
+UA,48043,"Laurel, MS",ms
+UA,48070,"Laurel, MT",mt
+UA,48151,"Laurens, SC",sc
+UA,48178,"Laurinburg, NC",nc
+UA,48232,"Lawrence, KS",ks
+UA,48259,"Lawrenceburg, KY",ky
+UA,48286,"Lawrenceburg, TN",tn
+UA,48313,"Lawrenceburg--Greendale--Aurora, IN",in
+UA,48340,"Lawrenceville, IL",il
+UA,48367,"Lawrenceville, VA",va
+UA,48394,"Lawton, OK",ok
+UA,48475,"Leavenworth, KS",ks
+UA,48502,"Lebanon, IN",in
+UA,48556,"Lebanon, MO",mo
+UA,48637,"Lebanon, OR",or
+UA,48664,"Lebanon, PA",pa
+UA,48691,"Lebanon, TN",tn
+UA,48718,"Lebanon, VA",va
+UA,48728,"Lebanon--Hanover, NH--VT",nh
+UA,48728,"Lebanon--Hanover, NH--VT",vt
+UA,48745,"Lee, MA",ma
+UA,48785,"Leesburg, GA",ga
+UA,48799,"Leesburg--Eustis--Tavares, FL",fl
+UA,48826,"Lee's Summit, MO",mo
+UA,48853,"Leesville, LA",la
+UA,48961,"Leland, MS",ms
+UA,49096,"Leominster--Fitchburg, MA",ma
+UA,49123,"Le Roy, IL",il
+UA,49231,"Lewes, DE",de
+UA,49285,"Lewisburg, WV",wv
+UA,49312,"Lewiston, ID--WA",id
+UA,49312,"Lewiston, ID--WA",wa
+UA,49339,"Lewiston, ME",me
+UA,49393,"Lewistown, PA",pa
+UA,49447,"Lexington, MO",mo
+UA,49528,"Lexington, TN",tn
+UA,49555,"Lexington, VA",va
+UA,49582,"Lexington-Fayette, KY",ky
+UA,49594,"Lexington Park--California--Chesapeake Ranch Estates, MD",md
+UA,49636,"Liberal, KS",ks
+UA,49744,"Ligonier, PA",pa
+UA,49771,"Lihue, HI",hi
+UA,49798,"Lillington, NC",nc
+UA,49852,"Lima, OH",oh
+UA,49906,"Lincoln, IL",il
+UA,49933,"Lincoln, NE",ne
+UA,49960,"Lincoln City, OR",or
+UA,49987,"Lincolnton, NC",nc
+UA,50122,"Lindstrom--Chisago City, MN",mn
+UA,50176,"Lisbon, OH",oh
+UA,50230,"Litchfield, IL",il
+UA,50311,"Little Falls, MN",mn
+UA,50392,"Little Rock, AR",ar
+UA,50446,"Littleton, NH",nh
+UA,50527,"Livermore, CA",ca
+UA,50608,"Livingston, MT",mt
+UA,50635,"Livingston, TN",tn
+UA,50662,"Livingston, TX",tx
+UA,50679,"Livonia, LA",la
+UA,50743,"Lockhart, TX",tx
+UA,50770,"Lock Haven, PA",pa
+UA,50851,"Lodi, CA",ca
+UA,50932,"Logan, OH",oh
+UA,50959,"Logan, UT",ut
+UA,50986,"Logan, WV",wv
+UA,51013,"Logansport, IN",in
+UA,51026,"Lolo, MT",mt
+UA,51040,"Lompoc, CA",ca
+UA,51121,"London, OH",oh
+UA,51131,"London--Corbin, KY",ky
+UA,51175,"Longmont, CO",co
+UA,51229,"Long Prairie, MN",mn
+UA,51256,"Longview, TX",tx
+UA,51283,"Longview, WA--OR",wa
+UA,51337,"Loogootee, IN",in
+UA,51364,"Lorain--Elyria, OH",oh
+UA,51418,"Los Alamos, NM",nm
+UA,51445,"Los Angeles--Long Beach--Anaheim, CA",ca
+UA,51472,"Los Banos, CA",ca
+UA,51499,"Los Lunas, NM",nm
+UA,51580,"Louisa, KY--WV",ky
+UA,51661,"Louisiana, MO",mo
+UA,51688,"Louisville, GA",ga
+UA,51755,"Louisville/Jefferson County, KY--IN",in
+UA,51755,"Louisville/Jefferson County, KY--IN",ky
+UA,51877,"Lubbock, TX",tx
+UA,51958,"Ludington, MI",mi
+UA,51985,"Lufkin, TX",tx
+UA,52039,"Luling, TX",tx
+UA,52066,"Lumberton, NC",nc
+UA,52093,"Luray, VA",va
+UA,52147,"Luverne, MN",mn
+UA,52201,"Lynchburg, VA",va
+UA,52228,"Lynden, WA",wa
+UA,52341,"Lytle, TX",tx
+UA,52363,"McAlester, OK",ok
+UA,52390,"McAllen, TX",tx
+UA,52417,"Macclenny, FL",fl
+UA,52471,"McComb, MS",ms
+UA,52552,"McFarland, CA",ca
+UA,52633,"McKenzie, TN",tn
+UA,52687,"McKinney, TX",tx
+UA,52741,"McMinnville, OR",or
+UA,52768,"McMinnville, TN",tn
+UA,52795,"Macomb, IL",il
+UA,52822,"Macon, GA",ga
+UA,52849,"Macon, MS",ms
+UA,52876,"Macon, MO",mo
+UA,52903,"McPherson, KS",ks
+UA,52930,"McRae, GA",ga
+UA,52984,"Madera, CA",ca
+UA,53011,"Madill, OK",ok
+UA,53065,"Madison, GA",ga
+UA,53092,"Madison, IN--KY",in
+UA,53146,"Madison, SD",sd
+UA,53173,"Madison, WV",wv
+UA,53200,"Madison, WI",wi
+UA,53227,"Madisonville, KY",ky
+UA,53254,"Madisonville, TN",tn
+UA,53281,"Madisonville, TX",tx
+UA,53308,"Madras, OR",or
+UA,53335,"Magee, MS",ms
+UA,53362,"Magnolia, AR",ar
+UA,53416,"Mahomet, IL",il
+UA,53443,"Maiden, NC",nc
+UA,53551,"Malvern, AR",ar
+UA,53713,"Manchester, KY",ky
+UA,53740,"Manchester, NH",nh
+UA,53767,"Manchester, TN",tn
+UA,53794,"Mandeville--Covington, LA",la
+UA,53848,"Manhattan, KS",ks
+UA,53875,"Manila, AR",ar
+UA,53902,"Manistee, MI",mi
+UA,53956,"Manitowoc, WI",wi
+UA,53983,"Mankato, MN",mn
+UA,54037,"Manning, SC",sc
+UA,54064,"Mansfield, LA",la
+UA,54091,"Mansfield, OH",oh
+UA,54118,"Mansfield, PA",pa
+UA,54145,"Manteca, CA",ca
+UA,54253,"Many, LA",la
+UA,54280,"Maquoketa, IA",ia
+UA,54307,"Marathon, FL",fl
+UA,54388,"Marengo, IL",il
+UA,54415,"Marianna, AR",ar
+UA,54477,"Maricopa, AZ",az
+UA,54486,"Marietta, OH--WV",oh
+UA,54486,"Marietta, OH--WV",wv
+UA,54496,"Marinette--Menominee, WI--MI",mi
+UA,54496,"Marinette--Menominee, WI--MI",wi
+UA,54577,"Marion, IN",in
+UA,54631,"Marion, NC",nc
+UA,54658,"Marion, OH",oh
+UA,54685,"Marion, SC",sc
+UA,54712,"Marion, VA",va
+UA,54820,"Marlin, TX",tx
+UA,54874,"Marquette, MI",mi
+UA,54928,"Marshall, IL",il
+UA,54955,"Marshall, MI",mi
+UA,54982,"Marshall, MN",mn
+UA,55009,"Marshall, MO",mo
+UA,55036,"Marshall, TX",tx
+UA,55090,"Marshalltown, IA",ia
+UA,55144,"Marshfield, WI",wi
+UA,55171,"Martin, TN",tn
+UA,55225,"Martinsville, IN",in
+UA,55252,"Martinsville, VA",va
+UA,55306,"Marysville, OH",oh
+UA,55333,"Marysville, WA",wa
+UA,55360,"Maryville, MO",mo
+UA,55414,"Mason City, IA",ia
+UA,55576,"Mattoon, IL",il
+UA,55603,"Mauldin--Simpsonville, SC",sc
+UA,55684,"Mauston, WI",wi
+UA,55765,"Mayfield, KY",ky
+UA,55819,"Maysville, KY--OH",ky
+UA,55819,"Maysville, KY--OH",oh
+UA,55860,"Mazomanie, WI",wi
+UA,55900,"Meadville, PA",pa
+UA,55981,"Medford, OR",or
+UA,56089,"Melrose, MN",mn
+UA,56116,"Memphis, TN--MS--AR",ar
+UA,56116,"Memphis, TN--MS--AR",ms
+UA,56116,"Memphis, TN--MS--AR",tn
+UA,56143,"Mena, AR",ar
+UA,56170,"Mendota, CA",ca
+UA,56197,"Mendota, IL",il
+UA,56224,"Menomonie, WI",wi
+UA,56251,"Merced, CA",ca
+UA,56305,"Meridian, MS",ms
+UA,56359,"Merrill, WI",wi
+UA,56413,"Mesquite, NV--AZ",nv
+UA,56467,"Metropolis, IL",il
+UA,56602,"Miami, FL",fl
+UA,56656,"Michigan City--La Porte, IN--MI",in
+UA,56737,"Middlebury, VT",vt
+UA,56818,"Middlesborough, KY--TN--VA",ky
+UA,56818,"Middlesborough, KY--TN--VA",tn
+UA,56845,"Middletown, DE",de
+UA,56926,"Middletown, OH",oh
+UA,56980,"Midland, MI",mi
+UA,57007,"Midland, TX",tx
+UA,57069,"Mifflintown, PA",pa
+UA,57088,"Milan, MI",mi
+UA,57115,"Milan, TN",tn
+UA,57142,"Milbank, SD",sd
+UA,57169,"Miles City, MT",mt
+UA,57196,"Milford, DE",de
+UA,57223,"Milledgeville, GA",ga
+UA,57250,"Millen, GA",ga
+UA,57358,"Millsboro, DE",de
+UA,57439,"Milton--Lewisburg, PA",pa
+UA,57466,"Milwaukee, WI",wi
+UA,57493,"Minden, LA",la
+UA,57520,"Minden, NE",ne
+UA,57547,"Mineola, TX",tx
+UA,57601,"Minerva, OH",oh
+UA,57628,"Minneapolis--St. Paul, MN--WI",mn
+UA,57655,"Minot, ND",nd
+UA,57709,"Mission Viejo--Lake Forest--San Clemente, CA",ca
+UA,57736,"Missoula, MT",mt
+UA,57790,"Mitchell, IN",in
+UA,57817,"Mitchell, SD",sd
+UA,57898,"Moberly, MO",mo
+UA,57925,"Mobile, AL",al
+UA,58006,"Modesto, CA",ca
+UA,58020,"Mojave, CA",ca
+UA,58060,"Momence, IL",il
+UA,58087,"Monahans, TX",tx
+UA,58168,"Monessen--California, PA",pa
+UA,58222,"Monmouth, IL",il
+UA,58303,"Monroe, GA",ga
+UA,58330,"Monroe, LA",la
+UA,58357,"Monroe, MI",mi
+UA,58384,"Monroe, WI",wi
+UA,58438,"Monterey, TN",tn
+UA,58469,"Montesano--Elma, WA",wa
+UA,58519,"Montevideo, MN",mn
+UA,58546,"Monte Vista, CO",co
+UA,58573,"Montezuma, GA",ga
+UA,58600,"Montgomery, AL",al
+UA,58664,"Montgomery, WV",wv
+UA,58708,"Monticello, AR",ar
+UA,58735,"Monticello, IL",il
+UA,58762,"Monticello, IN",in
+UA,58870,"Monticello--Big Lake, MN",mn
+UA,58951,"Montrose, CO",co
+UA,59098,"Moose Lake, MN",mn
+UA,59113,"Mora, MN",mn
+UA,59194,"Morehead City, NC",nc
+UA,59221,"Morgan City, LA",la
+UA,59275,"Morgantown, WV",wv
+UA,59302,"Morrilton, AR",ar
+UA,59329,"Morris, IL",il
+UA,59356,"Morris, MN",mn
+UA,59383,"Morrison, IL",il
+UA,59410,"Morristown, TN",tn
+UA,59437,"Morro Bay--Los Osos, CA",ca
+UA,59491,"Moscow, ID",id
+UA,59518,"Moses Lake, WA",wa
+UA,59545,"Moulton, AL",al
+UA,59572,"Moultrie, GA",ga
+UA,59680,"Mountain Home, AR",ar
+UA,59707,"Mountain Home, ID",id
+UA,59761,"Mountain Lake Park, MD",md
+UA,59815,"Mount Airy, NC--VA",nc
+UA,59842,"Mount Carmel, IL",il
+UA,59950,"Mount Horeb, WI",wi
+UA,60031,"Mount Olive, NC",nc
+UA,60085,"Mount Pleasant, IA",ia
+UA,60112,"Mount Pleasant, MI",mi
+UA,60166,"Mount Pleasant, TX",tx
+UA,60223,"Mount Shasta--Weed, CA",ca
+UA,60247,"Mount Sterling, IL",il
+UA,60274,"Mount Sterling, KY",ky
+UA,60301,"Mount Union, PA",pa
+UA,60328,"Mount Vernon, IL",il
+UA,60382,"Mount Vernon, IA",ia
+UA,60436,"Mount Vernon, MO",mo
+UA,60463,"Mount Vernon, OH",oh
+UA,60473,"Mount Vernon, TX",tx
+UA,60490,"Mount Vernon, WA",wa
+UA,60517,"Mukwonago, WI",wi
+UA,60598,"Mullins, SC",sc
+UA,60625,"Muncie, IN",in
+UA,60652,"Muncy, PA",pa
+UA,60684,"Munising, MI",mi
+UA,60733,"Murfreesboro, TN",tn
+UA,60760,"Murphysboro, IL",il
+UA,60787,"Murray, KY",ky
+UA,60799,"Murrieta--Temecula--Menifee, CA",ca
+UA,60814,"Muscatine, IA",ia
+UA,60841,"Muskegon, MI",mi
+UA,60868,"Muskogee, OK",ok
+UA,60895,"Myrtle Beach--Socastee, SC--NC",sc
+UA,60949,"Nacogdoches, TX",tx
+UA,60976,"Nampa, ID",id
+UA,61030,"Nanty-Glo, PA",pa
+UA,61057,"Napa, CA",ca
+UA,61084,"Napoleon, OH",oh
+UA,61138,"Narrows, VA--WV",va
+UA,61138,"Narrows, VA--WV",wv
+UA,61165,"Nashua, NH--MA",ma
+UA,61165,"Nashua, NH--MA",nh
+UA,61273,"Nashville-Davidson, TN",tn
+UA,61300,"Nassau Village-Ratliff, FL",fl
+UA,61327,"Natchez, MS--LA",la
+UA,61327,"Natchez, MS--LA",ms
+UA,61354,"Natchitoches, LA",la
+UA,61381,"Navasota, TX",tx
+UA,61408,"Nebraska City, NE",ne
+UA,61435,"Needles, CA--AZ",ca
+UA,61462,"Needville, TX",tx
+UA,61543,"Neosho, MO",mo
+UA,61570,"Nephi, UT",ut
+UA,61597,"Nevada, IA",ia
+UA,61624,"Nevada, MO",mo
+UA,61651,"New Albany, MS",ms
+UA,61705,"Newark, OH",oh
+UA,61786,"New Bedford, MA",ma
+UA,61813,"Newberg, OR",or
+UA,61840,"New Bern, NC",nc
+UA,61921,"New Boston, TX",tx
+UA,62137,"New Castle, IN",in
+UA,62164,"New Castle, PA",pa
+UA,62191,"Newcastle, WY",wy
+UA,62218,"Newcomerstown, OH",oh
+UA,62353,"New Freedom--Shrewsbury, PA--MD",pa
+UA,62407,"New Haven, CT",ct
+UA,62505,"New London, MN",mn
+UA,62515,"New London, WI",wi
+UA,62542,"New Madrid, MO",mo
+UA,62623,"New Martinsville, WV--OH",wv
+UA,62677,"New Orleans, LA",la
+UA,62731,"New Philadelphia--Dover, OH",oh
+UA,62785,"Newport, NH",nh
+UA,62839,"Newport, OR",or
+UA,62893,"Newport, TN",tn
+UA,62930,"Newport, WA--ID",wa
+UA,62964,"New Richmond, OH",oh
+UA,62974,"New Richmond, WI",wi
+UA,63028,"New Tazewell, TN",tn
+UA,63082,"Newton, IA",ia
+UA,63109,"Newton, KS",ks
+UA,63137,"Newton, NJ",nj
+UA,63163,"New Ulm, MN",mn
+UA,63217,"New York--Newark, NY--NJ--CT",nj
+UA,63217,"New York--Newark, NY--NJ--CT",ny
+UA,63244,"Nicholasville, KY",ky
+UA,63282,"Nipomo, CA",ca
+UA,63325,"Nogales, AZ",az
+UA,63352,"Nokomis, IL",il
+UA,63406,"Norfolk, NE",ne
+UA,63433,"Norman, OK",ok
+UA,63447,"Norris, TN",tn
+UA,63460,"North Adams, MA--VT",ma
+UA,63487,"North Baltimore, OH",oh
+UA,63541,"North Branch, MN",mn
+UA,63568,"North Brookfield, MA",ma
+UA,63579,"North Conway, NH",nh
+UA,63649,"Northern Cambria, PA",pa
+UA,63811,"North Platte, NE",ne
+UA,63838,"North Port--Port Charlotte, FL",fl
+UA,63865,"North Vernon, IN",in
+UA,63946,"North Wilkesboro--Wilkesboro, NC",nc
+UA,64027,"Norton--Wise, VA",va
+UA,64054,"Norwalk, OH",oh
+UA,64135,"Norwich--New London, CT--RI",ct
+UA,64135,"Norwich--New London, CT--RI",ri
+UA,64189,"Norwood Young America, MN",mn
+UA,64216,"Nowata, OK",ok
+UA,64297,"Oakdale, LA",la
+UA,64378,"Oak Harbor, WA",wa
+UA,64459,"Oak Island, NC",nc
+UA,64475,"Oakland, TN",tn
+UA,64567,"Ocala, FL",fl
+UA,64660,"Ocean Pines, MD--DE",md
+UA,64702,"Ocean View, DE",de
+UA,64729,"Ocilla, GA",ga
+UA,64837,"Odessa, MO",mo
+UA,64864,"Odessa, TX",tx
+UA,64918,"Ogallala, NE",ne
+UA,64945,"Ogden--Layton, UT",ut
+UA,64999,"Oil City, PA",pa
+UA,65026,"Okeechobee--Taylor Creek, FL",fl
+UA,65080,"Oklahoma City, OK",ok
+UA,65107,"Okmulgee, OK",ok
+UA,65188,"Olney, IL",il
+UA,65215,"Olney, TX",tx
+UA,65242,"Olympia--Lacey, WA",wa
+UA,65269,"Omaha, NE--IA",ia
+UA,65269,"Omaha, NE--IA",ne
+UA,65296,"Omak, WA",wa
+UA,65458,"O'Neill, NE",ne
+UA,65539,"Ontario, OR--ID",id
+UA,65539,"Ontario, OR--ID",or
+UA,65593,"Opelousas, LA",la
+UA,65701,"Orangeburg, SC",sc
+UA,65782,"Oregon, IL",il
+UA,65836,"Orland, CA",ca
+UA,65863,"Orlando, FL",fl
+UA,65944,"Oroville, CA",ca
+UA,66060,"Osage Beach, MO",mo
+UA,66093,"Osburn, ID",id
+UA,66133,"Osceola, IA",ia
+UA,66160,"Oshkosh, WI",wi
+UA,66187,"Oskaloosa, IA",ia
+UA,66268,"Othello, WA",wa
+UA,66285,"Otsego--Plainwell, MI",mi
+UA,66295,"Ottawa, IL",il
+UA,66322,"Ottawa, KS",ks
+UA,66349,"Ottawa, OH",oh
+UA,66376,"Ottumwa, IA",ia
+UA,66430,"Owatonna, MN",mn
+UA,66484,"Owensboro, KY",ky
+UA,66565,"Oxford, MS",ms
+UA,66592,"Oxford, NC",nc
+UA,66619,"Oxford, OH",oh
+UA,66673,"Oxnard, CA",ca
+UA,66690,"Ozark, AL",al
+UA,66740,"Pacific, MO",mo
+UA,66781,"Paducah, KY--IL",ky
+UA,66835,"Pageland, SC",sc
+UA,66943,"Pahrump, NV",nv
+UA,66997,"Paintsville, KY",ky
+UA,67051,"Palatka, FL",fl
+UA,67078,"Palestine, TX",tx
+UA,67105,"Palm Bay--Melbourne, FL",fl
+UA,67134,"Palm Coast--Daytona Beach--Port Orange, FL",fl
+UA,67213,"Palmyra, MO",mo
+UA,67240,"Pampa, TX",tx
+UA,67267,"Pana, IL",il
+UA,67294,"Panama City, FL",fl
+UA,67348,"Paoli, IN",in
+UA,67402,"Paragould, AR",ar
+UA,67483,"Paris, IL",il
+UA,67510,"Paris, KY",ky
+UA,67537,"Paris, TN",tn
+UA,67564,"Paris, TX",tx
+UA,67618,"Park City, UT",ut
+UA,67645,"Parker, AZ--CA",az
+UA,67672,"Parkersburg, WV--OH",oh
+UA,67672,"Parkersburg, WV--OH",wv
+UA,67753,"Parlier, CA",ca
+UA,67807,"Pascagoula, MS",ms
+UA,68106,"Paw Paw Lake--Hartford, MI",mi
+UA,68158,"Payson, AZ",az
+UA,68196,"Pearisburg, VA",va
+UA,68212,"Pearsall, TX",tx
+UA,68228,"Pecan Acres, TX",tx
+UA,68266,"Pecos, TX",tx
+UA,68347,"Pella, IA",ia
+UA,68374,"Pell City, AL",al
+UA,68428,"Pendleton, OR",or
+UA,68482,"Pensacola, FL--AL",al
+UA,68482,"Pensacola, FL--AL",fl
+UA,68509,"Peoria, IL",il
+UA,68536,"Peotone, IL",il
+UA,68590,"Perry, FL",fl
+UA,68644,"Perry, IA",ia
+UA,68806,"Peru, IN",in
+UA,68833,"Peru--LaSalle, IL",il
+UA,68887,"Petaluma, CA",ca
+UA,68900,"Peterborough, NH",nh
+UA,69022,"Petoskey, MI",mi
+UA,69076,"Philadelphia, PA--NJ--DE--MD",de
+UA,69076,"Philadelphia, PA--NJ--DE--MD",md
+UA,69076,"Philadelphia, PA--NJ--DE--MD",nj
+UA,69076,"Philadelphia, PA--NJ--DE--MD",pa
+UA,69130,"Philipsburg, PA",pa
+UA,69184,"Phoenix--Mesa, AZ",az
+UA,69211,"Picayune, MS",ms
+UA,69265,"Piedmont, AL",al
+UA,69292,"Pierre, SD",sd
+UA,69373,"Pikeville, KY",ky
+UA,69427,"Pinckneyville, IL",il
+UA,69454,"Pine Bluff, AR",ar
+UA,69517,"Pinehurst--Southern Pines, NC",nc
+UA,69526,"Pine Island, MN",mn
+UA,69589,"Pipestone, MN",mn
+UA,69616,"Piqua, OH",oh
+UA,69643,"Pittsburg, KS",ks
+UA,69670,"Pittsburg, TX",tx
+UA,69697,"Pittsburgh, PA",pa
+UA,69778,"Pittsfield, MA",ma
+UA,69832,"Placerville--Diamond Springs, CA",ca
+UA,69967,"Plainview, TX",tx
+UA,70102,"Platte City, MO",mo
+UA,70291,"Plymouth, IN",in
+UA,70318,"Plymouth, NH",nh
+UA,70345,"Plymouth, NC",nc
+UA,70372,"Plymouth, WI",wi
+UA,70399,"Pocahontas, AR",ar
+UA,70426,"Pocatello, ID",id
+UA,70453,"Pocomoke City, MD",md
+UA,70507,"Point Pleasant--Gallipolis, OH--WV",oh
+UA,70507,"Point Pleasant--Gallipolis, OH--WV",wv
+UA,70534,"Pojoaque, NM",nm
+UA,70588,"Polson, MT",mt
+UA,70615,"Ponca City, OK",ok
+UA,70669,"Pontiac, IL",il
+UA,70696,"Pontotoc, MS",ms
+UA,70804,"Poplar Bluff, MO",mo
+UA,70858,"Portage, WI",wi
+UA,70912,"Portales, NM",nm
+UA,70939,"Port Angeles, WA",wa
+UA,70993,"Port Arthur, TX",tx
+UA,71020,"Port Barre, LA",la
+UA,71047,"Port Clinton, OH",oh
+UA,71074,"Porterville, CA",ca
+UA,71128,"Port Hadlock-Irondale, WA",wa
+UA,71155,"Port Huron, MI",mi
+UA,71182,"Port Isabel--Laguna Heights, TX",tx
+UA,71209,"Port Jervis, NY--PA",pa
+UA,71236,"Portland, IN",in
+UA,71263,"Portland, ME",me
+UA,71290,"Portland, MI",mi
+UA,71317,"Portland, OR--WA",or
+UA,71317,"Portland, OR--WA",wa
+UA,71344,"Portland, TN--KY",tn
+UA,71371,"Port Lavaca, TX",tx
+UA,71452,"Port St. Joe, FL",fl
+UA,71479,"Port St. Lucie, FL",fl
+UA,71506,"Portsmouth, NH--ME",me
+UA,71506,"Portsmouth, NH--ME",nh
+UA,71533,"Portsmouth, OH--KY",ky
+UA,71533,"Portsmouth, OH--KY",oh
+UA,71560,"Port Townsend, WA",wa
+UA,71614,"Post, TX",tx
+UA,71641,"Poteau, OK",ok
+UA,71749,"Pottstown, PA",pa
+UA,71776,"Pottsville, PA",pa
+UA,71803,"Poughkeepsie--Newburgh, NY--NJ",ny
+UA,71857,"Prairie du Chien, WI--IA",ia
+UA,71857,"Prairie du Chien, WI--IA",wi
+UA,71884,"Prairie du Sac--Sauk City, WI",wi
+UA,71938,"Prairie View, TX",tx
+UA,71965,"Pratt, KS",ks
+UA,72112,"Prescott Valley--Prescott, AZ",az
+UA,72127,"Presidio, TX",tx
+UA,72154,"Presque Isle, ME",me
+UA,72208,"Prestonsburg, KY",ky
+UA,72235,"Price, UT",ut
+UA,72253,"Prince Frederick, MD",md
+UA,72262,"Princess Anne, MD",md
+UA,72289,"Princeton, IL",il
+UA,72370,"Princeton, MN",mn
+UA,72424,"Prineville, OR",or
+UA,72505,"Providence, RI--MA",ma
+UA,72505,"Providence, RI--MA",ri
+UA,72532,"Provincetown, MA",ma
+UA,72559,"Provo--Orem, UT",ut
+UA,72586,"Pryor Creek, OK",ok
+UA,72613,"Pueblo, CO",co
+UA,72640,"Pukalani--Makawao--Haiku-Pauwela, HI",hi
+UA,72667,"Pulaski, TN",tn
+UA,72694,"Pulaski, VA",va
+UA,72748,"Pullman, WA",wa
+UA,72775,"Punxsutawney, PA",pa
+UA,72829,"Purcell, OK",ok
+UA,72937,"Quartzsite, AZ",az
+UA,73045,"Quincy, IL",il
+UA,73126,"Quitman, GA",ga
+UA,73153,"Racine, WI",wi
+UA,73261,"Raleigh, NC",nc
+UA,73288,"Ramona, CA",ca
+UA,73300,"Ramseur, NC",nc
+UA,73369,"Rantoul, IL",il
+UA,73396,"Rapid City, SD",sd
+UA,73423,"Rathdrum, ID",id
+UA,73450,"Raton, NM",nm
+UA,73504,"Ravenswood, WV",wv
+UA,73531,"Rawlins, WY",wy
+UA,73612,"Raymondville, TX",tx
+UA,73639,"Rayne, LA",la
+UA,73666,"Rayville, LA",la
+UA,73693,"Reading, PA",pa
+UA,73720,"Red Bluff, CA",ca
+UA,73774,"Redding, CA",ca
+UA,73882,"Redmond, OR",or
+UA,73963,"Red Wing, MN",mn
+UA,73990,"Redwood Falls, MN",mn
+UA,74071,"Reedsburg, WI",wi
+UA,74098,"Reedsport, OR",or
+UA,74125,"Refugio, TX",tx
+UA,74142,"Reidsville, GA",ga
+UA,74152,"Reidsville, NC",nc
+UA,74179,"Reno, NV--CA",nv
+UA,74260,"Rexburg, ID",id
+UA,74341,"Rhinelander, WI",wi
+UA,74395,"Richfield, UT",ut
+UA,74557,"Richland Center, WI",wi
+UA,74584,"Richlands, VA",va
+UA,74638,"Richmond, IN--OH",in
+UA,74665,"Richmond, KY",ky
+UA,74719,"Richmond, MO",mo
+UA,74746,"Richmond, VA",va
+UA,74827,"Ridgecrest, CA",ca
+UA,74854,"Ridgeland, SC",sc
+UA,74881,"Ridge Manor, FL",fl
+UA,74908,"Ridgway, PA",pa
+UA,74935,"Rifle, CO",co
+UA,74962,"Rigby, ID",id
+UA,75043,"Rio Dell, CA",ca
+UA,75072,"Rio Grande City--Roma, TX",tx
+UA,75097,"Rio Vista, CA",ca
+UA,75151,"Ripley, TN",tn
+UA,75178,"Ripley, WV",wv
+UA,75205,"Ripon, WI",wi
+UA,75286,"River Falls, WI",wi
+UA,75340,"Riverside--San Bernardino, CA",ca
+UA,75367,"Riverton, WY",wy
+UA,75394,"Roanoke, AL",al
+UA,75421,"Roanoke, VA",va
+UA,75448,"Roanoke Rapids, NC",nc
+UA,75475,"Roaring Spring, PA",pa
+UA,75502,"Robertsdale, AL",al
+UA,75556,"Robstown, TX",tx
+UA,75583,"Rochelle, IL",il
+UA,75610,"Rochester, IN",in
+UA,75637,"Rochester, MN",mn
+UA,75664,"Rochester, NY",ny
+UA,75691,"Rockdale, TX",tx
+UA,75718,"Rockford, IL",il
+UA,75732,"Rockford, MN",mn
+UA,75745,"Rock Hill, SC",sc
+UA,75772,"Rockingham--Hamlet, NC",nc
+UA,75799,"Rockland, ME",me
+UA,75826,"Rockmart, GA",ga
+UA,75880,"Rock Springs, WY",wy
+UA,75961,"Rocky Ford, CO",co
+UA,75988,"Rocky Mount, NC",nc
+UA,76015,"Rocky Mount, VA",va
+UA,76059,"Rogersville, MO",mo
+UA,76069,"Rogersville, TN",tn
+UA,76123,"Rolla, MO",mo
+UA,76204,"Rome, GA",ga
+UA,76258,"Roosevelt, UT",ut
+UA,76285,"Rosamond, CA",ca
+UA,76339,"Roseburg, OR",or
+UA,76447,"Roswell, NM",nm
+UA,76474,"Round Lake Beach--McHenry--Grayslake, IL--WI",il
+UA,76474,"Round Lake Beach--McHenry--Grayslake, IL--WI",wi
+UA,76501,"Roxboro, NC",nc
+UA,76595,"Ruckersville, VA",va
+UA,76609,"Rugby, ND",nd
+UA,76636,"Ruidoso, NM",nm
+UA,76771,"Rushville, IL",il
+UA,76798,"Rushville, IN",in
+UA,76825,"Rusk, TX",tx
+UA,76906,"Russellville, AL",al
+UA,76933,"Russellville, AR",ar
+UA,76960,"Russellville, KY",ky
+UA,76987,"Ruston, LA",la
+UA,77014,"Rutland, VT",vt
+UA,77068,"Sacramento, CA",ca
+UA,77149,"Saginaw, MI",mi
+UA,77161,"Sahuarita--Green Valley, AZ",az
+UA,77203,"St. Anthony, ID",id
+UA,77230,"St. Augustine, FL",fl
+UA,77311,"St. Clair, MO",mo
+UA,77338,"St. Cloud, MN",mn
+UA,77446,"St. George, UT",ut
+UA,77527,"St. Helens, OR",or
+UA,77554,"St. Ignace, MI",mi
+UA,77608,"St. James, MO",mo
+UA,77662,"St. Johns, MI",mi
+UA,77716,"St. Joseph, IL",il
+UA,77743,"St. Joseph, MO--KS",mo
+UA,77770,"St. Louis, MO--IL",il
+UA,77770,"St. Louis, MO--IL",mo
+UA,77841,"St. Marys, KS",ks
+UA,77905,"St. Marys, WV--OH",wv
+UA,77932,"St. Marys--Kingsland, GA",ga
+UA,77986,"St. Pauls, NC",nc
+UA,78013,"St. Peter, MN",mn
+UA,78094,"Salem, IL",il
+UA,78175,"Salem, NJ",nj
+UA,78202,"Salem, OH",oh
+UA,78229,"Salem, OR",or
+UA,78256,"Salida, CO",co
+UA,78283,"Salina, KS",ks
+UA,78310,"Salinas, CA",ca
+UA,78364,"Salisbury, MD--DE",de
+UA,78364,"Salisbury, MD--DE",md
+UA,78418,"Sallisaw, OK",ok
+UA,78499,"Salt Lake City--West Valley City, UT",ut
+UA,78526,"Saluda, SC",sc
+UA,78553,"San Angelo, TX",tx
+UA,78580,"San Antonio, TX",tx
+UA,78634,"Sandersville, GA",ga
+UA,78661,"San Diego, CA",ca
+UA,78715,"Sandpoint, ID",id
+UA,78742,"Sandusky, MI",mi
+UA,78769,"Sandusky, OH",oh
+UA,78823,"Sandy, OR",or
+UA,78850,"Sanford, ME",me
+UA,78877,"Sanford, NC",nc
+UA,78904,"San Francisco--Oakland, CA",ca
+UA,78958,"Sanger, TX",tx
+UA,79039,"San Jose, CA",ca
+UA,79120,"San Luis, AZ",az
+UA,79147,"San Luis Obispo, CA",ca
+UA,79201,"San Marcos, TX",tx
+UA,79282,"Santa Barbara, CA",ca
+UA,79309,"Santa Clarita, CA",ca
+UA,79336,"Santa Cruz, CA",ca
+UA,79363,"Santa Fe, NM",nm
+UA,79417,"Santa Maria, CA",ca
+UA,79444,"Santa Paula, CA",ca
+UA,79471,"Santaquin, UT",ut
+UA,79498,"Santa Rosa, CA",ca
+UA,79525,"Santa Rosa, NM",nm
+UA,79606,"Sarasota--Bradenton, FL",fl
+UA,79633,"Saratoga Springs, NY",ny
+UA,79687,"Sauk Centre, MN",mn
+UA,79714,"Sault Ste. Marie, MI",mi
+UA,79741,"Savanna, IL--IA",il
+UA,79768,"Savannah, GA",ga
+UA,79822,"Savannah, TN",tn
+UA,79903,"Sayre--Waverly, PA--NY",pa
+UA,79957,"Schuyler, NE",ne
+UA,80038,"Scott City, MO",mo
+UA,80065,"Scottsbluff, NE",ne
+UA,80092,"Scottsboro, AL",al
+UA,80119,"Scottsburg, IN",in
+UA,80227,"Scranton, PA",pa
+UA,80281,"Sealy, TX",tx
+UA,80308,"Searcy, AR",ar
+UA,80335,"Seaside, OR",or
+UA,80362,"Seaside--Monterey, CA",ca
+UA,80389,"Seattle, WA",wa
+UA,80400,"Sebastian--Vero Beach South--Florida Ridge, FL",fl
+UA,80416,"Sebring--Avon Park, FL",fl
+UA,80443,"Sedalia, MO",mo
+UA,80470,"Sedona, AZ",az
+UA,80497,"Seguin, TX",tx
+UA,80524,"Selma, AL",al
+UA,80551,"Selma, CA",ca
+UA,80578,"Selmer, TN",tn
+UA,80605,"Seminole, OK",ok
+UA,80632,"Seminole, TX",tx
+UA,80659,"Senatobia, MS",ms
+UA,80671,"Seneca, SC",sc
+UA,80686,"Sequim, WA",wa
+UA,80713,"Sevierville, TN",tn
+UA,80794,"Seymour, IN",in
+UA,80929,"Shafter, CA",ca
+UA,80956,"Shallowater, TX",tx
+UA,80985,"Shamokin--Mount Carmel, PA",pa
+UA,81064,"Shawano, WI",wi
+UA,81091,"Shawnee, OK",ok
+UA,81118,"Sheboygan, WI",wi
+UA,81172,"Shelby, MT",mt
+UA,81199,"Shelby, NC",nc
+UA,81280,"Shelbyville, IN",in
+UA,81307,"Shelbyville, KY",ky
+UA,81334,"Shelbyville, TN",tn
+UA,81415,"Shelton, WA",wa
+UA,81472,"Shenandoah--Mahanoy City--Frackville, PA",pa
+UA,81604,"Sheridan, WY",wy
+UA,81631,"Sherman, TX",tx
+UA,81658,"Shippensburg, PA",pa
+UA,81685,"Shiprock, NM",nm
+UA,81701,"Shorewood Forest, IN",in
+UA,81739,"Shreveport, LA",la
+UA,81820,"Sidney, NE",ne
+UA,81874,"Sidney, OH",oh
+UA,81889,"Sierra View--Indian Mountain Lake, PA",pa
+UA,81901,"Sierra Vista, AZ",az
+UA,81955,"Siler City, NC",nc
+UA,81982,"Siloam Springs, AR--OK",ar
+UA,82009,"Silsbee, TX",tx
+UA,82023,"Silt, CO",co
+UA,82036,"Silver City, NM",nm
+UA,82090,"Silverthorne--Frisco, CO",co
+UA,82117,"Silverton, OR",or
+UA,82144,"Simi Valley, CA",ca
+UA,82198,"Sioux Center, IA",ia
+UA,82225,"Sioux City, IA--NE--SD",ia
+UA,82225,"Sioux City, IA--NE--SD",ne
+UA,82225,"Sioux City, IA--NE--SD",sd
+UA,82252,"Sioux Falls, SD",sd
+UA,82387,"Skowhegan, ME",me
+UA,82414,"Slaton, TX",tx
+UA,82468,"Slidell, LA",la
+UA,82522,"Smithfield, NC",nc
+UA,82630,"Smithville, TX",tx
+UA,82675,"Snoqualmie, WA",wa
+UA,82711,"Snyder, TX",tx
+UA,82738,"Socorro, NM",nm
+UA,82765,"Soda Springs, ID",id
+UA,82819,"Soldotna, AK",ak
+UA,82846,"Soledad, CA",ca
+UA,82873,"Solvang--Buellton--Santa Ynez, CA",ca
+UA,82900,"Somerset, KY",ky
+UA,82927,"Somerset, PA",pa
+UA,83008,"Sonoma, CA",ca
+UA,83062,"Sonora, TX",tx
+UA,83073,"Sonora--Jamestown--Phoenix Lake, CA",ca
+UA,83116,"South Bend, IN--MI",in
+UA,83116,"South Bend, IN--MI",mi
+UA,83143,"South Boston, VA",va
+UA,83156,"South Deerfield, MA",ma
+UA,83251,"South Haven, MI",mi
+UA,83278,"South Hill, VA",va
+UA,83305,"South Lake Tahoe, CA--NV",ca
+UA,83305,"South Lake Tahoe, CA--NV",nv
+UA,83332,"South Lyon--Howell, MI",mi
+UA,83368,"South Paris, ME",me
+UA,83440,"Sparta, GA",ga
+UA,83467,"Sparta, IL",il
+UA,83494,"Sparta, TN",tn
+UA,83521,"Sparta, WI",wi
+UA,83548,"Spartanburg, SC",sc
+UA,83575,"Spearfish, SD",sd
+UA,83710,"Spirit Lake, IA",ia
+UA,83764,"Spokane, WA",wa
+UA,83818,"Spout Springs, NC",nc
+UA,83872,"Springfield, GA",ga
+UA,83899,"Springfield, IL",il
+UA,83926,"Springfield, MA--CT",ct
+UA,83926,"Springfield, MA--CT",ma
+UA,83953,"Springfield, MO",mo
+UA,83980,"Springfield, OH",oh
+UA,83993,"Springfield, TN",tn
+UA,84024,"Spring Hill, FL",fl
+UA,84034,"Spring Hill, KS",ks
+UA,84088,"Spring Hill, TN",tn
+UA,84124,"Springtown, TX",tx
+UA,84155,"Spruce Pine, NC",nc
+UA,84277,"Stanford, KY",ky
+UA,84304,"Stansbury Park, UT",ut
+UA,84331,"Stanton, KY",ky
+UA,84412,"Staples, MN",mn
+UA,84439,"Starke, FL",fl
+UA,84466,"Starkville, MS",ms
+UA,84493,"State College, PA",pa
+UA,84547,"Statesboro, GA",ga
+UA,84630,"Staunton--Waynesboro, VA",va
+UA,84763,"Stephenville, TX",tx
+UA,84790,"Sterling, CO",co
+UA,84817,"Sterling, IL",il
+UA,84871,"Stevens Point, WI",wi
+UA,85033,"Stillwater, OK",ok
+UA,85060,"Stilwell, OK",ok
+UA,85087,"Stockton, CA",ca
+UA,85276,"Sturgeon Bay, WI",wi
+UA,85303,"Sturgis, MI",mi
+UA,85330,"Sturgis, SD",sd
+UA,85357,"Stuttgart, AR",ar
+UA,85390,"Sugarmill Woods, FL",fl
+UA,85411,"Sullivan, IL",il
+UA,85465,"Sullivan, MO",mo
+UA,85546,"Sulphur Springs, TX",tx
+UA,85573,"Sultan, WA",wa
+UA,85600,"Sumiton, AL",al
+UA,85654,"Summerville, GA",ga
+UA,85681,"Summit Park, UT",ut
+UA,85708,"Sumter, SC",sc
+UA,85762,"Sunbury, PA",pa
+UA,85775,"Sun City Hilton Head, SC",sc
+UA,85843,"Superior, AZ",az
+UA,85870,"Susanville, CA",ca
+UA,85978,"Sutherlin, OR",or
+UA,86005,"Swainsboro, GA",ga
+UA,86024,"Swansboro, NC",nc
+UA,86059,"Swanton, VT",vt
+UA,86140,"Sweetwater, TN",tn
+UA,86167,"Sweetwater, TX",tx
+UA,86194,"Sylacauga, AL",al
+UA,86221,"Sylvania, GA",ga
+UA,86248,"Sylvester, GA",ga
+UA,86302,"Syracuse, NY",ny
+UA,86356,"Taft, TX",tx
+UA,86410,"Tahoka, TX",tx
+UA,86437,"Talladega, AL",al
+UA,86464,"Tallahassee, FL",fl
+UA,86518,"Tallulah, LA",la
+UA,86545,"Tama, IA",ia
+UA,86599,"Tampa--St. Petersburg, FL",fl
+UA,86680,"Tappahannock, VA",va
+UA,86707,"Tarboro, NC",nc
+UA,86734,"Taylor, TX",tx
+UA,86815,"Tazewell, VA",va
+UA,86869,"Tehachapi--Golden Hills, CA",ca
+UA,86950,"Tell City, IN--KY",in
+UA,87058,"Temple, TX",tx
+UA,87139,"Terre Haute, IN",in
+UA,87166,"Terrell, TX",tx
+UA,87193,"Texarkana--Texarkana, TX--AR",ar
+UA,87193,"Texarkana--Texarkana, TX--AR",tx
+UA,87220,"Texas City, TX",tx
+UA,87247,"Thayer, MO--AR",ar
+UA,87247,"Thayer, MO--AR",mo
+UA,87263,"The Dalles, OR--WA",or
+UA,87301,"Thermopolis, WY",wy
+UA,87355,"Thief River Falls, MN",mn
+UA,87382,"Thomaston, GA",ga
+UA,87409,"Thomasville, AL",al
+UA,87436,"Thomasville, GA",ga
+UA,87463,"Thomson, GA",ga
+UA,87490,"Thousand Oaks, CA",ca
+UA,87517,"Three Rivers, MI",mi
+UA,87544,"Thurmont, MD",md
+UA,87598,"Tiffin, OH",oh
+UA,87625,"Tifton, GA",ga
+UA,87652,"Tillamook, OR",or
+UA,87669,"Tipton, CA",ca
+UA,87679,"Tipton, IN",in
+UA,87787,"Titusville, FL",fl
+UA,87841,"Toccoa, GA",ga
+UA,87868,"Toledo, OH--MI",mi
+UA,87868,"Toledo, OH--MI",oh
+UA,87922,"Tomah, WI",wi
+UA,88030,"Tonkawa, OK",ok
+UA,88084,"Topeka, KS",ks
+UA,88111,"Toppenish, WA",wa
+UA,88192,"Torrington, CT",ct
+UA,88219,"Torrington, WY",wy
+UA,88246,"Towanda, PA",pa
+UA,88273,"Tracy, CA",ca
+UA,88300,"Traverse City, MI",mi
+UA,88354,"Tremonton, UT",ut
+UA,88381,"Trenton, GA",ga
+UA,88435,"Trenton, MO",mo
+UA,88462,"Trenton, NJ",nj
+UA,88489,"Trenton, TN",tn
+UA,88504,"Tri-City--Myrtle Creek, OR",or
+UA,88516,"Trinidad, CO",co
+UA,88543,"Troy, AL",al
+UA,88570,"Troy, MO",mo
+UA,88624,"Truckee, CA",ca
+UA,88678,"Truth or Consequences, NM",nm
+UA,88705,"Tuba City, AZ",az
+UA,88732,"Tucson, AZ",az
+UA,88813,"Tucumcari, NM",nm
+UA,88867,"Tularosa, NM",nm
+UA,88894,"Tulia, TX",tx
+UA,88921,"Tullahoma, TN",tn
+UA,88948,"Tulsa, OK",ok
+UA,88975,"Tunica, MS",ms
+UA,89002,"Tunkhannock, PA",pa
+UA,89029,"Tupelo, MS",ms
+UA,89083,"Turlock, CA",ca
+UA,89110,"Tuscaloosa, AL",al
+UA,89137,"Tuscola, IL",il
+UA,89191,"Twentynine Palms, CA",ca
+UA,89245,"Twin Falls, ID",id
+UA,89263,"Twin Rivers--Hightstown, NJ",nj
+UA,89299,"Tybee Island, GA",ga
+UA,89326,"Tyler, TX",tx
+UA,89353,"Tyrone, PA",pa
+UA,89380,"Ukiah, CA",ca
+UA,89425,"Unadilla, GA",ga
+UA,89461,"Union, MO",mo
+UA,89515,"Union City, IN--OH",in
+UA,89542,"Union City, PA",pa
+UA,89569,"Union City, TN",tn
+UA,89596,"Union Grove, WI",wi
+UA,89650,"Uniontown--Connellsville, PA",pa
+UA,89758,"Urbana, OH",oh
+UA,89770,"Urban Honolulu, HI",hi
+UA,89785,"Utica, NY",ny
+UA,89839,"Uvalde, TX",tx
+UA,89866,"Vacaville, CA",ca
+UA,89910,"Vail, AZ",az
+UA,89920,"Vail, CO",co
+UA,89974,"Valdosta, GA",ga
+UA,90001,"Valentine, NE",ne
+UA,90028,"Vallejo, CA",ca
+UA,90055,"Valley City, ND",nd
+UA,90082,"Valley--Lanett, AL--GA",al
+UA,90136,"Vandalia, IL",il
+UA,90217,"Van Wert, OH",oh
+UA,90282,"Venus, TX",tx
+UA,90352,"Vernal, UT",ut
+UA,90379,"Vernon, TX",tx
+UA,90433,"Versailles, KY",ky
+UA,90487,"Vicksburg, MS--LA",ms
+UA,90514,"Victoria, TX",tx
+UA,90541,"Victorville--Hesperia, CA",ca
+UA,90568,"Vidalia, GA",ga
+UA,90640,"Village of Oak Creek (Big Park), AZ",az
+UA,90658,"Villas, NJ",nj
+UA,90703,"Vincennes, IN",in
+UA,90730,"Vineland, NJ",nj
+UA,90784,"Vinita, OK",ok
+UA,90811,"Vinton, IA",ia
+UA,90865,"Virginia, MN",mn
+UA,90892,"Virginia Beach, VA",va
+UA,90946,"Visalia, CA",ca
+UA,91000,"Wabash, IN",in
+UA,91027,"Waco, TX",tx
+UA,91081,"Wadena, MN",mn
+UA,91108,"Wadesboro, NC",nc
+UA,91135,"Wagoner, OK",ok
+UA,91189,"Wahpeton, ND--MN",mn
+UA,91189,"Wahpeton, ND--MN",nd
+UA,91261,"Waldorf, MD",md
+UA,91405,"Walla Walla, WA--OR",or
+UA,91405,"Walla Walla, WA--OR",wa
+UA,91486,"Walsenburg, CO",co
+UA,91675,"Wapakoneta, OH",oh
+UA,91756,"Ware, MA",ma
+UA,91783,"Warner Robins, GA",ga
+UA,91837,"Warren, PA",pa
+UA,91864,"Warrensburg, MO",mo
+UA,91918,"Warrenton, MO",mo
+UA,91999,"Warsaw, IN",in
+UA,92012,"Warsaw, MO",mo
+UA,92053,"Warsaw, NC",nc
+UA,92161,"Wasco, CA",ca
+UA,92242,"Washington, DC--VA--MD",dc
+UA,92242,"Washington, DC--VA--MD",md
+UA,92242,"Washington, DC--VA--MD",va
+UA,92269,"Washington, GA",ga
+UA,92296,"Washington, IN",in
+UA,92323,"Washington, IA",ia
+UA,92350,"Washington, MO",mo
+UA,92377,"Washington, NJ",nj
+UA,92404,"Washington, NC",nc
+UA,92431,"Washington Court House, OH",oh
+UA,92485,"Waterbury, CT",ct
+UA,92512,"Waterbury, VT",vt
+UA,92566,"Waterloo, IL",il
+UA,92593,"Waterloo, IA",ia
+UA,92674,"Watertown, NY",ny
+UA,92701,"Watertown, SD",sd
+UA,92728,"Watertown, WI",wi
+UA,92782,"Waterville, ME",me
+UA,92863,"Watseka, IL",il
+UA,92890,"Watsonville, CA",ca
+UA,92917,"Wauchula, FL",fl
+UA,92971,"Waupaca, WI",wi
+UA,92998,"Waupun, WI",wi
+UA,93025,"Wausau, WI",wi
+UA,93052,"Wauseon, OH",oh
+UA,93065,"Wautoma, WI",wi
+UA,93079,"Waverly, IA",ia
+UA,93133,"Waverly City, OH",oh
+UA,93187,"Waycross, GA",ga
+UA,93214,"Wayland, MI",mi
+UA,93268,"Waynesboro, GA",ga
+UA,93376,"Waynesburg, PA",pa
+UA,93457,"Weatherford, OK",ok
+UA,93484,"Weatherford, TX",tx
+UA,93511,"Webster City, IA",ia
+UA,93592,"Weirton--Steubenville, WV--OH--PA",oh
+UA,93592,"Weirton--Steubenville, WV--OH--PA",wv
+UA,93619,"Weiser, ID--OR",id
+UA,93646,"Welch, WV",wv
+UA,93673,"Wellington, CO",co
+UA,93862,"Wenatchee, WA",wa
+UA,93880,"Wendell--Zebulon, NC",nc
+UA,93916,"West Bend, WI",wi
+UA,93970,"West Columbia, TX",tx
+UA,94051,"West Frankfort, IL",il
+UA,94213,"West Liberty, IA",ia
+UA,94294,"Westminster--Eldersburg, MD",md
+UA,94321,"Weston, WV",wv
+UA,94375,"West Plains, MO",mo
+UA,94429,"West Point, NE",ne
+UA,94564,"Westville, IN",in
+UA,94591,"West Wendover, NV--UT",nv
+UA,94618,"Wetumpka, AL",al
+UA,94699,"Wheatland, WY",wy
+UA,94726,"Wheeling, WV--OH",oh
+UA,94726,"Wheeling, WV--OH",wv
+UA,94807,"Whitehall, MI",mi
+UA,94870,"Whiteman AFB, MO",mo
+UA,94942,"Whitesboro, TX",tx
+UA,94969,"White Sulphur Springs, WV",wv
+UA,94996,"Whiteville, NC",nc
+UA,95050,"Whitewater, WI",wi
+UA,95077,"Wichita, KS",ks
+UA,95104,"Wichita Falls, TX",tx
+UA,95158,"Wickenburg, AZ",az
+UA,95185,"Wiggins, MS",ms
+UA,95320,"Willard, OH",oh
+UA,95401,"Williamsburg, KY",ky
+UA,95411,"Williamsburg, VA",va
+UA,95428,"Williamson, WV--KY",ky
+UA,95428,"Williamson, WV--KY",wv
+UA,95455,"Williamsport, PA",pa
+UA,95509,"Williamston, NC",nc
+UA,95553,"Williamstown, KY",ky
+UA,95590,"Willimantic, CT",ct
+UA,95634,"Williston, FL",fl
+UA,95644,"Williston, ND",nd
+UA,95698,"Willmar, MN",mn
+UA,95725,"Willows, CA",ca
+UA,95833,"Wilmington, NC",nc
+UA,95860,"Wilmington, OH",oh
+UA,95914,"Wilson, NC",nc
+UA,96022,"Winchester, IN",in
+UA,96049,"Winchester, KY",ky
+UA,96076,"Winchester, TN",tn
+UA,96103,"Winchester, VA",va
+UA,96130,"Winder, GA",ga
+UA,96211,"Windom, MN",mn
+UA,96278,"Windsor, NC",nc
+UA,96373,"Winnemucca, NV",nv
+UA,96400,"Winner, SD",sd
+UA,96427,"Winnfield, LA",la
+UA,96454,"Winnie, TX",tx
+UA,96481,"Winnsboro, LA",la
+UA,96562,"Winona, MN",mn
+UA,96589,"Winona, MS",ms
+UA,96616,"Winslow, AZ",az
+UA,96670,"Winston-Salem, NC",nc
+UA,96697,"Winter Haven, FL",fl
+UA,96724,"Winters, CA",ca
+UA,96832,"Wisconsin Rapids, WI",wi
+UA,96913,"Woodburn, OR",or
+UA,96926,"Woodbury, TN",tn
+UA,96994,"Woodland, CA",ca
+UA,97021,"Woodland, WA",wa
+UA,97048,"Woodland Park, CO",co
+UA,97119,"Woodstock, AL",al
+UA,97129,"Woodstock, IL",il
+UA,97156,"Woodstock, VA",va
+UA,97210,"Woodville, TX",tx
+UA,97237,"Woodward, OK",ok
+UA,97264,"Wooster, OH",oh
+UA,97291,"Worcester, MA--CT",ct
+UA,97291,"Worcester, MA--CT",ma
+UA,97318,"Worland, WY",wy
+UA,97331,"World Golf Village, FL",fl
+UA,97345,"Worthington, MN",mn
+UA,97352,"Wright City, MO",mo
+UA,97366,"Wrightsville, GA",ga
+UA,97426,"Wynne, AR",ar
+UA,97453,"Wytheville, VA",va
+UA,97480,"Yadkinville, NC",nc
+UA,97507,"Yakima, WA",wa
+UA,97534,"Yankton, SD",sd
+UA,97750,"York, PA",pa
+UA,97831,"Youngstown, OH--PA",oh
+UA,97831,"Youngstown, OH--PA",pa
+UA,97858,"Youngsville, PA",pa
+UA,97885,"Yountville, CA",ca
+UA,97912,"Yreka, CA",ca
+UA,97939,"Yuba City, CA",ca
+UA,97966,"Yucca Valley, CA",ca
+UA,97993,"Yulee, FL",fl
+UA,98020,"Yuma, AZ--CA",az
+UA,98020,"Yuma, AZ--CA",ca
+UA,98074,"Zanesville, OH",oh
+UA,98101,"Zapata--Medina, TX",tx
+UA,98182,"Zephyrhills, FL",fl
+UA,98209,"Zimmerman, MN",mn
+UA,98236,"Zumbrota, MN",mn
+STATE,51,va,va
+STATE,45,sc,sc
+STATE,46,sd,sd
+STATE,47,tn,tn
+STATE,19,ia,ia
+STATE,37,nc,nc
+STATE,48,tx,tx
+STATE,01,al,al
+STATE,22,la,la
+STATE,17,il,il
+STATE,24,md,md
+STATE,36,ny,ny
+STATE,16,id,id
+STATE,,qc,qc
+STATE,38,nd,nd
+STATE,30,mt,mt
+STATE,54,wv,wv
+STATE,39,oh,oh
+STATE,05,ar,ar
+STATE,04,az,az
+STATE,50,vt,vt
+STATE,12,fl,fl
+STATE,02,ak,ak
+STATE,24,md,md
+STATE,06,ca,ca
+STATE,32,nv,nv
+STATE,53,wa,wa
+STATE,33,nh,nh
+STATE,20,ks,ks
+STATE,02,ak,ak
+STATE,,on,on
+STATE,13,ga,ga
+STATE,40,ok,ok
+STATE,55,wi,wi
+STATE,25,ma,ma
+STATE,51,va,va
+STATE,23,me,me
+STATE,26,mi,mi
+STATE,,qc,qc
+STATE,10,de,de
+STATE,44,ri,ri
+STATE,31,ne,ne
+STATE,11,dc,dc
+STATE,18,in,in
+STATE,35,nm,nm
+STATE,41,or,or
+STATE,21,ky,ky
+STATE,49,ut,ut
+STATE,56,wy,wy
+STATE,42,pa,pa
+STATE,28,ms,ms
+STATE,34,nj,nj
+STATE,29,mo,mo
+STATE,35,nm,nm
+STATE,08,co,co
+STATE,27,mn,mn
+STATE,09,ct,ct
+STATE,29,mo,mo
+STATE,15,hi,hi

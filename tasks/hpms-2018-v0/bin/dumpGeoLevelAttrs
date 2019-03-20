@@ -1,0 +1,32 @@
+#!/bin/bash
+
+set -e
+set -a
+
+pushd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null
+
+. ../../../config/postgres.env.ares
+
+OUTDIR='./lib'
+
+mkdir -p "$OUTDIR"
+
+SQL="
+  COPY (
+    SELECT
+        geography_level AS geolevel,
+        geography_level_code AS geocode,
+        geography_level_name AS geoname,
+        states[1] AS state
+      FROM geography_level_attributes_view_2
+      WHERE (
+        array_length(states, 1) = 1
+      )
+  ) TO STDOUT WITH CSV HEADER;
+"
+
+OUTF="${OUTDIR}/geoLevelAttrs.csv"
+
+psql -c "$SQL" > "$OUTF"
+
+popd >/dev/null

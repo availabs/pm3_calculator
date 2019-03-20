@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 
-/* eslint no-console:0 */
+/* eslint no-console:0, no-plusplus: 0 */
+
+if (process.stdout.isTTY) {
+  console.error(
+    'ERROR: Must redirect the output of this script to a .xlsx file.'
+  );
+  process.exit(1);
+}
 
 const csv = require('fast-csv');
 const xl = require('excel4node');
@@ -16,7 +23,7 @@ const options = {
 const wb = new xl.Workbook();
 
 const ws1 = wb.addWorksheet('PM3 TMC-Level');
-// const ws2 = wb.addWorksheet('PM3 Geography-Level');
+const ws2 = wb.addWorksheet('PM3 Geography-Level');
 
 const STR = 'string';
 const NUM = 'number';
@@ -67,42 +74,81 @@ const tmcLevelColsTypes = new Map([
 
 const tmcLevelCols = [...tmcLevelColsTypes.keys()];
 
-let curSpreadsheetRow = 1;
+let ws1CurRow = 1;
 
-tmcLevelCols.forEach((col, i) =>
-  ws1.cell(curSpreadsheetRow, i + 1).string(col)
-);
+tmcLevelCols.forEach((col, i) => ws1.cell(ws1CurRow, i + 1).string(col));
 
-curSpreadsheetRow += 1;
+ws1CurRow += 1;
 
 const warnedCols = new Set();
 
+const stateCodes = new Set();
+const countyCodes = new Set();
+const mpoCodes = new Set();
+const uaCodes = new Set();
+
 const collectInputData = data => {
+  stateCodes.add(+data.State_Code);
+  countyCodes.add(+data.County_Code);
+  mpoCodes.add(+data.MPO_Code);
+  uaCodes.add(+data.Urban_Code);
+
   tmcLevelCols.forEach((col, i) => {
     const colType = tmcLevelColsTypes.get(col);
+
     if (colType === NUM) {
       const val = +data[col];
-      ws1
-        .cell(curSpreadsheetRow, i + 1)
-        .number(Number.isFinite(val) ? val : null);
+      ws1.cell(ws1CurRow, i + 1).number(Number.isFinite(val) ? val : null);
     } else if (colType === STR) {
       const val = data[col] || '';
-      ws1.cell(curSpreadsheetRow, i + 1).string(val);
+      ws1.cell(ws1CurRow, i + 1).string(val);
     } else if (!warnedCols.has(col)) {
       console.error(`WARNING: Unrecognized Column ${col}`);
       warnedCols.add(col);
     }
   });
-  curSpreadsheetRow += 1;
+
+  ++ws1CurRow;
 };
 
-const finish = () =>
+const doAggregations = () => {
+  let ws2CurRow = 1;
+  ws2.cell(ws2CurRow, 1).string('geocode');
+  ws2.cell(ws2CurRow, 2).string('geolevel');
+
+  ++ws2CurRow;
+
+  [...stateCodes].filter(c => c).forEach(c => {
+    ws2.cell(ws2CurRow, 1).string(`${c}`);
+    ws2.cell(ws2CurRow, 2).string('STATE');
+    ++ws2CurRow;
+  });
+
+  [...countyCodes].filter(c => c).forEach(c => {
+    ws2.cell(ws2CurRow, 1).string(`${c}`);
+    ws2.cell(ws2CurRow, 2).string('COUNTY');
+    ++ws2CurRow;
+  });
+
+  [...uaCodes].filter(c => c).forEach(c => {
+    ws2.cell(ws2CurRow, 1).string(`${c}`);
+    ws2.cell(ws2CurRow, 2).string('UA');
+    ++ws2CurRow;
+  });
+
+  [...mpoCodes].filter(c => c).forEach(c => {
+    ws2.cell(ws2CurRow, 1).string(`${c}`);
+    ws2.cell(ws2CurRow, 2).string('MPO');
+    ++ws2CurRow;
+  });
+
   wb.writeToBuffer().then(buffer => {
     process.stdout.write(buffer);
   });
+};
 
 const csvStream = csv(options)
   .on('data', collectInputData)
-  .on('end', finish);
+  .on('end', doAggregations);
 
 process.stdin.pipe(csvStream);

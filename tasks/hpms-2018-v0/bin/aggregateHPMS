@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
-/* eslint no-console:0 */
+/* eslint no-console:0, no-plusplus: 0 */
 
-const { readFileSync } = require('fs');
 const { join } = require('path');
 
 const csv = require('fast-csv');
 
-const geoLevelAttrs = require('./lib/geoLevelAttrs');
+const csvtojson = require('csvtojson/v2');
 
 const options = {
   objectMode: true,
@@ -29,7 +28,7 @@ let Year_Record;
 
 const dataByTmc = {};
 
-const states2Tmcs = {};
+const stateCodes2Tmcs = {};
 const uaCodes2tmcs = {};
 
 const collectInputData = data => {
@@ -37,17 +36,22 @@ const collectInputData = data => {
 
   dataByTmc[Travel_Time_Code] = data;
 
-  states2Tmcs[State_Code] = states2Tmcs[State_Code] || [];
-  states2Tmcs[State_Code].push(Travel_Time_Code);
+  if (State_Code) {
+    stateCodes2Tmcs[State_Code] = stateCodes2Tmcs[State_Code] || [];
+    stateCodes2Tmcs[State_Code].push(Travel_Time_Code);
+  }
 
-  uaCodes2tmcs[Urban_Code] = uaCodes2tmcs[Urban_Code] || [];
-  uaCodes2tmcs[Urban_Code].push(Travel_Time_Code);
+  if (Urban_Code) {
+    uaCodes2tmcs[Urban_Code] = uaCodes2tmcs[Urban_Code] || [];
+    uaCodes2tmcs[Urban_Code].push(Travel_Time_Code);
+  }
 };
 
 const getTmc2Geos = () => {
   const years = new Set(
     Object.values(dataByTmc).map(({ Year_Record: yr }) => yr)
   );
+
   if (years.size > 1) {
     console.error('ERROR: Input data from multiple years.');
     process.exit(1);
@@ -55,16 +59,20 @@ const getTmc2Geos = () => {
 
   [Year_Record] = [...years];
 
-  return JSON.parse(
-    readFileSync(join(__dirname, `./lib/ny.tmc2geos_${Year_Record}.json`))
+  // NOTE: Returns a promise
+  return csvtojson().fromFile(
+    join(__dirname, `./lib/tmc2geos_${Year_Record}.csv`)
   );
 };
+
+const getGeoLevelAttrs = () =>
+  csvtojson().fromFile(join(__dirname, './lib/geoLevelAttrs.csv'));
 
 const partitionTmcsByFSystem = tmcs => {
   const interstateTmcs = [];
   const noninterstateTmcs = [];
 
-  for (let i = 0; i < tmcs.length; i += 1) {
+  for (let i = 0; i < tmcs.length; ++i) {
     const tmc = tmcs[i];
     const d = dataByTmc[tmc];
 
@@ -123,11 +131,10 @@ const computeTTTR = tmcs => {
       TTTR_OVN
     } = dataByTmc[tmc];
 
-    const tmcLength = precisionRound(Segment_Length, 3)
+    const tmcLength = precisionRound(Segment_Length, 3);
 
     const tmcWeight =
-      tmcLength *
-      Math.max(TTTR_AMP, TTTR_MIDD, TTTR_PMP, TTTR_WE, TTTR_OVN, 1);
+      tmcLength * Math.max(TTTR_AMP, TTTR_MIDD, TTTR_PMP, TTTR_WE, TTTR_OVN, 1);
 
     totalWeights += tmcWeight;
     totalLengths += +tmcLength;
@@ -152,16 +159,11 @@ const computePHED = tmcs => {
 const outputAggregationsForGeo = ({
   Geography_Level,
   Geography_Code,
-  tmcs
+  Geography_Name,
+  tmcs,
+  statesStr
 }) => {
-  const geoAttrs = geoLevelAttrs.find(
-    ({ geolevel, geocode }) =>
-      geolevel === Geography_Level && +geocode === +Geography_Code
-  );
-
   const { interstateTmcs, noninterstateTmcs } = partitionTmcsByFSystem(tmcs);
-
-  const Geography_Name = geoAttrs ? geoAttrs.geoname : '';
 
   const Interstate_LOTTR = precisionRound(computeLOTTR(interstateTmcs), 3);
   const Noninterstate_LOTTR = precisionRound(
@@ -178,6 +180,7 @@ const outputAggregationsForGeo = ({
   console.log(
     [
       Year_Record,
+      statesStr,
 
       Geography_Level,
       Geography_Code,
@@ -195,22 +198,114 @@ const outputAggregationsForGeo = ({
   );
 };
 
-const computeAggregations = () => {
-  const tmc2geos = getTmc2Geos();
+const getGeos2Tmcs = tmc2geos => {
+  const mpos2Tmcs = {};
+  const counties2Tmcs = {};
 
-  const mpos2Tmcs = tmc2geos.reduce((acc, { tmc, mpo_code }) => {
-    if (!mpo_code) {
-      return acc;
+  for (let i = 0; i < tmc2geos.length; ++i) {
+    const { Travel_Time_Code, MPO_Code, County_Code } = tmc2geos[i];
+
+    if (dataByTmc[Travel_Time_Code]) {
+      if (MPO_Code) {
+        mpos2Tmcs[MPO_Code] = mpos2Tmcs[MPO_Code] || [];
+        mpos2Tmcs[MPO_Code].push(Travel_Time_Code);
+      }
+
+      if (County_Code) {
+        counties2Tmcs[County_Code] = counties2Tmcs[County_Code] || [];
+        counties2Tmcs[County_Code].push(Travel_Time_Code);
+      }
     }
+  }
 
-    acc[mpo_code] = acc[mpo_code] || [];
-    acc[mpo_code].push(tmc);
-    return acc;
-  }, {});
+  return { mpos2Tmcs, counties2Tmcs };
+};
+
+const makeGeoAttrsFinder = (Geography_Level, Geography_Code) => ({
+  geolevel,
+  geocode
+}) => geolevel === Geography_Level && +geocode === +Geography_Code;
+
+const outputAggregationsForGeoLevel = ({
+  Geography_Level,
+  geo2tmcs,
+  geoLevelAttrs
+}) => {
+  const geoCodes = Object.keys(geo2tmcs).sort();
+
+  for (let i = 0; i < geoCodes.length; i += 1) {
+    const Geography_Code = geoCodes[i];
+    const tmcs = geo2tmcs[Geography_Code];
+
+    const finder = makeGeoAttrsFinder(Geography_Level, Geography_Code);
+
+    const geoAttrs = geoLevelAttrs.filter(finder);
+
+    const [{ geoname: Geography_Name = null } = {}] = geoAttrs;
+
+    if (geoAttrs.length > 1) {
+      const states = geoAttrs.map(({ state }) => state);
+
+      const geoTmcsByState = states.reduce((acc, state) => {
+        const { geocode: stateCode = null } =
+          geoLevelAttrs.find(
+            ({ geolevel, geoname }) => geolevel === 'STATE' && geoname === state
+          ) || {};
+
+        const tmcsInState = new Set(stateCodes2Tmcs[stateCode]);
+
+        const geoStateTmcsIntersection = tmcs.filter(tmc =>
+          tmcsInState.has(tmc)
+        );
+
+        if (geoStateTmcsIntersection.length) {
+          acc[state] = geoStateTmcsIntersection;
+        }
+
+        return acc;
+      }, {});
+
+      Object.keys(geoTmcsByState).forEach(state =>
+        outputAggregationsForGeo({
+          Geography_Level,
+          Geography_Code,
+          Geography_Name,
+          tmcs: geoTmcsByState[state],
+          statesStr: state
+        })
+      );
+
+      outputAggregationsForGeo({
+        Geography_Level,
+        Geography_Code,
+        Geography_Name,
+        tmcs,
+        statesStr: states.join('_')
+      });
+    } else {
+      const [{ state: statesStr = '' } = {}] = geoAttrs;
+
+      outputAggregationsForGeo({
+        Geography_Level,
+        Geography_Code,
+        Geography_Name,
+        tmcs,
+        statesStr
+      });
+    }
+  }
+};
+
+const computeAggregations = async () => {
+  const tmc2geos = await getTmc2Geos();
+  const geoLevelAttrs = await getGeoLevelAttrs();
+
+  const { mpos2Tmcs, counties2Tmcs } = getGeos2Tmcs(tmc2geos);
 
   console.log(
     [
       'Year_Record',
+      'States',
       'Geography_Level',
       'Geography_Code',
       'Geography_Name',
@@ -223,53 +318,29 @@ const computeAggregations = () => {
     ].join()
   );
 
-  const counties2Tmcs = tmc2geos.reduce((acc, { tmc, county_code }) => {
-    if (!county_code) {
-      return acc;
-    }
+  outputAggregationsForGeoLevel({
+    Geography_Level: 'STATE',
+    geo2tmcs: stateCodes2Tmcs,
+    geoLevelAttrs
+  });
 
-    acc[county_code] = acc[county_code] || [];
-    acc[county_code].push(tmc);
-    return acc;
-  }, {});
+  outputAggregationsForGeoLevel({
+    Geography_Level: 'COUNTY',
+    geo2tmcs: counties2Tmcs,
+    geoLevelAttrs
+  });
 
-  let Geography_Level;
+  outputAggregationsForGeoLevel({
+    Geography_Level: 'UA',
+    geo2tmcs: uaCodes2tmcs,
+    geoLevelAttrs
+  });
 
-  Geography_Level = 'STATE';
-  const state_codes = Object.keys(states2Tmcs);
-
-  for (let i = 0; i < state_codes.length; i += 1) {
-    const Geography_Code = state_codes[i];
-    const tmcs = states2Tmcs[Geography_Code];
-    outputAggregationsForGeo({ Geography_Level, Geography_Code, tmcs });
-  }
-
-  Geography_Level = 'COUNTY';
-  const county_codes = Object.keys(counties2Tmcs);
-
-  for (let i = 0; i < county_codes.length; i += 1) {
-    const Geography_Code = county_codes[i];
-    const tmcs = counties2Tmcs[Geography_Code];
-    outputAggregationsForGeo({ Geography_Level, Geography_Code, tmcs });
-  }
-
-  Geography_Level = 'UA';
-  const ua_codes = Object.keys(uaCodes2tmcs);
-
-  for (let i = 0; i < ua_codes.length; i += 1) {
-    const Geography_Code = ua_codes[i];
-    const tmcs = uaCodes2tmcs[Geography_Code];
-    outputAggregationsForGeo({ Geography_Level, Geography_Code, tmcs });
-  }
-
-  Geography_Level = 'MPO';
-  const mpo_codes = Object.keys(mpos2Tmcs);
-
-  for (let i = 0; i < mpo_codes.length; i += 1) {
-    const Geography_Code = mpo_codes[i];
-    const tmcs = mpos2Tmcs[Geography_Code];
-    outputAggregationsForGeo({ Geography_Level, Geography_Code, tmcs });
-  }
+  outputAggregationsForGeoLevel({
+    Geography_Level: 'MPO',
+    geo2tmcs: mpos2Tmcs,
+    geoLevelAttrs
+  });
 };
 
 const csvStream = csv(options)
