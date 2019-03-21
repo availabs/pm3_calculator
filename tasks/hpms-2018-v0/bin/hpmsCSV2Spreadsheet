@@ -33,6 +33,14 @@ const NUM = 'number';
 
 const HEADER_ROW = 1;
 
+const precisionRound = (number, precision) => {
+  let n = Number.isNaN(number) ? 1 : number;
+  n = n === Infinity ? 10 : n;
+
+  const factor = 10 ** precision;
+  return Math.round(n * factor) / factor;
+};
+
 const geolevel2Ws1ColName = {
   STATE: 'State_Code',
   UA: 'Urban_Code',
@@ -90,6 +98,8 @@ const ws1ColTypes = new Map([
   ['OCC_FAC', NUM],
   ['METRIC_SOURCE', NUM],
   ['COMMENTS', STR],
+  ['LOTTR'],
+  ['TTTR'],
   ['County_Code', NUM],
   ['MPO_Code', NUM]
 ]);
@@ -111,8 +121,8 @@ const ws2ColTypes = new Map([
   ['Geography_Name', STR],
   // ['Interstate_LOTTR', NUM],
   // ['Noninterstate_LOTTR', NUM],
-  // ['Interstate_TTTR', NUM],
-  // ['Noninterstate_TTTR', NUM],
+  ['Interstate_TTTR', NUM],
+  ['Noninterstate_TTTR', NUM],
   ['Interstate_PHED', NUM],
   ['Noninterstate_PHED', NUM]
 ]);
@@ -137,6 +147,7 @@ const ws1UaCodeColLetr = ws1ColNames2ColLetrs.Urban_Code;
 const ws1MpoCodeColLetr = ws1ColNames2ColLetrs.MPO_Code;
 const ws1PhedColLetr = ws1ColNames2ColLetrs.PHED;
 const ws1FSysColLetr = ws1ColNames2ColLetrs.F_System;
+const ws1TttrColLetr = ws1ColNames2ColLetrs.TTTR;
 
 const ws2StateCodesColLetr = ws2ColNames2ColLetrs.State_Codes;
 const ws2GeoLevColLetr = ws2ColNames2ColLetrs.Geography_Level;
@@ -166,9 +177,73 @@ SUMIFS(
     ? ''
     : `,
   INDIRECT("$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}"),
-  ${ws2StateCodesColLetr}${rowNum}`
+  $${ws2StateCodesColLetr}${rowNum}`
 }
 )`;
+
+
+const getTttrFormula = (interstate, rowNum, multistate = false) => `
+ROUND(
+  IFERROR(
+    SUMPRODUCT(
+      --(
+          INDIRECT(
+            IF($${ws2GeoLevColLetr}${rowNum}="STATE",
+              "$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}",
+              IF($${ws2GeoLevColLetr}${rowNum}="COUNTY",
+                "$'PM3 TMC-Level'.${ws1CountyCodeColLetr}:${ws1CountyCodeColLetr}",
+                IF($${ws2GeoLevColLetr}${rowNum}="UA",
+                  "$'PM3 TMC-Level'.${ws1UaCodeColLetr}:${ws1UaCodeColLetr}",
+                  IF($${ws2GeoLevColLetr}${rowNum}="MPO",
+                    "$'PM3 TMC-Level'.${ws1MpoCodeColLetr}:${ws1MpoCodeColLetr}"
+                  )
+                )
+              )
+            )
+          )=$${ws2GeoCodeColLetr}${rowNum}
+      ),
+      --(INDIRECT("$'PM3 TMC-Level'.$D:$D")${interstate ? '=1' : '>1'}),
+      INDIRECT("$'PM3 TMC-Level'.$H:$H"),
+      INDIRECT("$'PM3 TMC-Level'.$${ws1TttrColLetr}:$${ws1TttrColLetr}")${
+        multistate
+          ? ''
+          : `,
+        INDIRECT("$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}")
+        =
+        VALUE($${ws2StateCodesColLetr}${rowNum})`
+      }
+    )
+    /
+    SUMIFS(
+      INDIRECT("$'PM3 TMC-Level'.$H:$H"),
+      INDIRECT(
+        IF($${ws2GeoLevColLetr}${rowNum}="STATE",
+          "$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}",
+          IF($${ws2GeoLevColLetr}${rowNum}="COUNTY",
+            "$'PM3 TMC-Level'.${ws1CountyCodeColLetr}:${ws1CountyCodeColLetr}",
+            IF($${ws2GeoLevColLetr}${rowNum}="UA",
+              "$'PM3 TMC-Level'.${ws1UaCodeColLetr}:${ws1UaCodeColLetr}",
+              IF($${ws2GeoLevColLetr}${rowNum}="MPO",
+                "$'PM3 TMC-Level'.${ws1MpoCodeColLetr}:${ws1MpoCodeColLetr}"
+              )
+            )
+          )
+        )
+      ),
+      $${ws2GeoCodeColLetr}${rowNum},
+      INDIRECT("$'PM3 TMC-Level'.${ws1FSysColLetr}:${ws1FSysColLetr}"),
+      ${interstate ? 1 : '">1"'}${
+        multistate
+          ? ''
+          : `,
+        INDIRECT("$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}"),
+        VALUE($${ws2StateCodesColLetr}${rowNum})`
+      }
+    ),
+    0
+  ),
+  2
+)`
 
 const seenGeoCodes = new Map(geolevels.map(geolevel => [geolevel, new Set()]));
 
@@ -176,6 +251,22 @@ let yearRecord;
 
 let ws1CurRow = HEADER_ROW;
 
+const getNumColReportingPrecision = col => {
+  if (col === 'Segment_Length') {
+    return 3
+  }
+
+  if (col.match(/^TT_.*PCT$|^TTT_.*PCT$/)) {
+    return 0
+  }
+
+  if (col.match(/^LOTTR|^TTTR/)) {
+    return 3
+  }
+
+  return null
+}
+  
 const collectInputData = data => {
   if (!yearRecord) {
     yearRecord = +data.Year_Record;
@@ -192,14 +283,41 @@ const collectInputData = data => {
     }
   });
 
-  // NOTE: We start at the second row and add the ws1 header
-  //   only after we've seen all of the input data.
+  // NOTE: We add the ws1 header only after we've seen all of the input data.
+  //       This allows us to determine whether ws1 should get ENHANCED header.
   ++ws1CurRow;
+
   ws1ColNames.forEach((col, i) => {
+    if (col === 'LOTTR') {
+      const precision = getNumColReportingPrecision('LOTTR')
+      const lottr = Math.max(data.LOTTR_AMP, data.LOTTR_MIDD, data.LOTTR_PMP, data.LOTTR_WE, 1)
+      const val = precisionRound(lottr, precision)
+
+      if (Number.isFinite(val)) {
+        ws1.cell(ws1CurRow, i + 1).number(val);
+      }
+
+      return
+    }
+
+    if (col === 'TTTR') {
+      const precision = getNumColReportingPrecision('TTTR')
+      const lottr = Math.max(data.TTTR_AMP, data.TTTR_MIDD, data.TTTR_PMP, data.TTTR_WE, data.TTTR_OVN, 1)
+      const val = precisionRound(lottr, precision)
+
+      if (Number.isFinite(val)) {
+        ws1.cell(ws1CurRow, i + 1).number(val);
+      }
+
+      return
+    }
+
     const colType = ws1ColTypes.get(col);
 
     if (colType === NUM) {
-      const val = +data[col];
+      const precision = getNumColReportingPrecision(col)
+      const val = col === null ? +data[col]: precisionRound(+data[col], precision);
+
       if (Number.isFinite(val)) {
         ws1.cell(ws1CurRow, i + 1).number(val);
       }
@@ -224,7 +342,7 @@ const doAggregations = async () => {
   const ws1HeaderCols = isExtendedMode
     ? ws1ColNames
     : ws1ColNames.filter(
-        col => isExtendedMode || !extendedModeOnlyWs1ColNames.includes(col)
+        col => !extendedModeOnlyWs1ColNames.includes(col)
       );
 
   // Add the header to ws1
@@ -252,7 +370,7 @@ const doAggregations = async () => {
   [...seenGeoCodes.entries()].forEach(([geolevel, geocodes]) => {
     [...geocodes]
       .sort((a, b) => +a - +b)
-      .filter(geocode => geocode)
+      .filter(geocode => Number.isFinite(+geocode))
       .forEach(geocode => {
         const geoAttrs = geoLevelAttrs.filter(
           ({ geolevel: gl, geocode: gc }) => geolevel === gl && +geocode === +gc
@@ -262,23 +380,24 @@ const doAggregations = async () => {
 
         const stateCodes = geoAttrs
           .map(({ state }) => +stateAbbr2Code[state])
-          .filter(c => Number.isFinite(c))
+          .filter(c => Number.isFinite(c) && seenGeoCodes.get('STATE').has(c))
           .sort((a, b) => +a - +b)
           .map(c => `${c}`);
 
+        // If a multistate geography, add the multistate "stateCode"
         if (stateCodes.length > 1) {
           stateCodes.push(stateCodes.join('_'));
         }
 
-        // Single state aggregations (Potentially substates of a geography)
         stateCodes.forEach((stateCode, i) => {
-          const multistate = i && stateCode.match(/_/);
+          const isMultistate = i && stateCode.match(/_/);
 
           ++ws2CurRow;
 
           ws2
             .cell(ws2CurRow, ws2ColNames2ColNum.Year_Record)
             .number(yearRecord);
+
           ws2.cell(ws2CurRow, ws2ColNames2ColNum.State_Codes).string(stateCode);
 
           ws2
@@ -298,11 +417,20 @@ const doAggregations = async () => {
           }
 
           ws2
+            .cell(ws2CurRow, ws2ColNames2ColNum.Interstate_TTTR)
+            .formula(getTttrFormula(true, ws2CurRow, isMultistate));
+
+          ws2
+            .cell(ws2CurRow, ws2ColNames2ColNum.Noninterstate_TTTR)
+            .formula(getTttrFormula(false, ws2CurRow, isMultistate));
+
+          ws2
             .cell(ws2CurRow, ws2ColNames2ColNum.Interstate_PHED)
-            .formula(getPhedFormula(true, ws2CurRow, multistate));
+            .formula(getPhedFormula(true, ws2CurRow, isMultistate));
+
           ws2
             .cell(ws2CurRow, ws2ColNames2ColNum.Noninterstate_PHED)
-            .formula(getPhedFormula(false, ws2CurRow, multistate));
+            .formula(getPhedFormula(false, ws2CurRow, isMultistate));
         });
       });
   });
@@ -317,3 +445,69 @@ const csvStream = csv(options)
   .on('end', doAggregations);
 
 process.stdin.pipe(csvStream);
+
+/*
+// This is basically how to get aggregated TTTR without creating a TTTR col in ws1
+//   The problem is that it is real slow and freezes ws2.
+const foo = (rowNum, interstate) => `
+SUM(
+  SUMPRODUCT(
+    --(INDIRECT("$'PM3 TMC-Level'.$B:$B")=$D${rowNum}),
+    --(INDIRECT("$'PM3 TMC-Level'.$D:$D")${interstate ? '=1' : '>1'}),
+    --(INDIRECT("$'PM3 TMC-Level'.$W:$W")>=INDIRECT("$'PM3 TMC-Level'.$Z:$Z")),
+    --(INDIRECT("$'PM3 TMC-Level'.$W:$W")>=INDIRECT("$'PM3 TMC-Level'.$AC:$AC")),
+    --(INDIRECT("$'PM3 TMC-Level'.$W:$W")>=INDIRECT("$'PM3 TMC-Level'.$AF:$AF")),
+    --(INDIRECT("$'PM3 TMC-Level'.$W:$W")>=INDIRECT("$'PM3 TMC-Level'.$AI:$AI")),
+    INDIRECT("$'PM3 TMC-Level'.$W:$W"),
+    INDIRECT("$'PM3 TMC-Level'.$H:$H")
+  ),
+  SUMPRODUCT(
+    --(INDIRECT("$'PM3 TMC-Level'.$B:$B")=$D${rowNum}),
+    --(INDIRECT("$'PM3 TMC-Level'.$D:$D")${interstate ? '=1' : '>1'}),
+    --(INDIRECT("$'PM3 TMC-Level'.$Z:$Z")>INDIRECT("$'PM3 TMC-Level'.$W:$W")),
+    --(INDIRECT("$'PM3 TMC-Level'.$Z:$Z")>=INDIRECT("$'PM3 TMC-Level'.$AC:$AC")),
+    --(INDIRECT("$'PM3 TMC-Level'.$Z:$Z")>=INDIRECT("$'PM3 TMC-Level'.$AF:$AF")),
+    --(INDIRECT("$'PM3 TMC-Level'.$Z:$Z")>=INDIRECT("$'PM3 TMC-Level'.$AI:$AI")),
+    INDIRECT("$'PM3 TMC-Level'.$Z:$Z"),
+    INDIRECT("$'PM3 TMC-Level'.$H:$H")
+  ),
+  SUMPRODUCT(
+    --(INDIRECT("$'PM3 TMC-Level'.$B:$B")=$D${rowNum}),
+    --(INDIRECT("$'PM3 TMC-Level'.$D:$D")${interstate ? '=1' : '>1'}),
+    --(INDIRECT("$'PM3 TMC-Level'.$AC:$AC")>INDIRECT("$'PM3 TMC-Level'.$W:$W")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AC:$AC")>INDIRECT("$'PM3 TMC-Level'.$Z:$Z")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AC:$AC")>=INDIRECT("$'PM3 TMC-Level'.$AF:$AF")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AC:$AC")>=INDIRECT("$'PM3 TMC-Level'.$AI:$AI")),
+    INDIRECT("$'PM3 TMC-Level'.$AC:$AC"),
+    INDIRECT("$'PM3 TMC-Level'.$H:$H")
+  ),
+  SUMPRODUCT(
+    --(INDIRECT("$'PM3 TMC-Level'.$B:$B")=$D${rowNum}),
+    --(INDIRECT("$'PM3 TMC-Level'.$D:$D")${interstate ? '=1' : '>1'}),
+    --(INDIRECT("$'PM3 TMC-Level'.$AF:$AF")>INDIRECT("$'PM3 TMC-Level'.$W:$W")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AF:$AF")>INDIRECT("$'PM3 TMC-Level'.$Z:$Z")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AF:$AF")>INDIRECT("$'PM3 TMC-Level'.$AC:$AC")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AF:$AF")>=INDIRECT("$'PM3 TMC-Level'.$AI:$AI")),
+    INDIRECT("$'PM3 TMC-Level'.$AF:$AF"),
+    INDIRECT("$'PM3 TMC-Level'.$H:$H")
+  ),
+  SUMPRODUCT(
+    --(INDIRECT("$'PM3 TMC-Level'.$B:$B")=$D${rowNum}),
+    --(INDIRECT("$'PM3 TMC-Level'.$D:$D")${interstate ? '=1' : '>1'}),
+    --(INDIRECT("$'PM3 TMC-Level'.$AI:$AI")>INDIRECT("$'PM3 TMC-Level'.$W:$W")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AI:$AI")>INDIRECT("$'PM3 TMC-Level'.$Z:$Z")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AI:$AI")>INDIRECT("$'PM3 TMC-Level'.$AC:$AC")),
+    --(INDIRECT("$'PM3 TMC-Level'.$AI:$AI")>INDIRECT("$'PM3 TMC-Level'.$AF:$AF")),
+    INDIRECT("$'PM3 TMC-Level'.$AI:$AI"),
+    INDIRECT("$'PM3 TMC-Level'.$H:$H")
+  )
+)
+/
+SUMIFS(
+  INDIRECT("$'PM3 TMC-Level'.$H:$H"),
+  INDIRECT("$'PM3 TMC-Level'.$B:$B"),
+  $D${rowNum},
+  INDIRECT("$'PM3 TMC-Level'.$D:$D"),
+  ${interstate ? 1 : '">1"'}
+)`
+*/
