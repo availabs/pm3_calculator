@@ -9,7 +9,10 @@ if (process.stdout.isTTY) {
   process.exit(1);
 }
 
+const { join } = require('path');
 const csv = require('fast-csv');
+const csvtojson = require('csvtojson/v2');
+
 const xl = require('excel4node');
 
 const options = {
@@ -28,7 +31,24 @@ const ws2 = wb.addWorksheet('PM3 Geography-Level');
 const STR = 'string';
 const NUM = 'number';
 
-const tmcLevelColsTypes = new Map([
+const HEADER_ROW = 1;
+
+const geolevel2Ws1ColName = {
+  STATE: 'State_Code',
+  UA: 'Urban_Code',
+  COUNTY: 'County_Code',
+  MPO: 'MPO_Code'
+};
+
+const geolevels = Object.keys(geolevel2Ws1ColName);
+
+const extendedModeGeoLevels = ['COUNTY', 'MPO'];
+
+const extendedModeOnlyWs1ColNames = extendedModeGeoLevels.map(
+  geolevel => geolevel2Ws1ColName[geolevel]
+);
+
+const ws1ColTypes = new Map([
   ['Year_Record', NUM],
   ['State_Code', NUM],
   ['Travel_Time_Code', STR],
@@ -69,77 +89,222 @@ const tmcLevelColsTypes = new Map([
   ['PHED', NUM],
   ['OCC_FAC', NUM],
   ['METRIC_SOURCE', NUM],
-  ['COMMENTS', STR]
+  ['COMMENTS', STR],
+  ['County_Code', NUM],
+  ['MPO_Code', NUM]
 ]);
 
-const tmcLevelCols = [...tmcLevelColsTypes.keys()];
+const ws1ColNames = [...ws1ColTypes.keys()];
 
-let ws1CurRow = 1;
+const ws1ColNames2ColLetrs = ws1ColNames.reduce((acc, col, i) => {
+  const prefix = i > 25 ? String.fromCharCode(65 + Math.floor(i / 26) - 1) : '';
+  const suffix = String.fromCharCode(65 + Math.floor(i % 26));
+  acc[col] = `${prefix}${suffix}`;
+  return acc;
+}, {});
 
-tmcLevelCols.forEach((col, i) => ws1.cell(ws1CurRow, i + 1).string(col));
+const ws2ColTypes = new Map([
+  ['Year_Record', NUM],
+  ['State_Codes', STR],
+  ['Geography_Level', STR],
+  ['Geography_Code', NUM],
+  ['Geography_Name', STR],
+  // ['Interstate_LOTTR', NUM],
+  // ['Noninterstate_LOTTR', NUM],
+  // ['Interstate_TTTR', NUM],
+  // ['Noninterstate_TTTR', NUM],
+  ['Interstate_PHED', NUM],
+  ['Noninterstate_PHED', NUM]
+]);
 
-ws1CurRow += 1;
+const ws2ColNames = [...ws2ColTypes.keys()];
 
-const warnedCols = new Set();
+const ws2ColNames2ColNum = ws2ColNames.reduce((acc, col, i) => {
+  acc[col] = i + 1;
+  return acc;
+}, {});
 
-const stateCodes = new Set();
-const countyCodes = new Set();
-const mpoCodes = new Set();
-const uaCodes = new Set();
+const ws2ColNames2ColLetrs = ws2ColNames.reduce((acc, col, i) => {
+  const prefix = i > 25 ? String.fromCharCode(65 + Math.floor(i / 26) - 1) : '';
+  const suffix = String.fromCharCode(65 + Math.floor(i % 26));
+  acc[col] = `${prefix}${suffix}`;
+  return acc;
+}, {});
+
+const ws1StateCodesColLetr = ws1ColNames2ColLetrs.State_Code;
+const ws1CountyCodeColLetr = ws1ColNames2ColLetrs.County_Code;
+const ws1UaCodeColLetr = ws1ColNames2ColLetrs.Urban_Code;
+const ws1MpoCodeColLetr = ws1ColNames2ColLetrs.MPO_Code;
+const ws1PhedColLetr = ws1ColNames2ColLetrs.PHED;
+const ws1FSysColLetr = ws1ColNames2ColLetrs.F_System;
+
+const ws2StateCodesColLetr = ws2ColNames2ColLetrs.State_Codes;
+const ws2GeoLevColLetr = ws2ColNames2ColLetrs.Geography_Level;
+const ws2GeoCodeColLetr = ws2ColNames2ColLetrs.Geography_Code;
+
+const getPhedFormula = (interstate, rowNum, multistate = false) => `
+SUMIFS(
+  INDIRECT("$'PM3 TMC-Level'.${ws1PhedColLetr}:${ws1PhedColLetr}"),
+  INDIRECT(
+    IF($${ws2GeoLevColLetr}${rowNum}="STATE",
+      "$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}",
+      IF($${ws2GeoLevColLetr}${rowNum}="COUNTY",
+        "$'PM3 TMC-Level'.${ws1CountyCodeColLetr}:${ws1CountyCodeColLetr}",
+        IF($${ws2GeoLevColLetr}${rowNum}="UA",
+          "$'PM3 TMC-Level'.${ws1UaCodeColLetr}:${ws1UaCodeColLetr}",
+          IF($${ws2GeoLevColLetr}${rowNum}="MPO",
+            "$'PM3 TMC-Level'.${ws1MpoCodeColLetr}:${ws1MpoCodeColLetr}"
+          )
+        )
+      )
+    )
+  ),
+  $${ws2GeoCodeColLetr}${rowNum},
+  INDIRECT("$'PM3 TMC-Level'.${ws1FSysColLetr}:${ws1FSysColLetr}"),
+  ${interstate ? '"1"' : '">1"'}${
+  multistate
+    ? ''
+    : `,
+  INDIRECT("$'PM3 TMC-Level'.${ws1StateCodesColLetr}:${ws1StateCodesColLetr}"),
+  ${ws2StateCodesColLetr}${rowNum}`
+}
+)`;
+
+const seenGeoCodes = new Map(geolevels.map(geolevel => [geolevel, new Set()]));
+
+let yearRecord;
+
+let ws1CurRow = HEADER_ROW;
 
 const collectInputData = data => {
-  stateCodes.add(+data.State_Code);
-  countyCodes.add(+data.County_Code);
-  mpoCodes.add(+data.MPO_Code);
-  uaCodes.add(+data.Urban_Code);
+  if (!yearRecord) {
+    yearRecord = +data.Year_Record;
+  } else if (yearRecord !== +data.Year_Record) {
+    console.error('ERROR: Multiple years of data found in the input CSV.');
+    process.exit(1);
+  }
 
-  tmcLevelCols.forEach((col, i) => {
-    const colType = tmcLevelColsTypes.get(col);
-
-    if (colType === NUM) {
-      const val = +data[col];
-      ws1.cell(ws1CurRow, i + 1).number(Number.isFinite(val) ? val : null);
-    } else if (colType === STR) {
-      const val = data[col] || '';
-      ws1.cell(ws1CurRow, i + 1).string(val);
-    } else if (!warnedCols.has(col)) {
-      console.error(`WARNING: Unrecognized Column ${col}`);
-      warnedCols.add(col);
+  geolevels.forEach(geolevel => {
+    const col = geolevel2Ws1ColName[geolevel];
+    const code = +data[col];
+    if (Number.isFinite(code)) {
+      seenGeoCodes.get(geolevel).add(code);
     }
   });
 
+  // NOTE: We start at the second row and add the ws1 header
+  //   only after we've seen all of the input data.
   ++ws1CurRow;
+  ws1ColNames.forEach((col, i) => {
+    const colType = ws1ColTypes.get(col);
+
+    if (colType === NUM) {
+      const val = +data[col];
+      if (Number.isFinite(val)) {
+        ws1.cell(ws1CurRow, i + 1).number(val);
+      }
+    } else if (colType === STR) {
+      const val = data[col];
+      if (val) {
+        ws1.cell(ws1CurRow, i + 1).string(val);
+      }
+    }
+  });
 };
 
-const doAggregations = () => {
-  let ws2CurRow = 1;
-  ws2.cell(ws2CurRow, 1).string('geocode');
-  ws2.cell(ws2CurRow, 2).string('geolevel');
+const getGeoLevelAttrs = () =>
+  csvtojson().fromFile(join(__dirname, './lib/geoLevelAttrs.csv'));
 
-  ++ws2CurRow;
+const doAggregations = async () => {
+  const isExtendedMode = extendedModeGeoLevels.some(
+    geolevel => seenGeoCodes.get(geolevel).size
+  );
 
-  [...stateCodes].filter(c => c).forEach(c => {
-    ws2.cell(ws2CurRow, 1).string(`${c}`);
-    ws2.cell(ws2CurRow, 2).string('STATE');
-    ++ws2CurRow;
+  // If not extended mode, remove the extendedModeOnly cols from the ws1 header
+  const ws1HeaderCols = isExtendedMode
+    ? ws1ColNames
+    : ws1ColNames.filter(
+        col => isExtendedMode || !extendedModeOnlyWs1ColNames.includes(col)
+      );
+
+  // Add the header to ws1
+  ws1HeaderCols.forEach((col, i) => ws1.cell(HEADER_ROW, i + 1).string(col));
+
+  const geoLevelAttrs = await getGeoLevelAttrs();
+
+  const stateAbbr2Code = geoLevelAttrs.reduce(
+    (acc, { geolevel, geocode, state }) => {
+      if (geolevel === 'STATE') {
+        acc[state] = `${+geocode}`;
+      }
+      return acc;
+    },
+    {}
+  );
+
+  let ws2CurRow = HEADER_ROW;
+
+  // Header row for worksheet 2
+  ws2ColNames.forEach((col, i) => {
+    ws2.cell(ws2CurRow, i + 1).string(col);
   });
 
-  [...countyCodes].filter(c => c).forEach(c => {
-    ws2.cell(ws2CurRow, 1).string(`${c}`);
-    ws2.cell(ws2CurRow, 2).string('COUNTY');
-    ++ws2CurRow;
-  });
+  [...seenGeoCodes.entries()].forEach(([geolevel, geocodes]) => {
+    [...geocodes]
+      .sort((a, b) => +a - +b)
+      .filter(geocode => geocode)
+      .forEach(geocode => {
+        const geoAttrs = geoLevelAttrs.filter(
+          ({ geolevel: gl, geocode: gc }) => geolevel === gl && +geocode === +gc
+        );
 
-  [...uaCodes].filter(c => c).forEach(c => {
-    ws2.cell(ws2CurRow, 1).string(`${c}`);
-    ws2.cell(ws2CurRow, 2).string('UA');
-    ++ws2CurRow;
-  });
+        const [{ geoname = '' } = {}] = geoAttrs;
 
-  [...mpoCodes].filter(c => c).forEach(c => {
-    ws2.cell(ws2CurRow, 1).string(`${c}`);
-    ws2.cell(ws2CurRow, 2).string('MPO');
-    ++ws2CurRow;
+        const stateCodes = geoAttrs
+          .map(({ state }) => +stateAbbr2Code[state])
+          .filter(c => Number.isFinite(c))
+          .sort((a, b) => +a - +b)
+          .map(c => `${c}`);
+
+        if (stateCodes.length > 1) {
+          stateCodes.push(stateCodes.join('_'));
+        }
+
+        // Single state aggregations (Potentially substates of a geography)
+        stateCodes.forEach((stateCode, i) => {
+          const multistate = i && stateCode.match(/_/);
+
+          ++ws2CurRow;
+
+          ws2
+            .cell(ws2CurRow, ws2ColNames2ColNum.Year_Record)
+            .number(yearRecord);
+          ws2.cell(ws2CurRow, ws2ColNames2ColNum.State_Codes).string(stateCode);
+
+          ws2
+            .cell(ws2CurRow, ws2ColNames2ColNum.Geography_Level)
+            .string(geolevel);
+
+          if (Number.isFinite(+geocode)) {
+            ws2
+              .cell(ws2CurRow, ws2ColNames2ColNum.Geography_Code)
+              .number(+geocode);
+          }
+
+          if (geoname) {
+            ws2
+              .cell(ws2CurRow, ws2ColNames2ColNum.Geography_Name)
+              .string(geoname);
+          }
+
+          ws2
+            .cell(ws2CurRow, ws2ColNames2ColNum.Interstate_PHED)
+            .formula(getPhedFormula(true, ws2CurRow, multistate));
+          ws2
+            .cell(ws2CurRow, ws2ColNames2ColNum.Noninterstate_PHED)
+            .formula(getPhedFormula(false, ws2CurRow, multistate));
+        });
+      });
   });
 
   wb.writeToBuffer().then(buffer => {

@@ -244,7 +244,7 @@ const outputAggregationsForGeoLevel = ({
     const [{ geoname: Geography_Name = null } = {}] = geoAttrs;
 
     if (geoAttrs.length > 1) {
-      const states = geoAttrs.map(({ state }) => state);
+      const states = geoAttrs.map(({ state }) => state).sort();
 
       const geoTmcsByState = states.reduce((acc, state) => {
         const { geocode: stateCode = null } =
