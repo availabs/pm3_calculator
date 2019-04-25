@@ -56,8 +56,8 @@ const getFifteenData = ({
         ? Math.min(Math.round(meanTT) - thresholdTravelTime, 900) / 3600
         : null;
 
-    hmean_delay = precisionRound(hmean_delay, 4);
-    mean_delay = precisionRound(mean_delay, 4);
+    hmean_delay = precisionRound(hmean_delay, 3);
+    mean_delay = precisionRound(mean_delay, 3);
 
     const TrafficVolume = trafficDistribution.map(
       d => d * dir_aadt * DOW_ADJ_FACTORS[dateTime.getDay()]
