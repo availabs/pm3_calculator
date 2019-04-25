@@ -25,12 +25,6 @@ for f in "${ARR[@]}"
 do
   outf="${f/${INRIX_SCHEMA_SORTED_CSV_GZ_EXTENSION}/${CANONICAL_SCHEMA_CSV_GZ_EXTENSION}}"
 
-  if [ -f "$outf" ]
-  then
-    echo "File already exists: ${outf}. Skipping..."
-    continue
-  fi
-
   zcat "$f" | "$TRANSFORMER_PATH" | gzip > "$outf"
 done
 

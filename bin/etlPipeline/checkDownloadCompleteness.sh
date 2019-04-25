@@ -34,7 +34,6 @@ set -e
 if [ ! -z "$DATA_GAPS_LOG" ]; then
   echo "DATA GAP FOUND"
   echo "$DATA_GAPS_LOG" > "${ETL_WORK_DIR}/data_gaps_log.ndjson"
-  exit 1
 else
   echo "NO DATA GAP"
 fi
